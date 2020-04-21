@@ -123,7 +123,7 @@ public class Accueil implements ActionListener{
 			JFramePrincipal.remove(wow);
 			JFramePrincipal.validate();
 			JFramePrincipal.repaint();
-			VariablesSession.NouvelleCarte(100);
+			VariablesSession.NouvelleCarte(000);
 			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 			fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 			MusiqueDeJeu.StopMusique();

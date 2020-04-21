@@ -15,6 +15,9 @@ public class Sauvegarde {//Sauvegarde Automatique
 			
 		try(FileWriter fileWriter = new FileWriter(cheminfichier)) {//Creation du fichier sauvegarde
 			String ContenuDuFichier = VariablesSession.numeroCarte+","+VariablesSession.xDepart+","+VariablesSession.yDepart;
+			for (int i=0; i<VariablesSession.listeCombats.length;i++) {
+				ContenuDuFichier+=","+VariablesSession.listeCombats[i];
+			}
 			fileWriter.write(ContenuDuFichier);
 		} 
 		catch (IOException e) {
@@ -47,7 +50,7 @@ public class Sauvegarde {//Sauvegarde Automatique
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
-		int[] variablesInt = new int[3];//tableau contenenant les variables de la sauvegarde
+		int[] variablesInt = new int[28];//tableau contenenant les variables de la sauvegarde
         try {
 
             br = new BufferedReader(new FileReader(cheminfichier));
@@ -60,6 +63,9 @@ public class Sauvegarde {//Sauvegarde Automatique
 					VariablesSession.NouvelleCarte(VariablesSession.numeroCarte);
 					VariablesSession.xDepart=variablesInt[1];
 					VariablesSession.yDepart=variablesInt[2];
+					for (int i=3; i<variablesInt.length;i++) {
+						VariablesSession.listeCombats[i-3]+=variablesInt[i];
+					}
 				}
             } catch (FileNotFoundException e) {
             e.printStackTrace();

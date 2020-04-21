@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 public class fenetreCarte implements ActionListener, MouseListener,KeyListener {
-	private JPanel pPrincipal;
+	private JPanel pPrincipal,pBoiteTexte;
 	private JLabel JLabelPersonnage, JLabelCarte; //Jlabel image du personnage
 	private CJframe JFramePrincipal; //Jframe principal avec image de fond
 	private VariablesDeJeu VariablesSession; //Variables de Jeu
@@ -270,25 +270,39 @@ public class fenetreCarte implements ActionListener, MouseListener,KeyListener {
 			actionDeLaCase(xDepart,yDepart);
 		}
 	}
-
-
+	
+	
+	public void AffichageBoiteTexte(){
+		pBoiteTexte = new JPanel();
+        pBoiteTexte.setBounds(100, 550, 60, 200);
+		pPrincipal.setLayout(null);
+		pPrincipal.setBackground(new Color (0, 196, 220));
+        JFramePrincipal.add(pPrincipal);
+        JFramePrincipal.revalidate();
+		JFramePrincipal.repaint();
+		System.out.println("yolo");
+	}
+	
+	
 	public void actionDeLaCase(int x, int y){
-		System.out.println(TableauCarte[y][x]);
-		System.out.println(x);		System.out.println(y);
-		System.out.println(xArrivee);		System.out.println(yArrivee);
+		System.out.println(String.valueOf(TableauCarte[y][x]).charAt(0));
+		//System.out.println(x);		System.out.println(y);
+		//System.out.println(xArrivee);		System.out.println(yArrivee);
 
 		SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 		switch(String.valueOf(TableauCarte[y][x]).charAt(0)) {
-			case '5':{
-				if (Math.random()>0.9){
-					pPrincipal.removeAll();
-					JFramePrincipal.remove(pPrincipal);
-					JFramePrincipal.revalidate();
-					JFramePrincipal.repaint();
-					stopDeplacement=true;
-					FenetreCombat MafenetreCombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,5);
-				}
-				break;
+			case '2':{
+				int numeroCombat = (TableauCarte[y][x]-200);	
+				VariablesSession.TexteCombat(numeroCombat);
+				System.out.println(VariablesSession.texteAAfficher);
+				AffichageBoiteTexte();
+				/*pPrincipal.removeAll();
+				JFramePrincipal.remove(pPrincipal);
+				JFramePrincipal.revalidate();
+				JFramePrincipal.repaint();
+				stopDeplacement=true;
+				FenetreCombat MafenetreCombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,numeroCombat);
+				*/break;
 			}
 			case '4':{
 				if ((xArrivee==x)&&(yArrivee==y)){
@@ -315,6 +329,17 @@ public class fenetreCarte implements ActionListener, MouseListener,KeyListener {
 				}
 				break;
 			}
+			case '5':{
+				if (Math.random()>0.9){
+					pPrincipal.removeAll();
+					JFramePrincipal.remove(pPrincipal);
+					JFramePrincipal.revalidate();
+					JFramePrincipal.repaint();
+					stopDeplacement=true;
+					FenetreCombat MafenetreCombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,5);
+				}
+				break;
+			}
 
 		}
 	}
@@ -334,8 +359,8 @@ public class fenetreCarte implements ActionListener, MouseListener,KeyListener {
 	
 	public void genererCarteDesMurs() {	//genère le tableau des murs pour l'algorithme de recherche de chemin
 		viderCarte();//On vide entièrement le tableau
-		for(int i = 0; i < 25; i++) {
-            for(int j = 0; j < 25; j++) {
+		for(int i = 0; i < 24; i++) {
+            for(int j = 0; j < 24; j++) {
                 Node current;
                 current = map[i][j];
                 if (((TableauCarte[j][i]==0) || (TableauCarte[j][i] == 2) || (TableauCarte[j][i]==3)|| (TableauCarte[j][i]==6))){//On ajoute les murs sinon on laisse vide
