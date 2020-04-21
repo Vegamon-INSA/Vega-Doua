@@ -280,7 +280,6 @@ public class fenetreCarte implements ActionListener, MouseListener,KeyListener {
         JFramePrincipal.add(pPrincipal);
         JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
-		System.out.println("yolo");
 	}
 	
 	
