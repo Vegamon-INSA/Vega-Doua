@@ -1,0 +1,14 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class FenetreAide extends JFrame{
+
+	public FenetreAide(){
+		this.setTitle("Aide");
+		this.setSize(1000,1000);
+		// Pour placer la fenêtre au centre de l'écran
+		this.setLocationRelativeTo(null);
+		this.setLayout(null);		
+		this.setVisible(false);
+	}
+}

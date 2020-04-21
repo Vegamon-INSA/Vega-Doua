@@ -1,0 +1,43 @@
+import java.util.LinkedList;
+public class GestionCourbe{
+	public static void main(String[] args){
+		// Création d’une liste chaînée de courbes
+		LinkedList<Courbe> listeCourbe = new LinkedList<Courbe>();
+		// création de 3 cercles et 2 polygones
+		Cercle c1 = new Cercle(new APoint(100,100), 60);
+		Cercle c2 = new Cercle(new APoint(200,200), 30);
+		Cercle c3 = new Cercle(new APoint(300,300), 40);
+
+		// Création d’un polygone
+		APoint[] p1 = new APoint[4];
+		p1[0] = new APoint(100, 100);
+		p1[1] = new APoint(300, 100);
+		p1[2] = new APoint(200, 200);
+		p1[3] = new APoint(100, 200);
+		Polygone poly1 = new Polygone(p1);
+		
+		// Création d’un polygone
+		APoint[] p2 = new APoint[4];
+		p2[0] = new APoint(100, 100);
+		p2[1] = new APoint(300, 100);
+		p2[2] = new APoint(200, 200);
+		p2[3] = new APoint(100, 200);
+		Polygone poly2 = new Polygone(p);
+		
+		
+		// Remplissage de la liste de courbes
+		listeCourbe.add(c1);
+		listeCourbe.add(c2);
+		listeCourbe.add(c3);
+		listeCourbe.add(poly1);
+		listeCourbe.add(poly2);
+
+		// Affichage des données des courbes
+		for (int i =0;i<listeCourbe.size();i++)
+		System.out.println(listeCourbe.get(i));
+		
+		// Affichage des longueurs des courbes
+		for (int i =0;i<listeCourbe.size();i++)
+		System.out.println("Longueur courbe "+i+" = "+listeCourbe.get(i).longueur());
+	}
+}

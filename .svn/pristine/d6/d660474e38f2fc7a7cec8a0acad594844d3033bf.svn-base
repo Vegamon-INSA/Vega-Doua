@@ -1,0 +1,84 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+
+
+public class Accueil extends Jeu implements ActionListener{
+	private JButton jouer;
+	private JButton aide;
+	private JButton parametre;
+	private JButton pokedex;
+	private JLabel wow;
+	private Jeu JFramePrincipal;
+	public FenetrePara Para;
+	public FenetreAide Aide;
+	public FenetrePokedex pkx;
+    private ArrayList<VEGAMONS> dex;
+	
+	public Accueil(ArrayList<VEGAMONS> lePokedex, Jeu Frame){	
+        dex=lePokedex;
+		JFramePrincipal=Frame;
+		jouer = new JButton ("Jouer");
+		jouer.setBounds(200,200,200,100);
+		jouer.setBackground(Color.red);
+		jouer.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
+		JFramePrincipal.add(jouer);
+		jouer.addActionListener(this);
+		
+		aide= new JButton ("Aide");
+		aide.setBounds(200, 490, 200, 70);
+		aide.setBackground(Color.blue);
+		aide.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
+		JFramePrincipal.add(aide);
+		aide.addActionListener(this);
+		
+		parametre= new JButton ("Parametres");
+		parametre.setBounds(200,410,200,70);
+		parametre.setBackground(Color.white);
+		parametre.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
+		JFramePrincipal.add(parametre);
+		parametre.addActionListener(this);
+		
+		pokedex = new JButton ("Pokedex");
+		pokedex.setBounds(200,330,200,70);
+		pokedex.setBackground(Color.pink);
+		pokedex.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
+		JFramePrincipal.add(pokedex);
+		pokedex.addActionListener(this);
+
+		wow = new JLabel(new ImageIcon("Images/wow.jpg")); 
+		wow.setBounds(-700,-1000,2000,2600);
+		JFramePrincipal.add(wow);
+		JFramePrincipal.setVisible(true);
+		
+	
+	
+	}
+		public void actionPerformed (ActionEvent e){
+
+		if (e.getSource()==jouer){
+			JFramePrincipal.remove(jouer);
+			JFramePrincipal.remove(aide);
+			JFramePrincipal.remove(parametre);
+			JFramePrincipal.remove(pokedex);
+			JFramePrincipal.validate();
+			JFramePrincipal.repaint();
+			fenetreCarte Map0= new fenetreCarte(JFramePrincipal);
+		}
+		if (e.getSource()==aide){
+			Aide = new FenetreAide();
+			Aide.setVisible(true);
+		}
+		if (e.getSource()==parametre){
+			Para=new FenetrePara();
+			Para.setVisible(true);
+			
+		}
+		if (e.getSource()==pokedex){
+			pkx = new FenetrePokedex(dex);
+			pkx.setVisible(true);
+			}
+}
+
+}

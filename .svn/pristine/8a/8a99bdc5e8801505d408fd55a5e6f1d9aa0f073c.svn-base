@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+ 
+public class GestionCombat{
+
+	public static void main(String[] args){
+// String nom, double attaque, double esquive, int PVmax, int type, int XP, Attaques attaque1, Attaques attaque2, Attaques attaque3, Attaques attaque4){
+        Attaques attaque1 = new Attaques("Racineries", 2, 10,0,0); //Meloche (1 à 4)
+        Attaques attaque2 = new Attaques("Poudrelles", 1, 10,0,0);
+        Attaques attaque3 = new Attaques("Lightning", 4, 10,0,0);
+        Attaques attaque4 = new Attaques("Abysses", 3, 10,0,0);
+        Attaques attaque5 = new Attaques("Bec Aqua", 3, 12,0,0);   //Pour le moment seul le type est utile !!
+        Attaques attaque6 = new Attaques("Foudre", 4, 12,0,0);
+        Attaques attaque7 = new Attaques("Incendie", 1, 12,0,0);
+        Attaques attaque8 = new Attaques("Tsunami",3, 12,0,0);
+        Attaques attaque9 = new Attaques("Fouetifeuille", 2, 12,0,0);
+        
+        ArrayList<VEGAMONS> pokedex = new ArrayList<VEGAMONS>() ;
+        
+        VEGAMONS v1 = new VEGAMONS ("Meloche", 43, 49, 0.22, 40, 4, 1, attaque2, attaque1, attaque4, attaque3) ;
+        VEGAMONS v2 = new VEGAMONS ("Aigloss", 50, 37, 0.35, 25, 3, 1, attaque5, attaque2, attaque3, attaque4) ;
+        VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.25, 45, 4, 1, attaque6, attaque2, attaque3, attaque4) ;   // les attaques 2 à 4 inutiles
+        VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 35, 0.25, 35, 1, 1, attaque7, attaque2, attaque3, attaque4) ;
+        VEGAMONS v5 = new VEGAMONS ("Anemoniac", 50, 35, 0.3, 30, 3, 1, attaque8, attaque2, attaque3, attaque4) ;
+        VEGAMONS v6 = new VEGAMONS ("Pandalame", 45, 45, 0.18, 45, 2, 1, attaque9, attaque2, attaque3, attaque4) ;
+        pokedex.add(v1);
+        pokedex.add(v2);
+        pokedex.add(v3);
+        pokedex.add(v4);
+        pokedex.add(v5);
+        pokedex.add(v6);
+        
+		FenetreCombat maFenetreCombat = new FenetreCombat(pokedex);       
+   }
+}

@@ -1,0 +1,55 @@
+/**
+ * Classe courbe
+ * gestion de la couleur
+ * classe mère de Polygone et Cercle
+ */
+ 
+import java.awt.Color;
+import java.awt.Graphics;
+
+public abstract class Courbe{
+
+	// Attribut
+	protected Color maCouleur;
+	
+	/**
+	 * Pour afficher la couleur de la courbe
+	 */
+	public String toString(){
+		return ("Couleur : "+maCouleur+ " / Type : ");
+	}
+  
+	// Les méthodes abstraites
+	/** 
+	 * Pour calculer la longueur d'une courbe (quel que soit son type)
+	 * @return la longueur
+	 */
+	public abstract double longueur();
+	
+	/** 
+	 * Pour calculer l'aire d'une courbe (quel que soit son type)
+	 * @return l'aire
+	 */
+	public abstract double aire();
+	
+	/** 
+	 * Pour calculer le barycentre d'une courbe (quel que soit son type)
+	 * @return le barycentre
+	 */
+	public abstract APoint barycentre();
+	
+	/**
+	 * Pour dessiner la figure courante
+	 * @param l'objet graphique où dessiner
+	 */ 
+	public abstract void dessine(Graphics g);
+	
+	/** 
+	 * Pour déplacer les figures
+	 * @param vitesse le nombre de pixels entre chaque réveil du timer
+	 * @param sens selon x ou y
+	 */
+	public abstract void move(int vitesse, char sens);
+
+}
+

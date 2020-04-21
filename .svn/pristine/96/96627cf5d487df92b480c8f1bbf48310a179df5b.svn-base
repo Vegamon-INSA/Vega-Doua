@@ -1,0 +1,401 @@
+import javax.swing.*;
+import java.awt.Color;
+import java.awt.event.*;
+import java.awt.Graphics;
+
+import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Carte extends JFrame implements ActionListener, MouseListener, MouseMotionListener {
+	
+	private String nomcarte;
+	private String imageFond;
+	private JLabel JLabelPersonnage;
+	private JPanel canvas = new JPanel();
+	private GestionCombat JFramePrincipal;
+	private int delay = 100;
+	private int numero;
+	private int[][] tableau = new int[25][25];
+	private Timer t1;
+
+	
+	//GENERAL VARIABLES
+	private int cells = 25;
+	private double dense = 0.5;
+	private double density = (cells*cells)*.5;
+	private int startx;
+	private int starty;
+	private int finishx;
+	private int finishy;
+	private int checks = 0;
+	private int length = 0;
+	private int WIDTH = 600;
+	private final int HEIGHT = 600;
+	private final int MSIZE = 600;
+	private int CSIZE = MSIZE/cells;
+	private Node [][] map = new Node[25][25];
+	
+	//BOOLEANS
+	private boolean solving = true;
+	//UTIL
+	private Algorithm Alg = new Algorithm();
+	private Random r = new Random();
+
+
+
+	public Carte (String nomcarte, String imageFond, int numero, int[][] tableau, GestionCombat JFramePrincipal) {
+                startx=12;
+        starty=5;
+        finishx=12;
+        finishy=22;
+		this.JFramePrincipal=JFramePrincipal;
+		// Ajout Panel detection click
+        JPanel canvas = new JPanel();
+		canvas.setBounds(0,0,600,600);
+		JFramePrincipal.getContentPane().add(canvas);
+		JFramePrincipal.setLayout(null);
+        canvas.addMouseListener(this);
+		canvas.addMouseMotionListener(this);
+		generateMap();
+
+        //Ajout du fond de la fenetre
+        JLabel JLabelCarte = new JLabel (new ImageIcon(imageFond)); 
+        JLabelCarte.setBounds(0,0,600,600);
+        JLabelCarte.setLayout(null);
+        canvas.add(JLabelCarte); 
+
+		 // Ajout du Bonhomme à déplacer
+        this.JLabelPersonnage = new JLabel(new ImageIcon("Images/Personnage.png")); 
+        JLabelPersonnage.setBounds(200,200,44,60);
+        //JLabelPersonnage.setBounds((startx*CSIZE),(starty*CSIZE),44,60);
+        JLabelPersonnage.setLayout(null);
+        JLabelCarte.add(JLabelPersonnage);
+        
+		JFramePrincipal.setVisible(true);
+
+        this.nomcarte=nomcarte;
+		this.numero=numero;
+		this.tableau=tableau;
+
+		
+
+	}
+	
+		
+		@Override
+		public void mouseMoved(MouseEvent e) {}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {}
+		@Override
+		public void mouseDragged(MouseEvent e) {}
+		@Override
+		public void mouseExited(MouseEvent e) {}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			resetMap();	//RESET THE MAP WHENEVER CLICKED
+			if (e.getSource()==t1){//timer
+				t1.stop();
+			}
+			try {
+				int x = e.getX()/CSIZE;	//GET THE X AND Y OF THE MOUSE CLICK IN RELATION TO THE SIZE OF THE GRID
+				int y = e.getY()/CSIZE;
+				finishx=x;
+				finishy=y;
+				
+				System.out.println(finishx);
+				System.out.println(finishy);
+				Node current = map[x][y];
+				DeplacementJoueur (finishx,finishy);
+			} catch(Exception z) {}	//EXCEPTION HANDLER
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {}
+		
+		
+		public void resetMap() {	//RESET MAP
+			for(int x = 0; x < cells; x++) {
+				for(int y = 0; y < cells; y++) {
+					Node current = map[x][y];
+					if(current.getType() == 4 || current.getType() == 5)	//CHECK TO SEE IF CURRENT NODE IS EITHER CHECKED OR FINAL PATH
+						map[x][y] = new Node(3,x,y);	//RESET IT TO AN EMPTY NODE
+				}
+			}
+			if(startx > -1 && starty > -1) {	//RESET THE START AND FINISH
+				map[startx][starty] = new Node(0,startx,starty);
+				map[startx][starty].setHops(0);
+			}
+			if(finishx > -1 && finishy > -1)
+				map[finishx][finishy] = new Node(1,finishx,finishy);
+			reset();	//RESET SOME VARIABLES
+		}
+		
+	
+	public boolean PossibiliteDeplacement (int x, int y){
+        boolean possibilite = true;
+        if ((tableau[x][y] == 0) || (tableau[x][y] == 6)){
+            possibilite=true;//pb à regler
+        }
+        System.out.println(possibilite);
+        return possibilite;
+    }
+    
+    
+
+    public void DeplacementJoueur (int xFinal, int yFinal){
+		
+		if (PossibiliteDeplacement(xFinal,yFinal)){// Test si la poistion finale demandée est possible	
+			Update();
+			generateMap();
+			resetMap();
+			startSearch();
+			int [][] Tableauchemin= new	int [25][25];					        
+			int n=0;
+			int m=0;
+			
+						        
+				for(int x = 0; x < cells; x++) {	//PAINT EACH NODE IN THE GRID
+					for(int y = 0; y < cells; y++) {
+
+						if (map[x][y].getType()==5){
+							int xtest = map[x][y].getX()*CSIZE;	//GET METHODS
+							int ytest = map[x][y].getY()*CSIZE;	//GET METHODS
+							System.out.println("xtest="+xtest+"ytest="+ytest);
+							t1 = new Timer(1000, this);
+							t1.start();
+							JLabelPersonnage.setBounds(xtest, ytest, 600, 600);
+							
+						}
+				
+					}
+				}
+				
+				
+		}
+	}
+	
+    public void clearMap() {	//CLEAR MAP
+		for(int x = 0; x < 25; x++) {
+			for(int y = 0; y < 25; y++) {
+				map[x][y] = new Node(3,x,y);	//SET ALL NODES TO EMPTY
+			}
+		}
+				//reset();	//RESET SOME VARIABLES
+
+	}
+	
+	public void generateMap() {	//GENERATE MAP
+		clearMap();	//CREATE CLEAR MAP TO START
+        int tableauMap0 [][] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,2,2,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,2,2,1,1,1,1,0},{0,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
+
+		for(int i = 0; i < 25; i++) {
+            for(int j = 0; j < 25; j++) {
+                Node current;
+                current = map[i][j];
+                if (tableauMap0[i][j] != 1){
+					current.setType(2);
+                }  
+            }//SET NODE TO BE A WALL //generation de la map
+		}
+	}
+	
+
+	public void paintComponent(Graphics g) {	//REPAINT
+				this.paintComponent(g);
+
+	}
+	
+	public void startSearch() {	//START STATE
+		if(solving) {
+			Alg.AStar();
+		}
+	
+	}
+	
+	
+	public void Update() {	//UPDATE ELEMENTS OF THE GUI
+		density = (cells*cells)*dense;
+		CSIZE = MSIZE/cells;
+		canvas.repaint();
+	}
+	
+	public void reset() {	//RESET METHOD
+		solving = true;
+		length = 0;
+		checks = 0;
+	}
+	public void delay() {	//DELAY METHOD
+		try {
+			Thread.sleep(delay);
+		} catch(Exception e) {}
+	}
+	
+
+	
+	
+	class Algorithm {	//ALGORITHM CLASS
+
+		
+		//A STAR WORKS ESSENTIALLY THE SAME AS DIJKSTRA CREATING A PRIORITY QUE AND PROPAGATING OUTWARDS UNTIL IT FINDS THE END
+		//HOWEVER ASTAR BUILDS IN A HEURISTIC OF DISTANCE FROM ANY NODE TO THE FINISH
+		//THIS MEANS THAT NODES THAT ARE CLOSER TO THE FINISH WILL BE EXPLORED FIRST
+		//THIS HEURISTIC IS BUILT IN BY SORTING THE QUE ACCORDING TO HOPS PLUS DISTANCE UNTIL THE FINISH
+			
+		public void AStar() {
+			ArrayList<Node> priority = new ArrayList<Node>();
+			priority.add(map[startx][starty]);
+			while(solving) {
+				if(priority.size() <= 0) {
+					solving = false;
+					break;
+				}
+				int hops = priority.get(0).getHops()+1;
+				ArrayList<Node> explored = exploreNeighbors(priority.get(0),hops);
+				if(explored.size() > 0) {
+					priority.remove(0);
+					priority.addAll(explored);
+					Update();
+					delay();
+				} else {
+					priority.remove(0);
+				}
+				sortQue(priority);	//SORT THE PRIORITY QUE
+			}
+		}
+		
+		public ArrayList<Node> sortQue(ArrayList<Node> sort) {	//SORT PRIORITY QUE
+			int c = 0;
+			while(c < sort.size()) {
+				int sm = c;
+				for(int i = c+1; i < sort.size(); i++) {
+					if(sort.get(i).getEuclidDist()+sort.get(i).getHops() < sort.get(sm).getEuclidDist()+sort.get(sm).getHops())
+						sm = i;
+				}
+				if(c != sm) {
+					Node temp = sort.get(c);
+					sort.set(c, sort.get(sm));
+					sort.set(sm, temp);
+				}	
+				c++;
+			}
+			return sort;
+		}
+		
+		public ArrayList<Node> exploreNeighbors(Node current, int hops) {	//EXPLORE NEIGHBORS
+			ArrayList<Node> explored = new ArrayList<Node>();	//LIST OF NODES THAT HAVE BEEN EXPLORED
+			for(int a = -1; a <= 1; a++) {
+				for(int b = -1; b <= 1; b++) {
+					int xbound = current.getX()+a;
+					int ybound = current.getY()+b;
+					if((xbound > -1 && xbound < cells) && (ybound > -1 && ybound < cells)) {	//MAKES SURE THE NODE IS NOT OUTSIDE THE GRID
+						Node neighbor = map[xbound][ybound];
+						if((neighbor.getHops()==-1 || neighbor.getHops() > hops) && neighbor.getType()!=2) {	//CHECKS IF THE NODE IS NOT A WALL AND THAT IT HAS NOT BEEN EXPLORED
+							explore(neighbor, current.getX(), current.getY(), hops);	//EXPLORE THE NODE
+							explored.add(neighbor);	//ADD THE NODE TO THE LIST
+						}
+					}
+				}
+			}
+			return explored;
+		}
+		
+		public void explore(Node current, int lastx, int lasty, int hops) {	//EXPLORE A NODE
+			if(current.getType()!=0 && current.getType() != 1)	//CHECK THAT THE NODE IS NOT THE START OR FINISH
+				current.setType(4);	//SET IT TO EXPLORED
+			current.setLastNode(lastx, lasty);	//KEEP TRACK OF THE NODE THAT THIS NODE IS EXPLORED FROM
+			current.setHops(hops);	//SET THE HOPS FROM THE START
+			checks++;
+			if(current.getType() == 1) {	//IF THE NODE IS THE FINISH THEN BACKTRACK TO GET THE PATH
+				backtrack(current.getLastX(), current.getLastY(),hops);
+			}
+		}
+		
+		public void backtrack(int lx, int ly, int hops) {	//BACKTRACK
+			length = hops;
+			while(hops > 1) {	//BACKTRACK FROM THE END OF THE PATH TO THE START
+				Node current = map[lx][ly];
+				current.setType(5);
+				lx = current.getLastX();
+				ly = current.getLastY();
+				hops--;
+			}
+			solving = false;
+		}
+	}
+	
+	class Node {
+		
+		// 0 = start, 1 = finish, 2 = wall, 3 = empty, 4 = checked, 5 = finalpath
+		private int cellType = 0;
+		private int hops;
+		private int x;
+		private int y;
+		private int lastX;
+		private int lastY;
+		private double dToEnd = 0;
+	
+		public Node(int type, int x, int y) {	//CONSTRUCTOR
+			cellType = type;
+			this.x = x;
+			this.y = y;
+			hops = -1;
+		}
+		
+		public double getEuclidDist() {		//CALCULATES THE EUCLIDIAN DISTANCE TO THE FINISH NODE
+			int xdif = Math.abs(x-finishx);
+			int ydif = Math.abs(y-finishy);
+			dToEnd = Math.sqrt((xdif*xdif)+(ydif*ydif));
+			return dToEnd;
+		}
+		
+		public int getX() {return x;}		//GET METHODS
+		public int getY() {return y;}
+		public int getLastX() {return lastX;}
+		public int getLastY() {return lastY;}
+		public int getType() {return cellType;}
+		public int getHops() {return hops;}
+		
+		public void setType(int type) {cellType = type;}		//SET METHODS
+		public void setLastNode(int x, int y) {lastX = x; lastY = y;}
+		public void setHops(int hops) {this.hops = hops;}
+	}
+	
+	
+		public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+				 
+	}
+}
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
+	
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+public class Musiques {
+   /** url : adresse du fichier wav */
+   private String musique1="Musiques/route 1.mp3";
+   /** son : le son correspondant, nécéssairement final car
+   * Audio player est un Thread*/
+   private final AudioStream son;
+   /**
+   * Constructeur
+   * @param url : adresse du fichier Wav
+   * @throws IOException
+   * @throws FileNotFoundException
+   */
+   public Musiques(String url) throws FileNotFoundException, IOException{
+      this.setUrl(url);
+      this.son=new AudioStream(new FileInputStream(this.getUrl()));
+   }
+   public void play(){
+      AudioPlayer.player.start(this.son);
+   }
+   public void pause(){
+      AudioPlayer.player.stop(this.son);
+   }
+   public String getUrl() {
+      return url;
+   }
+   public void setUrl(String url) {
+      this.url = url;
+   }
+   public AudioStream getSon() {
+      return son;
+   } 
+   
+}

@@ -1,0 +1,10 @@
+public class Jeu {
+	
+	public static void main(String[] args){
+		
+		CJframe JFramePrincipal = new CJframe();
+		VariablesDeJeu VariablesSession= new VariablesDeJeu();		
+		Accueil ecranAccueil= new Accueil(JFramePrincipal,VariablesSession);
+		
+   }
+}

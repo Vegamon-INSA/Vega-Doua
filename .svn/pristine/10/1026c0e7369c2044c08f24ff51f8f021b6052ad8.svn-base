@@ -1,0 +1,14 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class FenetreCharge extends JFrame{
+
+	public FenetreCharge(){
+		this.setTitle("Charger une partie");
+		this.setSize(600,620);
+		// Pour placer la fenêtre au centre de l'écran
+		this.setLocationRelativeTo(null);
+		this.setLayout(null);	
+		this.setVisible(false);
+	}
+}
