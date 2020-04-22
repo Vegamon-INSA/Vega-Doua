@@ -149,3 +149,4 @@ public class Accueil implements ActionListener{
 //gérer l'xp des personnages etc(Estelle & Adrien) (vous en êtes où les zamis ?)
 //musiques et effets speciaux : Définir quels effets speciaux quelles musiques et quelle naration on veut jouer et à quelle moment
 //menu (sessions différentes, menu bande en haut)(Victor)
+//test
