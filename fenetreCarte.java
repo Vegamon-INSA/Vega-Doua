@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 public class fenetreCarte implements ActionListener, MouseListener,KeyListener {
-	private JPanel pPrincipal,pBoiteTexte;
+	private JPanel pPrincipal, pBoiteTexte;;
 	private JLabel JLabelPersonnage, JLabelCarte; //Jlabel image du personnage
 	private CJframe JFramePrincipal; //Jframe principal avec image de fond
 	private VariablesDeJeu VariablesSession; //Variables de Jeu
@@ -40,6 +40,7 @@ public class fenetreCarte implements ActionListener, MouseListener,KeyListener {
 
 	public fenetreCarte ( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde, Musiques musique) {
 		JFramePrincipal= Frame;
+		JFramePrincipal.addKeyListener(this);
 		VariablesSession=variables;
 		SauvegardeJeu=sauvegarde;
 		MusiqueDeJeu=musique;
@@ -69,9 +70,10 @@ public class fenetreCarte implements ActionListener, MouseListener,KeyListener {
         JLabelPersonnage.setBounds((xDepart*TailleCellule-8),(yDepart*TailleCellule-28),31,52);
         JLabelPersonnage.setLayout(null);
         JLabelCarte.add(JLabelPersonnage);
-		JFramePrincipal.validate();
+
+		
+        JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
-		JFramePrincipal.addKeyListener(this);
 	}
 	
 
@@ -273,11 +275,13 @@ public class fenetreCarte implements ActionListener, MouseListener,KeyListener {
 	
 	
 	public void AffichageBoiteTexte(){
-		pBoiteTexte = new JPanel();
-        pBoiteTexte.setBounds(100, 550, 60, 200);
-		pPrincipal.setLayout(null);
-		pPrincipal.setBackground(new Color (0, 196, 220));
-        JFramePrincipal.add(pPrincipal);
+		JFramePrincipal.remove(pPrincipal);
+		pBoiteTexte = new JPanel();	
+		pBoiteTexte.setBounds(100, 550, 300, 200);
+		pBoiteTexte.setLayout(null);
+		pBoiteTexte.setBackground(Color.red);
+        JFramePrincipal.add(pBoiteTexte);	
+        JFramePrincipal.add(pPrincipal);	
         JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
 	}
