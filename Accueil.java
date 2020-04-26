@@ -129,7 +129,7 @@ public class Accueil implements ActionListener{
 		}
 	}
 }
-//lier toutes les cartes entre elles (Gianni) (c'est presque bon il manque juste à agrandir les zones d'entrée et de sortie)
-//lier les persos dans les cartes avec leur combat (Gianni & Victor) (Il faut faire une nouvelle classe je pense)
-//gérer l'xp des personnages etc(Estelle & Adrien) (vous en êtes où les zamis ?)
-//musiques et effets speciaux : Définir quels effets speciaux quelles musiques et quelle naration on veut jouer et à quelle moment
+//musiques et effets speciaux : Définir quels effets speciaux quelles musiques et quelle naration on veut jouer et à quel moment
+//bug des boutons fenetre combat
+//bien checker toutes les zones avec les tableaux de gianni
+//résoudre pb au lancement
