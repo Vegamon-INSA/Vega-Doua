@@ -282,7 +282,7 @@ public class FenetreCombat implements ActionListener{
         if (e.getSource()==fuite && !freeze){
             if (numCase==5){
                 lDialogue.setText("Vous prenez la fuite !");			
-                t2 = new Timer(2000, this);
+                t2 = new Timer(1000, this);
                 t2.start();
                 freeze=true;
             } else {
@@ -296,8 +296,8 @@ public class FenetreCombat implements ActionListener{
         if (e.getSource()==t2){
             pPrincipal.removeAll();
 			JFramePrincipal.remove(pPrincipal);
-            pPrincipal.revalidate();
-			pPrincipal.repaint();
+            JFramePrincipal.revalidate();
+			JFramePrincipal.repaint();
             fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
 
             freeze=false;
