@@ -9,7 +9,7 @@ public class FenetreCombat implements ActionListener{
     private JLabel fond,lDialogue,lTextePokemonAdv,lTexteMonPokemon,lab2,Meloche,gif;
     private JButton attaque, soin,fuite,a1,a2,a3,a4,annuler;
     private Timer t,t2, t3, t4;
-    private boolean freeze,trefle,b;
+    private boolean freeze,b;
     private VEGAMONS perso, advers, pA, pD;
     private int x, y, x1, y1,j,exp,type, numCase;
     private ArrayList<VEGAMONS> pokedex; 
@@ -26,7 +26,6 @@ public class FenetreCombat implements ActionListener{
 		SauvegardeJeu=sauvegarde;
 		MusiqueDeJeu=musique;
 		freeze = false;
-		trefle = true; //qd code de la map sera bon mettre a false
         pokedex=VariablesSession.pokedex;
         textes=VariablesSession.textesCombats;
         perso = pokedex.get(0);
@@ -40,7 +39,7 @@ public class FenetreCombat implements ActionListener{
         ///INTERFACE COMBAT
 
         pPrincipal = new JPanel();
-        pPrincipal.setBounds(0, 0, 600, 600);
+        pPrincipal.setBounds(100, 70, 600, 600);
 		pPrincipal.setLayout(null);
         JFramePrincipal.add(pPrincipal);
 
@@ -166,9 +165,8 @@ public class FenetreCombat implements ActionListener{
        
         JFramePrincipal.setVisible(true); 
 
-        if(trefle==true){
-            debutCombat(numCase);
-		}
+        debutCombat(numCase);
+
 	} 
     
     public void actionPerformed(ActionEvent e){
@@ -190,7 +188,7 @@ public class FenetreCombat implements ActionListener{
                 lDialogue.setText(perso.nom+" attaque avec "+perso.attaque1.nom+" !");
                 graphAttak(true);
             }else if (esquive==true && finCombat()==false){
-               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque1.nom+" !	"+advers.nom+" esquive !");
+               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque1.nom+" !    "+advers.nom+" esquive !");
             }
         }
         
@@ -200,7 +198,7 @@ public class FenetreCombat implements ActionListener{
                 lDialogue.setText(perso.nom+" attaque avec "+perso.attaque2.nom+" !");
                 graphAttak(true);
             }else if (esquive==true && finCombat()==false){
-               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque2.nom+" !	"+advers.nom+" esquive !");
+               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque2.nom+" !	  "+advers.nom+" esquive !");
             }
         }
         
@@ -210,7 +208,7 @@ public class FenetreCombat implements ActionListener{
                 lDialogue.setText(perso.nom+" attaque avec "+perso.attaque3.nom+" !"); 
                 graphAttak(true);
             }else if (esquive==true && finCombat()==false){
-               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque3.nom+" !	"+advers.nom+" esquive !");
+               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque3.nom+" !	   "+advers.nom+" esquive !");
             }
         }
         
@@ -220,11 +218,12 @@ public class FenetreCombat implements ActionListener{
                 lDialogue.setText(perso.nom+" attaque avec "+perso.attaque4.nom+" !");
                 graphAttak(true);
             }else if (esquive==true && finCombat()==false){
-               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque4.nom+" !	"+advers.nom+" esquive !");
+               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque4.nom+" !  	"+advers.nom+" esquive !");
             }
         }
         
         if (e.getSource()==t) { //b=true => a nous de jouer, b=false, on a deja choisi notre attaque
+            fin=finCombat();
 			if (b==true){
                 t.stop();
                 freeze=false;
@@ -235,21 +234,28 @@ public class FenetreCombat implements ActionListener{
                 lDialogue.setText("Que dois-je faire ?");
                 b=false;
             }else{
-                fin=finCombat();
                 if(advers.PV<=0){
+                    
+                    if (numCase%100==3){
+                        VariablesSession.listeInterractionsAvecDresseurs [numCase-301]=2;
+                    }
                     t.stop();
-                    lDialogue.setText("Vous avez gagne !");
-                    graphAttak(true);	
-                    t2 = new Timer(2000, this);
+                    t2 = new Timer(1000, this);
                     t2.start();
                     freeze=true;
                     perso.XP=perso.XP + (int)(Math.pow(advers.XP, 0.64));
-                    perso.PVmax = perso.PVmax+(int)(2.0+4*Math.log((double)(perso.XP*perso.XP)));
-                    perso.PV = perso.PVmax;
+                    
+                    //perso.PVmax = perso.PVmax+(int)(2.0+4*Math.log((double)(perso.XP*perso.XP)));
+                    //perso.PV = perso.PVmax;
+                    
+                    //VariablesSession.xpMeloche=perso.XP;
 				
                 } else {
                     esquive=advattaque();
                     if (finCombat()==true){
+                        if (numCase%100==3){
+                            VariablesSession.listeInterractionsAvecDresseurs [numCase-301]=1;
+                        }
                         lDialogue.setText("Vous avez perdu !"); 
                         t2 = new Timer(1900, this);
                         t2.start();
@@ -259,7 +265,7 @@ public class FenetreCombat implements ActionListener{
                         graphAttak(false);
                         b=true;
                     }else{
-                        lDialogue.setText(advers.nom+" attaque avec "+advAtt()+" !	"+perso.nom+" esquive !");
+                        lDialogue.setText(advers.nom+" attaque avec "+advAtt()+" !  	"+perso.nom+" esquive !");
                         b=true;
                     }
                 }
@@ -279,11 +285,6 @@ public class FenetreCombat implements ActionListener{
                 t2 = new Timer(2000, this);
                 t2.start();
                 freeze=true;
-                pPrincipal.removeAll();
-                JFramePrincipal.remove(pPrincipal);
-                JFramePrincipal.revalidate();
-                JFramePrincipal.repaint();
-                fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
             } else {
                 lDialogue.setText("Impossible de s'échapper !");
                 t3 = new Timer(2000, this);
@@ -293,31 +294,16 @@ public class FenetreCombat implements ActionListener{
         }
         
         if (e.getSource()==t2){
+            pPrincipal.removeAll();
 			JFramePrincipal.remove(pPrincipal);
             pPrincipal.revalidate();
 			pPrincipal.repaint();
+            fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
 
-            if (perso.PV<=0){
-                //this.setVisible(false);  // à changer
-            }
             freeze=false;
             t2.stop();
 		}
-        
-        //if (e.getSource()==t3){      // graphisme attaques
-            //if (y==20){
-                //x=100;
-                //y=135;
-                //Meloche.setLocation(x,y);
-                //t3.stop();
-                //freeze=false;
-            //}
-			//x=x+3;                   // ne rentre pas dans ce timer
-            //y=y-1;
-            //Meloche.setLocation(x,y);
-            //System.out.println(b);
-            
-		//}
+ 
         if (e.getSource()==t3){
             freeze=false;
             t3.stop();
@@ -358,6 +344,11 @@ public class FenetreCombat implements ActionListener{
         pPrincipal.add(pBas);
         JFramePrincipal.revalidate();
         JFramePrincipal.repaint();
+        
+        if (finCombat()==true){
+            lDialogue.setText("Vous venez de lui mettre le coup de grace !");
+            graphAttak(true);
+        }
 
         return esquive;
     }
@@ -411,17 +402,17 @@ public class FenetreCombat implements ActionListener{
     }
     
     public void debutCombat(int x){
-        b=true;
+        b=false;
         int num = 1+((int)(5*Math.random()));
         int exp=1;
         if (x==5 || x==7){
-            if (VariablesSession.numeroCarte==3){  //trav1
+            if (VariablesSession.numeroCarte%100==2){      //trav1
                 exp=1+(int)(3*Math.random());
-            }else if (VariablesSession.numeroCarte==4){   //trav2
+            }else if (VariablesSession.numeroCarte%100==3){   //trav2
                 exp=5+(int)(5*Math.random());
-            }else if (VariablesSession.numeroCarte==8){         // huma1
+            }else if (VariablesSession.numeroCarte%100==5){   // huma1
                 exp=15+(int)(10*Math.random());
-            }else if (VariablesSession.numeroCarte==9){   //huma2
+            }else if (VariablesSession.numeroCarte%100==6){   //huma2
                 exp=25+(int)(14*Math.random());
             }
         } else if (x/10==1){
@@ -444,7 +435,7 @@ public class FenetreCombat implements ActionListener{
         fond.add(lab2);
         lab2.setBounds(x1,y1,100,100);
         advers.XP = exp;
-        advers.PVmax = advers.PVmax+(int)(Math.pow(exp, 1.2));
+        advers.PVmax = (int)(Math.pow(exp, 0.35)*advers.PVmax)+(int)(Math.pow(exp, 1.2));
         advers.PV = advers.PVmax;
         lTextePokemonAdv.setText(advers.nom + "     XP : " + advers.XP + "     PV : " + advers.PV);
         vieAdv.setSize((int)(230.0*(double)(advers.PV)/(double)(advers.PVmax)), 5);
