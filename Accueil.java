@@ -87,21 +87,6 @@ public class Accueil implements ActionListener{
 			JFramePrincipal.remove(wow);
 			JFramePrincipal.validate();
 			JFramePrincipal.repaint();
-			
-			/*menuBar = new JMenuBar();
-			menu = new JMenu("Nouvelle partie");
-			menu.add(jouer);
-			menuBar.add(menu);	
-			menu2 = new JMenu("Pokedex");
-			menu2.add(pokedex);
-			menuBar.add(menu2);
-			menu3 = new JMenu("Aide");
-			menu3.add(aide);
-			menuBar.add(menu3);
-			menu4 = new JMenu("Parametres");
-			menu4.add(parametre);
-			menuBar.add(menu4);		
-            JFramePrincipal.setJMenuBar(menuBar);*/	
 
 			if (SauvegardeJeu.SauvegardeExiste()){
 				VariablesSession=SauvegardeJeu.RestaurerSauvegarde();
@@ -148,5 +133,3 @@ public class Accueil implements ActionListener{
 //lier les persos dans les cartes avec leur combat (Gianni & Victor) (Il faut faire une nouvelle classe je pense)
 //gérer l'xp des personnages etc(Estelle & Adrien) (vous en êtes où les zamis ?)
 //musiques et effets speciaux : Définir quels effets speciaux quelles musiques et quelle naration on veut jouer et à quelle moment
-//menu (sessions différentes, menu bande en haut)(Victor)
-//test

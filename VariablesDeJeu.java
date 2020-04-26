@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class VariablesDeJeu {//création de l'unique Jframe
 		
-		public int numeroCarte;// les cartes sont dans l'ordre avec carte avec chemin numérotées de 1 à n et maisons dans les cartes chemin numérotés 10 , 11, 12 etc avec nombre croissant du bas vers le hautpublic int[][] TableauCarte = new int[25][25]; // Tableau contenant les infos sur la carte : rouge=0 (interdit), transparant=1(Chemin), rose= 2 (interaction sans combat), bleu=3 (soin des pokemons), violet=4 (entree ou sortie batiment), jaune =5 (trefle), lac=6 (ils sont laissés transparants sur les cadriages mais bien mettre 6 et pas 1) 7403
+		public int numeroCarte;// les cartes sont dans l'ordre avec carte avec chemin numérotées de 1 à n et maisons dans les cartes chemin numérotés 10 , 11, 12 etc avec nombre croissant du bas vers le hautpublic int[][] TableauCarte = new int[25][25]; // Tableau contenant les infos sur la carte : rouge=0 (interdit), transparant=1(Chemin), rose= 2 (interaction sans combat), bleu=3 (interaction avec combat), violet=4 (entree ou sortie batiment), jaune =5 (trefle), lac=6 (ils sont laissés transparants sur les cadriages mais bien mettre 6 et pas 1) 7403
 		public int xDepart; //coordonnées x et y de l'arrivée sur une nouvelle map ou maison (coordonnées de la porte d'entrée)
 		public int yDepart;
 		public int[][] TableauCarte = new int[25][25];//tableau contenenant la consitution de la carte dans laquelle est le personnage
@@ -10,10 +10,10 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		public String musique; // Image de fond des cartes
 		public ArrayList<VEGAMONS> pokedex ;
 		public ArrayList<String> textesCombats;//potentiellement supprimable
-		public String texteAAfficher;
-		public int[] listeCombats = new int[25]; //tableau contenenant la liste des combats et leur état : 0= pas fait, 1 perdu, 2 gagné
-		private int listeCombatsInitiale [] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-		private int Taturne [][] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,2,2,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,201,201,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,201,201,1,1,1,1,0},{0,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,4102,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,4102,4102,4102,4102,4102,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,4102,4102,4102,4102,4102,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
+		public String[] texteAAfficher = new String[5]; //tableau contenenant la liste des combats et leur état : 0= jamais discuté, 1= déjà discuté etc
+		public int [] listeInterractionsAvecDresseurs  = new int[25]; //tableau contenenant la liste des combats et leur état : 0= pas fait, 1 perdu, 2 gagné
+		private int listeInterractionsAvecDresseursInitiale [] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+		private int Taturne [][] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,2,2,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,201,201,201,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,201,2,201,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,201,2,201,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,201,201,201,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,4102,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,4102,4102,4102,4102,4102,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,4102,4102,4102,4102,4102,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
 		private	int lafeyssine [][] = { {0,0,2,4105,4105,4105,4105,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,2,4105,4105,4105,4105,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,0,0,0,0,0,0,2,1,1,1,1,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,2,1,1,1,1,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,4101,4101,4101,0,0,0,0,0},{0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,4101,4101,4101,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,1,1,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,1,1,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,2,2,0,0,4103,4103,4103,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,2,2,0,0,4103,4103,4103,0,0,0,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private int TurneVoisin [][] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0},{0,1,1,0,0,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,0,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,2,2,1,1,1,1,1,0,0,0,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,0,0,0,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,0,0,0,0},{0,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,1,1,1,1,1,1,1,1,1,1,4104,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,1,1,1,1,1,1,1,1,4104,4104,4104,4104,4104,1,1,1,1,1,1,1,1,1,0,0},{0,0,0,0,0,0,0,0,0,4104,4104,4104,4104,4104,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};	
 		private	int Travee1 [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4202,4202,4202,0},{0,0,2,2,5,5,5,5,5,5,5,5,1,1,1,1,1,1,6,6,6,4202,4202,4202,0},{0,0,1,1,1,5,5,5,1,1,5,1,1,1,1,1,1,1,6,6,6,6,1,0,0},{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0},{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0},{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,5,0,0},{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,5,0,0},{0,0,0,1,1,1,1,1,1,1,5,5,5,5,5,5,5,1,1,5,5,5,5,0,0},{0,0,0,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0},{0,0,0,0,0,0,0,0,0,0,0,5,1,1,5,5,5,5,1,6,6,6,1,0,0},{0,0,0,0,0,0,0,0,0,0,0,1,1,1,5,5,5,5,6,6,6,6,1,0,0},{0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,5,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,5,0,0,0,0,0,0,0,0,0},{0,0,0,2,5,5,5,5,5,5,1,1,1,1,5,5,0,0,0,0,0,0,0,0,0},{0,0,0,2,5,5,5,5,5,5,1,1,1,1,5,5,0,0,0,0,0,0,0,0,0},{0,0,0,1,5,5,5,5,5,1,6,6,6,1,1,5,5,5,5,1,1,1,2,0,0},{0,0,0,1,1,5,5,5,5,6,6,6,6,1,1,1,1,1,1,1,1,1,1,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0},{0,0,1,1,5,5,5,5,5,1,1,1,1,1,1,1,1,5,5,5,5,5,5,0,0},{0,0,1,2,5,5,5,5,5,1,1,1,1,1,1,1,1,5,5,5,5,5,5,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,0,0},{0,0,0,1,1,1,1,1,5,5,5,1,1,1,1,1,5,5,5,5,5,5,5,0,0},{0,0,4201,4201,4201,1,1,1,1,5,1,1,1,1,1,5,5,5,5,5,5,5,5,0,0},{0,0,4201,4201,4201,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
@@ -79,11 +79,11 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				
 				String musiqueRoute1 ="Musiques/route1.wav";
 				this.musique=musiqueRoute1;
-				
+				this.listeInterractionsAvecDresseurs=listeInterractionsAvecDresseursInitiale;
+
 				System.out.println(this.numeroCarte);
 				switch(this.numeroCarte) {
 					case 000:{//Spawn du début dans la maison
-						this.listeCombats=listeCombatsInitiale;
 						this.TableauCarte=Taturne;
 						this.xDepart=4;
 						this.yDepart=13;
@@ -363,45 +363,136 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				}
 		}
 		
-		public void TexteCombat(int numerocombat) {
-			switch(numerocombat) {
-				case 00:{//Combat numéro 00 
-					switch(this.listeCombats[numerocombat]) {
-						case 0:{//Combat pas fait
-							this.texteAAfficher="pas fait";
+		public void DialogueAvecDresseur(int numeroDresseur) {
+			switch(numeroDresseur) {
+				case 1:{//Dialogue numéro 01
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté
+							String tableau []= {"<html>Bonjour et bienvenue sur Vegamon !<br> Avant de commencer, voici quelques consignes :</html>","<html> Nous sauvegardons automatiquement ta partie ! <br>Tu peux acccéder au menu en appuyant sur la touche 'm' de ton clavier.</html>","<html>Clique sur l'écran pour te déplacer vers l'endroit que tu as désigné !<br>Si tu passes à côté d'un personnage pour la première fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>Pour finir : Amuses toi bien !</html>","fin_message"};
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
 							break;
 						}			 						 
-						case 1:{//Combat perdu
-							this.texteAAfficher="perdu dommage";
-							break;
-						}
-						case 2:{//Combat gagné
-							this.texteAAfficher="gagné bg";
+						case 1:{//Déja discuté
+							String tableau []= {"Alors comment se passe ta conquète du monde ?","fin_message","","",""};
+							this.texteAAfficher=tableau;
 							break;
 						}
 						default:
 							this.texteAAfficher=null;
 					}
+					break;
 				}
-				case 01:{//Combat numéro 01
-					switch(this.listeCombats[numerocombat]) {
+				case 2:{//Combat numéro 02
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							this.texteAAfficher="pas fait";
+							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
+							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							this.texteAAfficher="perdu dommage";
+							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagné
-							this.texteAAfficher="gagné bg";
+							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
 							break;
 						}
 						default:
 							this.texteAAfficher=null;
 					}
-				}
+					break;
+				}/*				case 2:{//Combat numéro 02
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}				case 2:{//Combat numéro 02
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}				case 2:{//Combat numéro 02
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}				case 2:{//Combat numéro 02
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}*/
+				default:
+					this.texteAAfficher=null;
 			}
 		}
 }		
+
 
