@@ -366,17 +366,19 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		}
 		
 		public void DialogueAvecDresseur(int numeroDresseur) {
-			switch(numeroDresseur) {
-				case 1:{//Dialogue numéro 01
+						switch(numeroDresseur) {
+				//MAP MAISON
+				case 1:{//Dialogue numéro 01 : la mère
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
-						case 0:{//Jamais discuté
-								String tableau []= {"<html>Bonjour et bienvenue sur Vegamon !<br> Avant de commencer, voici quelques consignes :</html>","<html> Nous sauvegardons automatiquement ta partie ! <br>Tu peux acccéder au menu en appuyant sur la touche 'm' de ton clavier.</html>","<html>Clique sur l'écran pour te déplacer vers l'endroit que tu as désigné !<br>Si tu passes à côté d'un personnage pour la première fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>Pour finir : Amuses toi bien !</html>","fin_message"};
-								listeInterractionsAvecDresseurs[numeroDresseur]=1;
-								this.texteAAfficher=tableau;
-								break;
+						case 0:{//Jamais discuté -ouverture
+							String tableau []= {"<html>Maman : « Salut mon chéri, bien dormi ?<br> Avant de commencer, voici quelques consignes :</html>","<html> Nous sauvegardons automatiquement ta partie ! <br>Tu peux acccéder au menu en appuyant sur la touche 'm' de ton clavier.</html>","<html>Clique sur l'écran pour te déplacer vers l'endroit que tu as désigné !<br>Si tu passes à côté d'un personnage pour la première fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>N'oublies pas d'aller voir le Professeur Véga dans la maison d'à coté, il m'a dit qu'il te cherchait !</html>","fin_message","","",""};
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
 						}			 						 
-						case 1:{//Déja discuté
-							String tableau []= {"Alors comment se passe ta conquète du monde ?","fin_message","","",""};
+						
+						case 1:{//Déja discuté -autres interraction
+							String tableau []= {"Maman : Alors chéri, comment se passe ta conquête du monde?","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -385,116 +387,1186 @@ public class VariablesDeJeu {//création de l'unique Jframe
 					}
 					break;
 				}
-				case 2:{//Combat numéro 02
+				
+				//MAP TURNE VOIS
+				case 6:{//Dialogue numéro 03- Professeur Vega
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
-						case 0:{//Combat pas fait
-							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"</html>Véga : « Oh je t’attendais avec impatience, je t’observe depuis quelques temps <br>et je pense que tu es la personne idéale pour recevoir ce Végamon.</html>","</html>Il s’appelle Méloche, je suis sûr qu’avec lui<br> tu pourras devenir le meilleur dresseur de cette ville !</html>","Au fait, Flora devrait être dehors, devant ma maison, tu devrais aller la voir !","fin_message","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
-						case 1:{//Combat perdu
-							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
+						case 1:{//Déja discuté -première interraction
+							String tableau []= {"Je suis sur que toi et Méloche formez une bonne équipe !","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
-						}
-						case 2:{//Combat gagné
-							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
+						
 						}
 						default:
 							this.texteAAfficher=null;
 					}
 					break;
-				}/*				case 2:{//Combat numéro 02
+				}
+				case 5:{//Dialogue numéro 03 - Jeanne
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
-						case 0:{//Combat pas fait
-							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"</html>Jeanne : Tu connais Véronique ? C’est la championne de l’arène, au nord de la ville,<br> il paraît qu’elle n’a jamais perdu un seul combat !</html>","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
-						case 1:{//Combat perdu
-							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
+						case 1:{//Déja discuté -première interraction
+							String tableau []= {"</html>Jeanne : Tu devrais tenter ta chance à l’arène, <br>tu pourrais peut-être devenir le nouveau champion ! </html>","</html>Mais attention il faudra bien entraîner ton végamon, <br>sinon on ne te laissera même pas entrer !</html>","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
-						}
-						case 2:{//Combat gagné
-							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
+						
 						}
 						default:
 							this.texteAAfficher=null;
 					}
 					break;
-				}				case 2:{//Combat numéro 02
+				}
+				//MAP FEYSSINE
+				
+				case 4:{//Dialogue numéro 03 - Flora
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
-						case 0:{//Combat pas fait
-							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
-						}			 						 
-						case 1:{//Combat perdu
-							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
-						}
-						case 2:{//Combat gagné
-							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
-						}
-						default:
-							this.texteAAfficher=null;
-					}
-					break;
-				}				case 2:{//Combat numéro 02
-					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
-						case 0:{//Combat pas fait
-							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
-						}			 						 
-						case 1:{//Combat perdu
-							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
-						}
-						case 2:{//Combat gagné
-							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
-						}
-						default:
-							this.texteAAfficher=null;
-					}
-					break;
-				}				case 2:{//Combat numéro 02
-					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
-						case 0:{//Combat pas fait
-							String tableau []= {"pas fait1","pas fait2","pas fait3","pas fait4","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
-						}			 						 
-						case 1:{//Combat perdu
-							String tableau []= {"perdu dommage","pas fait","pas fait","pas fait","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
-						}
-						case 2:{//Combat gagné
-							String tableau []= {"gagné","pas fait","pas fait","pas fait","fin_message"};
-							this.texteAAfficher=tableau;
-							break;
-						}
-						default:
-							this.texteAAfficher=null;
-					}
-					break;
-				}*/
-				default:
-					this.texteAAfficher=null;
-			}
-		}
-}		
+						case 0:{//Jamais discuté -ouverture
+							//si on a deja parlé à vega
+							if(listeInterractionsAvecDresseurs[3/*vega*/]==1){
+								String tableau []={"Flora : Hey ! Véga m’a chargé de te donner des conseils.<br>Méloche est faible, il faudra que tu l’entraînes pour qu’il gagne de l’XP.</html>", "</html>Au nord, il y a les travées, un lieu peu entretenu avec des trèfles au sol.<br>C’est là que se cachent les Végamon, des créatures comme ton Méloche.</html>","</html>Certains pourront décider de t’attaquer à tout moment.<br>Si tu gagnes le combat, tu gagneras de l’XP, rendant Méloche plus fort,</html>", "</html>si tu perds, Meloche sera KO et tu devras te reposer dans <br>ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
+								listeInterractionsAvecDresseurs[numeroDresseur]=1;
+								this.texteAAfficher=tableau;
 
+							}
+							else{	//sinon
+								String tableau []={"Flora : Va voir le professeur Véga, il m'a dit qu'il t'attendait !","fin_message","","","","",""};
+								this.texteAAfficher=tableau;
+	
+							}			
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []= {"Ton Meloche est trop mignon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case 3:{//Dialogue numéro 03 - Alexis
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture 
+							String tableau []={"</html>Alexis : Hey, les points d’XP pour un vegamon, <br>c’est important, c’est même LA clé pour devenir hyper balèze.</html>","</html> Si tu bats un vegamon puissant, tu gagnes beaucoup <br>de points d’XP et ton Méloche gagne en puissance. </html>","</html>En revanche, plus ton vegamon est puissant, plus <br>il te faudra de temps pour le faire progresser encore.</html>","Il faudra t’armer de patience !","fin_message","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []= {"</html>Plus ton vegamon est puissant, plus <br>il te faudra de temps pour le faire progresser.</html>","Il faudra t’armer de patience !","fin_message","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case 2:{//Dialogue numéro 02 - Remi
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							
+							String tableau []={"</html> Rémi : Attention ! Il y a plein <br>de dresseurs très puissants plus loin,</html>","</html>tu devras t’entraîner si tu veux tous les vaincre.<br>N’oublie pas de bien choisir tes attaques, </html>","</html>les Végamon de type eau n’aiment pas <br>les attaques de type électrique ! </html>","fin_message","","",""};						
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []= {"</html>Les Végamon de type eau n’aiment pas<br> les attaques de type électrique ! </html>","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				
+				//MAP TRAVEES 1
+				case 10:{//Dialogue combat numéro 0C- Roméo
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Roméo : Hey toi là, viens voir comme je suis fort !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Roméo : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Roméo : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 7:{//Dialogue combat numéro 0C-Gérard
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Gérard : Mon végamon est le plus puissant de tous, regarde !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Gérard : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Gérard : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 8:{//Dialogue combat numéro 0C -julie
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"</html>Julie: Je n’aime pas trop me battre, mais je veux que mon <br>végamon devienne plus fort et plus beau, alors battons-nous !</html>","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Julie : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Julie : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 9:{//Dialogue combat numéro 0C - Géraldine 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"</html>Géraldine  : La route jusqu’à l’arène est <br>encore longue, montre-moi ce que tu vaux !</html>","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Géraldine  : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Géraldine  : Mon pauvre petit Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				//MAP TRAVEES 2
+			
+				case 11:{//Dialogue combat numéro 0C Jackson 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Jackson  : L’arène se trouve à deux pas d’ici, laisse-moi voir si tu es assez fort !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Jackson  : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Jackson  : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Michelle
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Michelle : Je ne te laisserai pas faire un pas de plus !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Michelle : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Michelle : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				
+				
+				//MAP PC
+				//maison en bas a droite
+				case a:{//Dialogue numéro -Estelle
+							String tableau []= {"Estelle : Bienvenue à toi jeune dresseur, une p’tite binouse ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						
+				}
+				case a:{//Dialogue numéro Victor
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Victor : Allez hop cul sec !","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []= {"Victor : Allez hop cul sec !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				
+				case a:{//Dialogue numéro Adrien
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"</html>Adrien : Tu auras besoin de force si tu veux aller à <br>l’arène, prends un p’tit shot pour la route.</html>","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"</html>Adrien : Tu auras besoin de force si tu veux aller à <br>l’arène, prends un p’tit shot pour la route.</html>","fin_message","","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Gianni 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Gianni : *vomi*","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []= {"Gianni : *vomi*","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				//2e turne a cote
+				case a:{//Dialogue numéro picsou
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"</html>Picsou : « Euuhh pour affronter la championne euuh de l’arène<br> il faudra que tu battes euuhh quatre dresseurs à la suite. </html>","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"</html>Picsou : « Euuhh pour affronter la championne euuh de l’arène<br> il faudra que tu battes euuhh quatre dresseurs à la suite. </html>","fin_message","","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				//3e turne a gauche
+				case a:{//Dialogue numéro Vincent 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Vincent : Cette ville a été renommée il y a deux ans,","mais personne ne semble y prêter attention.","fin_message","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Vincent :  Cette ville a été renommée il y a deux ans,","mais personne ne semble y prêter attention.","fin_message","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Catherine 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Catherine : C’est sympa comme nom « FIMI », non ?","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Catherine : C’est sympa comme nom « FIMI », non ?","fin_message","","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				//RDC
+				case a:{//Dialogue numéro samy
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Samy : Tout roule pour toi ?","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Samy : Tout roule pour toi ?","fin_message","","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Bruno 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"La championne de l’arène a un Murenss surentraîné ! ","Tu pourras essayer de la vaincre","avec des attaques de type électrique !","fin_message","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"La championne de l’arène a un Murenss surentraîné ! ","Tu pourras essayer de la vaincre","avec des attaques de type électrique !","fin_message","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				//1er etage
+				case a:{//Dialogue numéro Jean-Pascal 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Jean-Pascal : M.Sécuritas garde l’entrée de l’arène,"," il surveille tout, impossible de l’entourlouper.","fin_message","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Jean-Pascal : M.Sécuritas garde l’entrée de l’arène,"," il surveille tout, impossible de l’entourlouper.","fin_message","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Kévin 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Kévin : Je voulais affronter Véronique mais M.Sécuritas","n’a pas voulu… Il m’a dit que je n’étais pas","assez fort et il m’a sorti de l’arène !","fin_message","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Kévin : Je voulais affronter Véronique mais M.Sécuritas","n’a pas voulu… Il m’a dit que je n’étais pas","assez fort et il m’a sorti de l’arène !","fin_message","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Clara 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Clara : Hey, il a l’air sympa ton Méloche !","Si tu vas affronter Véronique,"," il faudra qu’il ait plein d'XP !","fin_message","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Clara : Hey, il a l’air sympa ton Méloche !","Si tu vas affronter Véronique,"," il faudra qu’il ait plein d'XP !","fin_message","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				//arene1
+				case a:{//Dialogue numéro mr securitas
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"</html>M.Sécuritas : Bonjour dresseur, bienvenue à l’arène PC. <br> Si tu veux affronter Véronique, </html>","</html> il faudra d’abord que tu te débarrasses <br> de ses 4 gardes du corps. </html>","</html>Ne les sous-estime pas ils sont <br>  très puissants aussi !  </html>","</html> Je vois que ton végamon a *points xp min*,<br>tu peux entrer. Bonne chance. </html>","fin_message","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"</html>M.Sécuritas : Bonjour dresseur, bienvenue à l’arène PC. <br> Si tu veux affronter Véronique, </html>","</html> il faudra d’abord que tu te débarrasses <br> de ses 4 gardes du corps. </html>","</html>Ne les sous-estime pas ils sont <br>  très puissants aussi !  </html>","</html> Je vois que ton végamon a *points xp min*,<br>tu peux entrer. Bonne chance. </html>","fin_message","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case 12:{//Dialogue combat numéro 0C - Garde 1
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Garde 1 : C’est parti !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Garde 1 : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Garde 1 : Tu peux passer...","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Garde 2
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Garde 2 : Pas un pas de plus !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Garde 2 : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Garde 2 : Tu peux passer...","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Garde 3
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"</html>Garde 3 : Pour affronter la championne,<br> il faut le mériter !</html>","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Garde 3 : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Garde 3 : Tu peux passer...","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Garde 4
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"</html>Garde 4 : Tiens, ça faisait longtemps que je n’avais pas vu<br> un dresseur arriver jusqu’à moi, battons-nous !</html>","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Garde 4 : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Garde 4 : Tu peux passer...","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Véronique
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"</html>Véronique :  Alors comme ça tu veux devenir champion <br>de l’arène PC ? En garde dresseur !</html>","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"</html>Véronique :  Alors comme ça tu veux devenir champion <br>de l’arène PC ? En garde dresseur !</html>","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"</html>Véronique : J’ai été battue… Bravo… <br>Tu es vraiment très fort, je te déclare</html>","</html>champion de l’arène PC ! <br>Si tu as encore soif d’aventure, </html>","</html> une arène encore plus puissante <br>t’attend derrière les humas. </html>","</html>Tu pourrais devenir le champion <br> incontesté de la Doua ! </html>","Bonne chance ! ","fin_message",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				//HUMAS 1
+				case 12:{//Dialogue combat numéro 0C - Frédéric 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Frédéric : Oh je commençais à m’ennuyer, viens-là !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Frédéric : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Frédéric : Mon pauvre Vegamon !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - François 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"François :  Boom badaboom, je vais t’écraser.","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"François : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"François : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Paul 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Paul : Halte là citoyen, sois honoré de me combattre.","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Paul : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Paul : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Charlie 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Charlie : Oh tu m’as trouvé ! Je voulais rester caché.","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Charlie : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Charlie : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case a:{//Dialogue numéro RHINO 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"C’est une statue de rhinocéros","Etrangement,","l’herbe ne pousse plus autour...","fin_message","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"C’est une statue de rhinocéros","Etrangement,","l’herbe ne pousse plus autour...","fin_message","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				
+				
+				//HUMAS 2
+				case 12:{//Dialogue combat numéro 0C - Julieng 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Julieng : Il fait froid non ? Réchauffons-nous !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Julieng : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Julieng : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Jérôme
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Jérôme : Je m’entraîne depuis des lustres!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Jérôme : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Jérôme : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Pascal 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Pascal : Tu n’as aucune chance contre moi !","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Pascal : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Pascal : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Phoebe
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Phoebe :  Un p’tit combat, ça te dit ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Phoebe : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Phoebe : Mon pauvre Vegamon!","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				//LA TETE D'OR
+				case a:{//Dialogue numéro Jaquie 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Jaquie : J'adore cette ville.","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Jaquie : J'adore cette ville.","fin_message","","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Vega 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Prof. Vega : Ca alors ! tu es arrivé","jusqu'ici ! Meloche et toi formez","un duo incroyable !","Bonne chance pour la suite !","fin_message","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Prof. Vega : Ca alors ! tu es arrivé","jusqu'ici ! Meloche et toi formez","un duo incroyable !","Bonne chance pour la suite !","fin_message","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Donna 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Donna : C’est dans cette arène que se trouve","le plus grand dresseur de la Doua","Tu comptes l'affronter ?","fin_message","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Donna : C’est dans cette arène que se trouve","le plus grand dresseur de la Doua","Tu comptes l'affronter ?","fin_message","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				//1ere maison
+				case a:{//Dialogue numéro Denis  
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Denis : Est-ce-que tu savais que cette ville","avait été créée en 1857 ?!","fin_message","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Denis : Est-ce-que tu savais que cette ville","avait été créée en 1857 ?!","fin_message","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Eugène  
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Eugène : Cette map, c’est 117 hectares de bonheur","dans lequel viennent se balader","3 millions de visiteurs chaque année,","c’est fou hein.","fin_message","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Eugène : Cette map, c’est 117 hectares de bonheur","dans lequel viennent se balader","3 millions de visiteurs chaque année,","c’est fou hein.","fin_message","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Gustave  
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Gustave :  Pfiou, je suis épuisé, je viens de planter le 3000ième rosier","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Gustave :  Pfiou, je suis épuisé, je viens de planter le 3000ième rosier","fin_message","","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Ricardo  
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Ricardo : Hola amigo, j’ai fait 3000 km pour venir"," jusqu’ici, j’espère que ça vaut le coup… ","fin_message","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Ricardo : Hola amigo, j’ai fait 3000 km pour venir"," jusqu’ici, j’espère que ça vaut le coup… ","fin_message","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				//2e maison
+				case a:{//Dialogue numéro Frédéric  
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Frédéric : Le champion de cette arène, c’est Eric,","c’est le boss incontesté des dresseurs de Végamons","tout le monde le connaît et tout le monde l’idolâtre…"," Quelle chance.","fin_message","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Frédéric : Le champion de cette arène, c’est Eric,","c’est le boss incontesté des dresseurs de Végamons","tout le monde le connaît et tout le monde l’idolâtre…"," Quelle chance.","fin_message","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				//immeuble
+				case a:{//Dialogue numéro Gérard  
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Gérard :  Tu veux affronter le champion ? ","Quelle audace, j’espère que tu es bien entraîné…","fin_message","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Gérard :  Tu veux affronter le champion ? ","Quelle audace, j’espère que tu es bien entraîné…","fin_message","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Prof Chen 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Prof Chen :  Eric, quel formidable dresseur !","j’avais décelé son potentiel très jeune.","Je lui ai donné son premier végamon","il y a fort longtemps, un Méloche.","fin_message","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Prof Chen :  Eric, quel formidable dresseur !","j’avais décelé son potentiel très jeune.","Je lui ai donné son premier végamon","il y a fort longtemps, un Méloche.","fin_message","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Mike  
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Mike : Le Méloche du champion est redoutable… ","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Mike : Le Méloche du champion est redoutable… ","fin_message","","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Jules  
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Jules : J’ai tout essayé… Eric n’a aucun point faible.","fin_message","","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Jules : J’ai tout essayé… Eric n’a aucun point faible.","fin_message","","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case a:{//Dialogue numéro Jeanne  
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"Jeanne : J’ai rêvé que je réussissais à vaincre Eric… ","ça semblait si réel...","fin_message","","","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"Jeanne : J’ai rêvé que je réussissais à vaincre Eric… ","ça semblait si réel...","fin_message","","","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				//arene
+				case a:{//Dialogue numéro M.Sécuritas 
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discuté -ouverture
+							String tableau []={"M.Sécuritas : Bienvenue à toi, nombreux sont les dresseurs"," à avoir tenté leurs chances ici…","Tous sont repartis bredouille,","j’espère que tu es prêt ! Bonne chance.","fin_message","",""};							
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Déja discuté -première interraction
+							String tableau []={"M.Sécuritas : Bienvenue à toi, nombreux sont les dresseurs"," à avoir tenté leurs chances ici…","Tous sont repartis bredouille,","j’espère que tu es prêt ! Bonne chance.","fin_message","",""};							
+							this.texteAAfficher=tableau;
+							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				}
+				case 12:{//Dialogue combat numéro 0C - Garde 1
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Garde 1 : Je suis le 5ème meilleur dresseur de la Doua, mouhaha.","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Garde 1 : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Garde 1 : Tu peux passer...","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Garde 2
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"Garde 2 : Tu es bien courageux mon enfant.","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Garde 2 : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Garde 2 : Tu peux passer...","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Garde 3
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"</html>Garde 3 :  Rare sont ceux à s’être aventuré<br> aussi loin, en garde ! </html>","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Garde 3 : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Garde 3 : Tu peux passer...","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Katia
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"</html>Katia : Je suis le bras droit d’Eric,<br>tu ne me vaincras pas si facilement ! </html>","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"Katia : T'en veux encore ?","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"Katia : Tu m'as vaincue, bravo.","fin_message","","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+				case 12:{//Dialogue combat numéro 0C - Eric
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Combat pas fait
+							String tableau []= {"</html>Eric : Bonjour dresseur, je suis impressionné que tu sois<br> parvenu jusqu’ici, la route a dû </html>","</html> être longue, malheureusement <br>  pour toi elle s’arrête maintenant ! </html>","fin_message","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//Combat perdu
+							String tableau []= {"</html>Eric : Bonjour dresseur, je suis impressionné que tu sois<br> parvenu jusqu’ici, la route a dû </html>","</html> être longue, malheureusement <br>  pour toi elle s’arrête maintenant ! </html>","fin_message","","","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						case 2:{//Combat gagné
+							String tableau []= {"</html>Eric : Bon et bien bravo… <br>Tu es le meilleur dresseur de la Doua,</html>","</html> le maître du jeu. <br> Je te laisse la place, </html>","</html>, il est grand temps que je me retire <br> et que je prenne une retraite bien méritée. </html>","Adieu.","fin_message","",""};
+							this.texteAAfficher=tableau;
+							break;
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
+				} 
+		}
+}				
+}				
 
