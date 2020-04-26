@@ -3,60 +3,69 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.awt.event.*;
 
-public class FenetrePokedex extends JFrame implements ActionListener{
+public class FenetrePokedex implements ActionListener{
     
-    private ArrayList<VEGAMONS> pokedex;
-    private JLabel Meloche, Aigloss, Murenss, Anemoniac, Sunfure, Pandalame, mel, aig, sun, ane, pan, mur;
-    private JButton pok1, pok2, pok3, pok4, pok5, pok6;
-    public FenetrePoke Poke;
-
-
-	public FenetrePokedex(ArrayList<VEGAMONS> lePokedex){
-		this.setTitle("Pokedex");
-		this.setSize(1000,1000);
-		// Pour placer la fenêtre au centre de l'écran
-		this.setLocationRelativeTo(null);
-		this.setLayout(null);
-		this.setVisible(false);
+    private JLabel Meloche, Aigloss, Murenss, Anemoniac, Sunfure, Pandalame, mel, aig, sun, ane, pan, mur, imageFond, lRetour;
+    private JButton pok1, pok2, pok3, pok4, pok5, pok6, retour;
+    private JPanel pPrincipal;
+	private CJframe JFramePrincipal; 
+	private VariablesDeJeu VariablesSession; 
+	private Sauvegarde SauvegardeJeu;
+	private Musiques MusiqueDeJeu;
+    
+	public FenetrePokedex( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde, Musiques musique) {
+		
+		JFramePrincipal= Frame;
+		VariablesSession=variables;
+		SauvegardeJeu=sauvegarde;
+		MusiqueDeJeu=musique;
         
-        pokedex=lePokedex;
-        
+        pPrincipal = new JPanel();
+        pPrincipal.setBounds(0, 0, 800, 800);
+		pPrincipal.setLayout(null);
+        JFramePrincipal.add(pPrincipal);
+		
         pok1 = new JButton();
-        pok1.setBounds(100, 0, 200, 90);
-        this.add(pok1);
+        pok1.setBounds(175, 250, 200, 90);
         pok1.setLayout(null);
         pok1.addActionListener(this);
-        
+        pPrincipal.add(pok1);
+
         pok2 = new JButton();
-        pok2.setBounds(100, 100, 200, 90);
-        this.add(pok2);
+        pok2.setBounds(175, 350, 200, 90);
+        pPrincipal.add(pok2);
         pok2.setLayout(null);
         pok2.addActionListener(this);
         
         pok3 = new JButton();
-        pok3.setBounds(100, 200, 200, 90);
-        this.add(pok3);
+        pok3.setBounds(175, 450, 200, 90);
+        pPrincipal.add(pok3);
         pok3.setLayout(null);
         pok3.addActionListener(this);
         
         pok4 = new JButton();
-        pok4.setBounds(100, 300, 200, 90);
-        this.add(pok4);
+        pok4.setBounds(425, 250, 200, 90);
+        pPrincipal.add(pok4);
         pok4.setLayout(null);
         pok4.addActionListener(this);
         
         pok5 = new JButton();
-        pok5.setBounds(100, 400, 200, 90);
-        this.add(pok5);
+        pok5.setBounds(425, 350, 200, 90);
+        pPrincipal.add(pok5);
         pok5.setLayout(null);
         pok5.addActionListener(this);
         
         pok6 = new JButton();
-        pok6.setBounds(100, 500, 200, 90);
-        this.add(pok6);
+        pok6.setBounds(425, 450, 200, 90);
+        pPrincipal.add(pok6);
         pok6.setLayout(null);
         pok6.addActionListener(this);
         
+        retour = new JButton();
+        retour.setBounds(325, 600, 150, 70);
+        pPrincipal.add(retour);
+        retour.setLayout(null);
+        retour.addActionListener(this);
         
         
         Meloche = new JLabel(new ImageIcon("Images/Meloche.png")); 
@@ -84,46 +93,61 @@ public class FenetrePokedex extends JFrame implements ActionListener{
         pok6.add(Pandalame);
         
         
-        mel = new JLabel (pokedex.get(0).nom);
+        mel = new JLabel (VariablesSession.pokedex.get(0).nom);
         mel.setBounds (120, 20, 700, 60);
         pok1.add(mel);
         
-        aig = new JLabel (pokedex.get(1).nom);
+        aig = new JLabel (VariablesSession.pokedex.get(1).nom);
         aig.setBounds (120, 20, 700, 60);
         pok2.add(aig);
         
-        ane = new JLabel (pokedex.get(2).nom);
+        ane = new JLabel (VariablesSession.pokedex.get(2).nom);
         ane.setBounds (120, 20, 700, 60);
         pok3.add(ane);
         
-        sun = new JLabel (pokedex.get(3).nom);
+        sun = new JLabel (VariablesSession.pokedex.get(3).nom);
         sun.setBounds (120, 20, 700, 60);
         pok4.add(sun);
         
-        mur = new JLabel (pokedex.get(4).nom);
+        mur = new JLabel (VariablesSession.pokedex.get(4).nom);
         mur.setBounds (120, 20, 700, 60);
         pok5.add(mur);
         
-        pan = new JLabel (pokedex.get(5).nom);
+        pan = new JLabel (VariablesSession.pokedex.get(5).nom);
         pan.setBounds (120, 20, 700, 60);
         pok6.add(pan);
+        
+        lRetour = new JLabel ("RETOUR");
+        lRetour.setBounds (50, 5, 700, 60);
+        retour.add(lRetour);
+        
+        imageFond = new JLabel(new ImageIcon("Images/fond.png")); 
+		imageFond.setBounds(0,0,800,820);
+		pPrincipal.add(imageFond);
+		JFramePrincipal.setVisible(true);
     }
         
     public void actionPerformed(ActionEvent e){
  
         if (e.getSource()==pok1){
-            Poke=new FenetrePoke(0, pokedex);
+            FenetrePoke Poke=new FenetrePoke(0, VariablesSession);
         } else if (e.getSource()==pok2){
-            Poke=new FenetrePoke(1, pokedex);
+            FenetrePoke Poke=new FenetrePoke(1, VariablesSession);
         } else if (e.getSource()==pok3){
-            Poke=new FenetrePoke(2, pokedex);
+            FenetrePoke Poke=new FenetrePoke(2, VariablesSession);
         } else if (e.getSource()==pok4){
-            Poke=new FenetrePoke(3, pokedex);
+            FenetrePoke Poke=new FenetrePoke(3, VariablesSession);
         } else if (e.getSource()==pok5){
-            Poke=new FenetrePoke(4, pokedex);
-        } else if (e.getSource()==pok6){
-            Poke=new FenetrePoke(5, pokedex);
+            FenetrePoke Poke=new FenetrePoke(4, VariablesSession);
+        } 
+        else if (e.getSource()==retour){
+			pPrincipal.removeAll();
+
+			JFramePrincipal.remove(pPrincipal);
+
+			JFramePrincipal.revalidate();
+			JFramePrincipal.repaint();
+			Accueil ecranAccueil= new Accueil(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
         }
-        Poke.setVisible(true);
 	}
 }

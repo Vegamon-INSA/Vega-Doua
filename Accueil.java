@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Accueil implements ActionListener{
 	private JButton jouer,resetPartie,aide,parametre,pokedex;
-	private JLabel wow;
+	private JLabel imageFond;
 	private JMenu menu,menu1,menu2,menu3,menu4;
 	private JMenuBar menuBar= new JMenuBar();
 	private CJframe JFramePrincipal;
@@ -52,9 +52,9 @@ public class Accueil implements ActionListener{
 		JFramePrincipal.add(aide);
 		aide.addActionListener(this);
 
-		wow = new JLabel(new ImageIcon("Images/fond.png")); 
-		wow.setBounds(0,0,800,820);
-		JFramePrincipal.add(wow);
+		imageFond = new JLabel(new ImageIcon("Images/fond.png")); 
+		imageFond.setBounds(0,0,800,820);
+		JFramePrincipal.add(imageFond);
 		JFramePrincipal.setVisible(true);
 
 	}
@@ -75,7 +75,7 @@ public class Accueil implements ActionListener{
 			JFramePrincipal.remove(aide);
 			JFramePrincipal.remove(resetPartie);
 			JFramePrincipal.remove(pokedex);
-			JFramePrincipal.remove(wow);
+			JFramePrincipal.remove(imageFond);
 			JFramePrincipal.validate();
 			JFramePrincipal.repaint();
 
@@ -94,9 +94,8 @@ public class Accueil implements ActionListener{
 			JFramePrincipal.remove(jouer);
 			JFramePrincipal.remove(aide);
 			JFramePrincipal.remove(resetPartie);
-			JFramePrincipal.remove(parametre);
 			JFramePrincipal.remove(pokedex);
-			JFramePrincipal.remove(wow);
+			JFramePrincipal.remove(imageFond);
 			JFramePrincipal.validate();
 			JFramePrincipal.repaint();
 			VariablesSession.NouvelleCarte(100);
@@ -111,6 +110,13 @@ public class Accueil implements ActionListener{
 		}
 		
 		if (e.getSource()==pokedex){
+			JFramePrincipal.remove(jouer);
+			JFramePrincipal.remove(aide);
+			JFramePrincipal.remove(resetPartie);
+			JFramePrincipal.remove(pokedex);
+			JFramePrincipal.remove(imageFond);
+			JFramePrincipal.validate();
+			JFramePrincipal.repaint();
 			if (SauvegardeJeu.SauvegardeExiste()){
 				VariablesSession=SauvegardeJeu.RestaurerSauvegarde();
 			}
@@ -118,8 +124,7 @@ public class Accueil implements ActionListener{
 				VariablesSession.NouvelleCarte(000);
 				SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 			}
-			FenetrePokedex pokedex = new FenetrePokedex(VariablesSession.pokedex);
-			pokedex.setVisible(true);
+			FenetrePokedex pokedex = new FenetrePokedex(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 		}
 	}
 }
