@@ -92,7 +92,6 @@ public class FenetrePokedex implements ActionListener{
         Pandalame.setBounds(0,-5,100,100);
         pok6.add(Pandalame);
         
-        
         mel = new JLabel (VariablesSession.pokedex.get(0).nom);
         mel.setBounds (120, 20, 700, 60);
         pok1.add(mel);
@@ -142,9 +141,7 @@ public class FenetrePokedex implements ActionListener{
         } 
         else if (e.getSource()==retour){
 			pPrincipal.removeAll();
-
 			JFramePrincipal.remove(pPrincipal);
-
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
 			Accueil ecranAccueil= new Accueil(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
