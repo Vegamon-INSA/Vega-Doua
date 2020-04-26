@@ -411,13 +411,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 5:{//Dialogue numéro 03 - Jeanne
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
-							String tableau []={"</html>Jeanne : Tu connais Véronique ? C’est la championne de l’arène, au nord de la ville,<br> il paraît qu’elle n’a jamais perdu un seul combat !</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Jeanne : Tu connais Véronique ? C’est la championne de l’arène, au nord de la ville,<br> il paraît qu’elle n’a jamais perdu un seul combat !</html>","fin_message","","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Déja discuté -première interraction
-							String tableau []= {"</html>Jeanne : Tu devrais tenter ta chance à l’arène, <br>tu pourrais peut-être devenir le nouveau champion ! </html>","</html>Mais attention il faudra bien entraîner ton végamon, <br>sinon on ne te laissera même pas entrer !</html>","fin_message","","","",""};
+							String tableau []= {"<html>Jeanne : Tu devrais tenter ta chance à l’arène, <br>tu pourrais peut-être devenir le nouveau champion ! </html>","<html>Mais attention il faudra bien entraîner ton végamon, <br>sinon on ne te laissera même pas entrer !</html>","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -434,7 +434,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						case 0:{//Jamais discuté -ouverture
 							//si on a deja parlé à vega
 							if(listeInterractionsAvecDresseurs[3/*vega*/]==1){
-								String tableau []={"Flora : Hey ! Véga m’a chargé de te donner des conseils.<br>Méloche est faible, il faudra que tu l’entraînes pour qu’il gagne de l’XP.</html>", "</html>Au nord, il y a les travées, un lieu peu entretenu avec des trèfles au sol.<br>C’est là que se cachent les Végamon, des créatures comme ton Méloche.</html>","</html>Certains pourront décider de t’attaquer à tout moment.<br>Si tu gagnes le combat, tu gagneras de l’XP, rendant Méloche plus fort,</html>", "</html>si tu perds, Meloche sera KO et tu devras te reposer dans <br>ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
+								String tableau []={"Flora : Hey ! Véga m’a chargé de te donner des conseils.<br>Méloche est faible, il faudra que tu l’entraînes pour qu’il gagne de l’XP.</html>", "<html>Au nord, il y a les travées, un lieu peu entretenu avec des trèfles au sol.<br>C’est là que se cachent les Végamon, des créatures comme ton Méloche.</html>","<html>Certains pourront décider de t’attaquer à tout moment.<br>Si tu gagnes le combat, tu gagneras de l’XP, rendant Méloche plus fort,</html>", "<html>si tu perds, Meloche sera KO et tu devras te reposer dans <br>ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
 								listeInterractionsAvecDresseurs[numeroDresseur]=1;
 								this.texteAAfficher=tableau;
 
@@ -460,13 +460,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 3:{//Dialogue numéro 03 - Alexis
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture 
-							String tableau []={"</html>Alexis : Hey, les points d’XP pour un vegamon, <br>c’est important, c’est même LA clé pour devenir hyper balèze.</html>","</html> Si tu bats un vegamon puissant, tu gagnes beaucoup <br>de points d’XP et ton Méloche gagne en puissance. </html>","</html>En revanche, plus ton vegamon est puissant, plus <br>il te faudra de temps pour le faire progresser encore.</html>","Il faudra t’armer de patience !","fin_message","",""};							
+							String tableau []={"<html>Alexis : Hey, les points d’XP pour un vegamon, <br>c’est important, c’est même LA clé pour devenir hyper balèze.</html>","<html> Si tu bats un vegamon puissant, tu gagnes beaucoup <br>de points d’XP et ton Méloche gagne en puissance. </html>","<html>En revanche, plus ton vegamon est puissant, plus <br>il te faudra de temps pour le faire progresser encore.</html>","Il faudra t’armer de patience !","fin_message","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Déja discuté -première interraction
-							String tableau []= {"</html>Plus ton vegamon est puissant, plus <br>il te faudra de temps pour le faire progresser.</html>","Il faudra t’armer de patience !","fin_message","","","",""};
+							String tableau []= {"<html>Plus ton vegamon est puissant, plus <br>il te faudra de temps pour le faire progresser.</html>","Il faudra t’armer de patience !","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -480,13 +480,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
 							
-							String tableau []={"</html> Rémi : Attention ! Il y a plein <br>de dresseurs très puissants plus loin,</html>","</html>tu devras t’entraîner si tu veux tous les vaincre.<br>N’oublie pas de bien choisir tes attaques, </html>","</html>les Végamon de type eau n’aiment pas <br>les attaques de type électrique ! </html>","fin_message","","",""};						
+							String tableau []={"<html> Rémi : Attention ! Il y a plein <br>de dresseurs très puissants plus loin,</html>","<html>tu devras t’entraîner si tu veux tous les vaincre.<br>N’oublie pas de bien choisir tes attaques, </html>","<html>les Végamon de type eau n’aiment pas <br>les attaques de type électrique ! </html>","fin_message","","",""};						
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Déja discuté -première interraction
-							String tableau []= {"</html>Les Végamon de type eau n’aiment pas<br> les attaques de type électrique ! </html>","fin_message","","","","",""};
+							String tableau []= {"<html>Les Végamon de type eau n’aiment pas<br> les attaques de type électrique ! </html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -545,7 +545,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 8:{//Dialogue combat numéro 0C -julie
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"</html>Julie: Je n’aime pas trop me battre, mais je veux que mon <br>végamon devienne plus fort et plus beau, alors battons-nous !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Julie: Je n’aime pas trop me battre, mais je veux que mon <br>végamon devienne plus fort et plus beau, alors battons-nous !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -567,7 +567,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 9:{//Dialogue combat numéro 0C - Géraldine 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"</html>Géraldine  : La route jusqu’à l’arène est <br>encore longue, montre-moi ce que tu vaux !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Géraldine  : La route jusqu’à l’arène est <br>encore longue, montre-moi ce que tu vaux !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -665,13 +665,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 16:{//Dialogue numéro Adrien
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
-							String tableau []={"</html>Adrien : Tu auras besoin de force si tu veux aller à <br>l’arène, prends un p’tit shot pour la route.</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Adrien : Tu auras besoin de force si tu veux aller à <br>l’arène, prends un p’tit shot pour la route.</html>","fin_message","","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Déja discuté -première interraction
-							String tableau []={"</html>Adrien : Tu auras besoin de force si tu veux aller à <br>l’arène, prends un p’tit shot pour la route.</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Adrien : Tu auras besoin de force si tu veux aller à <br>l’arène, prends un p’tit shot pour la route.</html>","fin_message","","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -704,13 +704,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 15:{//Dialogue numéro picsou
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
-							String tableau []={"</html>Picsou : « Euuhh pour affronter la championne euuh de l’arène<br> il faudra que tu battes euuhh quatre dresseurs à la suite. </html>","fin_message","","","","",""};							
+							String tableau []={"<html>Picsou : « Euuhh pour affronter la championne euuh de l’arène<br> il faudra que tu battes euuhh quatre dresseurs à la suite. </html>","fin_message","","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Déja discuté -première interraction
-							String tableau []={"</html>Picsou : « Euuhh pour affronter la championne euuh de l’arène<br> il faudra que tu battes euuhh quatre dresseurs à la suite. </html>","fin_message","","","","",""};							
+							String tableau []={"<html>Picsou : « Euuhh pour affronter la championne euuh de l’arène<br> il faudra que tu battes euuhh quatre dresseurs à la suite. </html>","fin_message","","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -860,13 +860,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 25:{//Dialogue numéro mr securitas
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
-							String tableau []={"</html>M.Sécuritas : Bonjour dresseur, bienvenue à l’arène PC. <br> Si tu veux affronter Véronique, </html>","</html> il faudra d’abord que tu te débarrasses <br> de ses 4 gardes du corps. </html>","</html>Ne les sous-estime pas ils sont <br>  très puissants aussi !  </html>","</html> Je vois que ton végamon a *points xp min*,<br>tu peux entrer. Bonne chance. </html>","fin_message","",""};							
+							String tableau []={"<html>M.Sécuritas : Bonjour dresseur, bienvenue à l’arène PC. <br> Si tu veux affronter Véronique, </html>","<html> il faudra d’abord que tu te débarrasses <br> de ses 4 gardes du corps. </html>","<html>Ne les sous-estime pas ils sont <br>  très puissants aussi !  </html>","<html> Je vois que ton végamon a *points xp min*,<br>tu peux entrer. Bonne chance. </html>","fin_message","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Déja discuté -première interraction
-							String tableau []={"</html>M.Sécuritas : Bonjour dresseur, bienvenue à l’arène PC. <br> Si tu veux affronter Véronique, </html>","</html> il faudra d’abord que tu te débarrasses <br> de ses 4 gardes du corps. </html>","</html>Ne les sous-estime pas ils sont <br>  très puissants aussi !  </html>","</html> Je vois que ton végamon a *points xp min*,<br>tu peux entrer. Bonne chance. </html>","fin_message","",""};							
+							String tableau []={"<html>M.Sécuritas : Bonjour dresseur, bienvenue à l’arène PC. <br> Si tu veux affronter Véronique, </html>","<html> il faudra d’abord que tu te débarrasses <br> de ses 4 gardes du corps. </html>","<html>Ne les sous-estime pas ils sont <br>  très puissants aussi !  </html>","<html> Je vois que ton végamon a *points xp min*,<br>tu peux entrer. Bonne chance. </html>","fin_message","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -945,7 +945,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 21:{//Dialogue combat numéro 0C - Garde 4
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"</html>Garde 4 : Tiens, ça faisait longtemps que je n’avais pas vu<br> un dresseur arriver jusqu’à moi, battons-nous !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 4 : Tiens, ça faisait longtemps que je n’avais pas vu<br> un dresseur arriver jusqu’à moi, battons-nous !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -967,17 +967,17 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 20:{//Dialogue combat numéro 0C - Véronique
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"</html>Véronique :  Alors comme ça tu veux devenir champion <br>de l’arène PC ? En garde dresseur !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Véronique :  Alors comme ça tu veux devenir champion <br>de l’arène PC ? En garde dresseur !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"</html>Véronique :  Alors comme ça tu veux devenir champion <br>de l’arène PC ? En garde dresseur !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Véronique :  Alors comme ça tu veux devenir champion <br>de l’arène PC ? En garde dresseur !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagné
-							String tableau []= {"</html>Véronique : J’ai été battue… Bravo… <br>Tu es vraiment très fort, je te déclare</html>","</html>champion de l’arène PC ! <br>Si tu as encore soif d’aventure, </html>","</html> une arène encore plus puissante <br>t’attend derrière les humas. </html>","</html>Tu pourrais devenir le champion <br> incontesté de la Doua ! </html>","Bonne chance ! ","fin_message",""};
+							String tableau []= {"<html>Véronique : J’ai été battue… Bravo… <br>Tu es vraiment très fort, je te déclare</html>","<html>champion de l’arène PC ! <br>Si tu as encore soif d’aventure, </html>","<html> une arène encore plus puissante <br>t’attend derrière les humas. </html>","<html>Tu pourrais devenir le champion <br> incontesté de la Doua ! </html>","Bonne chance ! ","fin_message",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1503,7 +1503,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 52:{//Dialogue combat numéro 0C - Garde 3
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"</html>Garde 3 :  Rare sont ceux à s’être aventuré<br> aussi loin, en garde ! </html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 3 :  Rare sont ceux à s’être aventuré<br> aussi loin, en garde ! </html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -1525,7 +1525,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 51:{//Dialogue combat numéro 0C - Katia
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"</html>Katia : Je suis le bras droit d’Eric,<br>tu ne me vaincras pas si facilement ! </html>","fin_message","","","","",""};
+							String tableau []= {"<html>Katia : Je suis le bras droit d’Eric,<br>tu ne me vaincras pas si facilement ! </html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -1547,17 +1547,17 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 50:{//Dialogue combat numéro 0C - Eric
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"</html>Eric : Bonjour dresseur, je suis impressionné que tu sois<br> parvenu jusqu’ici, la route a dû </html>","</html> être longue, malheureusement <br>  pour toi elle s’arrête maintenant ! </html>","fin_message","","","",""};
+							String tableau []= {"<html>Eric : Bonjour dresseur, je suis impressionné que tu sois<br> parvenu jusqu’ici, la route a dû </html>","<html> être longue, malheureusement <br>  pour toi elle s’arrête maintenant ! </html>","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"</html>Eric : Bonjour dresseur, je suis impressionné que tu sois<br> parvenu jusqu’ici, la route a dû </html>","</html> être longue, malheureusement <br>  pour toi elle s’arrête maintenant ! </html>","fin_message","","","",""};
+							String tableau []= {"<html>Eric : Bonjour dresseur, je suis impressionné que tu sois<br> parvenu jusqu’ici, la route a dû </html>","<html> être longue, malheureusement <br>  pour toi elle s’arrête maintenant ! </html>","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagné
-							String tableau []= {"</html>Eric : Bon et bien bravo… <br>Tu es le meilleur dresseur de la Doua,</html>","</html> le maître du jeu. <br> Je te laisse la place, </html>","</html>, il est grand temps que je me retire <br> et que je prenne une retraite bien méritée. </html>","Adieu.","fin_message","",""};
+							String tableau []= {"<html>Eric : Bon et bien bravo… <br>Tu es le meilleur dresseur de la Doua,</html>","</html> le maître du jeu. <br> Je te laisse la place, </html>","<html>, il est grand temps que je me retire <br> et que je prenne une retraite bien méritée. </html>","Adieu.","fin_message","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
