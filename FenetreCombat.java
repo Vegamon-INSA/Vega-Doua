@@ -27,9 +27,8 @@ public class FenetreCombat implements ActionListener{
 		MusiqueDeJeu=musique;
 		freeze = false;
 		trefle = true; //qd code de la map sera bon mettre a false
-        pokedex=VariablesSession.pokedex;
         textes=VariablesSession.textesCombats;
-        perso = pokedex.get(0);
+        perso = VariablesSession.pokedex.get(0);
         numCase=numeroCase;
         x=100;
         y=135; // coordonnées des icons des pokemons

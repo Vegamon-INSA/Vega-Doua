@@ -10,7 +10,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		public String musique; // Image de fond des cartes
 		public ArrayList<VEGAMONS> pokedex ;
 		public ArrayList<String> textesCombats;//potentiellement supprimable
-		public String[] texteAAfficher = new String[5]; //tableau contenenant la liste des combats et leur état : 0= jamais discuté, 1= déjà discuté etc
+		public String[] texteAAfficher = new String[7]; //tableau contenenant la liste des combats et leur état : 0= jamais discuté, 1= déjà discuté etc
 		public int [] listeInterractionsAvecDresseurs  = new int[25]; //tableau contenenant la liste des combats et leur état : 0= pas fait, 1 perdu, 2 gagné
 		private int listeInterractionsAvecDresseursInitiale [] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 		private int Taturne [][] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,2,2,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,201,201,201,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,201,2,201,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,201,2,201,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,201,201,201,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,4102,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,4102,4102,4102,4102,4102,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,4102,4102,4102,4102,4102,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
@@ -33,49 +33,38 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		private	int BatRdcTO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,4708,4708,4708,4708,0,0,0,0,0,0,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,4708,4708,4708,4708,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,2,2,0,0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,0},{0,1,1,2,2,0,0,1,1,1,1,1,1,1,1,2,2,0,0,0,0,1,1,1,0},{0,1,1,2,2,0,0,1,1,1,1,1,1,1,1,2,2,0,0,0,0,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,4707,4707,4707,4707,4707,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,4707,4707,4707,4707,4707,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private	int BatEtageTO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,1,1,2,2,1,1,1,1,0,0,0,0,0,1,1,1,1,1,4709,4709,4709,4709,0,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,4709,4709,4709,4709,0,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,2,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,2,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0},{0,1,1,1,1,1,1,1,2,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private	int AreneTO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,2,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,2,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,0,0,0,0},{0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,2,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,1,1,1,2,2,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,4711,4711,4711,4711,4711,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,4711,4711,4711,4711,4711,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+		
+		 // String nom, double attaque, double esquive, int PVmax, int type, int XP, Attaques attaque1, Attaques attaque2, Attaques attaque3, Attaques attaque4){
+		private Attaques attaque1 = new Attaques("Racineries", 2, 10,0,0); //Meloche (1 à 4)
+		private Attaques attaque2 = new Attaques("Poudrelles", 1, 10,0,0);
+		private Attaques attaque3 = new Attaques("Lightning", 4, 10,0,0);
+		private Attaques attaque4 = new Attaques("Abysses", 3, 10,0,0);
+		private Attaques attaque5 = new Attaques("Bec Aqua", 3, 12,0,0);   //Pour le moment seul le type est utile !!
+		private Attaques attaque6 = new Attaques("Foudre", 4, 12,0,0);
+		private Attaques attaque7 = new Attaques("Incendie", 1, 12,0,0);
+		private Attaques attaque8 = new Attaques("Tsunami",3, 12,0,0);
+		private Attaques attaque9 = new Attaques("Fouetifeuille", 2, 12,0,0);
+		private Attaques attaque10 = new Attaques("Jet d'eau", 3, 10,0,0);
+		private Attaques attaque11 = new Attaques("Electron", 4, 12,0,0);
+		private Attaques attaque12 = new Attaques("Coup de jus", 4, 12,0,0);
+		private Attaques attaque13 = new Attaques("Ebullition", 1, 12,0,0);
+		private Attaques attaque14 = new Attaques("Liane", 2, 12,0,0);
+		private Attaques attaque15 = new Attaques("Brulure", 1, 12,0,0);
+		private Attaques attaque16 = new Attaques("Plante carnivore", 2, 12,0,0);
+		public int xpVegamon1;
+		public int xpVegamon2;
+		public int xpVegamon3;
+		public int xpVegamon4;
+		public int xpVegamon5;
+		public int xpVegamon6;
 
 		public void NouvelleCarte(int numeroDeLaCarte){
-			
-				// String nom, double attaque, double esquive, int PVmax, int type, int XP, Attaques attaque1, Attaques attaque2, Attaques attaque3, Attaques attaque4){
-				Attaques attaque1 = new Attaques("Racineries", 2, 10,0,0); //Meloche (1 à 4)
-				Attaques attaque2 = new Attaques("Poudrelles", 1, 10,0,0);
-				Attaques attaque3 = new Attaques("Lightning", 4, 10,0,0);
-				Attaques attaque4 = new Attaques("Abysses", 3, 10,0,0);
-				Attaques attaque5 = new Attaques("Bec Aqua", 3, 12,0,0);   //Pour le moment seul le type est utile !!
-				Attaques attaque6 = new Attaques("Foudre", 4, 12,0,0);
-				Attaques attaque7 = new Attaques("Incendie", 1, 12,0,0);
-				Attaques attaque8 = new Attaques("Tsunami",3, 12,0,0);
-				Attaques attaque9 = new Attaques("Fouetifeuille", 2, 12,0,0);
-				Attaques attaque10 = new Attaques("Jet d'eau", 3, 10,0,0);
-				Attaques attaque11 = new Attaques("Electron", 4, 12,0,0);
-				Attaques attaque12 = new Attaques("Coup de jus", 4, 12,0,0);
-				Attaques attaque13 = new Attaques("Ebullition", 1, 12,0,0);
-				Attaques attaque14 = new Attaques("Liane", 2, 12,0,0);
-				Attaques attaque15 = new Attaques("Brulure", 1, 12,0,0);
-				Attaques attaque16 = new Attaques("Plante carnivore", 2, 12,0,0);
-				
-				ArrayList<VEGAMONS> listePokemons = new ArrayList<VEGAMONS>() ;
-				
-				VEGAMONS v1 = new VEGAMONS ("Meloche", 45, 50, 0.2, 40, 4, 1, attaque2, attaque1, attaque4, attaque3) ;
-				VEGAMONS v2 = new VEGAMONS ("Aigleau", 50, 37, 0.24, 25, 3, 1, attaque5, attaque8, attaque10, attaque4) ;
-				VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.2, 45, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
-				VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 35, 0.2, 35, 1, 1, attaque7, attaque2, attaque13, attaque15) ;
-				VEGAMONS v5 = new VEGAMONS ("Anemoniac", 40, 35, 0.2, 30, 3, 1, attaque8, attaque4, attaque5, attaque10) ;
-				VEGAMONS v6 = new VEGAMONS ("Pandalame", 45, 45, 0.16, 45, 2, 1, attaque9, attaque1, attaque14, attaque16) ;
-				listePokemons.add(v1);
-				listePokemons.add(v2);
-				listePokemons.add(v3);
-				listePokemons.add(v4);
-				listePokemons.add(v5);
-				listePokemons.add(v6);
 				
 				ArrayList<String> listeTextesCombats = new ArrayList<String>() ;
 				String s1 = "texte de combat 1" ;
 				listeTextesCombats.add(s1);
 				this.textesCombats=listeTextesCombats;
-				
 				this.numeroCarte=numeroDeLaCarte;
-				this.pokedex=listePokemons;				
 				
 				String musiqueRoute1 ="Musiques/route1.wav";
 				this.musique=musiqueRoute1;
@@ -85,6 +74,12 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				switch(this.numeroCarte) {
 					case 000:{//Spawn du début dans la maison
 						this.TableauCarte=Taturne;
+						this.xpVegamon1=1;
+						this.xpVegamon2=1;
+						this.xpVegamon3=1;
+						this.xpVegamon4=1;
+						this.xpVegamon5=1;
+						this.xpVegamon6=1;
 						this.xDepart=4;
 						this.yDepart=13;
 						this.imageFond="Images/LaFeyssine/Taturne.png";
@@ -361,6 +356,22 @@ public class VariablesDeJeu {//création de l'unique Jframe
 					  default:
 						this.TableauCarte=null;
 				}
+				ArrayList<VEGAMONS> listePokemons = new ArrayList<VEGAMONS>() ;
+				
+				VEGAMONS v1 = new VEGAMONS ("Meloche", 45, 50, 0.2, 40, 4, xpVegamon1, attaque2, attaque1, attaque4, attaque3) ;
+				VEGAMONS v2 = new VEGAMONS ("Aigleau", 50, 37, 0.24, 25, 3, xpVegamon2, attaque5, attaque8, attaque10, attaque4) ;
+				VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.2, 45, 4, xpVegamon3, attaque6, attaque11, attaque3, attaque12) ;
+				VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 35, 0.2, 35, 1, xpVegamon4, attaque7, attaque2, attaque13, attaque15) ;
+				VEGAMONS v5 = new VEGAMONS ("Anemoniac", 40, 35, 0.2, 30, 3, xpVegamon5, attaque8, attaque4, attaque5, attaque10) ;
+				VEGAMONS v6 = new VEGAMONS ("Pandalame", 45, 45, 0.16, 45, 2, xpVegamon6, attaque9, attaque1, attaque14, attaque16) ;
+				listePokemons.add(v1);
+				listePokemons.add(v2);
+				listePokemons.add(v3);
+				listePokemons.add(v4);
+				listePokemons.add(v5);
+				listePokemons.add(v6);
+				this.pokedex=listePokemons;				
+
 		}
 		
 		public void DialogueAvecDresseur(int numeroDresseur) {
@@ -368,10 +379,10 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 1:{//Dialogue numéro 01
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté
-							String tableau []= {"<html>Bonjour et bienvenue sur Vegamon !<br> Avant de commencer, voici quelques consignes :</html>","<html> Nous sauvegardons automatiquement ta partie ! <br>Tu peux acccéder au menu en appuyant sur la touche 'm' de ton clavier.</html>","<html>Clique sur l'écran pour te déplacer vers l'endroit que tu as désigné !<br>Si tu passes à côté d'un personnage pour la première fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>Pour finir : Amuses toi bien !</html>","fin_message"};
-							listeInterractionsAvecDresseurs[numeroDresseur]=1;
-							this.texteAAfficher=tableau;
-							break;
+								String tableau []= {"<html>Bonjour et bienvenue sur Vegamon !<br> Avant de commencer, voici quelques consignes :</html>","<html> Nous sauvegardons automatiquement ta partie ! <br>Tu peux acccéder au menu en appuyant sur la touche 'm' de ton clavier.</html>","<html>Clique sur l'écran pour te déplacer vers l'endroit que tu as désigné !<br>Si tu passes à côté d'un personnage pour la première fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>Pour finir : Amuses toi bien !</html>","fin_message"};
+								listeInterractionsAvecDresseurs[numeroDresseur]=1;
+								this.texteAAfficher=tableau;
+								break;
 						}			 						 
 						case 1:{//Déja discuté
 							String tableau []= {"Alors comment se passe ta conquète du monde ?","fin_message","","",""};
