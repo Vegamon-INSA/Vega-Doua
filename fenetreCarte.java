@@ -235,7 +235,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 						System.out.println(TableauCheminTrie[d][0]);
 						System.out.println(TableauChemin[w][0]+1);
 						System.out.println(TableauChemin[w][0]-1);
-						//System.out.println((TableauCheminTrie[d][0]!=(TableauChemin[x][0]+1)) && (TableauCheminTrie[d][0]!=(TableauChemin[x][0]-1)));*/
+						System.out.println((TableauCheminTrie[d][0]!=(TableauChemin[x][0]+1)) && (TableauCheminTrie[d][0]!=(TableauChemin[x][0]-1)));*/
 				else if(!( ( (TableauCheminTrie[d][1]!=(TableauChemin[w][1]+1)) && (TableauCheminTrie[d][1]!=(TableauChemin[w][1]-1)) ) || ( (TableauCheminTrie[d][0]!=(TableauChemin[w][0]+1)) && (TableauCheminTrie[d][0]!=(TableauChemin[w][0]-1) ) ) )){
 						System.out.println("Déplacement diagonal");
 						TableauCheminTrie[d+1][0]=TableauChemin[w][0];
