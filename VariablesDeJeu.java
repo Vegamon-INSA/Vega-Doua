@@ -51,12 +51,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		private Attaques attaque14 = new Attaques("Liane", 2, 12,0,0);
 		private Attaques attaque15 = new Attaques("Brulure", 1, 12,0,0);
 		private Attaques attaque16 = new Attaques("Plante carnivore", 2, 12,0,0);
-		public int xpVegamon1;
-		public int xpVegamon2;
-		public int xpVegamon3;
-		public int xpVegamon4;
-		public int xpVegamon5;
-		public int xpVegamon6;
+		public int xpMeloche;
 
 		public void NouvelleCarte(int numeroDeLaCarte){
 				
@@ -74,12 +69,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				switch(this.numeroCarte) {
 					case 000:{//Spawn du début dans la maison
 						this.TableauCarte=Taturne;
-						this.xpVegamon1=1;
-						this.xpVegamon2=1;
-						this.xpVegamon3=1;
-						this.xpVegamon4=1;
-						this.xpVegamon5=1;
-						this.xpVegamon6=1;
+						this.xpMeloche=1;
 						this.xDepart=4;
 						this.yDepart=13;
 						this.imageFond="Images/LaFeyssine/Taturne.png";
@@ -358,12 +348,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				}
 				ArrayList<VEGAMONS> listePokemons = new ArrayList<VEGAMONS>() ;
 				
-				VEGAMONS v1 = new VEGAMONS ("Meloche", 45, 50, 0.2, 40, 4, xpVegamon1, attaque2, attaque1, attaque4, attaque3) ;
-				VEGAMONS v2 = new VEGAMONS ("Aigleau", 50, 37, 0.24, 25, 3, xpVegamon2, attaque5, attaque8, attaque10, attaque4) ;
-				VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.2, 45, 4, xpVegamon3, attaque6, attaque11, attaque3, attaque12) ;
-				VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 35, 0.2, 35, 1, xpVegamon4, attaque7, attaque2, attaque13, attaque15) ;
-				VEGAMONS v5 = new VEGAMONS ("Anemoniac", 40, 35, 0.2, 30, 3, xpVegamon5, attaque8, attaque4, attaque5, attaque10) ;
-				VEGAMONS v6 = new VEGAMONS ("Pandalame", 45, 45, 0.16, 45, 2, xpVegamon6, attaque9, attaque1, attaque14, attaque16) ;
+
+				VEGAMONS v1 = new VEGAMONS ("Meloche", 45, 50, 0.2, (int)(Math.pow(xpMeloche, 0.35)*40)+(int)(Math.pow(xpMeloche, 1.2)), 4, xpMeloche, attaque2, attaque1, attaque4, attaque3) ;
+				VEGAMONS v2 = new VEGAMONS ("Aigleau", 50, 37, 0.24, 25, 3, 1, attaque5, attaque8, attaque10, attaque4) ;
+				VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.2, 45, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
+				VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 35, 0.2, 35, 1, 1, attaque7, attaque2, attaque13, attaque15) ;
+				VEGAMONS v5 = new VEGAMONS ("Anemoniac", 40, 35, 0.2, 30, 3, 1, attaque8, attaque4, attaque5, attaque10) ;
+				VEGAMONS v6 = new VEGAMONS ("Pandalame", 45, 45, 0.16, 45, 2, 1, attaque9, attaque1, attaque14, attaque16) ;
 				listePokemons.add(v1);
 				listePokemons.add(v2);
 				listePokemons.add(v3);

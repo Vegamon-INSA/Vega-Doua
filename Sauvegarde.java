@@ -14,7 +14,7 @@ public class Sauvegarde {//Sauvegarde Automatique
 		String cheminfichier = chemin + File.separator + NomFichier;
 			
 		try(FileWriter fileWriter = new FileWriter(cheminfichier)) {//Creation du fichier sauvegarde
-			String ContenuDuFichier = VariablesSession.numeroCarte+","+VariablesSession.xDepart+","+VariablesSession.yDepart+","+VariablesSession.xpVegamon1+","+VariablesSession.xpVegamon2+","+VariablesSession.xpVegamon3+","+VariablesSession.xpVegamon4+","+VariablesSession.xpVegamon5+","+VariablesSession.xpVegamon6;
+			String ContenuDuFichier = VariablesSession.numeroCarte+","+VariablesSession.xDepart+","+VariablesSession.yDepart+","+VariablesSession.xpMeloche;
 			for (int i=0; i<VariablesSession.listeInterractionsAvecDresseurs.length;i++) {
 				ContenuDuFichier+=","+VariablesSession.listeInterractionsAvecDresseurs[i];
 			}
@@ -50,7 +50,7 @@ public class Sauvegarde {//Sauvegarde Automatique
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
-		int[] variablesInt = new int[34];//tableau contenenant les variables de la sauvegarde
+		int[] variablesInt = new int[30];//tableau contenenant les variables de la sauvegarde
         try {
 
             br = new BufferedReader(new FileReader(cheminfichier));
@@ -63,14 +63,10 @@ public class Sauvegarde {//Sauvegarde Automatique
 					VariablesSession.NouvelleCarte(VariablesSession.numeroCarte);
 					VariablesSession.xDepart=variablesInt[1];
 					VariablesSession.yDepart=variablesInt[2];
-					VariablesSession.xpVegamon1=variablesInt[3];
-					VariablesSession.xpVegamon2=variablesInt[4];
-					VariablesSession.xpVegamon3=variablesInt[5];
-					VariablesSession.xpVegamon4=variablesInt[6];
-					VariablesSession.xpVegamon5=variablesInt[7];
-					VariablesSession.xpVegamon6=variablesInt[8];
-					for (int i=9; i<variablesInt.length;i++) {
-						VariablesSession.listeInterractionsAvecDresseurs[i-9]+=variablesInt[i];
+					VariablesSession.xpMeloche=variablesInt[3];
+
+					for (int i=4; i<variablesInt.length;i++) {
+						VariablesSession.listeInterractionsAvecDresseurs[i-4]+=variablesInt[i];
 					}
 				}
             } catch (FileNotFoundException e) {
