@@ -32,7 +32,7 @@ public class Accueil implements ActionListener{
 		JFramePrincipal.add(jouer);
 		jouer.addActionListener(this);
 		
-		aide= new JButton ("Aide");
+		aide= new JButton ("Scenario");
 		aide.setBounds(300, 490, 200, 70);
 		aide.setBackground(Color.blue);
 		aide.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
@@ -46,14 +46,14 @@ public class Accueil implements ActionListener{
 		JFramePrincipal.add(resetPartie);
 		resetPartie.addActionListener(this);
 		
-		parametre= new JButton ("Parametres");
+		/*parametre= new JButton ("Parametres");
 		parametre.setBounds(300,570,200,70);
 		parametre.setBackground(Color.blue);
 		parametre.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
 		JFramePrincipal.add(parametre);
-		parametre.addActionListener(this);
+		parametre.addActionListener(this);*/
 		
-		pokedex = new JButton ("Pokedex");
+		pokedex = new JButton ("Vegadex");
 		pokedex.setBounds(300,410,200,70);
 		pokedex.setBackground(Color.blue);
 		pokedex.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
@@ -92,7 +92,7 @@ public class Accueil implements ActionListener{
 				VariablesSession=SauvegardeJeu.RestaurerSauvegarde();
 			}
 			else {
-				VariablesSession.NouvelleCarte(000);
+				VariablesSession.NouvelleCarte(100);
 				SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 			}
 			fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
@@ -108,7 +108,7 @@ public class Accueil implements ActionListener{
 			JFramePrincipal.remove(wow);
 			JFramePrincipal.validate();
 			JFramePrincipal.repaint();
-			VariablesSession.NouvelleCarte(000);
+			VariablesSession.NouvelleCarte(100);
 			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 			fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 			MusiqueDeJeu.StopMusique();
