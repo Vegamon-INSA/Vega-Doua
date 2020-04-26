@@ -1,8 +1,8 @@
 import javax.swing.*;
 
-public class CJframe extends JFrame{	//Classe de l'algorithme de déplacement
-		public CJframe(){
+public class CJframe extends JFrame {	//Classe de l'algorithme de déplacement
 
+		public CJframe(){
 			this.setTitle("Vegamon La Doua");
 			this.setSize(800,820);
 			this.setLocationRelativeTo(null);
@@ -12,5 +12,7 @@ public class CJframe extends JFrame{	//Classe de l'algorithme de déplacement
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		}
+		
 }
+
 

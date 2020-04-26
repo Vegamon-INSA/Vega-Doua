@@ -15,8 +15,8 @@ public class Sauvegarde {//Sauvegarde Automatique
 			
 		try(FileWriter fileWriter = new FileWriter(cheminfichier)) {//Creation du fichier sauvegarde
 			String ContenuDuFichier = VariablesSession.numeroCarte+","+VariablesSession.xDepart+","+VariablesSession.yDepart;
-			for (int i=0; i<VariablesSession.listeCombats.length;i++) {
-				ContenuDuFichier+=","+VariablesSession.listeCombats[i];
+			for (int i=0; i<VariablesSession.listeInterractionsAvecDresseurs.length;i++) {
+				ContenuDuFichier+=","+VariablesSession.listeInterractionsAvecDresseurs[i];
 			}
 			fileWriter.write(ContenuDuFichier);
 		} 
@@ -64,7 +64,7 @@ public class Sauvegarde {//Sauvegarde Automatique
 					VariablesSession.xDepart=variablesInt[1];
 					VariablesSession.yDepart=variablesInt[2];
 					for (int i=3; i<variablesInt.length;i++) {
-						VariablesSession.listeCombats[i-3]+=variablesInt[i];
+						VariablesSession.listeInterractionsAvecDresseurs[i-3]+=variablesInt[i];
 					}
 				}
             } catch (FileNotFoundException e) {
