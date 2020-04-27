@@ -508,7 +508,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Rom&eacute;o : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Rom&eacute;o : T&rsq300uo;en veux encore ?</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
