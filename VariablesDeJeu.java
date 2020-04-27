@@ -349,7 +349,6 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				ArrayList<VEGAMONS> listePokemons = new ArrayList<VEGAMONS>() ;
 				
 				int pv = (int)((Math.pow(xpMeloche, 0.31)*40)+Math.pow(xpMeloche, 1.21));
-				//pv=100; //provisoire
 				VEGAMONS v1 = new VEGAMONS ("Meloche", 45, 50, 0.2, pv , 4, xpMeloche, attaque2, attaque1, attaque4, attaque3) ;
 				VEGAMONS v2 = new VEGAMONS ("Aigleau", 50, 38, 0.24, 27, 3, 1, attaque5, attaque8, attaque10, attaque4) ;
 				VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.2, 44, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
@@ -367,13 +366,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		}
 		
 		public void DialogueAvecDresseur(int numeroDresseur) {
-						switch(numeroDresseur) {
+			switch(numeroDresseur) {
 				//MAP MAISON
 				case 1:{//Dialogue numéro 01 : la mère
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
 							String tableau []= {"<html>Maman : « Salut mon chéri, bien dormi ?<br> Avant de commencer, voici quelques consignes :</html>","<html> Nous sauvegardons automatiquement ta partie ! <br>Tu peux acccéder au menu en appuyant sur la touche 'm' de ton clavier.</html>","<html>Clique sur l'écran pour te déplacer vers l'endroit que tu as désigné !<br>Si tu passes à côté d'un personnage pour la première fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>N'oublies pas d'aller voir le Professeur Véga dans la maison d'à coté, il m'a dit qu'il te cherchait !</html>","fin_message","","",""};
-							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -394,7 +393,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
 							String tableau []={"<html>Véga : « Oh je t’attendais avec impatience, je t’observe depuis quelques temps <br>et je pense que tu es la personne idéale pour recevoir ce Végamon.</html>","<html>Il s’appelle Méloche, je suis sûr qu’avec lui<br> tu pourras devenir le meilleur dresseur de cette ville !</html>","Au fait, Flora devrait être dehors, devant ma maison, tu devrais aller la voir !","fin_message","","",""};							
-							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -413,7 +412,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
 							String tableau []={"<html>Jeanne : Tu connais Véronique ? C’est la championne de l’arène, au nord de la ville,<br> il paraît qu’elle n’a jamais perdu un seul combat !</html>","fin_message","","","","",""};							
-							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -433,25 +432,28 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 4:{//Dialogue numéro 03 - Flora
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
-							//si on a deja parlé à vega
-							if(listeInterractionsAvecDresseurs[3/*vega*/]==1){
-								String tableau []={"Flora : Hey ! Véga m’a chargé de te donner des conseils.<br>Méloche est faible, il faudra que tu l’entraînes pour qu’il gagne de l’XP.</html>", "<html>Au nord, il y a les travées, un lieu peu entretenu avec des trèfles au sol.<br>C’est là que se cachent les Végamon, des créatures comme ton Méloche.</html>","<html>Certains pourront décider de t’attaquer à tout moment.<br>Si tu gagnes le combat, tu gagneras de l’XP, rendant Méloche plus fort,</html>", "<html>si tu perds, Meloche sera KO et tu devras te reposer dans <br>ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
-								listeInterractionsAvecDresseurs[numeroDresseur]=1;
-								this.texteAAfficher=tableau;
-
-							}
-							else{	//sinon
-								String tableau []={"Flora : Va voir le professeur Véga, il m'a dit qu'il t'attendait !","fin_message","","","","",""};
-								this.texteAAfficher=tableau;
-	
-							}			
+							String tableau []={"Flora : Va voir le professeur Véga, il m'a dit qu'il t'attendait !","fin_message","","","","",""};
+							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Déja discuté -première interraction
+							//si on a deja parlé à vega
+							if(this.listeInterractionsAvecDresseurs[6]==1){
+								String tableau []={"Flora : Hey ! Véga m’a chargé de te donner des conseils.<br>Méloche est faible, il faudra que tu l’entraînes pour qu’il gagne de l’XP.</html>", "<html>Au nord, il y a les travées, un lieu peu entretenu avec des trèfles au sol.<br>C’est là que se cachent les Végamon, des créatures comme ton Méloche.</html>","<html>Certains pourront décider de t’attaquer à tout moment.<br>Si tu gagnes le combat, tu gagneras de l’XP, rendant Méloche plus fort,</html>", "<html>si tu perds, Meloche sera KO et tu devras te reposer dans <br>ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
+								this.listeInterractionsAvecDresseurs[numeroDresseur]=2;
+								this.texteAAfficher=tableau;
+							}
+							else {
+								String tableau []={"Flora : Va voir le professeur Véga, il m'a dit qu'il t'attendait !","fin_message","","","","",""};
+								this.texteAAfficher=tableau;
+								break;
+							}
+						}
+						case 2:{//Déja discuté -première interraction
 							String tableau []= {"Ton Meloche est trop mignon!","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
-						
 						}
 						default:
 							this.texteAAfficher=null;
@@ -462,7 +464,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture 
 							String tableau []={"<html>Alexis : Hey, les points d’XP pour un vegamon, <br>c’est important, c’est même LA clé pour devenir hyper balèze.</html>","<html> Si tu bats un vegamon puissant, tu gagnes beaucoup <br>de points d’XP et ton Méloche gagne en puissance. </html>","<html>En revanche, plus ton vegamon est puissant, plus <br>il te faudra de temps pour le faire progresser encore.</html>","Il faudra t’armer de patience !","fin_message","",""};							
-							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -480,9 +482,8 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 2:{//Dialogue numéro 02 - Remi
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
-							
 							String tableau []={"<html> Rémi : Attention ! Il y a plein <br>de dresseurs très puissants plus loin,</html>","<html>tu devras t’entraîner si tu veux tous les vaincre.<br>N’oublie pas de bien choisir tes attaques, </html>","<html>les Végamon de type eau n’aiment pas <br>les attaques de type électrique ! </html>","fin_message","","",""};						
-							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -1568,6 +1569,6 @@ public class VariablesDeJeu {//création de l'unique Jframe
 					break;
 				} 
 		}
-}				
+	}				
 }				
 

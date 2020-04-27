@@ -43,7 +43,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private Algorithme AlgoDeplacement = new Algorithme();
 	private Random r = new Random();
 	private int verifications = 0;//Compteur du nombre de cases vérifiées par l'algorithme de recherche de chemin
-
+	private fenetreCarte fcarte;
+	private FenetreCombat fcombat;
 
 	public fenetreCarte ( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde, Musiques musique) {
 		JFramePrincipal= Frame;
@@ -334,7 +335,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				affichertexte=false;
 				CacherBoiteTexte();
 				if ((String.valueOf(TableauCarte[yDepart][xDepart]).charAt(0))=='3') {
-					FenetreCombat MafenetreCombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,5);
+					pPrincipal.removeAll();
+					JFramePrincipal.remove(pPrincipal);
+					JFramePrincipal.revalidate();
+					JFramePrincipal.repaint();
+					fcombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,TableauCarte[yDepart][xDepart]);
 				}
 			}
 		}
@@ -356,7 +361,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	public void CacherBoiteTexte(){
 		pBoiteTexte.setVisible(false);	
-        JFramePrincipal.revalidate();
+		JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
 	}
 
@@ -406,7 +411,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (TableauCarte[y][x]-4000);	
 					VariablesSession.NouvelleCarte(valeurTableau);
 					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-					fenetreCarte Carte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+					fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 				}
 				else if((yArrivee==0)&&(xArrivee==x)){
 					pPrincipal.removeAll();
@@ -417,7 +422,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (TableauCarte[y][x]-4000);	
 					VariablesSession.NouvelleCarte(valeurTableau);
 					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-					fenetreCarte Carte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+					fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 				}
 				break;
 			}
@@ -429,7 +434,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					JFramePrincipal.repaint();
 					stopDeplacement=true;
 					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-					FenetreCombat MafenetreCombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,5);
+					fcombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,5);
 				}
 				break;
 			}
