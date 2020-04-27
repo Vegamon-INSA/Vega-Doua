@@ -881,7 +881,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 24:{//Dialogue combat num&eacute;ro 0C - Garde 1
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"Garde 1 : C&rsquo;est parti !","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 1 : C&rsquo;est parti !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
