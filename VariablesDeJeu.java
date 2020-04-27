@@ -348,8 +348,8 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				}
 				ArrayList<VEGAMONS> listePokemons = new ArrayList<VEGAMONS>() ;
 				
-
-				VEGAMONS v1 = new VEGAMONS ("Meloche", 45, 50, 0.2, (int)(Math.pow(xpMeloche, 0.35)*40)+(int)(Math.pow(xpMeloche, 1.2)), 4, xpMeloche, attaque2, attaque1, attaque4, attaque3) ;
+				int pv = ((int)(Math.pow(xpMeloche, 0.35)*40)+(int)(Math.pow(xpMeloche, 1.2)));
+				VEGAMONS v1 = new VEGAMONS ("Meloche", 45, 50, 0.2, pv , 4, xpMeloche, attaque2, attaque1, attaque4, attaque3) ;
 				VEGAMONS v2 = new VEGAMONS ("Aigleau", 50, 37, 0.24, 25, 3, 1, attaque5, attaque8, attaque10, attaque4) ;
 				VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.2, 45, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
 				VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 35, 0.2, 35, 1, 1, attaque7, attaque2, attaque13, attaque15) ;

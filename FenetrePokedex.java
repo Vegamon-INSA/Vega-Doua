@@ -138,6 +138,8 @@ public class FenetrePokedex implements ActionListener{
             FenetrePoke Poke=new FenetrePoke(3, VariablesSession);
         } else if (e.getSource()==pok5){
             FenetrePoke Poke=new FenetrePoke(4, VariablesSession);
+        } else if (e.getSource()==pok6){
+            FenetrePoke Poke=new FenetrePoke(5, VariablesSession);
         } 
         else if (e.getSource()==retour){
 			pPrincipal.removeAll();

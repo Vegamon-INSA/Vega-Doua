@@ -32,8 +32,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private int yDepart;
 	private int xArrivee;//Change à chaque déplacement de une case
 	private int yArrivee;
-	private int xArriveeFinal;//Change quand le déplacement global est terminé
-	private int yArriveeFinal;
+	private int xArriveeFinal, xDepartInitial;//Change quand le déplacement global est terminé
+	private int yArriveeFinal, yDepartInitial;
 	private int NbreDeplacement;
 	private int TailleCellule = 800/NbreCases;//Taille d'un carré : largeur de la fenetre divisé par le nombre de cellules
 	
@@ -80,8 +80,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		//Algo de déplacement
 		xDepart= VariablesSession.xDepart;
 		yDepart= VariablesSession.yDepart;
-		xArriveeFinal= VariablesSession.xDepart;
-		yArriveeFinal= VariablesSession.yDepart;
 		TableauCarte=VariablesSession.TableauCarte;
 		genererCarteDesMurs();
 
@@ -100,6 +98,10 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
         JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
+		xArriveeFinal= xDepart;
+		yArriveeFinal= yDepart;
+		xDepartInitial= xDepart;
+		yDepartInitial= yDepart;
 		actionDeLaCase(xDepart,yDepart);
 	}
 	
@@ -114,8 +116,10 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				stopDeplacement=false;
 				xArrivee = e.getX()/TailleCellule;	//Récupération de l'abscisse et de l'ordonnée du point d'arrivée en fonction de la taille de la grille
 				yArrivee = e.getY()/TailleCellule;
-				xArriveeFinal=xArrivee;
-				yArriveeFinal=yArrivee;
+				xArriveeFinal= xArrivee;
+				yArriveeFinal= yArrivee;
+				xDepartInitial= VariablesSession.xDepart;
+				yDepartInitial= VariablesSession.yDepart;
 				System.out.println("xArrivee="+xArrivee);
 				System.out.println(yArrivee);
 				Node current = map[xArrivee][yArrivee];
@@ -418,7 +422,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				break;
 			}
 			case '5':{//Combat contre un animal sauvage dans hautes herbes
-				if (Math.random()>0.9){
+				if ((Math.random()>0.6)&&(xDepartInitial!=x)&&(yDepartInitial!=y)){
 					pPrincipal.removeAll();
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
