@@ -27,28 +27,28 @@ public class Accueil implements ActionListener{
         JFramePrincipal.add(pPrincipal);
 		
 		jouer = new JButton ("Jouer");
-		jouer.setBounds(300,280,200,100);
+		jouer.setBounds(300,200,200,100);
 		jouer.setBackground(Color.red);
 		jouer.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
 		pPrincipal.add(jouer);
 		jouer.addActionListener(this);
 		
 		resetPartie= new JButton ("Reset la partie");
-		resetPartie.setBounds(300,410,200,70);
+		resetPartie.setBounds(300,330,200,70);
 		resetPartie.setBackground(Color.blue);
 		resetPartie.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
 		pPrincipal.add(resetPartie);
 		resetPartie.addActionListener(this);
 		
 		pokedex = new JButton ("Vegadex");
-		pokedex.setBounds(300,490,200,70);
+		pokedex.setBounds(300,410,200,70);
 		pokedex.setBackground(Color.blue);
 		pokedex.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
 		pPrincipal.add(pokedex);
 		pokedex.addActionListener(this);
 
 		scenario= new JButton ("Scenario");
-		scenario.setBounds(300, 570, 200, 70);
+		scenario.setBounds(300, 490, 200, 70);
 		scenario.setBackground(Color.blue);
 		scenario.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
 		pPrincipal.add(scenario);

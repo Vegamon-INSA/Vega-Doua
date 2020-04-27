@@ -1,7 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
 public class FenetreScenario implements ActionListener{
 	
 	private JButton adep, aintro, aarene1, aarene2, retouraccueil, retourScenario;
@@ -88,6 +95,8 @@ public class FenetreScenario implements ActionListener{
 			deplace.setEditable (false); //empêche l'utilisateur de modifier le texte
 			scrolldeplace = new JScrollPane (deplace); 
 			scrolldeplace.setBounds(150,215,500,400);
+			deplace.setBounds(0,0,200,400);
+			scrolldeplace.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 			pPrincipal.add(scrolldeplace);
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
@@ -103,6 +112,8 @@ public class FenetreScenario implements ActionListener{
 			intro.setEditable (false); //empêche l'utilisateur de modifier le texte
 			scrollintro = new JScrollPane (intro); 
 			scrollintro.setBounds(150,215,500,400);
+			scrollintro.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
 			pPrincipal.add(scrollintro);
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
@@ -118,6 +129,8 @@ public class FenetreScenario implements ActionListener{
 			arene1.setEditable (false); //empêche l'utilisateur de modifier le texte
 			scrollarene1 = new JScrollPane (arene1); 
 			scrollarene1.setBounds(150,215,500,400);
+			scrollarene1.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
 			pPrincipal.add(scrollarene1);
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
@@ -133,6 +146,7 @@ public class FenetreScenario implements ActionListener{
 			arene2.setEditable (false); //empêche l'utilisateur de modifier le texte
 			scrollarene2 = new JScrollPane (arene2); 
 			scrollarene2.setBounds(150,215,500,400);
+			scrollarene2.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 			pPrincipal.add(scrollarene2);
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
