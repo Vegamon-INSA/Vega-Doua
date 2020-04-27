@@ -428,6 +428,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					JFramePrincipal.revalidate();
 					JFramePrincipal.repaint();
 					stopDeplacement=true;
+					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 					FenetreCombat MafenetreCombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,5);
 				}
 				break;
