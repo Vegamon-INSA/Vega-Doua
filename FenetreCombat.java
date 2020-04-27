@@ -11,7 +11,7 @@ public class FenetreCombat implements ActionListener{
     private Timer t,t2, t3, t4;
     private boolean freeze,AuTourDuJoueur;
     private VEGAMONS perso, advers, pA, pD;
-    private int x, y, x1, y1,j,exp,type, numCase;
+    private int x, y, x1, y1,j,exp,type, numCase, PVmaxAdvIni;
     private ArrayList<VEGAMONS> pokedex; 
     private ArrayList<String> textes;
 	private CJframe JFramePrincipal; //Jframe principal avec image de fond
@@ -117,7 +117,7 @@ public class FenetreCombat implements ActionListener{
         lTextePokemonAdv.setBackground(Color.white); 
         pTextePokemonAdv.add(lTextePokemonAdv);
         
-        lTexteMonPokemon = new JLabel(perso.nom + "     XP : " + perso.XP + "     PV : " + perso.PV + "/ ?");
+        lTexteMonPokemon = new JLabel(perso.nom + "     XP : " + perso.XP + "     PV : " + perso.PV);
         lTexteMonPokemon.setBounds(20,-10,268, 45);
         lTexteMonPokemon.setBackground(Color.white);
         pTexteMonPokemon.add(lTexteMonPokemon);
@@ -172,17 +172,17 @@ public class FenetreCombat implements ActionListener{
 	 
 	public void debutCombat(int x){
 		
-        AuTourDuJoueur=true;
-        int num = 1+((int)(5*Math.random()));
+        AuTourDuJoueur=false;
+        perso.PV=perso.PVmax;
         int exp=1;
-        if (x==5 || x==7){
-            if (VariablesSession.numeroCarte%100==2){      //trav1
-                exp=1+(int)(3*Math.random());
-            }else if (VariablesSession.numeroCarte%100==3){   //trav2
+        if (x==5 || x==3){
+            if (VariablesSession.numeroCarte==105 || VariablesSession.numeroCarte==301){      //trav1
+                exp=1+(int)(2*Math.random());
+            }else if (VariablesSession.numeroCarte==202 || VariablesSession.numeroCarte==401){   //trav2
                 exp=5+(int)(5*Math.random());
-            }else if (VariablesSession.numeroCarte%100==5){   // huma1
+            }else if (VariablesSession.numeroCarte==414 || VariablesSession.numeroCarte==601){   // huma1
                 exp=15+(int)(10*Math.random());
-            }else if (VariablesSession.numeroCarte%100==6){   //huma2
+            }else if (VariablesSession.numeroCarte==502 || VariablesSession.numeroCarte==701){   //huma2
                 exp=25+(int)(14*Math.random());
             }
         } else if (x/10==1){
@@ -190,6 +190,7 @@ public class FenetreCombat implements ActionListener{
         } else if (x/10==2){
             exp = 36 + 4*(x%10);
         }
+        int num = 1+((int)(5*Math.random()));
         advers = pokedex.get(num);
         if (num==1){
             lab2=new JLabel(new ImageIcon("Images/Aigloss.png"));
@@ -205,11 +206,11 @@ public class FenetreCombat implements ActionListener{
         fond.add(lab2);
         lab2.setBounds(x1,y1,100,100);
         advers.XP = exp;
-        advers.PVmax = (int)(Math.pow(exp, 0.35)*advers.PVmax)+(int)(Math.pow(exp, 1.2));
+        PVmaxAdvIni=advers.PVmax;
+        advers.PVmax = (int)(Math.pow(exp, 0.3)*advers.PVmax)+(int)(Math.pow(exp, 1.2));
         advers.PV = advers.PVmax;
         lTextePokemonAdv.setText(advers.nom + "     XP : " + advers.XP + "     PV : " + advers.PV);
-        vieAdv.setSize((int)(120.0*(double)(advers.PV)/(double)(advers.PVmax)), 5);
-        
+        vieAdv.setSize((int)(230.0*(double)(advers.PV)/(double)(advers.PVmax)), 5);
 	}
     
     public void actionPerformed(ActionEvent e){
@@ -296,16 +297,15 @@ public class FenetreCombat implements ActionListener{
                         VariablesSession.listeInterractionsAvecDresseurs [numCase-301]=2;
                     }
                     t.stop();
+                    advers.PVmax=PVmaxAdvIni;
                     t2 = new Timer(1000, this);
                     t2.start();
                     freeze=true;
-                    perso.XP=perso.XP + (int)(Math.pow(advers.XP, 0.64));
-                    
-                    //perso.PVmax = perso.PVmax+(int)(2.0+4*Math.log((double)(perso.XP*perso.XP)));
-                    //perso.PV = perso.PVmax;
-                    
-                    //VariablesSession.xpMeloche=perso.XP;
-				
+                    perso.XP=perso.XP + (int)(Math.pow(advers.XP, 0.6));
+                    perso.PVmax = (int)((Math.pow(perso.XP, 0.31)*40)+Math.pow(perso.XP, 1.21));
+                    perso.PV=perso.PVmax;
+                    VariablesSession.xpMeloche=perso.XP;
+
                 } 
                 else {
                     esquive=advattaque();
@@ -313,7 +313,9 @@ public class FenetreCombat implements ActionListener{
                         if (numCase%100==3){
                             VariablesSession.listeInterractionsAvecDresseurs [numCase-301]=1;
                         }
-                        lDialogue.setText("Vous avez perdu !"); 
+                        lDialogue.setText("Vous avez perdu !");
+                        advers.PVmax=PVmaxAdvIni;
+                        perso.PV=perso.PVmax; 
                         t2 = new Timer(1900, this);
                         t2.start();
                         freeze=true;
@@ -338,13 +340,14 @@ public class FenetreCombat implements ActionListener{
         
         if (e.getSource()==fuite && !freeze){
             if (numCase==5){
+                perso.PV=perso.PVmax;
+                advers.PVmax=PVmaxAdvIni;
                 lDialogue.setText("Vous prenez la fuite !");			
-                t2 = new Timer(1000, this);
+                t2 = new Timer(2000, this);
                 t2.start();
                 freeze=true;
             } else {
                 lDialogue.setText("Impossible de s'échapper !");
-
             }
         }
         
@@ -363,7 +366,6 @@ public class FenetreCombat implements ActionListener{
         
         if (e.getSource()==t4){
             gif.setVisible(false);
-            freeze=false;
             t4.stop();
 		}
 
@@ -475,11 +477,5 @@ public class FenetreCombat implements ActionListener{
             t4 = new Timer(1000, this);
             t4.start();
         }
-    }
-    
-    public static void pause(int ms) {
-        try {
-            Thread.sleep(ms);
-        } catch (InterruptedException e){}
     }
 }

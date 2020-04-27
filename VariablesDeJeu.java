@@ -35,7 +35,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		private	int AreneTO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,3,350,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,3,351,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,3,351,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,351,1,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,352,3,352,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,352,1,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,353,3,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,353,353,0,0,0,0},{0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,3,354,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,3,354,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,1,1,1,255,2,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,4413,4413,4413,255,255,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,4711,4711,4711,4711,4711,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		
 		 // String nom, double attaque, double esquive, int PVmax, int type, int XP, Attaques attaque1, Attaques attaque2, Attaques attaque3, Attaques attaque4){
-		private Attaques attaque1 = new Attaques("Racineries", 2, 10,0,0); //Meloche (1 à 4)
+		private Attaques attaque1 = new Attaques("Racineries", 2, 10,0,0); 
 		private Attaques attaque2 = new Attaques("Poudrelles", 1, 10,0,0);
 		private Attaques attaque3 = new Attaques("Lightning", 4, 10,0,0);
 		private Attaques attaque4 = new Attaques("Abysses", 3, 10,0,0);
@@ -51,7 +51,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		private Attaques attaque14 = new Attaques("Liane", 2, 12,0,0);
 		private Attaques attaque15 = new Attaques("Brulure", 1, 12,0,0);
 		private Attaques attaque16 = new Attaques("Plante carnivore", 2, 12,0,0);
-		public int xpMeloche;
+		public int xpMeloche=1;
 
 		public void NouvelleCarte(int numeroDeLaCarte){
 				
@@ -348,13 +348,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				}
 				ArrayList<VEGAMONS> listePokemons = new ArrayList<VEGAMONS>() ;
 				
-				int pv = ((int)(Math.pow(xpMeloche, 0.35)*40)+(int)(Math.pow(xpMeloche, 1.2)));
-				pv=100; //provisoire
+				int pv = (int)((Math.pow(xpMeloche, 0.31)*40)+Math.pow(xpMeloche, 1.21));
+				//pv=100; //provisoire
 				VEGAMONS v1 = new VEGAMONS ("Meloche", 45, 50, 0.2, pv , 4, xpMeloche, attaque2, attaque1, attaque4, attaque3) ;
-				VEGAMONS v2 = new VEGAMONS ("Aigleau", 50, 37, 0.24, 25, 3, 1, attaque5, attaque8, attaque10, attaque4) ;
-				VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.2, 45, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
-				VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 35, 0.2, 35, 1, 1, attaque7, attaque2, attaque13, attaque15) ;
-				VEGAMONS v5 = new VEGAMONS ("Anemoniac", 40, 35, 0.2, 30, 3, 1, attaque8, attaque4, attaque5, attaque10) ;
+				VEGAMONS v2 = new VEGAMONS ("Aigleau", 50, 38, 0.24, 27, 3, 1, attaque5, attaque8, attaque10, attaque4) ;
+				VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.2, 44, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
+				VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 36, 0.2, 38, 1, 1, attaque7, attaque2, attaque13, attaque15) ;
+				VEGAMONS v5 = new VEGAMONS ("Anemoniac", 41, 31, 0.2, 34, 3, 1, attaque8, attaque4, attaque5, attaque10) ;
 				VEGAMONS v6 = new VEGAMONS ("Pandalame", 45, 45, 0.16, 45, 2, 1, attaque9, attaque1, attaque14, attaque16) ;
 				listePokemons.add(v1);
 				listePokemons.add(v2);
