@@ -365,7 +365,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 
 		}
 		
-	public void DialogueAvecDresseur(int numeroDresseur) {
+public void DialogueAvecDresseur(int numeroDresseur) {
 			switch(numeroDresseur) {
 				//MAP MAISON
 				case 1:{//Dialogue numéro 01 : la mère
@@ -1571,4 +1571,5 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		}
 	}				
 }				
+
 
