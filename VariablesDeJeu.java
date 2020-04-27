@@ -925,7 +925,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 22:{//Dialogue combat num&eacute;ro 0C - Garde 3
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"</html>Garde 3 : Pour affronter la championne,<br> il faut le m&eacute;riter !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 3 : Pour affronter la championne,<br> il faut le m&eacute;riter !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
