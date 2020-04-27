@@ -294,7 +294,7 @@ public class FenetreCombat implements ActionListener{
             else{
                 if(advers.PV<=0){
                     if (numCase%100==3){
-                        VariablesSession.listeInterractionsAvecDresseurs [numCase-300]=2;
+                        VariablesSession.listeInterractionsAvecDresseurs[numCase-300]=2;
                     }
                     t.stop();
                     advers.PVmax=PVmaxAdvIni;
@@ -356,7 +356,7 @@ public class FenetreCombat implements ActionListener{
 			JFramePrincipal.remove(pPrincipal);
             JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
-			
+			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
             fcarte= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
             freeze=false;
             t2.stop();

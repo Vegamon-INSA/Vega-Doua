@@ -386,12 +386,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			}
 			case '3':{//Dialogue avec combat
 					numeroDialogue = TableauCarte[y][x];
-					if (numeroDialogue>300) {
-						numeroDialogue = (numeroDialogue-300);
-					}
-					if ((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (numeroDialogue==0)){
+				if (numeroDialogue>300) {
+					numeroDialogue = (numeroDialogue-300);
+				}
+				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)){
 					stopDeplacement=true;
-					
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
 					numeroLigneTexte=0;
@@ -427,7 +426,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				break;
 			}
 			case '5':{//Combat contre un animal sauvage dans hautes herbes
-				if ((Math.random()>0.6)&&(xDepartInitial!=x)&&(yDepartInitial!=y)){
+				if ((Math.random()>0.8)&&(xDepartInitial!=x)&&(yDepartInitial!=y)){
 					pPrincipal.removeAll();
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
