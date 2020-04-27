@@ -9,7 +9,7 @@ public class FenetreCombat implements ActionListener{
     private JLabel fond,lDialogue,lTextePokemonAdv,lTexteMonPokemon,lab2,Meloche,gif;
     private JButton attaque, soin,fuite,a1,a2,a3,a4,annuler;
     private Timer t,t2, t3, t4;
-    private boolean freeze,b;
+    private boolean freeze,AuTourDuJoueur;
     private VEGAMONS perso, advers, pA, pD;
     private int x, y, x1, y1,j,exp,type, numCase;
     private ArrayList<VEGAMONS> pokedex; 
@@ -117,7 +117,7 @@ public class FenetreCombat implements ActionListener{
         lTextePokemonAdv.setBackground(Color.white); 
         pTextePokemonAdv.add(lTextePokemonAdv);
         
-        lTexteMonPokemon = new JLabel(perso.nom + "     XP : " + perso.XP + "     PV : " + perso.PV);
+        lTexteMonPokemon = new JLabel(perso.nom + "     XP : " + perso.XP + "     PV : " + perso.PV + "/ ?");
         lTexteMonPokemon.setBounds(20,-10,268, 45);
         lTexteMonPokemon.setBackground(Color.white);
         pTexteMonPokemon.add(lTexteMonPokemon);
@@ -167,10 +167,53 @@ public class FenetreCombat implements ActionListener{
 
         debutCombat(numCase);
 
-	} 
+	}
+	
+	 
+	public void debutCombat(int x){
+		
+        AuTourDuJoueur=true;
+        int num = 1+((int)(5*Math.random()));
+        int exp=1;
+        if (x==5 || x==7){
+            if (VariablesSession.numeroCarte%100==2){      //trav1
+                exp=1+(int)(3*Math.random());
+            }else if (VariablesSession.numeroCarte%100==3){   //trav2
+                exp=5+(int)(5*Math.random());
+            }else if (VariablesSession.numeroCarte%100==5){   // huma1
+                exp=15+(int)(10*Math.random());
+            }else if (VariablesSession.numeroCarte%100==6){   //huma2
+                exp=25+(int)(14*Math.random());
+            }
+        } else if (x/10==1){
+            exp = 8 + 2*(x%10);
+        } else if (x/10==2){
+            exp = 36 + 4*(x%10);
+        }
+        advers = pokedex.get(num);
+        if (num==1){
+            lab2=new JLabel(new ImageIcon("Images/Aigloss.png"));
+        }else if (num==2){
+            lab2=new JLabel(new ImageIcon("Images/Murenss.png"));
+        }else if (num==3){
+            lab2=new JLabel(new ImageIcon("Images/Sunfure.png"));
+        }else if (num==4){
+            lab2=new JLabel(new ImageIcon("Images/Anemoniac.png"));
+        }else if (num==5){
+            lab2=new JLabel(new ImageIcon("Images/Pandalame.png"));
+        }
+        fond.add(lab2);
+        lab2.setBounds(x1,y1,100,100);
+        advers.XP = exp;
+        advers.PVmax = (int)(Math.pow(exp, 0.35)*advers.PVmax)+(int)(Math.pow(exp, 1.2));
+        advers.PV = advers.PVmax;
+        lTextePokemonAdv.setText(advers.nom + "     XP : " + advers.XP + "     PV : " + advers.PV);
+        vieAdv.setSize((int)(120.0*(double)(advers.PV)/(double)(advers.PVmax)), 5);
+        
+	}
     
     public void actionPerformed(ActionEvent e){
-        
+		//ATTAQUE
         if (e.getSource()==attaque && !freeze){
             System.out.println("Attaque");
             pPrincipal.remove(pBas);
@@ -190,6 +233,9 @@ public class FenetreCombat implements ActionListener{
             }else if (esquive==true && finCombat()==false){
                lDialogue.setText(perso.nom+" attaque avec "+perso.attaque1.nom+" !    "+advers.nom+" esquive !");
             }
+            t = new Timer(2000, this);
+			t.start();
+			freeze=true;
         }
         
         if (e.getSource()==a2 && !freeze){
@@ -200,6 +246,9 @@ public class FenetreCombat implements ActionListener{
             }else if (esquive==true && finCombat()==false){
                lDialogue.setText(perso.nom+" attaque avec "+perso.attaque2.nom+" !	  "+advers.nom+" esquive !");
             }
+            t = new Timer(2000, this);
+			t.start();
+			freeze=true;
         }
         
         if (e.getSource()==a3 && !freeze){
@@ -210,6 +259,9 @@ public class FenetreCombat implements ActionListener{
             }else if (esquive==true && finCombat()==false){
                lDialogue.setText(perso.nom+" attaque avec "+perso.attaque3.nom+" !	   "+advers.nom+" esquive !");
             }
+            t = new Timer(2000, this);
+			t.start();
+			freeze=true;
         }
         
         if (e.getSource()==a4 && !freeze){
@@ -220,11 +272,14 @@ public class FenetreCombat implements ActionListener{
             }else if (esquive==true && finCombat()==false){
                lDialogue.setText(perso.nom+" attaque avec "+perso.attaque4.nom+" !  	"+advers.nom+" esquive !");
             }
+            t = new Timer(2000, this);
+			t.start();
+			freeze=true;
         }
         
-        if (e.getSource()==t) { //b=true => a nous de jouer, b=false, on a deja choisi notre attaque
+        if (e.getSource()==t) { //AuTourDuJoueur=true => a nous de jouer, AuTourDuJoueur=false, on a deja choisi notre attaque
             fin=finCombat();
-			if (b==true){
+			if (AuTourDuJoueur==true){
                 t.stop();
                 freeze=false;
 				pPrincipal.remove(pAttaque);
@@ -232,8 +287,9 @@ public class FenetreCombat implements ActionListener{
                 pPrincipal.revalidate();
 				pPrincipal.repaint();
                 lDialogue.setText("Que dois-je faire ?");
-                b=false;
-            }else{
+                AuTourDuJoueur=false;
+            }
+            else{
                 if(advers.PV<=0){
                     
                     if (numCase%100==3){
@@ -250,7 +306,8 @@ public class FenetreCombat implements ActionListener{
                     
                     //VariablesSession.xpMeloche=perso.XP;
 				
-                } else {
+                } 
+                else {
                     esquive=advattaque();
                     if (finCombat()==true){
                         if (numCase%100==3){
@@ -263,10 +320,10 @@ public class FenetreCombat implements ActionListener{
                     } else if (esquive==false){
                         lDialogue.setText(advers.nom+" attaque avec "+advAtt()+" !");
                         graphAttak(false);
-                        b=true;
+                        AuTourDuJoueur=true;
                     }else{
                         lDialogue.setText(advers.nom+" attaque avec "+advAtt()+" !  	"+perso.nom+" esquive !");
-                        b=true;
+                        AuTourDuJoueur=true;
                     }
                 }
             }
@@ -282,32 +339,27 @@ public class FenetreCombat implements ActionListener{
         if (e.getSource()==fuite && !freeze){
             if (numCase==5){
                 lDialogue.setText("Vous prenez la fuite !");			
-                t2 = new Timer(2000, this);
+                t2 = new Timer(1000, this);
                 t2.start();
                 freeze=true;
             } else {
                 lDialogue.setText("Impossible de s'échapper !");
-                t3 = new Timer(2000, this);
-                t3.start();
-                freeze=true;
+
             }
         }
         
         if (e.getSource()==t2){
             pPrincipal.removeAll();
 			JFramePrincipal.remove(pPrincipal);
-            pPrincipal.revalidate();
-			pPrincipal.repaint();
+            JFramePrincipal.revalidate();
+			JFramePrincipal.repaint();
             fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
 
             freeze=false;
             t2.stop();
 		}
  
-        if (e.getSource()==t3){
-            freeze=false;
-            t3.stop();
-		}
+        
         
         if (e.getSource()==t4){
             gif.setVisible(false);
@@ -401,51 +453,7 @@ public class FenetreCombat implements ActionListener{
         viePerso.setSize((int)(230.0*(double)(perso.PV)/(double)(perso.PVmax)), 5);
     }
     
-    public void debutCombat(int x){
-        b=false;
-        int num = 1+((int)(5*Math.random()));
-        int exp=1;
-        if (x==5 || x==7){
-            if (VariablesSession.numeroCarte%100==2){      //trav1
-                exp=1+(int)(3*Math.random());
-            }else if (VariablesSession.numeroCarte%100==3){   //trav2
-                exp=5+(int)(5*Math.random());
-            }else if (VariablesSession.numeroCarte%100==5){   // huma1
-                exp=15+(int)(10*Math.random());
-            }else if (VariablesSession.numeroCarte%100==6){   //huma2
-                exp=25+(int)(14*Math.random());
-            }
-        } else if (x/10==1){
-            exp = 8 + 2*(x%10);
-        } else if (x/10==2){
-            exp = 36 + 4*(x%10);
-        }
-        advers = pokedex.get(num);
-        if (num==1){
-            lab2=new JLabel(new ImageIcon("Images/Aigloss.png"));
-        }else if (num==2){
-            lab2=new JLabel(new ImageIcon("Images/Murenss.png"));
-        }else if (num==3){
-            lab2=new JLabel(new ImageIcon("Images/Sunfure.png"));
-        }else if (num==4){
-            lab2=new JLabel(new ImageIcon("Images/Anemoniac.png"));
-        }else if (num==5){
-            lab2=new JLabel(new ImageIcon("Images/Pandalame.png"));
-        }
-        fond.add(lab2);
-        lab2.setBounds(x1,y1,100,100);
-        advers.XP = exp;
-        advers.PVmax = (int)(Math.pow(exp, 0.35)*advers.PVmax)+(int)(Math.pow(exp, 1.2));
-        advers.PV = advers.PVmax;
-        lTextePokemonAdv.setText(advers.nom + "     XP : " + advers.XP + "     PV : " + advers.PV);
-        vieAdv.setSize((int)(230.0*(double)(advers.PV)/(double)(advers.PVmax)), 5);
-        
-        int y = (int)(1+10*Math.random()); //changer en fonction du nombre de txt pour hasard
-        //l1.setText(textes.get(y));
-        t3 = new Timer(4000, this);
-        t3.start();
-        freeze=true;
-	}
+    
     
     public boolean finCombat(){
         boolean CombatFini = false;
