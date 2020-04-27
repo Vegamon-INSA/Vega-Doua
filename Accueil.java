@@ -47,7 +47,7 @@ public class Accueil implements ActionListener{
 		pPrincipal.add(pokedex);
 		pokedex.addActionListener(this);
 
-		scenario= new JButton ("Scenario");
+		scenario= new JButton ("Sc\u00e9nario");
 		scenario.setBounds(300, 490, 200, 70);
 		scenario.setBackground(Color.blue);
 		scenario.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
