@@ -78,6 +78,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
         gif = new JLabel(new ImageIcon("Images/FlecheEntrer.gif")); 
         gif.setBounds(550,15,30,30);
         pBoiteTexte.add(gif);
+        
 		//Algo de déplacement
 		xDepart= VariablesSession.xDepart;
 		yDepart= VariablesSession.yDepart;
@@ -374,7 +375,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroDialogue = (numeroDialogue-200);
 				}
 				
-				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==2) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0) || (spawn==true)){
+				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==2) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==6) || (spawn==true)){
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
@@ -389,7 +390,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (numeroDialogue>300) {
 					numeroDialogue = (numeroDialogue-300);
 				}
-				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0) || (spawn==true)){
+				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==6) || (spawn==true)){
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);

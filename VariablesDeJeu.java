@@ -432,9 +432,16 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 4:{//Dialogue num&eacute;ro 03 - Flora
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Flora : Va voir le professeur V&eacute;ga, il m&rsquo;a dit qu&rsquo;il t&rsquo;attendait !</html>","fin_message","","","","",""};
-							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
-							this.texteAAfficher=tableau;
+							if(this.listeInterractionsAvecDresseurs[6]==0){
+								String tableau []={"<html>Flora : Va voir le professeur V&eacute;ga, il m&rsquo;a dit qu&rsquo;il t&rsquo;attendait !</html>","fin_message","","","","",""};
+								this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
+								this.texteAAfficher=tableau;
+							}
+							else {
+								String tableau []={"<html>Flora : Hey ! V&eacute;ga m&rsquo;a charg&eacute; de te donner des conseils.<br>M&eacute;loche est faible, il faudra que tu l&rsquo;entra&icirc;nes pour qu&rsquo;il gagne de l&rsquo;XP.</html>", "<html>Au nord, il y a les trav&eacute;es, un lieu peu entretenu avec des tr&egrave;fles au sol.<br>C&rsquo;est l&agrave; que se cachent les V&eacute;gamon, des cr&eacute;atures comme ton M&eacute;loche.</html>","<html>Certains pourront d&eacute;cider de t&rsquo;attaquer &agrave; tout moment.<br>Si tu gagnes le combat, tu gagneras de l&rsquo;XP, rendant M&eacute;loche plus fort,</html>", "<html>si tu perds, Meloche sera KO et tu devras te reposer dans <br>ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
+								this.listeInterractionsAvecDresseurs[numeroDresseur]=2;
+								this.texteAAfficher=tableau;
+							}
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
@@ -447,8 +454,8 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							else {
 								String tableau []={"<html>Flora : Va voir le professeur V&eacute;ga, il m&rsquo;a dit qu&rsquo;il t&rsquo;attendait !</html>","fin_message","","","","",""};
 								this.texteAAfficher=tableau;
-								break;
 							}
+							break;
 						}
 						case 2:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
 							String tableau []= {"Ton Meloche est trop mignon!","fin_message","","","","",""};
@@ -482,11 +489,20 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 2:{//Dialogue num&eacute;ro 02 - Remi
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html> R&eacute;mi : Attention ! Il y a plein <br>de dresseurs tr&egrave;s puissants plus loin,</html>","<html>tu devras t&rsquo;entra&icirc;ner si tu veux tous les vaincre.<br>N&rsquo;oublie pas de bien choisir tes attaques, </html>","<html>les V&eacute;gamon de type eau n&rsquo;aiment pas <br>les attaques de type &eacute;lectrique ! </html>","fin_message","","",""};						
-							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
-							this.texteAAfficher=tableau;
-							break;
-						}			 						 
+							if(this.listeInterractionsAvecDresseurs[6]==1){
+								String tableau []={"<html> R&eacute;mi : Attention ! Il y a plein <br>de dresseurs tr&egrave;s puissants plus loin,</html>","<html>tu devras t&rsquo;entra&icirc;ner si tu veux tous les vaincre.<br>N&rsquo;oublie pas de bien choisir tes attaques, </html>","<html>les V&eacute;gamon de type eau n&rsquo;aiment pas <br>les attaques de type &eacute;lectrique ! </html>","fin_message","","",""};						
+								this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
+								this.texteAAfficher=tableau;
+								break;
+							}
+							else {
+								String tableau []={"<html> R&eacute;mi : Stop ! La ville ou tu vas est très dangereuse.<br> Il y a des Vegamons sauvages dans les hautes herbes.</html>","<html>Tu n'as pas encore récupéré ton Vegamon auprès du professeur Vega ? </html>","<html>Vas donc le chercher.<br>Tu seras alors protégé et tu pourras aller dans la travee 1. </html>","fin_message","","",""};						
+								this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
+								this.texteAAfficher=tableau;
+								break;
+							}
+						}
+			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
 							String tableau []= {"<html>Les V&eacute;gamon de type eau n&rsquo;aiment pas<br> les attaques de type &eacute;lectrique ! </html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
