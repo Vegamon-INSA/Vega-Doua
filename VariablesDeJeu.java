@@ -63,11 +63,11 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				
 				String musiqueRoute1 ="Musiques/route1.wav";
 				this.musique=musiqueRoute1;
-				this.listeInterractionsAvecDresseurs=listeInterractionsAvecDresseursInitiale;
 
 				System.out.println(this.numeroCarte);
 				switch(this.numeroCarte) {
 					case 000:{//Spawn du début dans la maison
+						this.listeInterractionsAvecDresseurs=listeInterractionsAvecDresseursInitiale;
 						this.TableauCarte=Taturne;
 						this.xpMeloche=1;
 						this.xDepart=4;

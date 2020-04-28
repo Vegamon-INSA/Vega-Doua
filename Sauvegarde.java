@@ -50,7 +50,7 @@ public class Sauvegarde {//Sauvegarde Automatique
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
-		int[] variablesInt = new int[30];//tableau contenenant les variables de la sauvegarde
+		int[] variablesInt = new int[29];//tableau contenenant les variables de la sauvegarde
         try {
 
             br = new BufferedReader(new FileReader(cheminfichier));
