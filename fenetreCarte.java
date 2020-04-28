@@ -43,7 +43,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private Algorithme AlgoDeplacement = new Algorithme();
 	private Random r = new Random();
 	private int verifications = 0;//Compteur du nombre de cases vérifiées par l'algorithme de recherche de chemin
-
+	private fenetreCarte fcarte;
+	private FenetreCombat fcombat;
 
 	public fenetreCarte ( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde, Musiques musique) {
 		JFramePrincipal= Frame;
@@ -334,7 +335,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				affichertexte=false;
 				CacherBoiteTexte();
 				if ((String.valueOf(TableauCarte[yDepart][xDepart]).charAt(0))=='3') {
-					FenetreCombat MafenetreCombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,5);
+					pPrincipal.removeAll();
+					JFramePrincipal.remove(pPrincipal);
+					JFramePrincipal.revalidate();
+					JFramePrincipal.repaint();
+					fcombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,TableauCarte[yDepart][xDepart]);
 				}
 			}
 		}
@@ -356,7 +361,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	public void CacherBoiteTexte(){
 		pBoiteTexte.setVisible(false);	
-        JFramePrincipal.revalidate();
+		JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
 	}
 
@@ -381,12 +386,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			}
 			case '3':{//Dialogue avec combat
 					numeroDialogue = TableauCarte[y][x];
-					if (numeroDialogue>300) {
-						numeroDialogue = (numeroDialogue-300);
-					}
-					if ((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (numeroDialogue==0)){
+				if (numeroDialogue>300) {
+					numeroDialogue = (numeroDialogue-300);
+				}
+				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)){
 					stopDeplacement=true;
-					
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
 					numeroLigneTexte=0;
@@ -406,7 +410,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (TableauCarte[y][x]-4000);	
 					VariablesSession.NouvelleCarte(valeurTableau);
 					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-					fenetreCarte Carte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+					fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 				}
 				else if((yArrivee==0)&&(xArrivee==x)){
 					pPrincipal.removeAll();
@@ -417,19 +421,19 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (TableauCarte[y][x]-4000);	
 					VariablesSession.NouvelleCarte(valeurTableau);
 					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-					fenetreCarte Carte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+					fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 				}
 				break;
 			}
 			case '5':{//Combat contre un animal sauvage dans hautes herbes
-				if ((Math.random()>0.6)&&(xDepartInitial!=x)&&(yDepartInitial!=y)){
+				if ((Math.random()>0.8)&&(xDepartInitial!=x)&&(yDepartInitial!=y)){
 					pPrincipal.removeAll();
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
 					JFramePrincipal.repaint();
 					stopDeplacement=true;
 					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-					FenetreCombat MafenetreCombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,5);
+					fcombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,5);
 				}
 				break;
 			}

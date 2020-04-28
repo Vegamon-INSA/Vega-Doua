@@ -18,7 +18,8 @@ public class FenetreCombat implements ActionListener{
 	private VariablesDeJeu VariablesSession; //Variables de Jeu
 	private Sauvegarde SauvegardeJeu;
 	private Musiques MusiqueDeJeu= new Musiques();
-	    
+	private fenetreCarte fcarte;
+	   
     public FenetreCombat(CJframe Frame, VariablesDeJeu variables,Sauvegarde sauvegarde,Musiques musique, int numeroCase){
 
 		JFramePrincipal= Frame;
@@ -164,8 +165,8 @@ public class FenetreCombat implements ActionListener{
         pTextePokemonAdv.add(vieAdv);
        
         JFramePrincipal.setVisible(true); 
-
         debutCombat(numCase);
+		System.out.println("Fenetre combat");
 
 	}
 	
@@ -292,9 +293,8 @@ public class FenetreCombat implements ActionListener{
             }
             else{
                 if(advers.PV<=0){
-                    
                     if (numCase%100==3){
-                        VariablesSession.listeInterractionsAvecDresseurs [numCase-301]=2;
+                        VariablesSession.listeInterractionsAvecDresseurs[numCase-300]=2;
                     }
                     t.stop();
                     advers.PVmax=PVmaxAdvIni;
@@ -311,7 +311,7 @@ public class FenetreCombat implements ActionListener{
                     esquive=advattaque();
                     if (finCombat()==true){
                         if (numCase%100==3){
-                            VariablesSession.listeInterractionsAvecDresseurs [numCase-301]=1;
+                            VariablesSession.listeInterractionsAvecDresseurs[numCase-300]=1;
                         }
                         lDialogue.setText("Vous avez perdu !");
                         advers.PVmax=PVmaxAdvIni;
@@ -356,8 +356,8 @@ public class FenetreCombat implements ActionListener{
 			JFramePrincipal.remove(pPrincipal);
             JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
-            fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
-
+			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
+            fcarte= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
             freeze=false;
             t2.stop();
 		}

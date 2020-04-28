@@ -13,7 +13,7 @@ public class Accueil implements ActionListener{
 	private Sauvegarde SauvegardeJeu;
 	private Musiques MusiqueDeJeu;
     private ArrayList<VEGAMONS> dex;
-
+	private fenetreCarte fcarte;
 	public Accueil(CJframe Frame, VariablesDeJeu variables,Sauvegarde sauvegarde, Musiques musique){	
 		JFramePrincipal=Frame;
 		SauvegardeJeu=sauvegarde;
@@ -85,7 +85,7 @@ public class Accueil implements ActionListener{
 				VariablesSession.NouvelleCarte(000);
 				SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 			}
-			fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+			fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 			MusiqueDeJeu.StopMusique();
 
 		}
@@ -96,7 +96,7 @@ public class Accueil implements ActionListener{
 			JFramePrincipal.repaint();
 			VariablesSession.NouvelleCarte(000);
 			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-			fenetreCarte Map0= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+			fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 			MusiqueDeJeu.StopMusique();
 
 		}
@@ -125,6 +125,4 @@ public class Accueil implements ActionListener{
 	}
 }
 //musiques et effets speciaux : Définir quels effets speciaux quelles musiques et quelle naration on veut jouer et à quel moment
-//bug des boutons fenetre combat
 //bien checker toutes les zones avec les tableaux de gianni
-//résoudre pb au lancement
