@@ -108,7 +108,7 @@ public class FenetreCombat implements ActionListener{
         fond.add(gif);
         gif.setVisible(false);
         
-        lDialogue= new JLabel("Que dois-je faire ?" );  // Zone de texte avec toutes les informations
+        lDialogue= new JLabel("Que dois-je faire ?");  // Zone de texte avec toutes les informations
         lDialogue.setBounds(0,0,540,50);
         lDialogue.setBackground(Color.red);
         pDialogue.add(lDialogue);
@@ -356,6 +356,9 @@ public class FenetreCombat implements ActionListener{
                 freeze=true;
             } else {
                 lDialogue.setText("Impossible de s'échapper !");  // Si un dresseur nous attaque, on ne peut pas fuire
+                AuTourDuJoueur=true;
+                t = new Timer(1000, this);   // puis on lance l'attaque adverse
+				t.start();
             }
         }
         

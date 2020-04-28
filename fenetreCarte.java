@@ -22,7 +22,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private Timer t1;//Timer de déplacement de 'limage du personnage
 	private int a=0;//variable a pour le timer du déplacement du joueur
 	private int NbreCases = 25;//nombre de cases dans la grille qui découpe la carte
-	private boolean stopDeplacement;
+	private boolean stopDeplacement=false;
 	private boolean affichertexte;
 	private int numeroLigneTexte;
 	private int numeroDialogue;
@@ -158,7 +158,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	public boolean PossibiliteDeplacement (int x, int y){ // Test si la poistion finale demandée lors du click est possible	
         boolean possibilite = true;
-        if (TableauCarte[y][x] == 0){
+        if ((TableauCarte[y][x] == 0)|| (stopDeplacement==true)){
             possibilite=false;
         }
         System.out.println("Deplacement possible :"+possibilite);
@@ -285,15 +285,18 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	public void actionPerformed(ActionEvent u) {//Timer délpacement personnage
 		if(u.getSource()==t1){
+			if (a!=0) {
+				actionDeLaCase(xDepart,yDepart,false);
+			}
+			if((TableauCheminTrie[a+1][0]!=xArrivee)&&(TableauCheminTrie[a+1][1]!=yArrivee) && ((String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2') || (String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2'))) {
+				actionDeLaCase(xDepart,yDepart,false);
+			}
 			t1.stop();
 			DeplacementImage();
 			t1= new Timer(200, this);
-			if (a<NbreDeplacement){
+			if ((a<NbreDeplacement)&&(stopDeplacement==false)){
 				t1.start();
 				a++;
-				if (a!=0) {
-					actionDeLaCase(xDepart,yDepart,false);
-				}
 			}
 
 		}	 
@@ -302,16 +305,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 	public void DeplacementImage() {//Déplacement du Bonhomme
 		if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&&(stopDeplacement==false)){
-			if((TableauCheminTrie[a+1][0]!=xArrivee)&&(TableauCheminTrie[a+1][1]!=yArrivee) && ((String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2') || (String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2'))) {
-				actionDeLaCase(xDepart,yDepart,false);
-			}
-			if (stopDeplacement==false){
 				JLabelPersonnage.setBounds((TableauCheminTrie[a][0]-8),(TableauCheminTrie[a][1]-28),31,52);
 				xDepart=TableauCheminTrie[a][0]/TailleCellule;
 				yDepart=TableauCheminTrie[a][1]/TailleCellule;
 				VariablesSession.xDepart=xDepart;
 				VariablesSession.yDepart=yDepart;
-			}
 		}
 
 	}
@@ -428,21 +426,20 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				break;
 			}
 			case '5':{//Combat contre un animal sauvage dans hautes herbes
-				
-				if ((Math.random()>0.8)&&(xDepartInitial!=x)&&(yDepartInitial!=y)){
+				if ((Math.random()>0.75)&&(xDepartInitial!=x)&&(yDepartInitial!=y)){
 					try
-{
-    Thread.sleep(1000);
-}
-catch(InterruptedException ex)
-{
-    Thread.currentThread().interrupt();
-}
+					{
+						Thread.sleep(300);
+					}
+					catch(InterruptedException ex)
+					{
+						Thread.currentThread().interrupt();
+					}
+					stopDeplacement=true;
 					pPrincipal.removeAll();
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
 					JFramePrincipal.repaint();
-					stopDeplacement=true;
 					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 					fcombat = new FenetreCombat(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu,500);
 				}
