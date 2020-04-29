@@ -352,12 +352,12 @@ public class FenetreCombat implements ActionListener{
             if (numCase==500){
                 perso.PV=perso.PVmax;  // On réinitialise les points de vie des personnage
                 advers.PVmax=PVmaxAdvIni;
-                lDialogue.setText("Quelle poule mouillée, tu t'enfuis !"); // On affiche qu'on fuit
+                lDialogue.setText("Quelle poule mouill\u00e9e, tu t'enfuis !"); // On affiche qu'on fuit
                 t2 = new Timer(2000, this);  // Puis après avoir eu le temps de voir le message on quitte la fenetre
                 t2.start();
                 freeze=true;
             } else {
-                lDialogue.setText("Impossible de t'échapper !");  // Si un dresseur nous attaque, on ne peut pas fuire
+                lDialogue.setText("Impossible de t'\u00e9chapper !");  // Si un dresseur nous attaque, on ne peut pas fuire
                 AuTourDuJoueur=true;
                 t = new Timer(1500, this);   // puis on lance l'attaque adverse
 				t.start();
