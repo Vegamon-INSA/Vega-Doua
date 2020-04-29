@@ -25,7 +25,7 @@ public class FenetrePokedex implements ActionListener{
 		pPrincipal.setLayout(null);
         JFramePrincipal.add(pPrincipal);
 		
-        pok1 = new JButton();
+        pok1 = new JButton();            // Les 6 boutons pok i correspondent aux différents vegamons
         pok1.setBounds(175, 250, 200, 90);
         pok1.setLayout(null);
         pok1.addActionListener(this);
@@ -61,13 +61,13 @@ public class FenetrePokedex implements ActionListener{
         pok6.setLayout(null);
         pok6.addActionListener(this);
         
-        retour = new JButton();
+        retour = new JButton();          // Pour retourner à la page d'accueil
         retour.setBounds(325, 600, 150, 70);
         pPrincipal.add(retour);
         retour.setLayout(null);
         retour.addActionListener(this);
         
-        
+                                //  On affiche les dessins de chaque vegamon sur le bouton correspondant
         Meloche = new JLabel(new ImageIcon("Images/Meloche.png")); 
         Meloche.setBounds(0,-5,100,100);
         pok1.add(Meloche);
@@ -91,7 +91,8 @@ public class FenetrePokedex implements ActionListener{
         Pandalame = new JLabel(new ImageIcon("Images/Pandalame.png")); 
         Pandalame.setBounds(0,-5,100,100);
         pok6.add(Pandalame);
-        
+    
+                                // On affiche le nom du vegamon correspondant à l'image sur chaque bouton
         mel = new JLabel (VariablesSession.pokedex.get(0).nom);
         mel.setBounds (120, 20, 700, 60);
         pok1.add(mel);
@@ -128,6 +129,7 @@ public class FenetrePokedex implements ActionListener{
         
     public void actionPerformed(ActionEvent e){
  
+        // En cliquant sur un vegamon, on ouvre une petite fenetre qui donnera des informations supplémentaire sur ce vegamon
         if (e.getSource()==pok1){
             FenetrePoke Poke=new FenetrePoke(0, VariablesSession);
         } else if (e.getSource()==pok2){
@@ -141,9 +143,9 @@ public class FenetrePokedex implements ActionListener{
         } else if (e.getSource()==pok6){
             FenetrePoke Poke=new FenetrePoke(5, VariablesSession);
         } 
-        else if (e.getSource()==retour){
+        else if (e.getSource()==retour){   
 			pPrincipal.removeAll();
-			JFramePrincipal.remove(pPrincipal);
+			JFramePrincipal.remove(pPrincipal);    // Ou sur retour on revient à l'accueil
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
 			Accueil ecranAccueil= new Accueil(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
