@@ -7,7 +7,13 @@ import java.util.Random;
 import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-  
+import java.awt.FlowLayout;
+import java.util.Date; 
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.border.Border;
 public class fenetreCarte implements ActionListener, MouseListener, KeyListener {
 	private JPanel pPrincipal, pBoiteTexte, pNomCarte;
 	private JLabel JLabelPersonnage, JLabelCarte, lBoiteTexte, gif ,lNomCarte; 
@@ -19,8 +25,10 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private int[][] TableauCarte = new int[25][25];//tableau contenenant la consitution de la carte dans laquelle est le personnage
 	private int[][] TableauChemin = new int[50][2];//Tableau généré par l'algorithme avec les coordonnées x dans la colonne 0 et y dans la colonne 1 du chemin pour aller d'un point à un autre
 	private int[][] TableauCheminTrie = new int[50][2];// Tableau issu du tableau TableauChemin mais qui est cet fois-ci trié dans l'ordre de l'avancement du chemin
-	private Timer t1;//Timer de déplacement de 'limage du personnage
+	private Timer t1, t2,t3;//Timer de déplacement de 'limage du personnage
 	private int a=0;//variable a pour le timer du déplacement du joueur
+	private boolean descente=true;
+	private int ordonneePanel=-50;//variable a pour le timer du déplacement du joueur
 	private int NbreCases = 25;//nombre de cases dans la grille qui découpe la carte
 	private boolean stopDeplacement=false;
 	private boolean affichertexte;
@@ -61,22 +69,41 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		pPrincipal.addKeyListener(this);
 		pPrincipal.requestFocusInWindow();
 		
+		// Boite de texte dans laquelle on affiche le nom de la carte
+		
+		pNomCarte = new JPanel();
+		pNomCarte.setBounds(300, -50, 200, 50);
+		pNomCarte.setLayout(null);
+		pNomCarte.setBackground(Color.white);
+		Border border = BorderFactory.createLineBorder(Color.BLACK);
+		pNomCarte.setBorder(border);
+		pNomCarte.setVisible(false);	
+        pPrincipal.add(pNomCarte);	
+        
+        lNomCarte = new JLabel(VariablesSession.nomCarte);
+		lNomCarte.setBounds(0, 0, 200, 50);
+		lNomCarte.setText(VariablesSession.nomCarte);
+		lNomCarte.setHorizontalAlignment(JLabel.CENTER);
+		lNomCarte.setVerticalAlignment(JLabel.CENTER);
+        pNomCarte.add(lNomCarte);
+        
 		// Boite de texte dans laquelle on affiche les dialogues entre notre personnage et les dresseurs que notre perso rencontre sur la carte
+		
 		pBoiteTexte = new JPanel();
-		pBoiteTexte.setBounds(100, 700, 600, 50);
+		pBoiteTexte.setBounds(100, 700, 600, 70);
 		pBoiteTexte.setLayout(null);
 		pBoiteTexte.setBackground(Color.white);
+		Border border2 = BorderFactory.createLineBorder(Color.BLACK);
+		pBoiteTexte.setBorder(border);
         pPrincipal.add(pBoiteTexte);	
 		pBoiteTexte.setVisible(false);	
-
-		lBoiteTexte=new JLabel();
-		lBoiteTexte.setBounds(20, 0, 500, 50);
-		lBoiteTexte.setLayout(null);
-		lBoiteTexte.setBackground(Color.red);
+        
+        lBoiteTexte = new JLabel(VariablesSession.nomCarte);
+		lBoiteTexte.setBounds(20, 5, 500, 60);
         pBoiteTexte.add(lBoiteTexte);
         
         gif = new JLabel(new ImageIcon("Images/FlecheEntrer.gif")); 
-        gif.setBounds(550,15,30,30);
+        gif.setBounds(550,30,30,30);
         pBoiteTexte.add(gif);
         
 		//Algo de déplacement
@@ -97,19 +124,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
         JLabelPersonnage.setBounds((xDepart*TailleCellule-8),(yDepart*TailleCellule-28),31,52);
         JLabelPersonnage.setLayout(null);
         JLabelCarte.add(JLabelPersonnage);
-
-		pNomCarte = new JPanel();
-		pNomCarte.setBounds(400, 50, 200, 50);
-		pNomCarte.setLayout(null);
-		pNomCarte.setBackground(Color.white);
-        pPrincipal.add(pNomCarte);	
-        pNomCarte.setVisible(false);	
-			
-		lNomCarte=new JLabel();
-		lNomCarte.setBounds(20, 0, 500, 50);
-		lNomCarte.setLayout(null);
-		lNomCarte.setBackground(Color.red);
-        pNomCarte.add(lNomCarte);
         
         JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
@@ -118,19 +132,20 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		xDepartInitial= xDepart;
 		yDepartInitial= yDepart;
 		
-		affichageNomVille();
 		actionDeLaCase(xDepart,yDepart, true);
 	}
 	
 	
 	public void affichageNomVille() {
-		lBoiteTexte.setText(VariablesSession.nomCarte);
-		pNomCarte.setVisible(true);	
-        JFramePrincipal.revalidate();
-		JFramePrincipal.repaint();
+	
+			pNomCarte.setVisible(true);	
+			t2 = new Timer(100, this);
+			t2.start();
+			JFramePrincipal.revalidate();
+			JFramePrincipal.repaint();
 		
 	}
-
+		
 	public void mouseClicked(MouseEvent e) {}
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}
@@ -308,8 +323,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	
-	public void actionPerformed(ActionEvent u) {//Timer délpacement personnage
-		if(u.getSource()==t1){
+	public void actionPerformed(ActionEvent u) {
+		if(u.getSource()==t1){//Timer délpacement personnage
 			if (a!=0) {
 				actionDeLaCase(xDepart,yDepart,false);
 			}
@@ -324,7 +339,29 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				a++;
 			}
 
-		}	 
+		}
+			 
+		if(u.getSource()==t2){//Timer délpacement boite nom de la carte
+			t2.stop();
+			pNomCarte.setBounds(300, ordonneePanel, 200, 50);
+			t2= new Timer(5, this);
+			if ((ordonneePanel<50)&&(descente==true)){
+				t2.start();
+				ordonneePanel++;
+			}
+			else if ((ordonneePanel==50)&&(descente==true)){
+				descente=false;
+				long start = new Date().getTime();
+				while(new Date().getTime() - start < 1000L){}
+			}
+			if ((ordonneePanel>-50)&&(descente==false)){
+				t2.start();
+				ordonneePanel--;
+			}
+			else if ((ordonneePanel==-50)&&(descente==false)){
+				pNomCarte.setVisible(false);
+			}
+		}
 	}		
 		
 
@@ -471,6 +508,9 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				break;
 			}
 
+		}
+		if (spawn==true) {
+			affichageNomVille();
 		}
 	}
 	
