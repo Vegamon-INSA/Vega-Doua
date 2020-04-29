@@ -322,34 +322,36 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	public void actionPerformed(ActionEvent u) {
 		if(u.getSource()==t1){//Timer délpacement personnage
+			VariablesSession.xDepart=xDepart;
+			VariablesSession.yDepart=yDepart;
+							
+			xDepart=TableauCheminTrie[a][0]/TailleCellule;
+			yDepart=TableauCheminTrie[a][1]/TailleCellule;
+			JLabelPersonnage.setBounds((xDepart*TailleCellule-8),(yDepart*TailleCellule-28),31,52);
 
-			/*if((TableauCheminTrie[a+1][0]!=xArrivee)&&(TableauCheminTrie[a+1][1]!=yArrivee) && ((String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2') || (String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2'))) {
-				actionDeLaCase(xDepart,yDepart,false);
-						
-			}*/
 
-			System.out.println((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&& (stopDeplacement==false) && (TableauCarte[yDepart][xDepart]!=2) && (TableauCarte[yDepart][xDepart]!=3));
-			if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&&(stopDeplacement==false)){
+			if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&& (stopDeplacement==false) && (TableauCarte[yDepart][xDepart]!=2) && (TableauCarte[yDepart][xDepart]!=3)){
 				actionDeLaCase(xDepart,yDepart,false);
 				t1.stop();
-			
-					DeplacementImage();
-					System.out.println("test4"+a);
-				
-				xDepart=TableauCheminTrie[a][0]/TailleCellule;
-				yDepart=TableauCheminTrie[a][1]/TailleCellule;
-				System.out.println("test2");
 				t1= new Timer(200, this);
-				if ((a<=NbreDeplacement)&&(stopDeplacement==false)){
+				
+
+			}
+
+			else{
+
+				t1.stop();
+				System.out.println(xDepart);
+				System.out.println(VariablesSession.xDepart);
+				System.out.println(yDepart);
+				System.out.println(VariablesSession.yDepart);
+				
+				xDepart=VariablesSession.xDepart;
+				yDepart=VariablesSession.yDepart;
+				actionDeLaCase(xArriveeFinal,yArriveeFinal,false);
+			}			if ((a<NbreDeplacement)&&(stopDeplacement==false)){
 					a++;
 					t1.start();
-					System.out.println("test3");
-
-				}
-			}
-			else{
-				t1.stop();
-				actionDeLaCase(xDepart,yDepart,false);
 			}
 
 		}
@@ -384,11 +386,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}		
 		
 
-	public void DeplacementImage() {//Déplacement du Bonhomme
-		JLabelPersonnage.setBounds((TableauCheminTrie[a][0]-8),(TableauCheminTrie[a][1]-28),31,52);
-		VariablesSession.xDepart=xDepart;
-		VariablesSession.yDepart=yDepart;
-	}
 	
 	public void keyPressed(KeyEvent arg0) {
 		if (arg0.getKeyCode()==77) {//retour au menu
@@ -438,6 +435,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		pBoiteTexte.setVisible(false);	
 		JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
+		stopDeplacement=false;
 	}
 
 
@@ -462,6 +460,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroLigneTexte=0;
 					affichertexte=true;
 					AffichageBoiteTexte();
+					xDepart=VariablesSession.xDepart;
+					yDepart=VariablesSession.yDepart; 
 				}
 				break;
 			}
@@ -482,6 +482,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				
 			}
 			case '4':{//Changement de carte
+				
 				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==TableauCarte[y][x])&&(spawn==false)){
 					System.out.println("trigger");
 					pPrincipal.removeAll();
