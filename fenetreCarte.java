@@ -395,8 +395,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			else if (VariablesSession.texteAAfficher[numeroLigneTexte]=="fin_message"){
 				affichertexte=false;
 				CacherBoiteTexte();
-				if (((String.valueOf(TableauCarte[yDepart][xDepart]).charAt(0))=='3') && ((VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==1))) {
-					pPrincipal.removeAll();
+				if (((String.valueOf(TableauCarte[yDepart][xDepart]).charAt(0))=='3') && (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)){
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
 					JFramePrincipal.repaint();
@@ -436,7 +435,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroDialogue = (numeroDialogue-200);
 				}
 				
-				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==2) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==6) || (spawn==true)){
+				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==2) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true)){
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
@@ -451,7 +450,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (numeroDialogue>300) {
 					numeroDialogue = (numeroDialogue-300);
 				}
-				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==6) || (spawn==true)){
+				if (((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true))&&(TableauCarte[yArriveeFinal][xArriveeFinal]!=TableauCarte[y][x])){
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
