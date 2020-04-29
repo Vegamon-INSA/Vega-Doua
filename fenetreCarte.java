@@ -329,27 +329,22 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			yDepart=TableauCheminTrie[a][1]/TailleCellule;
 			JLabelPersonnage.setBounds((xDepart*TailleCellule-8),(yDepart*TailleCellule-28),31,52);
 
-
 			if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&& (stopDeplacement==false) && (TableauCarte[yDepart][xDepart]!=2) && (TableauCarte[yDepart][xDepart]!=3)){
-				actionDeLaCase(xDepart,yDepart,false);
+				actionDeLaCase(VariablesSession.xDepart,VariablesSession.yDepart,false);
 				t1.stop();
 				t1= new Timer(200, this);
-				
-
 			}
 
 			else{
-
+				JLabelPersonnage.setBounds((VariablesSession.xDepart*TailleCellule-8),(VariablesSession.yDepart*TailleCellule-28),31,52);
 				t1.stop();
 				System.out.println(xDepart);
 				System.out.println(VariablesSession.xDepart);
 				System.out.println(yDepart);
 				System.out.println(VariablesSession.yDepart);
-				
-				xDepart=VariablesSession.xDepart;
-				yDepart=VariablesSession.yDepart;
-				actionDeLaCase(xArriveeFinal,yArriveeFinal,false);
-			}			if ((a<NbreDeplacement)&&(stopDeplacement==false)){
+				actionDeLaCase(xDepart,yDepart,false);
+			}
+			if ((a<NbreDeplacement)&&(stopDeplacement==false)){
 					a++;
 					t1.start();
 			}
@@ -460,8 +455,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroLigneTexte=0;
 					affichertexte=true;
 					AffichageBoiteTexte();
-					xDepart=VariablesSession.xDepart;
-					yDepart=VariablesSession.yDepart; 
+					
 				}
 				break;
 			}
@@ -484,6 +478,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			case '4':{//Changement de carte
 				
 				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==TableauCarte[y][x])&&(spawn==false)){
+					try
+					{
+						Thread.sleep(300);
+					}
+					catch(InterruptedException ex)
+					{
+						Thread.currentThread().interrupt();
+					}
 					System.out.println("trigger");
 					pPrincipal.removeAll();
 					JFramePrincipal.remove(pPrincipal);
@@ -496,6 +498,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 				}
 				else if((yArrivee==0)&&(xArrivee==x)){
+					try
+					{
+						Thread.sleep(300);
+					}
+					catch(InterruptedException ex)
+					{
+						Thread.currentThread().interrupt();
+					}
 					pPrincipal.removeAll();
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
