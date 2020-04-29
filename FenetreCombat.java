@@ -175,15 +175,15 @@ public class FenetreCombat implements ActionListener{
         perso.PV=perso.PVmax;      //On réinitialise nos points de vie au max
         int exp=1;
                  // On indique le niveau de l'adversaire en fonction des cas où on est (avec un peu de hasard)
-            if (VariablesSession.numeroCarte==105 || VariablesSession.numeroCarte==301){      //trav1
-                exp=1+(int)(3*Math.random());                    // En fonction de la carte
-            }else if (VariablesSession.numeroCarte==202 || VariablesSession.numeroCarte==401){   //trav2
-                exp=6+(int)(7*Math.random());
-            }else if (VariablesSession.numeroCarte==414 || VariablesSession.numeroCarte==601){   // huma1
-                exp=35+(int)(15*Math.random());
-            }else if (VariablesSession.numeroCarte==502 || VariablesSession.numeroCarte==701){   //huma2
-                exp=50+(int)(19*Math.random());
-            }
+        if (VariablesSession.numeroCarte==105 || VariablesSession.numeroCarte==301){      //travée1
+			exp=1+(int)(3*Math.random());                    // En fonction de la carte
+		}else if (VariablesSession.numeroCarte==202 || VariablesSession.numeroCarte==401){   //travée2
+			exp=6+(int)(7*Math.random());
+        }else if (VariablesSession.numeroCarte==414 || VariablesSession.numeroCarte==601){   // huma1
+			exp=35+(int)(15*Math.random());
+        }else if (VariablesSession.numeroCarte==502 || VariablesSession.numeroCarte==701){   //huma2
+			exp=50+(int)(19*Math.random());
+        }
         if (numCase/10==2){   // Ou différemment pour les dresseurs des arênes
             exp = 40 - 3*(numCase%10);
         } else if (numCase/10==5){
@@ -216,7 +216,7 @@ public class FenetreCombat implements ActionListener{
     public void actionPerformed(ActionEvent e){
         
         if (e.getSource()==soin && !freeze){
-            soin();         // Si on appuie sur soin, on se soigne, on l'affiche
+            soin();         // Si on appuie sur soin, on se soigne, et on l'affiche
 			lDialogue.setText(perso.nom+" se soigne !");
 			t = new Timer(1000, this);   // puis on lance l'attaque adverse
 			t.start();
@@ -378,7 +378,7 @@ public class FenetreCombat implements ActionListener{
             t4.stop();
 		}
         
-        if (e.getSource()==t5){      // graphisme attaques
+        if (e.getSource()==t5){      // animation attaques
 			x=x+27;    
             y=y-9;      // On décale le dessin en diagonale 
             Meloche.setLocation(x,y);  
@@ -464,8 +464,8 @@ public class FenetreCombat implements ActionListener{
     
     public int coeff(int typeA , VEGAMONS pD){  // méthode qui détermine l'efficacité d'une attaque en fonction des types des personnages et des attaques
         int typeD= pD.type;
-        int [][] coef ={{6,6,9,6},{10,6,3,8},{4,8,7,6},{6,6,8,6}};
-        return (coef[typeD-1][typeA-1]);
+        int [][] coef ={{6,6,9,6},{10,6,3,8},{4,8,7,6},{6,6,8,6}};  // tableau ou chaque case représente l'éffecacité d'une attaque
+        return (coef[typeD-1][typeA-1]);        // On renvoie la valeur de la case correspondante
     }
     
     public void soin(){                // Méthode pour récupérer des points de vie puis met à jour l'affichage 
@@ -473,36 +473,36 @@ public class FenetreCombat implements ActionListener{
         if(perso.PV+soin<perso.PVmax){
             perso.PV=perso.PV+soin;
         }else {
-            perso.PV=perso.PVmax;
+            perso.PV=perso.PVmax;    // On limite les PV pour ne pas dépasser le max
         }
         lTexteMonPokemon.setText(perso.nom + "     XP : " + perso.XP + "     PV : " + perso.PV);
-        viePerso.setSize((int)(230.0*(double)(perso.PV)/(double)(perso.PVmax)), 5);
+        viePerso.setSize((int)(230.0*(double)(perso.PV)/(double)(perso.PVmax)), 5);   // On met à jour l'affichage
     }
     
     public boolean finCombat(){  // Méthode qui permet de savoir si le combat est fini (gagné ou perdu)
         boolean CombatFini = false;
-        if(perso.PV<=0 || advers.PV<=0){
+        if(perso.PV<=0 || advers.PV<=0){  // Pour cela on test si l'un des deux perso n'a plus de PV
             CombatFini=true;
         } 
         return CombatFini;
     }
     
-    public void graphAttak(boolean b2){ // méthode qui fait une explosion sur le personnage attaqué
+    public void graphAttak(boolean b2){ // méthode qui fait des animation lors des attaques 
         if (b2==true){
-            t5 = new Timer(1, this);
+            t5 = new Timer(1, this);  //lance le déplacement en diagonale de l'attaquant
             t5.start();
             
-            gif.setBounds(150,-110,600,300);     
+            gif.setBounds(150,-110,600,300);     //explosion
             gif.setVisible(true);
-            t4 = new Timer(1000, this);
+            t4 = new Timer(1000, this);      // qui s'arrête après une seconde
             t4.start();
         } else {
-            t6 = new Timer(1, this);
+            t6 = new Timer(1, this);   //lance le déplacement en diagonale de l'attaquant
             t6.start();
             
-            gif.setBounds(-170,-10,600,300);
+            gif.setBounds(-170,-10,600,300);   //explosion
             gif.setVisible(true);
-            t4 = new Timer(1000, this);
+            t4 = new Timer(1000, this);     // qui s'arrête après une seconde
             t4.start();
         }
     }

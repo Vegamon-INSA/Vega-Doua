@@ -9,8 +9,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
   
 public class fenetreCarte implements ActionListener, MouseListener, KeyListener {
-	private JPanel pPrincipal, pBoiteTexte;
-	private JLabel JLabelPersonnage, JLabelCarte, lBoiteTexte,gif; //Jlabel image du personnage
+	private JPanel pPrincipal, pBoiteTexte, pNomCarte;
+	private JLabel JLabelPersonnage, JLabelCarte, lBoiteTexte, gif ,lNomCarte; 
 	private CJframe JFramePrincipal; //Jframe principal avec image de fond
 	private VariablesDeJeu VariablesSession; //Variables de Jeu
 	private Sauvegarde SauvegardeJeu;
@@ -98,15 +98,39 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
         JLabelPersonnage.setLayout(null);
         JLabelCarte.add(JLabelPersonnage);
 
+		pNomCarte = new JPanel();
+		pNomCarte.setBounds(400, 50, 200, 50);
+		pNomCarte.setLayout(null);
+		pNomCarte.setBackground(Color.white);
+        pPrincipal.add(pNomCarte);	
+        pNomCarte.setVisible(false);	
+			
+		lNomCarte=new JLabel();
+		lNomCarte.setBounds(20, 0, 500, 50);
+		lNomCarte.setLayout(null);
+		lNomCarte.setBackground(Color.red);
+        pNomCarte.add(lNomCarte);
+        
         JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
 		xArriveeFinal= xDepart;
 		yArriveeFinal= yDepart;
 		xDepartInitial= xDepart;
 		yDepartInitial= yDepart;
+		
+		affichageNomVille();
 		actionDeLaCase(xDepart,yDepart, true);
 	}
 	
+	
+	public void affichageNomVille() {
+		lBoiteTexte.setText(VariablesSession.nomCarte);
+		pNomCarte.setVisible(true);	
+        JFramePrincipal.revalidate();
+		JFramePrincipal.repaint();
+		
+	}
+
 	public void mouseClicked(MouseEvent e) {}
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}

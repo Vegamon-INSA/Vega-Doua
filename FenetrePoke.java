@@ -8,13 +8,12 @@ public class FenetrePoke extends JFrame{
     private JLabel poke, nom, attaque, defense, esquive, type, attaques;
 
 	public FenetrePoke(int i, VariablesDeJeu variablesSession){
-		this.setTitle(variablesSession.pokedex.get(i).nom);
+		this.setTitle(variablesSession.pokedex.get(i).nom);   // On crée une nouvelle petite fenetre
 		this.setSize(600,400);
-		// Pour placer la fenêtre au centre de l'écran
-		this.setLocationRelativeTo(null);
+		this.setLocationRelativeTo(null);  // Pour placer la fenêtre au centre de l'écran
 		this.setLayout(null);	
-        
-        if (i==0){
+                                        // i correspondant au numéro du végamon
+        if (i==0){                          // On ajoute l'image du vegamon
             poke = new JLabel(new ImageIcon("Images/Meloche.png"));
         } else if (i==1){
             poke = new JLabel(new ImageIcon("Images/Aigloss.png"));
@@ -30,8 +29,8 @@ public class FenetrePoke extends JFrame{
         poke.setBounds(70,90,100,100);
         this.add(poke);
         
-        nom = new JLabel("nom :  "+variablesSession.pokedex.get(i).nom);
-        nom.setBounds(300, 30, 300, 50);
+        nom = new JLabel("nom :  "+variablesSession.pokedex.get(i).nom);  // On indique le nom, 
+        nom.setBounds(300, 30, 300, 50);   // et le niveau d'attaque, de défense, le taux d'esquive
         this.add(nom);
         
         attaque = new JLabel("attaque :  "+variablesSession.pokedex.get(i).attaque);
@@ -46,22 +45,22 @@ public class FenetrePoke extends JFrame{
         esquive.setBounds(300, 150, 300, 50);
         this.add(esquive);
         
-        type = new JLabel("type :  "+getType(i,variablesSession));
+        type = new JLabel("type :  "+getType(i,variablesSession));  // On indique le type du vegamon
         type.setBounds(300, 190, 300, 50);
         this.add(type);
         
         attaques = new JLabel("attaques :  "+variablesSession.pokedex.get(i).attaque1.nom + ", "+variablesSession.pokedex.get(i).attaque2.nom + ", "+variablesSession.pokedex.get(i).attaque3.nom + ", "+variablesSession.pokedex.get(i).attaque4.nom + ", ");
-        attaques.setBounds(150, 240, 400, 50);
+        attaques.setBounds(150, 240, 400, 50);  // Enfin on indique les noms des 4 attaques du vegamon
         this.add(attaques);
           		this.setVisible(true);
 	}
     
     public String getType (int i, VariablesDeJeu variablesSession ){
         String str=" ";
-        int t = variablesSession.pokedex.get(i).type;
+        int t = variablesSession.pokedex.get(i).type;  
         if (t==1){
             str = "feu";
-        } else if (t==2){
+        } else if (t==2){           // Méthode qui permet de traduire le type d'un entier vers un String correspondant
             str = "plante";
         } else if (t==3){
             str = "eau";
