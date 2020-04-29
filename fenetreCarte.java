@@ -463,7 +463,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				
 			}
 			case '4':{//Changement de carte
-				if ((xArrivee==x)&&(yArrivee==y)){
+				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==TableauCarte[y][x])&&(spawn==false)){
+					System.out.println("trigger");
 					pPrincipal.removeAll();
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
