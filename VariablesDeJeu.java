@@ -548,7 +548,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 								break;
 							}
 							else {
-								String tableau []={"<html> R&eacute;mi : Stop ! La ville ou tu vas est très dangereuse.<br> Il y a des Vegamons sauvages dans les hautes herbes.</html>","<html>Tu n'as pas encore récupéré ton Vegamon auprès du professeur Vega ? </html>","<html>Vas donc le chercher.<br>Tu seras alors protégé et tu pourras aller dans la travee 1. </html>","fin_message","","",""};						
+								String tableau []={"<html> R&eacute;mi : Stop ! La ville o&ograve; tu vas est tr&egrave;s dangereuse.<br> Il y a des Vegamons sauvages dans les hautes herbes.</html>","<html>Tu n&rsquo;as pas encore r&eacute;cup&eacute;r&eacute; ton Vegamon aupr&egrave;s du professeur Vega ? </html>","<html>Vas donc le chercher.<br>Tu seras alors prot&eacute;g&eacute; et tu pourras aller dans la trav&eacute;e 1. </html>","fin_message","","",""};						
 								this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 								this.texteAAfficher=tableau;
 								break;
@@ -707,9 +707,23 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				//MAP PC
 				//maison en bas a droite
 				case 18:{//Dialogue  -Estelle
+					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
+						case 0:{//Jamais discut&eacute; -ouverture
+							String tableau []= {"<html>Estelle : Bienvenue &agrave; toi jeune dresseur, une p&rsquo;tite binouse ?</html>","fin_message","","","","",""};
+							listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}			 						 
+						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
 							String tableau []= {"<html>Estelle : Bienvenue &agrave; toi jeune dresseur, une p&rsquo;tite binouse ?</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
+						
+						}
+						default:
+							this.texteAAfficher=null;
+					}
+					break;
 						
 				}
 				case 17:{//Dialogue num&eacute;ro Victor
@@ -813,13 +827,13 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 14:{//Dialogue num&eacute;ro Catherine 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Catherine : C&rsquo;est sympa comme nom « FIMI », non ?</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Catherine : C&rsquo;est sympa comme nom FIMI, non ?</html>","fin_message","","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>Catherine : C&rsquo;est sympa comme nom « FIMI », non ?</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Catherine : C&rsquo;est sympa comme nom FIMI, non ?</html>","fin_message","","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
