@@ -1,9 +1,10 @@
 public class VEGAMONS {
-	
+    
+            // On crée des personnages avec toutes leurs caractéristiques
 	protected String nom;
 	protected double attaque;
 	protected double defense;
-	protected double PV;
+	protected double PV;  // Points de vie
 	protected double esquive;
 	protected int PVmax;
 	protected int type; 
