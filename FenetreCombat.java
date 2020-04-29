@@ -324,6 +324,7 @@ public class FenetreCombat implements ActionListener{
                         graphAttak(false);
                         advers.PVmax=PVmaxAdvIni;   // On réinitialise les points de vie de l'adversaire
                         perso.PV=perso.PVmax;      // On réinitialise nos points de vie
+                        VariablesSession.xpMeloche=perso.XP;
                         VariablesSession.NouvelleCarte(000);
                         VariablesSession.listeInterractionsAvecDresseurs[1]=2;
                         t2 = new Timer(1500, this);    
