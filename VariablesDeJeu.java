@@ -392,6 +392,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							this.texteAAfficher=tableau;
 							break;
 						}
+						case 2:{//Discussion après mort du vegamon
+							String tableau []= {"<html>Fiouf ton Vegamon a morflé</html>","Mais c'esbon il va mieux maintenant, il s'est bien reposé !","Tu peux repartir. Bonne chasse !","fin_message","",""};
+							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}
 						default:
 							this.texteAAfficher=null;
 					}
