@@ -524,12 +524,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Rom&eacute;o : T&rsq300uo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Rom&eacute;o : J&rsquo;suis trop fort pour toi ?</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"<html>Rom&eacute;o : Mon pauvre Vegamon!</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Rom&eacute;o : Bon j&rsquo;suis peut-&ecirc;tre pas si fort...</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -546,12 +546,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>G&eacute;rard : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>G&eacute;rard : T&rsquo;as pas compris que j&rsquo;&eacute;tais plus fort que toi ?</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"<html>G&eacute;rard : Mon pauvre Vegamon!</html>","fin_message","","","","",""};
+							String tableau []= {"<html>G&eacute;rard : pfiou trop nul mon v&eacute;gamon.</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -568,12 +568,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Julie : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Julie : Tu veux encore te battre ?</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Julie : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"Julie : Mon pauvre v&eacute;gamon!","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -590,12 +590,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>G&eacute;raldine  : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>G&eacute;raldine  : Tu fais pas le poids !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"<html>G&eacute;raldine  : Mon pauvre petit Vegamon!</html>","fin_message","","","","",""};
+							String tableau []= {"<html>G&eacute;raldine  : Tu te d&eacute;brouilles bien !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -614,12 +614,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Jackson : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Jackson : T&rsquo;es plut&ocirc;t du genre tenace toi.</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Jackson : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"Jackson : Woah t&rsquo;es vraiment fort !","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -641,7 +641,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Michelle : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"Michelle : Bon ok je te laisse continuer.","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -902,7 +902,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Garde 1 : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 1 : C&rsquo;est re parti !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -929,7 +929,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Garde 2 : Tu peux passer...","fin_message","","","","",""};
+							String tableau []= {"Garde 2 : Allez fonce, le garde 3 t&rsquo;attend.","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -951,7 +951,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Garde 3 : Tu peux passer...","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 3 : Tu m&eacute;rites d'affronter le garde 4 !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -968,12 +968,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Garde 4 : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 4 : Ah te revoil&agrave;.</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Garde 4 : Tu peux passer...","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 4 : V&eacute;ronique t&rsquo;attend de pied ferme !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1018,7 +1018,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"<html>Fr&eacute;d&eacute;ric : Mon pauvre Vegamon !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Fr&eacute;d&eacute;ric : Arf, zut !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1035,12 +1035,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Frans : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Frans : Je vais encore t&rsquo;&eacute;craser !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Frans : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"Frans : Tu as &eacute;cras&eacute; mon v&eacute;gamon!","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1057,12 +1057,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Paul : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"Paul : Tu oses revenir me combattre ?","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Paul : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"<html>Paul : Tu ne m&eacute;rites pas cette victoire !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1079,12 +1079,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Charlie : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Charlie : Tu m&rsquo;as encore trouv&eacute; !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Charlie : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"Charlie : Je retourne me cacher...","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1123,12 +1123,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Julieng : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Julieng : J&rsquo;ai encore froid.</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Julieng : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"Julieng : Il fait super froid !","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1150,7 +1150,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Jerome : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"<html>Jerome : Je vais m&rsquo;entra&icirc;ner encore plus !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1162,17 +1162,17 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 36:{//Dialogue combat num&eacute;ro 0C - Pascal 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"Pascal : Tu n&rsquo;as aucune chance contre moi !","fin_message","","","","",""};
+							String tableau []= {"Pascal : T&rsquo;as aucune chance contre moi !","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Pascal : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Pascal : Pr&ecirc;t &agrave; reperdre ?</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Pascal : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"<html>Pascal : T&rsquo;as eu un coup de bol !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1189,12 +1189,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Phoebe : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"Phoebe : Oh tu veux encore te battre ?","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Phoebe : Mon pauvre Vegamon!","fin_message","","","","",""};
+							String tableau []= {"<html>Phoebe : J&rsquo;ai plus envie de me battre.</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1487,7 +1487,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Garde 1 : Tu peux passer...","fin_message","","","","",""};
+							String tableau []= {"Garde 1 : Bon je suis le 6&egrave;me meilleur maintenant.","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1504,12 +1504,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Garde 2 : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 2 : Ta bravoure t&rsquo;honore.</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Garde 2 : Tu peux passer...","fin_message","","","","",""};
+							String tableau []= {"Garde 2 : Encore 2 gardes avant le champion !","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1526,12 +1526,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Garde 3 : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 3 : Ah tu es revenu ?</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Garde 3 : Tu peux passer...","fin_message","","","","",""};
+							String tableau []= {"Garde 3 : Tu peux avancer, bonne chance.","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1548,12 +1548,12 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Katia : T&rsquo;en veux encore ?</html>","fin_message","","","","",""};
+							String tableau []= {"Katia : Encore toi ?","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"<html>Katia : Tu m&rsquo;as vaincue, bravo.</html>","fin_message","","","","",""};
+							String tableau []= {"Katia : Bravo.","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
