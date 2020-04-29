@@ -339,7 +339,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				xDepart=TableauCheminTrie[a][0]/TailleCellule;
 				yDepart=TableauCheminTrie[a][1]/TailleCellule;
 				System.out.println("test2");
-				t1= new Timer(250, this);
+				t1= new Timer(200, this);
 				if ((a<=NbreDeplacement)&&(stopDeplacement==false)){
 					a++;
 					t1.start();
