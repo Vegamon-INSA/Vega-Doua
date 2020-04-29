@@ -321,12 +321,12 @@ public class FenetreCombat implements ActionListener{
                         if (numCase!=500){   // si on a perdu contre un dresseur, on mémorise cette information
 							VariablesSession.listeInterractionsAvecDresseurs[numCase]=1;
                         }
-                        lDialogue.setText("Vous avez perdu !");   // Message d'information pour savoir qu'on a perdu
+                        lDialogue.setText("Retournes t'entrainer avec de revenir !");   // Message d'information pour savoir qu'on a perdu
                         advers.PVmax=PVmaxAdvIni;   // On réinitialise les points de vie de l'adversaire
                         perso.PV=perso.PVmax;      // On réinitialise nos points de vie
                         VariablesSession.NouvelleCarte(000);
                         VariablesSession.listeInterractionsAvecDresseurs[1]=2;
-                        t2 = new Timer(1000, this);    
+                        t2 = new Timer(1500, this);    
                         t2.start();               // On ferme la fenetre après un petit moment
                         freeze=true;
                     } else if (esquive==false){
@@ -352,7 +352,7 @@ public class FenetreCombat implements ActionListener{
             if (numCase==500){
                 perso.PV=perso.PVmax;  // On réinitialise les points de vie des personnage
                 advers.PVmax=PVmaxAdvIni;
-                lDialogue.setText("Vous prenez la fuite !"); // On affiche qu'on fuit
+                lDialogue.setText("Quelle poule mouillée, tu t'enfuis !"); // On affiche qu'on fuit
                 t2 = new Timer(1000, this);  // Puis après avoir eu le temps de voir le message on quitte la fenetre
                 t2.start();
                 freeze=true;
@@ -392,7 +392,7 @@ public class FenetreCombat implements ActionListener{
             }
 		}
         
-        if (e.getSource()==t6){   // Même principe que t5 mais pour déplacer le le dessin de l'adversaire
+        if (e.getSource()==t6){   // Même principe que t5 mais pour déplacer le dessin de l'adversaire
             x1=x1-27;     
             y1=y1+9;
             lab2.setLocation(x1,y1);
