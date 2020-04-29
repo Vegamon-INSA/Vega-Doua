@@ -195,7 +195,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	public boolean PossibiliteDeplacement (int x, int y){ // Test si la poistion finale demandée lors du click est possible	
         boolean possibilite = true;
-        if ((TableauCarte[y][x] == 0)|| (stopDeplacement==true)){
+        if (((TableauCarte[y][x] == 0)|| (stopDeplacement==true)) || ((x==xDepart) && (y==yDepart))) {
             possibilite=false;
         }
         System.out.println("Deplacement possible :"+possibilite);
