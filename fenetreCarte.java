@@ -8,12 +8,9 @@ import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.FlowLayout;
-import java.util.Date; 
-
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.border.Border;
+
 public class fenetreCarte implements ActionListener, MouseListener, KeyListener {
 	private JPanel pPrincipal, pBoiteTexte, pNomCarte;
 	private JLabel JLabelPersonnage, JLabelCarte, lBoiteTexte, gif ,lNomCarte; 
@@ -222,7 +219,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				}
 			}
 			TriTableauChemin();
-			t1= new Timer(1000, this);
+			t1= new Timer(1, this);
 			t1.start();	
 
 		}
@@ -325,18 +322,34 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	public void actionPerformed(ActionEvent u) {
 		if(u.getSource()==t1){//Timer délpacement personnage
-			if (a!=0) {
+
+			/*if((TableauCheminTrie[a+1][0]!=xArrivee)&&(TableauCheminTrie[a+1][1]!=yArrivee) && ((String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2') || (String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2'))) {
 				actionDeLaCase(xDepart,yDepart,false);
-			}
-			if((TableauCheminTrie[a+1][0]!=xArrivee)&&(TableauCheminTrie[a+1][1]!=yArrivee) && ((String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2') || (String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2'))) {
+						
+			}*/
+
+			System.out.println((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&& (stopDeplacement==false) && (TableauCarte[yDepart][xDepart]!=2) && (TableauCarte[yDepart][xDepart]!=3));
+			if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&&(stopDeplacement==false)){
 				actionDeLaCase(xDepart,yDepart,false);
+				t1.stop();
+			
+					DeplacementImage();
+					System.out.println("test4"+a);
+				
+				xDepart=TableauCheminTrie[a][0]/TailleCellule;
+				yDepart=TableauCheminTrie[a][1]/TailleCellule;
+				System.out.println("test2");
+				t1= new Timer(250, this);
+				if ((a<=NbreDeplacement)&&(stopDeplacement==false)){
+					a++;
+					t1.start();
+					System.out.println("test3");
+
+				}
 			}
-			t1.stop();
-			DeplacementImage();
-			t1= new Timer(200, this);
-			if ((a<NbreDeplacement)&&(stopDeplacement==false)){
-				t1.start();
-				a++;
+			else{
+				t1.stop();
+				actionDeLaCase(xDepart,yDepart,false);
 			}
 
 		}
@@ -344,15 +357,21 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		if(u.getSource()==t2){//Timer délpacement boite nom de la carte
 			t2.stop();
 			pNomCarte.setBounds(300, ordonneePanel, 200, 50);
-			t2= new Timer(5, this);
+			t2= new Timer(3, this);
 			if ((ordonneePanel<50)&&(descente==true)){
 				t2.start();
 				ordonneePanel++;
 			}
 			else if ((ordonneePanel==50)&&(descente==true)){
 				descente=false;
-				long start = new Date().getTime();
-				while(new Date().getTime() - start < 1000L){}
+				try
+					{
+						Thread.sleep(500);
+					}
+					catch(InterruptedException ex)
+					{
+						Thread.currentThread().interrupt();
+				}
 			}
 			if ((ordonneePanel>-50)&&(descente==false)){
 				t2.start();
@@ -366,15 +385,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		
 
 	public void DeplacementImage() {//Déplacement du Bonhomme
-		if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&&(stopDeplacement==false)){
-				JLabelPersonnage.setBounds((TableauCheminTrie[a][0]-8),(TableauCheminTrie[a][1]-28),31,52);
-				xDepart=TableauCheminTrie[a][0]/TailleCellule;
-				yDepart=TableauCheminTrie[a][1]/TailleCellule;
-				VariablesSession.xDepart=xDepart;
-				VariablesSession.yDepart=yDepart;
-		}
-
+		JLabelPersonnage.setBounds((TableauCheminTrie[a][0]-8),(TableauCheminTrie[a][1]-28),31,52);
+		VariablesSession.xDepart=xDepart;
+		VariablesSession.yDepart=yDepart;
 	}
+	
 	public void keyPressed(KeyEvent arg0) {
 		if (arg0.getKeyCode()==77) {//retour au menu
 			pPrincipal.removeAll();
@@ -427,6 +442,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 
 	public void actionDeLaCase(int x, int y, boolean spawn){
+		System.out.println("actionDeLaCase"+TableauCarte[y][x]);
+		System.out.println(x);
+		System.out.println(xArriveeFinal);
+		System.out.println(y);
+		System.out.println(yArriveeFinal);
 		SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 		switch(String.valueOf(TableauCarte[y][x]).charAt(0)) {
 			case '2':{//Dialogue sans combat
@@ -435,7 +455,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroDialogue = (numeroDialogue-200);
 				}
 				
-				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==2) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true)){
+				if (((TableauCarte[yArriveeFinal][xArriveeFinal]==2) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0) || (spawn==true)) && ((Math.abs(y-yArriveeFinal)<3) && (Math.abs(x-xArriveeFinal)<3))){
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
@@ -450,7 +470,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (numeroDialogue>300) {
 					numeroDialogue = (numeroDialogue-300);
 				}
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true))&&(TableauCarte[yArriveeFinal][xArriveeFinal]!=TableauCarte[y][x])){
+				if (((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true)) && ((Math.abs(y-yArriveeFinal)<3) && (Math.abs(x-xArriveeFinal)<3))){
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
