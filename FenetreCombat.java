@@ -13,6 +13,7 @@ public class FenetreCombat implements ActionListener{
     private VEGAMONS perso, advers, pA, pD;
     private int x, y, x1, y1,j,exp,type, numCase, PVmaxAdvIni;
     private ArrayList<VEGAMONS> pokedex; 
+    private ArrayList<String> textes;
 	private CJframe JFramePrincipal; //Jframe principal avec image de fond
 	private VariablesDeJeu VariablesSession; //Variables de Jeu
 	private Sauvegarde SauvegardeJeu;
@@ -173,7 +174,7 @@ public class FenetreCombat implements ActionListener{
         AuTourDuJoueur=false;
         perso.PV=perso.PVmax;      //On réinitialise nos points de vie au max
         int exp=1;
-         // On indique le niveau de l'adversaire en fonction des cas où on est (avec un peu de hasard)
+                 // On indique le niveau de l'adversaire en fonction des cas où on est (avec un peu de hasard)
         if (VariablesSession.numeroCarte==105 || VariablesSession.numeroCarte==301){      //trav1
 			exp=1+(int)(3*Math.random());                    // En fonction de la carte
 		}else if (VariablesSession.numeroCarte==202 || VariablesSession.numeroCarte==401){   //trav2
