@@ -33,7 +33,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		private	int Maison2TO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0},{0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0},{0,1,1,1,1,244,244,244,244,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,244,2,2,244,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,244,2,2,244,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,244,244,244,244,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},{0,0,0,1,1,1,1,1,1,1,1,4705,1,1,1,1,1,1,1,1,1,1,0,0,0},{0,0,0,0,0,0,0,0,0,4705,4705,4705,4705,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,4705,4705,4705,4705,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private	int BatRdcTO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,4708,4708,4708,4708,0,0,0,0,0,0,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,4708,4708,4708,4708,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,246,246,1,1,1,1,1,1,1,0},{0,1,245,2,0,0,0,1,1,1,1,1,1,1,246,2,246,1,1,1,1,1,1,1,0},{0,1,245,2,245,0,0,1,1,1,1,1,1,1,246,2,246,0,0,0,0,1,1,1,0},{0,1,245,245,245,0,0,1,1,1,1,1,1,1,246,246,246,0,0,0,0,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,4707,4707,4707,4707,4707,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,4707,4707,4707,4707,4707,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private	int BatEtageTO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,1,247,2,247,1,1,1,1,0,0,0,0,0,1,1,1,1,1,4709,4709,4709,4709,0,0},{0,1,247,247,247,0,0,1,1,0,0,0,0,0,1,1,1,1,1,4709,4709,4709,4709,0,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,248,248,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,248,2,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,248,2,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0},{0,1,1,1,1,1,1,248,248,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,249,2,2,249,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,249,2,2,249,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
-		private	int AreneTO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,3,350,350,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,350,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,3,351,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,351,351,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,352,3,352,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,352,352,352,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,353,3,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,353,3,0,0,0,0},{0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,3,354,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,3,354,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,1,1,1,255,2,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,4413,4413,4413,255,255,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,4711,4711,4711,4711,4711,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+		private	int AreneTO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,3,350,350,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,350,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,3,351,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,351,351,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,352,3,352,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,352,352,352,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,353,3,0,0,0,0},{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,353,3,0,0,0,0},{0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,3,354,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,3,354,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,1,1,1,258,2,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,4413,4413,4413,258,258,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,4711,4711,4711,4711,4711,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		
 		 
 		 // On crée toutes les attaques, chacune a un nom, et un type représenté par un entier entre 1 et 4
@@ -118,6 +118,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=3;
 						this.yDepart=24;
 						this.imageFond="Images/Route1-Travees/travees1.png";
+						this.nomCarte="Les trav\u00e9es 1";
 						break;
 						}
 					case 201:{//Entrée dans La feyssine par le haut à gauche travee1--> feyssine
@@ -125,6 +126,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=3;
 						this.yDepart=1;
 						this.imageFond="Images/LaFeyssine/LaFeyssine.png";
+						this.nomCarte="La Feyssine";
 						break;
 					}			
 					case 202:{//passage travée1-> travée2
@@ -132,6 +134,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=21;
 						this.yDepart=23;
 						this.imageFond="Images/Route1-Travees/travees2.png";
+						this.nomCarte="Les trav\u00e9es 2";
 						break;
 						}
 					case 301:{//passage travée2-> travée1
@@ -139,6 +142,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=22;
 						this.yDepart=2;
 						this.imageFond="Images/Route1-Travees/travees1.png";
+						this.nomCarte="Les trav\u00e9es 1";
 						break;
 						}
 					case 302:{//passage travée2-> PC
@@ -146,6 +150,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=11;
 						this.yDepart=23;
 						this.imageFond="Images/miniville1PC/PC.png";
+						this.nomCarte="Ville PC";
 						break;
 						}
 					case 401:{//PC-> travee2
@@ -153,13 +158,15 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=2;
 						this.yDepart=2;
 						this.imageFond="Images/Route1-Travees/travees2.png";
+						this.nomCarte="Les trav\u00e9es 2";
 						break;
 						}
-					case 402:{//PC-> Maison1 à gauche  //Bug impossible de se déplacer dans cette maison
+					case 402:{//PC-> Maison1 à gauche  
 						this.TableauCarte=Maison1PC;
 						this.xDepart=11;
 						this.yDepart=16;
 						this.imageFond="Images/miniville1PC/mPC1.png";
+						this.nomCarte="Turne de la directrice du PC";
 						break;
 						}
 					case 403:{//Maison1 à gauche -> PC
@@ -167,6 +174,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=6;
 						this.yDepart=16;
 						this.imageFond="Images/miniville1PC/PC.png";
+						this.nomCarte="Ville PC";
 						break;
 						}
 					case 404:{//PC-> Maison2 en bas
@@ -174,6 +182,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=11;
 						this.yDepart=16;
 						this.imageFond="Images/miniville1PC/mPC2.png";
+						this.nomCarte="Turne de Picsou";
 						break;
 						}
 					case 405:{//Maison2 à gauche -> PC  
@@ -181,6 +190,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=14;
 						this.yDepart=20;
 						this.imageFond="Images/miniville1PC/PC.png";
+						this.nomCarte="Ville PC";
 						break;
 						}
 					case 406:{//PC-> Maison3 à DROITE 
@@ -188,6 +198,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=11;
 						this.yDepart=17;
 						this.imageFond="Images/miniville1PC/mPC3.png";
+						this.nomCarte="Turne des étudiants INSA";
 						break;
 						}
 					case 407:{//Maison3-> PC  
@@ -195,6 +206,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=19;
 						this.yDepart=20;
 						this.imageFond="Images/miniville1PC/PC.png";
+						this.nomCarte="Ville PC";
 						break;
 						}
 					case 408:{//PC-> BatRDC
@@ -202,6 +214,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=11;
 						this.yDepart=17;
 						this.imageFond="Images/miniville1PC/PCrdcIm.png";
+						this.nomCarte="Immeuble - RDC";
 						break;
 						}
 					case 409:{//batRdc-> PC
@@ -209,6 +222,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=12;
 						this.yDepart=6;
 						this.imageFond="Images/miniville1PC/PC.png";
+						this.nomCarte="Ville PC";
 						break;
 						}
 					case 410:{//batRdc-> 1ER etage
@@ -216,6 +230,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=19;
 						this.yDepart=8;
 						this.imageFond="Images/miniville1PC/PCetage1Im.png";
+						this.nomCarte="Immeuble - 1\u00e8re \u00e9tage";
 						break;
 						}
 				   case 411:{//1ER etage-> BatRDC
@@ -223,6 +238,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=18;
 						this.yDepart=7;
 						this.imageFond="Images/miniville1PC/PCrdcIm.png";
+						this.nomCarte="Immeuble - RDC";
 						break;
 						}
 				  case 412:{//PC-> Arene
@@ -230,6 +246,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=12;
 						this.yDepart=19;
 						this.imageFond="Images/miniville1PC/arene1.png";
+						this.nomCarte="Ar\u00e8ne PC";
 						break;
 						}
 				 case 413:{//Arene-> PC
@@ -237,6 +254,8 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=19;
 						this.yDepart=11;
 						this.imageFond="Images/miniville1PC/PC.png";
+						this.nomCarte="Ville PC";
+						
 						break;
 						}
 				case 414:{//PC-> Humas1
@@ -244,6 +263,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=3;
 						this.yDepart=24;
 						this.imageFond="Images/Route2-Humas/humas1.png";
+						this.nomCarte="Humas 1";
 						break;
 						}
 				case 501:{//Humas1-> PC
@@ -251,6 +271,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=22;
 						this.yDepart=2;
 						this.imageFond="Images/miniville1PC/PC.png";
+						this.nomCarte="Ville PC";
 						break;
 						}
 				case 502:{//Humas1->Humas2
@@ -258,6 +279,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=21;
 						this.yDepart=23;
 						this.imageFond="Images/Route2-Humas/humas2.png";
+						this.nomCarte="Humas 2";
 						break;
 						}
 				case 601:{//Humas2->Humas1
@@ -265,6 +287,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=22;
 						this.yDepart=2;
 						this.imageFond="Images/Route2-Humas/humas1.png";
+						this.nomCarte="Humas 1";
 						break;
 						}
 				case 602:{//Humas2->TeteOr
@@ -272,6 +295,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=4;
 						this.yDepart=23;
 						this.imageFond="Images/Ville1-TO/TO.png";
+						this.nomCarte="La T\u00eate d'Or";
 						break;
 						}
 				case 701:{//TeteOr->Humas2
@@ -279,6 +303,8 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=2;
 						this.yDepart=1;
 						this.imageFond="Images/Route2-Humas/humas2.png";
+						this.nomCarte="Humas 2";
+						
 						break;
 						}
 				case 702:{//TeteOr->M1TO
@@ -286,6 +312,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=11;
 						this.yDepart=17;
 						this.imageFond="Images/Ville1-TO/mTO1.png";
+						this.nomCarte="Maison des architectes";
 						break;
 						}
 				case 703:{//M1TO->TeteOr
@@ -293,6 +320,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=3;
 						this.yDepart=20;
 						this.imageFond="Images/Ville1-TO/TO.png";
+						this.nomCarte="La T\u00eate d'Or";
 						break;
 						}
 				case 704:{//TeteOr->M2TO
@@ -300,6 +328,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=11;
 						this.yDepart=16;
 						this.imageFond="Images/Ville1-TO/mTO2.png";
+						this.nomCarte="Maison de Fr\u00e9d\u00e9ric";
 						break;
 						}
 				case 705:{//M2TO->TeteOr
@@ -307,6 +336,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=11;
 						this.yDepart=15;
 						this.imageFond="Images/Ville1-TO/TO.png";
+						this.nomCarte="La T\u00eate d'Or";
 						break;
 						}
 				case 706:{//TeteOr->Immeuble
@@ -314,6 +344,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=11;
 						this.yDepart=17;
 						this.imageFond="Images/Ville1-TO/imTO1.png";
+						this.nomCarte="Immeuble de la T\u00eate d'Or - RDC";
 						break;
 						}
 				case 707:{//ImmeubleTO->TeteOr
@@ -321,6 +352,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=4;
 						this.yDepart=6;
 						this.imageFond="Images/Ville1-TO/TO.png";
+						this.nomCarte="La T\u00eate d'Or";
 						break;
 						}
 				case 708:{//ImmeubleTO->EtageTO
@@ -328,6 +360,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=19;
 						this.yDepart=8;
 						this.imageFond="Images/Ville1-TO/imTO2.png";
+						this.nomCarte="Immeuble - 1\u00e8re \u00e9tage";
 						break;
 						}
 				case 709:{//EtageTO->ImmeubleTO
@@ -335,6 +368,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=18;
 						this.yDepart=7;
 						this.imageFond="Images/Ville1-TO/imTO1.png";
+						this.nomCarte="Immeuble de la T\u00eate d'Or - RDC";
 						break;
 						}
 				case 710:{//TeteOr->AreneTO
@@ -342,6 +376,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=12;
 						this.yDepart=19;
 						this.imageFond="Images/miniville1PC/arene1.png";
+						this.nomCarte="Ar\u00e8ne de la T\u00eate d'Or - RDC";
 						break;
 						}
 				case 711:{//AreneTO->TeteOr
@@ -349,6 +384,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xDepart=19;
 						this.yDepart=6;
 						this.imageFond="Images/Ville1-TO/TO.png";
+						this.nomCarte="La T\u00eate d'Or - RDC";
 						break;
 						}
 					  default:
@@ -1220,7 +1256,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 					break;
 				} 
 				//LA TETE D&rsquo;OR
-				case 256:{//Dialogue num&eacute;ro Jaquie 
+				case 56:{//Dialogue num&eacute;ro Jaquie 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
 							String tableau []={"<html>Jaquie : J&rsquo;adore cette ville.</html>","fin_message","","","","",""};							
@@ -1239,7 +1275,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 					}
 					break;
 				}
-				case 257:{//Dialogue num&eacute;ro Vega 
+				case 57:{//Dialogue num&eacute;ro Vega 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
 							String tableau []={"<html>Prof. Vega : Ca alors ! tu es arriv&eacute;</html>","<html>jusqu&rsquo;ici ! Meloche et toi formez</html>","un duo incroyable !","Bonne chance pour la suite !","fin_message","",""};							
@@ -1258,7 +1294,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 					}
 					break;
 				}
-				case 255:{//Dialogue num&eacute;ro Donna 
+				case 55:{//Dialogue num&eacute;ro Donna 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
 							String tableau []={"<html>Donna : C&rsquo;est dans cette ar&egrave;ne que se trouve</html>","le plus grand dresseur de la Doua","<html>Tu comptes l&rsquo;affronter ?</html>","fin_message","","",""};							
@@ -1471,7 +1507,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 					break;
 				}
 				//arene
-				case 55:{//Dialogue num&eacute;ro M.S&eacute;curitas 
+				case 58:{//Dialogue num&eacute;ro M.S&eacute;curitas 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
 							String tableau []={"<html>M.S&eacute;curitas : Bienvenue &agrave; toi, nombreux sont les dresseurs</html>","<html> &agrave; avoir tent&eacute; leurs chances ici…</html>","Tous sont repartis bredouille,","<html>j&rsquo;esp&egrave;re que tu es pr&ecirc;t ! Bonne chance.</html>","fin_message","",""};							
