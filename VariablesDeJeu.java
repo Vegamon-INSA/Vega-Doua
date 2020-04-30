@@ -28,7 +28,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		private	int BatEtage [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,1,228,2,228,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,1,228,2,228,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,4411,4411,4411,0,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,4411,4411,4411,0,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,229,229,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,229,2,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,229,2,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0},{0,1,1,1,1,1,1,229,229,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,230,2,2,230,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,230,2,2,230,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private	int Humas1 [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4502,4502,4502,4502,0},{0,0,3,331,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,4502,4502,4502,4502,0},{0,0,331,331,5,5,5,5,1,1,5,1,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,0,1,5,232,232,232,232,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0},{0,0,1,1,232,2,2,232,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0},{0,0,1,1,232,232,232,232,1,1,1,0,0,0,0,0,0,0,0,0,0,0,5,0,0},{0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,3,3,0,0,5,0,0},{0,0,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,333,333,333,333,5,5,0,0},{0,0,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,333,333,333,5,5,5,0,0},{0,0,0,0,0,0,0,0,0,0,0,5,1,1,5,5,5,5,1,1,1,1,1,0,0},{0,0,0,0,0,0,0,0,0,0,0,1,1,1,5,5,5,5,1,1,1,1,1,0,0},{0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,5,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,5,0,0,0,0,0,0,0,0,0},{0,0,334,3,334,5,5,5,5,5,1,1,1,1,5,5,0,0,0,0,0,0,0,0,0},{0,0,0,3,334,5,5,5,5,5,1,1,1,1,5,5,0,0,0,0,0,0,0,0,0},{0,0,1,334,334,5,5,5,5,1,1,1,1,1,1,5,5,5,1,1,1,1,1,0,0},{0,0,0,1,1,5,5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0},{0,0,1,1,5,5,5,5,5,1,1,1,1,1,1,1,1,5,5,5,335,3,335,0,0},{0,0,1,1,5,5,5,5,5,1,1,1,1,1,1,1,1,5,5,5,335,3,335,0,0},{0,0,1,1,5,5,5,5,5,5,1,1,1,1,1,1,1,5,5,5,335,335,335,0,0},{0,0,0,1,1,1,1,1,5,5,5,1,1,1,1,1,1,5,5,5,5,5,5,0,0},{0,0,4501,4501,4501,1,1,1,1,5,1,1,1,1,1,5,5,5,5,5,5,5,5,0,0},{0,0,4501,4501,4501,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private	int Humas2 [][] = {{0,4602,4602,4602,4602,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,4602,4602,4602,5,5,1,1,1,1,1,1,1,1,1,336,3,336,5,0,0,337,3,0,0},{0,0,1,1,5,5,1,1,1,1,1,1,1,1,1,336,336,336,5,0,0,337,337,0,0},{0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,5,5,0,0,5,5,0,0},{0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,5,5,0,0,5,5,0,0},{0,0,5,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,5,5,0,0},{0,0,5,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,5,5,0,0},{0,0,5,5,5,1,1,1,1,5,5,5,5,5,5,1,1,1,5,5,5,5,5,0,0},{0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0},{0,0,1,1,1,1,1,5,5,5,5,1,1,5,0,0,0,0,0,0,0,0,0,0,0},{0,0,1,1,1,1,1,5,5,5,5,1,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,5,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,5,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,5,5,1,1,1,1,5,5,5,5,5,338,3,338,0,0},{0,0,0,0,0,0,0,0,0,5,5,1,1,1,1,5,5,5,5,5,338,338,0,0,0},{0,0,1,1,1,1,5,5,5,5,1,1,1,1,1,1,5,5,5,5,5,1,0,0,0},{0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,1,1,0,0,0},{0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,339,339,5,5,5,5,1,1,1,1,1,1,1,1,5,5,5,5,5,1,1,0,0},{0,0,3,3,339,5,5,5,1,1,1,1,1,1,1,1,5,5,5,5,5,1,1,0,0},{0,0,3,3,339,5,5,5,1,1,1,1,1,1,1,5,5,5,5,5,5,1,1,0,0},{0,0,339,339,339,5,5,5,1,1,1,1,1,1,5,5,5,1,1,1,1,1,0,0,0},{0,0,5,5,5,5,5,5,5,5,1,1,1,1,1,5,1,1,1,1,4601,4601,4601,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4601,4601,4601,0,0}};
-		private	int TO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0},{0,1,0,0,0,0,1,1,1,0,0,0,0,1,0,1,1,0,0,0,0,255,255,255,0},{0,1,0,0,0,0,1,1,1,1,0,0,0,1,1,1,1,0,4710,4710,0,255,2,255,0},{0,0,0,4706,4706,0,1,256,256,256,0,0,0,0,1,1,1,0,4710,4710,0,255,2,255,0},{0,0,0,4706,4706,0,1,256,2,256,1,0,0,0,0,1,1,1,1,1,1,255,255,255,0},{0,0,1,1,1,1,1,256,2,256,1,1,0,0,0,0,1,1,1,1,1,1,2,1,0},{0,1,1,1,1,1,1,1,256,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0},{0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,0},{0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0},{0,0,0,0,0,1,1,1,1,0,0,0,0,0,2,257,0,0,0,1,1,1,1,1,0},{0,0,0,0,1,1,1,1,1,0,0,0,0,0,2,257,0,0,0,0,1,1,1,0,0},{0,0,0,0,1,1,1,1,1,0,4704,4704,0,0,257,257,1,0,0,1,1,1,1,0,0},{0,0,0,1,1,1,1,1,1,0,4704,4704,0,0,1,1,1,0,0,1,1,0,0,0,0},{0,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},{0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},{0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},{0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0},{0,1,4702,4702,4702,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},{0,1,4702,4702,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,0},{0,0,4701,4701,4701,4701,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,4701,4701,4701,4701,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+		private	int TO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0},{0,1,0,0,0,0,1,1,1,0,0,0,0,1,0,1,1,0,0,0,0,255,255,255,0},{0,1,0,0,0,0,1,1,1,1,0,0,0,1,1,1,1,0,0,0,0,255,2,255,0},{0,0,0,4706,4706,0,1,256,256,256,0,0,0,0,1,1,1,0,4710,4710,0,255,2,255,0},{0,0,0,4706,4706,0,1,256,2,256,1,0,0,0,0,1,1,1,4710,4710,1,255,255,255,0},{0,0,1,1,1,1,1,256,2,256,1,1,0,0,0,0,1,1,1,1,1,1,2,1,0},{0,1,1,1,1,1,1,1,256,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0},{0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,0},{0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0},{0,0,0,0,0,1,1,1,1,0,0,0,0,0,2,257,0,0,0,1,1,1,1,1,0},{0,0,0,0,1,1,1,1,1,0,0,0,0,0,2,257,0,0,0,0,1,1,1,0,0},{0,0,0,0,1,1,1,1,1,0,4704,4704,0,0,257,257,1,0,0,1,1,1,1,0,0},{0,0,0,1,1,1,1,1,1,0,4704,4704,4704,0,1,1,1,0,0,1,1,0,0,0,0},{0,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},{0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},{0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},{0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0},{0,1,4702,4702,4702,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},{0,1,4702,4702,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,0},{0,0,4701,4701,4701,4701,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,4701,4701,4701,4701,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private	int Maison1TO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,0,0,1,0,0,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,0,0,1,0,0,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,240,1,1,1,241,1,1,1,1,1,0},{0,0,0,0,0,0,242,1,1,0,0,0,0,0,2,240,1,241,2,0,0,0,0,0,0},{0,0,0,0,0,0,2,242,1,0,0,0,0,0,2,240,1,241,2,0,0,0,0,0,0},{0,0,0,0,0,0,2,242,1,0,0,0,0,0,2,243,1,1,217,0,0,0,0,0,0},{0,0,0,0,0,0,2,242,1,0,0,0,0,0,2,243,1,1,1,0,0,0,0,0,0},{0,0,0,0,0,0,242,1,1,0,0,0,0,0,243,1,1,1,1,0,0,0,0,0,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,4703,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,4703,4703,4703,4703,4703,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,4703,4703,4703,4703,4703,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private	int Maison2TO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0},{0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0},{0,1,1,1,1,244,244,244,244,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,244,2,2,244,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,244,2,2,244,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,244,244,244,244,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},{0,0,0,1,1,1,1,1,1,1,1,4705,1,1,1,1,1,1,1,1,1,1,0,0,0},{0,0,0,0,0,0,0,0,0,4705,4705,4705,4705,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,4705,4705,4705,4705,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 		private	int BatRdcTO [][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,4708,4708,4708,4708,0,0,0,0,0,0,0},{0,1,1,1,1,1,1,1,1,0,0,0,0,0,4708,4708,4708,4708,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,246,246,1,1,1,1,1,1,1,0},{0,1,245,2,0,0,0,1,1,1,1,1,1,1,246,2,246,1,1,1,1,1,1,1,0},{0,1,245,2,245,0,0,1,1,1,1,1,1,1,246,2,246,0,0,0,0,1,1,1,0},{0,1,245,245,245,0,0,1,1,1,1,1,1,1,246,246,246,0,0,0,0,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},{0,1,1,1,1,1,1,1,1,4707,4707,4707,4707,4707,1,1,1,1,1,1,1,1,1,1,0},{0,0,0,0,0,0,0,0,0,4707,4707,4707,4707,4707,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
@@ -334,7 +334,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 705:{//M2TO->TeteOr
 						this.TableauCarte=TO;
 						this.xDepart=11;
-						this.yDepart=15;
+						this.yDepart=14;
 						this.imageFond="Images/Ville1-TO/TO.png";
 						this.nomCarte="La T\u00eate d'Or";
 						break;
@@ -374,7 +374,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 710:{//TeteOr->AreneTO
 						this.TableauCarte=AreneTO;
 						this.xDepart=12;
-						this.yDepart=19;
+						this.yDepart=20;
 						this.imageFond="Images/miniville1PC/arene1.png";
 						this.nomCarte="Ar\u00e8ne de la T\u00eate d'Or - RDC";
 						break;
@@ -627,7 +627,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Julie : Mon pauvre v&eacute;gamon!","fin_message","","","","",""};
+							String tableau []= {"<html>Julie : Mon pauvre v&eacute;gamon!</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -673,7 +673,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"Jackson : Woah t&rsquo;es vraiment fort !","fin_message","","","","",""};
+							String tableau []= {"<html>Jackson : Woah t&rsquo;es vraiment fort !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1164,13 +1164,13 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 32:{//Dialogue num&eacute;ro RHINO 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>C&rsquo;est une statue de rhinoc&eacute;ros</html>","Etrangement,","l&rsquo;herbe ne pousse plus autour...","fin_message","","",""};							
+							String tableau []={"<html>C&rsquo;est une statue de rhinoc&eacute;ros</html>","<html>Etrangement,","l&rsquo;herbe ne pousse plus autour...</html>","fin_message","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>C&rsquo;est une statue de rhinoc&eacute;ros</html>","Etrangement,","l&rsquo;herbe ne pousse plus autour...","fin_message","","",""};							
+							String tableau []={"<html>C&rsquo;est une statue de rhinoc&eacute;ros</html>","<html>Etrangement,","l&rsquo;herbe ne pousse plus autour...</html>","fin_message","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -1230,7 +1230,7 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 36:{//Dialogue combat num&eacute;ro 0C - Pascal 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"Pascal : T&rsquo;as aucune chance contre moi !","fin_message","","","","",""};
+							String tableau []= {"<html>Pascal : T&rsquo;as aucune chance contre moi !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -1352,13 +1352,13 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 40:{//Dialogue num&eacute;ro Eug&egrave;ne  
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Eugene : Cette map, c&rsquo;est 117 hectares de bonheur</html>","dans lequel viennent se balader","<html>3 millions de visiteurs chaque ann&eacute;e,</html>","c&rsquo;est fou hein.","fin_message","",""};							
+							String tableau []={"<html>Eugene : Cette map, c&rsquo;est 117 hectares de bonheur</html>","dans lequel viennent se balader","<html>3 millions de visiteurs chaque ann&eacute;e,</html>","<html>c&rsquo;est fou hein.</html>","fin_message","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>Eugene : Cette map, c&rsquo;est 117 hectares de bonheur</html>","dans lequel viennent se balader","<html>3 millions de visiteurs chaque ann&eacute;e,</html>","c&rsquo;est fou hein.","fin_message","",""};							
+							String tableau []={"<html>Eugene : Cette map, c&rsquo;est 117 hectares de bonheur</html>","dans lequel viennent se balader","<html>3 millions de visiteurs chaque ann&eacute;e,</html>","<html>c&rsquo;est fou hein.</html>","fin_message","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -1390,13 +1390,13 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 41:{//Dialogue num&eacute;ro Ricardo  
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Ricardo : Hola amigo, j&rsquo;ai fait 3000 km pour venir</html>","<html> jusqu&rsquo;ici, j&rsquo;esp&egrave;re que &ccedil;a vaut le coup…</html> ","fin_message","","","",""};							
+							String tableau []={"<html>Ricardo : Hola amigo, j&rsquo;ai fait 3000 km pour venir</html>","<html> jusqu&rsquo;ici, j&rsquo;esp&egrave;re que &ccedil;a vaut le coup !</html> ","fin_message","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>Ricardo : Hola amigo, j&rsquo;ai fait 3000 km pour venir</html>","<html> jusqu&rsquo;ici, j&rsquo;esp&egrave;re que &ccedil;a vaut le coup…</html> ","fin_message","","","",""};							
+							String tableau []={"<html>Ricardo : Hola amigo, j&rsquo;ai fait 3000 km pour venir</html>","<html> jusqu&rsquo;ici, j&rsquo;esp&egrave;re que &ccedil;a vaut le coup ! </html>","fin_message","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -1410,13 +1410,13 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 44:{//Dialogue num&eacute;ro Fr&eacute;d&eacute;ric  
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Fr&eacute;d&eacute;ric : Le champion de cette ar&egrave;ne, c&rsquo;est Eric,</html>","<html>c&rsquo;est le boss incontest&eacute; des dresseurs de V&eacute;gamons</html>","<html>tout le monde le conna&icirc;t et tout le monde l&rsquo;idol&acirc;tre…</html>"," Quelle chance.","fin_message","",""};							
+							String tableau []={"<html>Fr&eacute;d&eacute;ric : Le champion de cette ar&egrave;ne, c&rsquo;est Eric,</html>","<html>c&rsquo;est le boss incontest&eacute; des dresseurs de V&eacute;gamons</html>","<html>tout le monde le conna&icirc;t et tout le monde l&rsquo;idol&acirc;tre.</html>"," Quelle chance.","fin_message","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>Fr&eacute;d&eacute;ric : Le champion de cette ar&egrave;ne, c&rsquo;est Eric,</html>","<html>c&rsquo;est le boss incontest&eacute; des dresseurs de V&eacute;gamons</html>","<html>tout le monde le conna&icirc;t et tout le monde l&rsquo;idol&acirc;tre…</html>"," Quelle chance.","fin_message","",""};							
+							String tableau []={"<html>Fr&eacute;d&eacute;ric : Le champion de cette ar&egrave;ne, c&rsquo;est Eric,</html>","<html>c&rsquo;est le boss incontest&eacute; des dresseurs de V&eacute;gamons</html>","<html>tout le monde le conna&icirc;t et tout le monde l&rsquo;idol&acirc;tre.</html>"," Quelle chance.","fin_message","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -1430,13 +1430,13 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 46:{//Dialogue num&eacute;ro G&eacute;rard  
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"Gerard :  Tu veux affronter le champion ? ","<html>Quelle audace, j&rsquo;esp&egrave;re que tu es bien entra&icirc;n&eacute;…</html>","fin_message","","","",""};							
+							String tableau []={"Gerard :  Tu veux affronter le champion ? ","<html>Quelle audace, j&rsquo;esp&egrave;re que tu es bien entra&icirc;n&eacute; !</html>","fin_message","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"Gerard :  Tu veux affronter le champion ? ","<html>Quelle audace, j&rsquo;esp&egrave;re que tu es bien entra&icirc;n&eacute;…</html>","fin_message","","","",""};							
+							String tableau []={"Gerard :  Tu veux affronter le champion ? ","<html>Quelle audace, j&rsquo;esp&egrave;re que tu es bien entra&icirc;n&eacute; !</html>","fin_message","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -1465,16 +1465,16 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 					}
 					break;
 				}
-				case 47:{//Dialogue num&eacute;ro Mike  
+				case 49:{//Dialogue num&eacute;ro Mike  
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"Mike : Le Meloche du champion est redoutable… ","fin_message","","","","",""};							
+							String tableau []={"<html>Mike : Le M&eacute;loche du champion est redoutable ! </html>","fin_message","","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"Mike : Le Meloche du champion est redoutable… ","fin_message","","","","",""};							
+							String tableau []={"<html>Mike : Le M&eacute;loche du champion est redoutable ! </html>","fin_message","","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -1487,13 +1487,13 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 				case 48:{//Dialogue num&eacute;ro Jules  
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Jules : J&rsquo;ai tout essay&eacute;… Eric n&rsquo;a aucun point faible.</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Jules : J&rsquo;ai tout essay&eacute; ! Eric n&rsquo;a aucun point faible.</html>","fin_message","","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>Jules : J&rsquo;ai tout essay&eacute;… Eric n&rsquo;a aucun point faible.</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Jules : J&rsquo;ai tout essay&eacute; ! Eric n&rsquo;a aucun point faible.</html>","fin_message","","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -1503,16 +1503,16 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 					}
 					break;
 				}
-				case 49:{//Dialogue num&eacute;ro Jeanne  
+				case 47:{//Dialogue num&eacute;ro Jeanne  
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Jeanne : J&rsquo;ai r&ecirc;v&eacute; que je r&eacute;ussissais &agrave; vaincre Eric… </html>","<html>&ccedil;a semblait si r&eacute;el...</html>","fin_message","","","",""};							
+							String tableau []={"<html>Jeanne : J&rsquo;ai r&ecirc;v&eacute; que je r&eacute;ussissais &agrave; vaincre Eric.</html>","<html>&ccedil;a semblait si r&eacute;el...</html>","fin_message","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>Jeanne : J&rsquo;ai r&ecirc;v&eacute; que je r&eacute;ussissais &agrave; vaincre Eric… </html>","<html>&ccedil;a semblait si r&eacute;el...</html>","fin_message","","","",""};							
+							String tableau []={"<html>Jeanne : J&rsquo;ai r&ecirc;v&eacute; que je r&eacute;ussissais &agrave; vaincre Eric. </html>","<html>&ccedil;a semblait si r&eacute;el...</html>","fin_message","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
