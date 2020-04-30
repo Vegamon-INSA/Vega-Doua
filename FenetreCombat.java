@@ -180,14 +180,14 @@ public class FenetreCombat implements ActionListener{
 		}else if (VariablesSession.numeroCarte==202 || VariablesSession.numeroCarte==401){   //travée2
 			exp=6+(int)(7*Math.random());
         }else if (VariablesSession.numeroCarte==414 || VariablesSession.numeroCarte==601){   // huma1
-			exp=42+(int)(16*Math.random());
+			exp=35+(int)(15*Math.random());
         }else if (VariablesSession.numeroCarte==502 || VariablesSession.numeroCarte==701){   //huma2
-			exp=60+(int)(20*Math.random());
+			exp=50+(int)(19*Math.random());
         }
         if (numCase/10==2){   // Ou différemment pour les dresseurs des arênes
-            exp = 45 - 4*(numCase%10);
+            exp = 40 - 3*(numCase%10);
         } else if (numCase/10==5){
-            exp = 120 - 7*(numCase%10);
+            exp = 100 - 6*(numCase%10);
         }
         
         int num = 1+((int)(5*Math.random()));
@@ -309,10 +309,8 @@ public class FenetreCombat implements ActionListener{
                     t2 = new Timer(100, this);  
                     t2.start();            // Timer pour sortir de la fenetre de combat
                     freeze=true;
-                    if ((((advers.XP-perso.XP)/2.5)+Math.pow(advers.XP, 0.36))>0){
-                        perso.XP=perso.XP +(int)(((advers.XP-perso.XP)/2.5)+Math.pow(advers.XP, 0.36));  // Notre personnage gagne de l'expérience
-                        perso.PVmax = (int)((Math.pow(perso.XP, 0.31)*40)+Math.pow(perso.XP, 1.21));
-                    }
+                    perso.XP=perso.XP + (int)(Math.pow(advers.XP, 0.58));  // Notre personnage gagne de l'expérience
+                    perso.PVmax = (int)((Math.pow(perso.XP, 0.31)*40)+Math.pow(perso.XP, 1.21));
                     perso.PV=perso.PVmax;                    // Notre personnage gagne des points de vie
                     VariablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
                 } 
