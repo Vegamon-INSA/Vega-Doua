@@ -136,7 +136,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	public void affichageNomVille() {
 	
 			pNomCarte.setVisible(true);	
-			t2 = new Timer(100, this);
+			t2 = new Timer(1, this);
 			t2.start();
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
@@ -154,10 +154,10 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				stopDeplacement=false;
 				xArrivee = e.getX()/TailleCellule;	//Récupération de l'abscisse et de l'ordonnée du point d'arrivée en fonction de la taille de la grille
 				yArrivee = e.getY()/TailleCellule;
+				xDepartInitial= xArriveeFinal;
+				yDepartInitial= yArriveeFinal;
 				xArriveeFinal= xArrivee;
 				yArriveeFinal= yArrivee;
-				xDepartInitial= VariablesSession.xDepart;
-				yDepartInitial= VariablesSession.yDepart;
 				System.out.println("xArrivee="+xArrivee);
 				System.out.println(yArrivee);
 				Node current = map[xArrivee][yArrivee];
@@ -321,6 +321,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 	
 	public void actionPerformed(ActionEvent u) {
+		
 		if(u.getSource()==t1){//Timer délpacement personnage
 			VariablesSession.xDepart=xDepart;
 			VariablesSession.yDepart=yDepart;
@@ -329,13 +330,13 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			yDepart=TableauCheminTrie[a][1]/TailleCellule;
 			JLabelPersonnage.setBounds((xDepart*TailleCellule-8),(yDepart*TailleCellule-28),31,52);
 
-			if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&& (stopDeplacement==false) && (TableauCarte[yDepart][xDepart]!=2) && (TableauCarte[yDepart][xDepart]!=3)){
+			if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0) && (stopDeplacement==false) && (TableauCarte[yDepart][xDepart]!=2) && (TableauCarte[yDepart][xDepart]!=3)){
 				actionDeLaCase(VariablesSession.xDepart,VariablesSession.yDepart,false);
 				t1.stop();
 				t1= new Timer(200, this);
 			}
 
-			else{
+			else if (stopDeplacement==false){
 				JLabelPersonnage.setBounds((VariablesSession.xDepart*TailleCellule-8),(VariablesSession.yDepart*TailleCellule-28),31,52);
 				t1.stop();
 				System.out.println(xDepart);
@@ -343,6 +344,9 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				System.out.println(yDepart);
 				System.out.println(VariablesSession.yDepart);
 				actionDeLaCase(xDepart,yDepart,false);
+			}
+			else {
+				t1.stop();
 			}
 			if ((a<NbreDeplacement)&&(stopDeplacement==false)){
 					a++;
@@ -438,8 +442,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		System.out.println("actionDeLaCase"+TableauCarte[y][x]);
 		System.out.println(x);
 		System.out.println(xArriveeFinal);
+		System.out.println(xDepartInitial);
+
 		System.out.println(y);
 		System.out.println(yArriveeFinal);
+		System.out.println(yDepartInitial);
 		SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 		switch(String.valueOf(TableauCarte[y][x]).charAt(0)) {
 			case '2':{//Dialogue sans combat
@@ -448,7 +455,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroDialogue = (numeroDialogue-200);
 				}
 				
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal]==2) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0) || (spawn==true)) && ((Math.abs(y-yArriveeFinal)<3) && (Math.abs(x-xArriveeFinal)<3))){
+				if ((((TableauCarte[yArriveeFinal][xArriveeFinal]==2)&& ((Math.abs(y-yArriveeFinal)<3) && (Math.abs(x-xArriveeFinal)<3))) || ((VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)&&((x!=xDepartInitial)||(y!=yDepartInitial))) || (spawn==true)) ){// pb (x!=xDepartInitial)||(y!=yDepartInitial)) n'est jamais respecté pb d'initialisation de xDepartInitial et yDepartinitial
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
@@ -464,7 +471,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (numeroDialogue>300) {
 					numeroDialogue = (numeroDialogue-300);
 				}
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true)) && ((Math.abs(y-yArriveeFinal)<3) && (Math.abs(x-xArriveeFinal)<3))){
+				if ((((TableauCarte[yArriveeFinal][xArriveeFinal]==3)&& ((Math.abs(y-yArriveeFinal)<3) && (Math.abs(x-xArriveeFinal)<3))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true))){
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
