@@ -218,7 +218,7 @@ public class FenetreCombat implements ActionListener{
         if (e.getSource()==soin && !freeze){
             soin();         // Si on appuie sur soin, on se soigne, et on l'affiche
 			lDialogue.setText(perso.nom+" se soigne !");
-			t = new Timer(1600, this);   // puis on lance l'attaque adverse
+			t = new Timer(1000, this);   // puis on lance l'attaque adverse
 			t.start();
 			freeze=true;
         }
@@ -243,7 +243,7 @@ public class FenetreCombat implements ActionListener{
             }else if (esquive==true && finCombat()==false){
                lDialogue.setText(perso.nom+" attaque avec "+perso.attaque1.nom+" !    "+advers.nom+" esquive !");
             }                                    // On affiche l'attaque choisie et les graphismes d'attaque, ou alors on indique l'esquive
-            t = new Timer(2000, this);
+            t = new Timer(1500, this);
 			t.start();    // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
 			freeze=true;
         }
@@ -256,7 +256,7 @@ public class FenetreCombat implements ActionListener{
             }else if (esquive==true && finCombat()==false){
                lDialogue.setText(perso.nom+" attaque avec "+perso.attaque2.nom+" !	  "+advers.nom+" esquive !");
             }                                    // On affiche l'attaque choisie et les graphismes d'attaque, ou alors on indique l'esquive
-            t = new Timer(2000, this);
+            t = new Timer(1500, this);
 			t.start();  // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
 			freeze=true;
         }
@@ -269,7 +269,7 @@ public class FenetreCombat implements ActionListener{
             }else if (esquive==true && finCombat()==false){
                lDialogue.setText(perso.nom+" attaque avec "+perso.attaque3.nom+" !	   "+advers.nom+" esquive !");
             }                                     // On affiche l'attaque choisie et les graphismes d'attaque, ou alors on indique l'esquive
-            t = new Timer(2000, this);
+            t = new Timer(1500, this);
 			t.start();    // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
 			freeze=true;
         }
@@ -282,7 +282,7 @@ public class FenetreCombat implements ActionListener{
             }else if (esquive==true && finCombat()==false){
                lDialogue.setText(perso.nom+" attaque avec "+perso.attaque4.nom+" !  	"+advers.nom+" esquive !");
             }                                 // On affiche l'attaque choisie et les graphismes d'attaque, ou alors on indique l'esquive
-            t = new Timer(2000, this);
+            t = new Timer(2500, this);
 			t.start();     // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
 			freeze=true;
         }
@@ -303,10 +303,11 @@ public class FenetreCombat implements ActionListener{
                 if(advers.PV<=0){    // cas ou on a gagné le combat
                     if (numCase!=500){   // si on a battu un dresseur, on mémorise cette information
                         VariablesSession.listeInterractionsAvecDresseurs[numCase]=2;
+
                     }
                     t.stop();
                     advers.PVmax=PVmaxAdvIni;    // On réinitialise les points de vie de l'adversaire
-                    t2 = new Timer(100, this);  
+                    t2 = new Timer(500, this);  
                     t2.start();            // Timer pour sortir de la fenetre de combat
                     freeze=true;
                     perso.XP=perso.XP + (int)(Math.pow(advers.XP, 0.58));  // Notre personnage gagne de l'expérience
@@ -321,10 +322,8 @@ public class FenetreCombat implements ActionListener{
 							VariablesSession.listeInterractionsAvecDresseurs[numCase]=1;
                         }
                         lDialogue.setText("Retournes t'entrainer avec de revenir !");   // Message d'information pour savoir qu'on a perdu
-                        graphAttak(false);
                         advers.PVmax=PVmaxAdvIni;   // On réinitialise les points de vie de l'adversaire
                         perso.PV=perso.PVmax;      // On réinitialise nos points de vie
-                        VariablesSession.xpMeloche=perso.XP;
                         VariablesSession.NouvelleCarte(000);
                         VariablesSession.listeInterractionsAvecDresseurs[1]=2;
                         t2 = new Timer(1500, this);    
@@ -353,14 +352,14 @@ public class FenetreCombat implements ActionListener{
             if (numCase==500){
                 perso.PV=perso.PVmax;  // On réinitialise les points de vie des personnage
                 advers.PVmax=PVmaxAdvIni;
-                lDialogue.setText("Quelle poule mouill\u00e9e, tu t'enfuis !"); // On affiche qu'on fuit
-                t2 = new Timer(2000, this);  // Puis après avoir eu le temps de voir le message on quitte la fenetre
+                lDialogue.setText("Quelle poule mouillée, tu t'enfuis !"); // On affiche qu'on fuit
+                t2 = new Timer(1000, this);  // Puis après avoir eu le temps de voir le message on quitte la fenetre
                 t2.start();
                 freeze=true;
             } else {
-                lDialogue.setText("Impossible de t'\u00e9chapper !");  // Si un dresseur nous attaque, on ne peut pas fuire
+                lDialogue.setText("Impossible de s'échapper !");  // Si un dresseur nous attaque, on ne peut pas fuire
                 AuTourDuJoueur=true;
-                t = new Timer(1500, this);   // puis on lance l'attaque adverse
+                t = new Timer(1000, this);   // puis on lance l'attaque adverse
 				t.start();
             }
         }
@@ -419,7 +418,7 @@ public class FenetreCombat implements ActionListener{
             lTextePokemonAdv.setText(advers.nom + "     XP : " + advers.XP + "     PV : " + advers.PV);
             vieAdv.setSize((int)(230.0*(double)(advers.PV)/(double)(advers.PVmax)), 5);  // On met à jour l'affichage des points de vie
         }
-        t = new Timer(2000, this);  // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
+        t = new Timer(1000, this);  // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
         t.start();
         freeze=true;
 		pPrincipal.remove(pAttaque);    // On remet les boutons et panneaux pour l'attaque suivante

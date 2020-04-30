@@ -15,7 +15,7 @@ public class Sauvegarde {//Sauvegarde Automatique
 			
 		try(FileWriter fileWriter = new FileWriter(cheminfichier)) {//Creation du fichier sauvegarde
 			String ContenuDuFichier = VariablesSession.numeroCarte+","+VariablesSession.xDepart+","+VariablesSession.yDepart+","+VariablesSession.xpMeloche;
-			for (int i=0; i<VariablesSession.listeInterractionsAvecDresseurs.length;i++) {
+			for (int i=0; i<VariablesSession.listeInterractionsAvecDresseurs.length; i++) {
 				ContenuDuFichier+=","+VariablesSession.listeInterractionsAvecDresseurs[i];
 			}
 			fileWriter.write(ContenuDuFichier);
@@ -50,7 +50,7 @@ public class Sauvegarde {//Sauvegarde Automatique
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
-		int[] variablesInt = new int[29];//tableau contenenant les variables de la sauvegarde
+		int[] variablesInt = new int[54];//tableau contenenant les variables de la sauvegarde
         try {
 
             br = new BufferedReader(new FileReader(cheminfichier));
