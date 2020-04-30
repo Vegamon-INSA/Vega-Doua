@@ -8,9 +8,12 @@ import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.FlowLayout;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
+import java.util.Date; 
 
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.border.Border;
 public class fenetreCarte implements ActionListener, MouseListener, KeyListener {
 	private JPanel pPrincipal, pBoiteTexte, pNomCarte;
 	private JLabel JLabelPersonnage, JLabelCarte, lBoiteTexte, gif ,lNomCarte; 
@@ -136,7 +139,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	public void affichageNomVille() {
 	
 			pNomCarte.setVisible(true);	
-			t2 = new Timer(1, this);
+			t2 = new Timer(100, this);
 			t2.start();
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
@@ -154,10 +157,10 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				stopDeplacement=false;
 				xArrivee = e.getX()/TailleCellule;	//Récupération de l'abscisse et de l'ordonnée du point d'arrivée en fonction de la taille de la grille
 				yArrivee = e.getY()/TailleCellule;
-				xDepartInitial= xArriveeFinal;
-				yDepartInitial= yArriveeFinal;
 				xArriveeFinal= xArrivee;
 				yArriveeFinal= yArrivee;
+				xDepartInitial= VariablesSession.xDepart;
+				yDepartInitial= VariablesSession.yDepart;
 				System.out.println("xArrivee="+xArrivee);
 				System.out.println(yArrivee);
 				Node current = map[xArrivee][yArrivee];
@@ -195,7 +198,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	public boolean PossibiliteDeplacement (int x, int y){ // Test si la poistion finale demandée lors du click est possible	
         boolean possibilite = true;
-        if (((TableauCarte[y][x] == 0)|| (stopDeplacement==true)) || ((x==xDepart) && (y==yDepart))) {
+        if ((TableauCarte[y][x] == 0)|| (stopDeplacement==true)){
             possibilite=false;
         }
         System.out.println("Deplacement possible :"+possibilite);
@@ -219,7 +222,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				}
 			}
 			TriTableauChemin();
-			t1= new Timer(1, this);
+			t1= new Timer(1000, this);
 			t1.start();	
 
 		}
@@ -321,36 +324,19 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 	
 	public void actionPerformed(ActionEvent u) {
-		
 		if(u.getSource()==t1){//Timer délpacement personnage
-			VariablesSession.xDepart=xDepart;
-			VariablesSession.yDepart=yDepart;
-							
-			xDepart=TableauCheminTrie[a][0]/TailleCellule;
-			yDepart=TableauCheminTrie[a][1]/TailleCellule;
-			JLabelPersonnage.setBounds((xDepart*TailleCellule-8),(yDepart*TailleCellule-28),31,52);
-
-			if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0) && (stopDeplacement==false) && (TableauCarte[yDepart][xDepart]!=2) && (TableauCarte[yDepart][xDepart]!=3)){
-				actionDeLaCase(VariablesSession.xDepart,VariablesSession.yDepart,false);
-				t1.stop();
-				t1= new Timer(200, this);
-			}
-
-			else if (stopDeplacement==false){
-				JLabelPersonnage.setBounds((VariablesSession.xDepart*TailleCellule-8),(VariablesSession.yDepart*TailleCellule-28),31,52);
-				t1.stop();
-				System.out.println(xDepart);
-				System.out.println(VariablesSession.xDepart);
-				System.out.println(yDepart);
-				System.out.println(VariablesSession.yDepart);
+			if (a!=0) {
 				actionDeLaCase(xDepart,yDepart,false);
 			}
-			else {
-				t1.stop();
+			if((TableauCheminTrie[a+1][0]!=xArrivee)&&(TableauCheminTrie[a+1][1]!=yArrivee) && ((String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2') || (String.valueOf(TableauCarte[yArrivee][xArrivee]).charAt(0)=='2'))) {
+				actionDeLaCase(xDepart,yDepart,false);
 			}
+			t1.stop();
+			DeplacementImage();
+			t1= new Timer(200, this);
 			if ((a<NbreDeplacement)&&(stopDeplacement==false)){
-					a++;
-					t1.start();
+				t1.start();
+				a++;
 			}
 
 		}
@@ -358,21 +344,15 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		if(u.getSource()==t2){//Timer délpacement boite nom de la carte
 			t2.stop();
 			pNomCarte.setBounds(300, ordonneePanel, 200, 50);
-			t2= new Timer(3, this);
+			t2= new Timer(5, this);
 			if ((ordonneePanel<50)&&(descente==true)){
 				t2.start();
 				ordonneePanel++;
 			}
 			else if ((ordonneePanel==50)&&(descente==true)){
 				descente=false;
-				try
-					{
-						Thread.sleep(500);
-					}
-					catch(InterruptedException ex)
-					{
-						Thread.currentThread().interrupt();
-				}
+				long start = new Date().getTime();
+				while(new Date().getTime() - start < 1000L){}
 			}
 			if ((ordonneePanel>-50)&&(descente==false)){
 				t2.start();
@@ -385,7 +365,16 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}		
 		
 
-	
+	public void DeplacementImage() {//Déplacement du Bonhomme
+		if((TableauCheminTrie[a][0]!=0)&&(TableauCheminTrie[a][1]!=0)&&(stopDeplacement==false)){
+				JLabelPersonnage.setBounds((TableauCheminTrie[a][0]-8),(TableauCheminTrie[a][1]-28),31,52);
+				xDepart=TableauCheminTrie[a][0]/TailleCellule;
+				yDepart=TableauCheminTrie[a][1]/TailleCellule;
+				VariablesSession.xDepart=xDepart;
+				VariablesSession.yDepart=yDepart;
+		}
+
+	}
 	public void keyPressed(KeyEvent arg0) {
 		if (arg0.getKeyCode()==77) {//retour au menu
 			pPrincipal.removeAll();
@@ -434,19 +423,10 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		pBoiteTexte.setVisible(false);	
 		JFramePrincipal.revalidate();
 		JFramePrincipal.repaint();
-		stopDeplacement=false;
 	}
 
 
 	public void actionDeLaCase(int x, int y, boolean spawn){
-		System.out.println("actionDeLaCase"+TableauCarte[y][x]);
-		System.out.println(x);
-		System.out.println(xArriveeFinal);
-		System.out.println(xDepartInitial);
-
-		System.out.println(y);
-		System.out.println(yArriveeFinal);
-		System.out.println(yDepartInitial);
 		SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 		switch(String.valueOf(TableauCarte[y][x]).charAt(0)) {
 			case '2':{//Dialogue sans combat
@@ -455,14 +435,13 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroDialogue = (numeroDialogue-200);
 				}
 				
-				if ((((TableauCarte[yArriveeFinal][xArriveeFinal]==2)&& ((Math.abs(y-yArriveeFinal)<3) && (Math.abs(x-xArriveeFinal)<3))) || ((VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)&&((x!=xDepartInitial)||(y!=yDepartInitial))) || (spawn==true)) ){// pb (x!=xDepartInitial)||(y!=yDepartInitial)) n'est jamais respecté pb d'initialisation de xDepartInitial et yDepartinitial
+				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==2) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true)){
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
 					numeroLigneTexte=0;
 					affichertexte=true;
 					AffichageBoiteTexte();
-					
 				}
 				break;
 			}
@@ -471,7 +450,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (numeroDialogue>300) {
 					numeroDialogue = (numeroDialogue-300);
 				}
-				if ((((TableauCarte[yArriveeFinal][xArriveeFinal]==3)&& ((Math.abs(y-yArriveeFinal)<3) && (Math.abs(x-xArriveeFinal)<3))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true))){
+				if (((TableauCarte[yArriveeFinal][xArriveeFinal]==3) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]==0)|| (spawn==true))&&(TableauCarte[yArriveeFinal][xArriveeFinal]!=TableauCarte[y][x])){
 					stopDeplacement=true;
 					System.out.println("numero dialogue"+numeroDialogue);
 					VariablesSession.DialogueAvecDresseur(numeroDialogue);
@@ -483,16 +462,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				
 			}
 			case '4':{//Changement de carte
-				
 				if ((TableauCarte[yArriveeFinal][xArriveeFinal]==TableauCarte[y][x])&&(spawn==false)){
-					try
-					{
-						Thread.sleep(300);
-					}
-					catch(InterruptedException ex)
-					{
-						Thread.currentThread().interrupt();
-					}
 					System.out.println("trigger");
 					pPrincipal.removeAll();
 					JFramePrincipal.remove(pPrincipal);
@@ -505,14 +475,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
 				}
 				else if((yArrivee==0)&&(xArrivee==x)){
-					try
-					{
-						Thread.sleep(300);
-					}
-					catch(InterruptedException ex)
-					{
-						Thread.currentThread().interrupt();
-					}
 					pPrincipal.removeAll();
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
