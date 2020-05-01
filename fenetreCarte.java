@@ -415,7 +415,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				affichertexte = false;
 				CacherBoiteTexte();
 				if (((String.valueOf(TableauCarte[yDepart][xDepart]).charAt(0)) == '3')
-						&& (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0)	&& (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)) {
+						&& ((VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
 					JFramePrincipal.repaint();
