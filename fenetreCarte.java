@@ -38,7 +38,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private int tailleCellule = 800/nbreCases;//Taille d'un carré : largeur de la fenetre divisé par le nombre de cellules
 	
 	//variables pour l'algorithme de recherche de chemin
-	private Node [][] map = new Node[25][25];
+	private Noeud [][] map = new Noeud[25][25];
 	private boolean recherche = true;//Bloque ou pas l'algorithme de recherche de chemin
 	private Algorithme algoDeplacement = new Algorithme();
 	
@@ -175,19 +175,19 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	public void resetMap() { // reset du tableau de recherche du chemin
 		for (int x = 0; x < nbreCases; x++) {
 			for (int y = 0; y < nbreCases; y++) {
-				Node current = map[x][y];
-				if (current.getType() == 4 || current.getType() == 5) // check si le node est le cehmin fianl ou le
+				Noeud current = map[x][y];
+				if (current.getType() == 4 || current.getType() == 5) // check si le Noeud est le cehmin fianl ou le
 																		// début ou l'arrivée
-					map[x][y] = new Node(3, x, y); // Si ce n'est pas le cas : on vide la case
+					map[x][y] = new Noeud(3, x, y); // Si ce n'est pas le cas : on vide la case
 			}
 		}
 		// reset les cases de début et de fin
 		if (xDepart > -1 && yDepart > -1) {
-			map[xDepart][yDepart] = new Node(0, xDepart, yDepart);
+			map[xDepart][yDepart] = new Noeud(0, xDepart, yDepart);
 			map[xDepart][yDepart].setEsperance(0);
 		}
 		if (xArrivee > -1 && yArrivee > -1){
-			map[xArrivee][yArrivee] = new Node(1, xArrivee, yArrivee);
+			map[xArrivee][yArrivee] = new Noeud(1, xArrivee, yArrivee);
 		}
 
 		resetVariablesAlgo();
@@ -554,7 +554,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
     public void viderCarte() {	//vide le tableau de l'algorithme de recherche de chemin
 		for(int x = 0; x < 25; x++) {
 			for(int y = 0; y < 25; y++) {
-				map[x][y] = new Node(3,x,y);//On vide tous les Nodes 
+				map[x][y] = new Noeud(3,x,y);//On vide tous les Noeuds 
 			}
 		}
 		resetVariablesAlgo();
@@ -566,7 +566,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		viderCarte();//On vide entièrement le tableau
 		for(int i = 0; i < 24; i++) {
             for(int j = 0; j < 24; j++) {
-                Node current;
+                Noeud current;
                 current = map[i][j];
                 if (((tableauCarte[j][i]==0) || (tableauCarte[j][i] == 2) || (tableauCarte[j][i]==3)|| (tableauCarte[j][i]==6))){//On ajoute les murs sinon on laisse vide
 					current.setType(2);
@@ -592,15 +592,15 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	class Algorithme {	//Classe de l'algorithme de déplacement
 
 		public void algorithmeAEtoile() {
-			ArrayList<Node> priorite = new ArrayList<Node>();
+			ArrayList<Noeud> priorite = new ArrayList<Noeud>();
 			priorite.add(map[xDepart][yDepart]);
 			while(recherche) {
 				if(priorite.size() <= 0) {
 					recherche = false;
 					break;
 				}
-				int esperance = priorite.get(0).getesperance()+1;
-				ArrayList<Node> DejaVisite = explorerVoisins(priorite.get(0),esperance);
+				int esperance = priorite.get(0).getEsperance()+1;
+				ArrayList<Noeud> DejaVisite = explorerVoisins(priorite.get(0),esperance);
 				if(DejaVisite.size() > 0) {
 					priorite.remove(0);
 					priorite.addAll(DejaVisite);
@@ -612,16 +612,16 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		}
 		
 		
-		public ArrayList<Node> Tri(ArrayList<Node> listeTriee) {	//Tri de la liste des priorités
+		public ArrayList<Noeud> Tri(ArrayList<Noeud> listeTriee) {	//Tri de la liste des priorités
 			int c = 0;
 			while(c < listeTriee.size()) {
 				int sm = c;
 				for(int i = c+1; i < listeTriee.size(); i++) {
-					if(listeTriee.get(i).getEuclidDist()+listeTriee.get(i).getesperance() < listeTriee.get(sm).getEuclidDist()+listeTriee.get(sm).getesperance())
+					if(listeTriee.get(i).getDistanceEuclidienne()+listeTriee.get(i).getEsperance() < listeTriee.get(sm).getDistanceEuclidienne()+listeTriee.get(sm).getEsperance())
 						sm = i;
 				}
 				if(c != sm) {
-					Node temp = listeTriee.get(c);
+					Noeud temp = listeTriee.get(c);
 					listeTriee.set(c, listeTriee.get(sm));
 					listeTriee.set(sm, temp);
 				}	
@@ -631,17 +631,17 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		}
 		
 		
-		public ArrayList<Node> explorerVoisins(Node current, int esperance) {	//explorer les voisins
-			ArrayList<Node> DejaVisite = new ArrayList<Node>();	//LIST OF NODES THAT HAVE BEEN DejaVisite
+		public ArrayList<Noeud> explorerVoisins(Noeud current, int esperance) {	//explorer les voisins
+			ArrayList<Noeud> DejaVisite = new ArrayList<Noeud>();	//LIST OF NoeudS THAT HAVE BEEN DejaVisite
 			for(int a = -1; a <= 1; a++) {
 				for(int b = -1; b <= 1; b++) {
 					int xbound = current.getX()+a;
 					int ybound = current.getY()+b;
-					if((xbound > -1 && xbound < nbreCases) && (ybound > -1 && ybound < nbreCases)) {	//MAKES SURE THE NODE IS NOT OUTSIDE THE GRID
-						Node voisin = map[xbound][ybound];
-						if((voisin.getesperance()==-1 || voisin.getesperance() > esperance) && voisin.getType()!=2) {	//CHECKS IF THE NODE IS NOT A WALL AND THAT IT HAS NOT BEEN DejaVisite
-							explorer(voisin, current.getX(), current.getY(), esperance);	//EXPLORE THE NODE
-							DejaVisite.add(voisin);	//ADD THE NODE TO THE LIST
+					if((xbound > -1 && xbound < nbreCases) && (ybound > -1 && ybound < nbreCases)) {	//MAKES SURE THE Noeud IS NOT OUTSIDE THE GRID
+						Noeud voisin = map[xbound][ybound];
+						if((voisin.getEsperance()==-1 || voisin.getEsperance() > esperance) && voisin.getType()!=2) {	//CHECKS IF THE Noeud IS NOT A WALL AND THAT IT HAS NOT BEEN DejaVisite
+							explorer(voisin, current.getX(), current.getY(), esperance);	//EXPLORE THE Noeud
+							DejaVisite.add(voisin);	//ADD THE Noeud TO THE LIST
 						}
 					}
 				}
@@ -650,23 +650,23 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		}
 		
 		
-		public void explorer(Node current, int lastx, int lasty, int esperance) {	//explorer A NODE
-			if(current.getType()!=0 && current.getType() != 1)	//CHECK THAT THE NODE IS NOT THE START OR FINISH
+		public void explorer(Noeud current, int dernierX, int lasty, int esperance) {	//explorer A Noeud
+			if(current.getType()!=0 && current.getType() != 1)	//CHECK THAT THE Noeud IS NOT THE START OR FINISH
 				current.setType(4);	//SET IT TO DejaVisite
-			current.setLastNode(lastx, lasty);	//KEEP TRACK OF THE NODE THAT THIS NODE IS DejaVisite FROM
+			current.setDernierNoeud(dernierX, lasty);	//KEEP TRACK OF THE Noeud THAT THIS Noeud IS DejaVisite FROM
 			current.setEsperance(esperance);	//SET THE esperance FROM THE START
-			if(current.getType() == 1) {	//IF THE NODE IS THE FINISH THEN BACKTRACK TO GET THE PATH
-				marcheArriere(current.getLastX(), current.getLastY(),esperance);
+			if(current.getType() == 1) {	//IF THE Noeud IS THE FINISH THEN BACKTRACK TO GET THE PATH
+				marcheArriere(current.getDernierX(), current.getDernierY(),esperance);
 			}
 		}
 		
 		
 		public void marcheArriere(int lx, int ly, int esperance) {	//Permet de faire marche arrière une fois que la case d'arrivee a été atteinte pour pouvoir définir le chemin que va prendre le perso
 			while(esperance > 1) {	//BACKTRACK FROM THE END OF THE PATH TO THE START
-				Node current = map[lx][ly];
+				Noeud current = map[lx][ly];
 				current.setType(5);
-				lx = current.getLastX();
-				ly = current.getLastY();
+				lx = current.getDernierX();
+				ly = current.getDernierY();
 				esperance--;
 			}
 			recherche = false;
@@ -674,40 +674,40 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 	
 	
-	class Node {
+	class Noeud {
 		
 		// 0 = start, 1 = finish, 2 = wall, 3 = empty, 4 = checked, 5 = finalpath
-		private int cellType = 0;
+		private int typeDeCase = 0;
 		private int esperance;
 		private int x;
 		private int y;
-		private int lastX;
+		private int dernierX;
 		private int lastY;
-		private double dToEnd = 0;
+		private double distanceJusquArrivee = 0;
 	
-		public Node(int type, int x, int y) {	//CONSTRUCTOR
-			cellType = type;
+		public Noeud(int type, int x, int y) {	//constructeur d'un noeud
+			typeDeCase = type;
 			this.x = x;
 			this.y = y;
 			esperance = -1;
 		}
 		
-		public double getEuclidDist() {		//CALCULATES THE EUCLIDIAN DISTANCE TO THE FINISH NODE
+		public double getDistanceEuclidienne() {		//Calcul de la distance euclidienne jusqu'à la case finale
 			int xdif = Math.abs(x-xArrivee);
 			int ydif = Math.abs(y-yArrivee);
-			dToEnd = Math.sqrt((xdif*xdif)+(ydif*ydif));
-			return dToEnd;
+			distanceJusquArrivee = Math.sqrt((xdif*xdif)+(ydif*ydif));
+			return distanceJusquArrivee;
 		}
 		
 		public int getX() {return x;}		//GET METHODS
 		public int getY() {return y;}
-		public int getLastX() {return lastX;}
-		public int getLastY() {return lastY;}
-		public int getType() {return cellType;}
-		public int getesperance() {return esperance;}
+		public int getDernierX() {return dernierX;}
+		public int getDernierY() {return lastY;}
+		public int getType() {return typeDeCase;}
+		public int getEsperance() {return esperance;}
 		
-		public void setType(int type) {cellType = type;}		//SET METHODS
-		public void setLastNode(int x, int y) {lastX = x; lastY = y;}
+		public void setType(int type) {typeDeCase = type;}		//SET METHODS
+		public void setDernierNoeud(int x, int y) {dernierX = x; lastY = y;}
 		public void setEsperance(int esperance) {this.esperance = esperance;}
 	}
 }
