@@ -147,12 +147,12 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	public void mousePressed(MouseEvent e) {// quand click sur l'écran
-		resetMap();
-		try {
-			if (!affichertexte) {
-				int xTest=e.getX() / TailleCellule;
-				int yTest=e.getY() / TailleCellule;
-				if (PossibiliteDeplacement(xTest,yTest)) {
+		int xTest=e.getX() / TailleCellule;
+		int yTest=e.getY() / TailleCellule;
+		if (PossibiliteDeplacement(xTest,yTest)) {	
+			resetMap();
+			try {
+				if (!affichertexte) {
 					stopDeplacement = false;	
 					xArrivee = xTest; // Récupération de l'abscisse et de l'ordonnée du point d'arrivé
 					yArrivee = yTest;// en fonction de la taille de la grille
@@ -163,11 +163,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					System.out.println("xArrivee=" + xArrivee);
 					System.out.println(yArrivee);
 					DeplacementJoueur(xArrivee, yArrivee);
-					System.out.println("Deplacement terminé");
+					System.out.println("Deplacement terminé");	
 				}
-			}
-		} catch (Exception z) {
-		} // catch les exceptions
+			} catch (Exception z) {
+			} // catch les exceptions
+		}
 	}
 
 	public void resetMap() { // reset du tableau de recherche du chemin
