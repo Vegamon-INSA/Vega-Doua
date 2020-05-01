@@ -151,17 +151,18 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		try {
 			if (!affichertexte) {
 				stopDeplacement = false;
-				xArrivee = e.getX() / TailleCellule; // Récupération de l'abscisse et de l'ordonnée du point d'arrivée
-														// en fonction de la taille de la grille
-				yArrivee = e.getY() / TailleCellule;
-				xDepartInitial = xArriveeFinal;
-				yDepartInitial = yArriveeFinal;
-				xArriveeFinal = xArrivee;
-				yArriveeFinal = yArrivee;
-				System.out.println("xArrivee=" + xArrivee);
-				System.out.println(yArrivee);
-				DeplacementJoueur(xArrivee, yArrivee);
-				System.out.println("Deplacement terminé");
+				xArrivee = e.getX() / TailleCellule; // Récupération de l'abscisse et de l'ordonnée du point d'arrivé
+				yArrivee = e.getY() / TailleCellule;// en fonction de la taille de la grille
+				if (PossibiliteDeplacement(xArrivee, yArrivee)) {
+					xDepartInitial = xArriveeFinal;
+					yDepartInitial = yArriveeFinal;
+					xArriveeFinal = xArrivee;
+					yArriveeFinal = yArrivee;
+					System.out.println("xArrivee=" + xArrivee);
+					System.out.println(yArrivee);
+					DeplacementJoueur(xArrivee, yArrivee);
+					System.out.println("Deplacement terminé");
+				}
 			}
 		} catch (Exception z) {
 		} // catch les exceptions
@@ -203,25 +204,22 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	public void DeplacementJoueur(int xFinal, int yFinal) {
-		if (PossibiliteDeplacement(xFinal, yFinal)) {// Test si la poistion finale demandée est possible
-			genererCarteDesMurs();
-			resetMap();
-			demarrerRecherche();
-			int colonneY = 0;
-			for (int x = 0; x < NbreCases; x++) {
-				for (int y = 0; y < NbreCases; y++) {
-					if (map[x][y].getType() == 5) {
-						TableauChemin[colonneY][0] = map[x][y].getX();
-						TableauChemin[colonneY][1] = map[x][y].getY();
-						colonneY++;
-					}
+		genererCarteDesMurs();
+		resetMap();
+		demarrerRecherche();	
+		int colonneY = 0;
+		for (int x = 0; x < NbreCases; x++) {
+			for (int y = 0; y < NbreCases; y++) {
+				if (map[x][y].getType() == 5) {
+					TableauChemin[colonneY][0] = map[x][y].getX();
+					TableauChemin[colonneY][1] = map[x][y].getY();
+					colonneY++;
 				}
 			}
-			TriTableauChemin();
-			t1 = new Timer(1, this);
-			t1.start();
-
 		}
+		TriTableauChemin();
+		t1 = new Timer(1, this);
+		t1.start();
 	}
 
 	public void TriTableauChemin() {// retirer les System.out.println pour nettoyer
