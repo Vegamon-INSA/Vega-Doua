@@ -1,14 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 public class FenetreScenario implements ActionListener{
 	
 	private JButton adep, aintro, aarene1, aarene2, retouraccueil, retourScenario;
@@ -158,14 +153,14 @@ public class FenetreScenario implements ActionListener{
 			JFramePrincipal.remove(pPrincipal);
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
-			Accueil ecranAccueil= new Accueil(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
+			new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
         }
         else if (e.getSource()==retourScenario){
 			pPrincipal.removeAll();
 			JFramePrincipal.remove(pPrincipal);
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
-			FenetreScenario pokedex = new FenetreScenario(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+			new FenetreScenario(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
         }
 		
 	   

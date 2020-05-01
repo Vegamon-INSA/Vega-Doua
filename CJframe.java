@@ -2,7 +2,9 @@ import javax.swing.*;
 
 public class CJframe extends JFrame {	//Classe de l'algorithme de déplacement
 
-		public CJframe(){
+	private static final long serialVersionUID = 1L;
+
+	public CJframe() {
 			this.setTitle("Vegamon La Doua");
 			this.setSize(800,820);
 			this.setLocationRelativeTo(null);

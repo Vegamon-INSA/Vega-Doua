@@ -10,15 +10,13 @@ public class FenetreCombat implements ActionListener{
     private JButton attaque, soin,fuite,a1,a2,a3,a4,annuler;
     private Timer t,t2, t4, t5, t6;
     private boolean freeze,AuTourDuJoueur;
-    private VEGAMONS perso, advers, pA, pD;
-    private int x, y, x1, y1,j,exp,type, numCase, PVmaxAdvIni;
+    private VEGAMONS perso, advers;
+    private int x, y, x1, y1, numCase, PVmaxAdvIni;
     private ArrayList<VEGAMONS> pokedex; 
-    private ArrayList<String> textes;
 	private CJframe JFramePrincipal; //Jframe principal avec image de fond
 	private VariablesDeJeu VariablesSession; //Variables de Jeu
 	private Sauvegarde SauvegardeJeu;
 	private Musiques MusiqueDeJeu= new Musiques();
-	private fenetreCarte fcarte;
 	   
     public FenetreCombat(CJframe Frame, VariablesDeJeu variables,Sauvegarde sauvegarde,Musiques musique, int numeroCase){
 
@@ -233,7 +231,6 @@ public class FenetreCombat implements ActionListener{
         }
         
         boolean esquive;
-        boolean fin=false;
         
         if (e.getSource()==a1 && !freeze){
             esquive = attaque(1);  // On lance l'attaque 1
@@ -288,7 +285,6 @@ public class FenetreCombat implements ActionListener{
         }
         
         if (e.getSource()==t) { //AuTourDuJoueur=true => a nous de jouer, AuTourDuJoueur=false, on a deja choisi notre attaque
-            fin=finCombat();
 			if (AuTourDuJoueur==true){
                 t.stop();                      // On arrete ce timer
                 freeze=false;
@@ -372,7 +368,7 @@ public class FenetreCombat implements ActionListener{
             JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
 			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-            fcarte= new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
+            new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
             freeze=false;
             t2.stop();
 		}

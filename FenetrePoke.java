@@ -1,10 +1,8 @@
 import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
 
 public class FenetrePoke extends JFrame{
-    
-    private ArrayList<VEGAMONS> pokedex;
+
+    private static final long serialVersionUID = 1L;
     private JLabel poke, nom, attaque, defense, esquive, type, attaques;
 
 	public FenetrePoke(int i, VariablesDeJeu variablesSession){

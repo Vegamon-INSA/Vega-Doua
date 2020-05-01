@@ -449,6 +449,8 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 						case 0:{//Jamais discut&eacute; -ouverture
 							String tableau []={"<html>V&eacute;ga : Oh je t&rsquo;attendais avec impatience, je t&rsquo;observe depuis quelques temps <br>et je pense que tu es la personne id&eacute;ale pour recevoir ce V&eacute;gamon.</html>","<html>Il s&rsquo;appelle M&eacute;loche, je suis s&ucirc;r qu&rsquo;avec lui<br> tu pourras devenir le meilleur dresseur de cette ville !</html>","<html>Au fait, Flora devrait &ecirc;tre dehors, devant ma maison, tu devrais aller la voir !</html>","fin_message","","",""};							
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.listeInterractionsAvecDresseurs[4]=0;
+							System.out.println(this.listeInterractionsAvecDresseurs[3]);
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -500,8 +502,8 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							//si on a deja parl&eacute; &agrave; vega
-							if(this.listeInterractionsAvecDresseurs[6]==1){
+							
+							if(this.listeInterractionsAvecDresseurs[6]==1){//si on a deja parlé avec le prof vega
 								String tableau []={"<html>Flora : Hey ! V&eacute;ga m&rsquo;a charg&eacute; de te donner des conseils.<br>M&eacute;loche est faible, il faudra que tu l&rsquo;entra&icirc;nes pour qu&rsquo;il gagne de l&rsquo;XP.</html>", "<html>Au nord, il y a les trav&eacute;es, un lieu peu entretenu avec des tr&egrave;fles au sol.<br>C&rsquo;est l&agrave; que se cachent les V&eacute;gamon, des cr&eacute;atures comme ton M&eacute;loche.</html>","<html>Certains pourront d&eacute;cider de t&rsquo;attaquer &agrave; tout moment.<br>Si tu gagnes le combat, tu gagneras de l&rsquo;XP, rendant M&eacute;loche plus fort,</html>", "<html>si tu perds, Meloche sera KO et tu devras te reposer dans <br>ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
 								this.listeInterractionsAvecDresseurs[numeroDresseur]=2;
 								this.texteAAfficher=tableau;

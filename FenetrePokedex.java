@@ -1,6 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
 import java.awt.event.*;
 
 public class FenetrePokedex implements ActionListener{
@@ -131,24 +129,24 @@ public class FenetrePokedex implements ActionListener{
  
         // En cliquant sur un vegamon, on ouvre une petite fenetre qui donnera des informations supplémentaire sur ce vegamon
         if (e.getSource()==pok1){
-            FenetrePoke Poke=new FenetrePoke(0, VariablesSession);
+            new FenetrePoke(0, VariablesSession);
         } else if (e.getSource()==pok2){
-            FenetrePoke Poke=new FenetrePoke(1, VariablesSession);
+            new FenetrePoke(1, VariablesSession);
         } else if (e.getSource()==pok3){
-            FenetrePoke Poke=new FenetrePoke(2, VariablesSession);
+            new FenetrePoke(2, VariablesSession);
         } else if (e.getSource()==pok4){
-            FenetrePoke Poke=new FenetrePoke(3, VariablesSession);
+            new FenetrePoke(3, VariablesSession);
         } else if (e.getSource()==pok5){
-            FenetrePoke Poke=new FenetrePoke(4, VariablesSession);
+            new FenetrePoke(4, VariablesSession);
         } else if (e.getSource()==pok6){
-            FenetrePoke Poke=new FenetrePoke(5, VariablesSession);
+            new FenetrePoke(5, VariablesSession);
         } 
         else if (e.getSource()==retour){   
 			pPrincipal.removeAll();
 			JFramePrincipal.remove(pPrincipal);    // Ou sur retour on revient à l'accueil
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
-			Accueil ecranAccueil= new Accueil(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
+			new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
         }
 	}
 }

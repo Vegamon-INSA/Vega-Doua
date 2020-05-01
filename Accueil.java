@@ -1,102 +1,99 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-
 
 public class Accueil implements ActionListener{
-	private JButton jouer,resetPartie,scenario,parametre,pokedex;
+	private JButton jouer,resetPartie,scenario,pokedex;
 	private JLabel imageFond;
 	private JPanel pPrincipal;
 	private CJframe JFramePrincipal;
 	private VariablesDeJeu VariablesSession;
 	private Sauvegarde SauvegardeJeu;
 	private Musiques MusiqueDeJeu;
-    private ArrayList<VEGAMONS> dex;
-	private fenetreCarte fcarte;
-	public Accueil(CJframe Frame, VariablesDeJeu variables,Sauvegarde sauvegarde, Musiques musique){	
-		JFramePrincipal=Frame;
-		SauvegardeJeu=sauvegarde;
-		VariablesSession=variables;
-		MusiqueDeJeu=musique;
-		dex=VariablesSession.pokedex;
-		
+	
+	public Accueil(CJframe Frame, VariablesDeJeu variables, Sauvegarde sauvegarde, Musiques musique) {
+		JFramePrincipal = Frame;
+		SauvegardeJeu = sauvegarde;
+		VariablesSession = variables;
+		MusiqueDeJeu = musique;
+
 		pPrincipal = new JPanel();
-        pPrincipal.setBounds(0, 0, 800, 800);
+		pPrincipal.setBounds(0, 0, 800, 800);
 		pPrincipal.setLayout(null);
-        JFramePrincipal.add(pPrincipal);
-		
-		jouer = new JButton ("Jouer");
-		jouer.setBounds(300,200,200,100);
+		JFramePrincipal.add(pPrincipal);
+
+		jouer = new JButton("Jouer");
+		jouer.setBounds(300, 200, 200, 100);
 		jouer.setBackground(Color.red);
-		jouer.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
+		jouer.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(jouer);
 		jouer.addActionListener(this);
-		
-		resetPartie= new JButton ("Reset la partie");
-		resetPartie.setBounds(300,330,200,70);
+
+		resetPartie = new JButton("Reset la partie");
+		resetPartie.setBounds(300, 330, 200, 70);
 		resetPartie.setBackground(Color.blue);
-		resetPartie.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
+		resetPartie.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(resetPartie);
 		resetPartie.addActionListener(this);
-		
-		pokedex = new JButton ("Vegadex");
-		pokedex.setBounds(300,410,200,70);
+
+		pokedex = new JButton("Vegadex");
+		pokedex.setBounds(300, 410, 200, 70);
 		pokedex.setBackground(Color.blue);
-		pokedex.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
+		pokedex.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(pokedex);
 		pokedex.addActionListener(this);
 
-		scenario= new JButton ("Sc\u00e9nario");
+		scenario = new JButton("Sc\u00e9nario");
 		scenario.setBounds(300, 490, 200, 70);
 		scenario.setBackground(Color.blue);
-		scenario.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,25));
+		scenario.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(scenario);
 		scenario.addActionListener(this);
 
-		imageFond = new JLabel(new ImageIcon("Images/fond.png")); 
-		imageFond.setBounds(0,0,800,820);
+		imageFond = new JLabel(new ImageIcon("Images/fond.png"));
+		imageFond.setBounds(0, 0, 800, 820);
 		pPrincipal.add(imageFond);
 		JFramePrincipal.setVisible(true);
 
 	}
-	
-	public static void main(String[] args){
+
+	public static void main(String[] args) {
 
 		CJframe JFramePrincipal = new CJframe();
-		VariablesDeJeu VariablesSession= new VariablesDeJeu();	
-		Sauvegarde SauvegardeJeu= new Sauvegarde();
-		Musiques MusiqueDeJeu= new Musiques();
+		VariablesDeJeu VariablesSession = new VariablesDeJeu();
+		Sauvegarde SauvegardeJeu = new Sauvegarde();
+		Musiques MusiqueDeJeu = new Musiques();
 		MusiqueDeJeu.JouerMusiqueJouerEnBoucle("Musiques/route1.wav");
-		Accueil ecranAccueil= new Accueil(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
-   }
-		public void actionPerformed (ActionEvent e){
+		new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
+	}
 
-		if (e.getSource()==jouer){
+	public void actionPerformed(ActionEvent e) {
+
+		if (e.getSource() == jouer) {
 			pPrincipal.removeAll();
 			JFramePrincipal.remove(pPrincipal);
 			JFramePrincipal.validate();
 			JFramePrincipal.repaint();
 
-			if (SauvegardeJeu.SauvegardeExiste()){
-				VariablesSession=SauvegardeJeu.RestaurerSauvegarde();
-			}
-			else {
+			if (SauvegardeJeu.SauvegardeExiste()) {
+				VariablesSession = SauvegardeJeu.RestaurerSauvegarde();
+			} else {
 				VariablesSession.NouvelleCarte(000);
 				SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 			}
-			fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+			new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
 			MusiqueDeJeu.StopMusique();
 
 		}
-		if (e.getSource()==resetPartie){
+		if (e.getSource() == resetPartie) {
 			pPrincipal.removeAll();
 			JFramePrincipal.remove(pPrincipal);
 			JFramePrincipal.validate();
 			JFramePrincipal.repaint();
+			VariablesSession = new VariablesDeJeu();
 			VariablesSession.NouvelleCarte(000);
 			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-			fcarte = new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+			new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
 			MusiqueDeJeu.StopMusique();
 
 		}
@@ -105,7 +102,7 @@ public class Accueil implements ActionListener{
 			JFramePrincipal.remove(pPrincipal);
 			JFramePrincipal.validate();
 			JFramePrincipal.repaint();
-			FenetreScenario scenario = new FenetreScenario(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+			new FenetreScenario(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
 		}
 		
 		if (e.getSource()==pokedex){
@@ -120,7 +117,7 @@ public class Accueil implements ActionListener{
 				VariablesSession.NouvelleCarte(000);
 				SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 			}
-			FenetrePokedex pokedex = new FenetrePokedex(JFramePrincipal,VariablesSession,SauvegardeJeu, MusiqueDeJeu);
+			new FenetrePokedex(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
 		}
 	}
 }

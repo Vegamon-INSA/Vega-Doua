@@ -1,9 +1,4 @@
-import java.util.ArrayList;
-import javax.swing.*;
 import java.io.*;
-import java.awt.Color;
-import java.awt.event.*;
-import java.util.ArrayList;
 
 public class Sauvegarde {//Sauvegarde Automatique
 	public void NouvelleSauvegarde(VariablesDeJeu variables){//creer une sauvegarde en fichier csv avec chaque case une variable
