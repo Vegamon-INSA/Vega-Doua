@@ -464,7 +464,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroDialogue = (numeroDialogue - 200);
 				}
 
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 2) && ((Math.abs(y - yArriveeFinal) < 3) && (Math.abs(x - xArriveeFinal) < 3))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
+				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 2) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
 					stopDeplacement = true;
 					System.out.println("numero dialogue" + numeroDialogue);
 					System.out.println("etat dialogue="+VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]);
@@ -482,7 +482,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (numeroDialogue > 300) {
 					numeroDialogue = (numeroDialogue - 300);
 				}
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 3) && ((Math.abs(y - yArriveeFinal) < 3) && (Math.abs(x - xArriveeFinal) < 3))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
+				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 3) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
 
 					stopDeplacement = true;
 					System.out.println("numero dialogue" + numeroDialogue);
