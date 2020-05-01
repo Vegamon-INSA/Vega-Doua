@@ -366,7 +366,8 @@ public class FenetreCombat implements ActionListener{
             pPrincipal.removeAll();          // A la fin du combat, on enleve le panneau de combat, pour remettre la carte
 			JFramePrincipal.remove(pPrincipal);
             JFramePrincipal.revalidate();
-			JFramePrincipal.repaint();
+            JFramePrincipal.repaint();
+            VariablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
 			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
             new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
             freeze=false;
