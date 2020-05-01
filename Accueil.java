@@ -63,7 +63,7 @@ public class Accueil implements ActionListener{
 		VariablesDeJeu VariablesSession = new VariablesDeJeu();
 		Sauvegarde SauvegardeJeu = new Sauvegarde();
 		Musiques MusiqueDeJeu = new Musiques();
-		MusiqueDeJeu.JouerMusiqueJouerEnBoucle("Musiques/route1.wav");
+		MusiqueDeJeu.JouerMusiqueUneFois("Musiques/route1.wav");
 		new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
 	}
 

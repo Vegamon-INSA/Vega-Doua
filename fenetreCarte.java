@@ -168,6 +168,9 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			} catch (Exception z) {
 			} // catch les exceptions
 		}
+		else {
+			MusiqueDeJeu.JouerMusiqueUneFois("Musiques/erreur.wav");
+		}
 	}
 
 	public void resetMap() { // reset du tableau de recherche du chemin
