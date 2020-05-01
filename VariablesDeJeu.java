@@ -421,11 +421,16 @@ public void DialogueAvecDresseur(int numeroDresseur) {
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
 							String tableau []= {"<html> Maman : Salut mon ch&eacute;ri, bien dormi ?<br> Avant de commencer, voici quelques consignes :</html>","<html> Nous sauvegardons automatiquement ta partie ! <br>Tu peux accc&eacute;der au menu en appuyant sur la touche &rsquo;m&rsquo; de ton clavier.</html>","<html>Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; !<br>Si tu passes &agrave;c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","",""};
-							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.listeInterractionsAvecDresseurs[numeroDresseur]=10;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
-						
+						case 10:{//Jamais discuté -ouverture
+							String tableau []= {"<html>Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; !<br>Si tu passes &agrave;c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","","",""};
+							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
+							this.texteAAfficher=tableau;
+							break;
+						}
 						case 1:{//D&eacute;ja discut&eacute; -autres interraction
 							String tableau []= {"<html>Maman : Alors ch&eacute;ri, comment se passe ta conqu&ecirc;te du monde?</html>","fin_message","","","",""};
 							this.texteAAfficher=tableau;

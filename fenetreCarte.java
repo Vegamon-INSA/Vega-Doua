@@ -421,6 +421,9 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					JFramePrincipal.repaint();
 					new FenetreCombat(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu, numeroDialogue);
 				}
+				if (numeroDialogue==1) {
+					VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]=1;
+				}
 			}
 		}
 	}
@@ -464,7 +467,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroDialogue = (numeroDialogue - 200);
 				}
 
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 2) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
+				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 2) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) ||(VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 10) || (spawn == true)) {
 					stopDeplacement = true;
 					System.out.println("numero dialogue" + numeroDialogue);
 					System.out.println("etat dialogue="+VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]);
