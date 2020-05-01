@@ -323,7 +323,7 @@ public class FenetreCombat implements ActionListener{
                         if (numCase!=500){   // si on a perdu contre un dresseur, on mémorise cette information
 							VariablesSession.listeInterractionsAvecDresseurs[numCase]=1;
                         }
-                        lDialogue.setText("Retournes t'entrainer avec de revenir !");   // Message d'information pour savoir qu'on a perdu
+                        lDialogue.setText("Retourne t'entrainer avec de revenir !");   // Message d'information pour savoir qu'on a perdu
                         advers.PVmax=PVmaxAdvIni;   // On réinitialise les points de vie de l'adversaire
                         perso.PV=perso.PVmax;      // On réinitialise nos points de vie
                         VariablesSession.NouvelleCarte(000);
@@ -354,12 +354,12 @@ public class FenetreCombat implements ActionListener{
             if (numCase==500){
                 perso.PV=perso.PVmax;  // On réinitialise les points de vie des personnage
                 advers.PVmax=PVmaxAdvIni;
-                lDialogue.setText("Quelle poule mouillée, tu t'enfuis !"); // On affiche qu'on fuit
+                lDialogue.setText("Quelle poule mouill\u00e9e, tu t'enfuis !"); // On affiche qu'on fuit
                 t2 = new Timer(1000, this);  // Puis après avoir eu le temps de voir le message on quitte la fenetre
                 t2.start();
                 freeze=true;
             } else {
-                lDialogue.setText("Impossible de s'échapper !");  // Si un dresseur nous attaque, on ne peut pas fuire
+                lDialogue.setText("Impossible de s'\u00e9chapper !");  // Si un dresseur nous attaque, on ne peut pas fuire
                 AuTourDuJoueur=true;
                 t = new Timer(1000, this);   // puis on lance l'attaque adverse
 				t.start();
