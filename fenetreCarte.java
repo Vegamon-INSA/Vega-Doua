@@ -150,10 +150,12 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		resetMap();
 		try {
 			if (!affichertexte) {
-				stopDeplacement = false;
-				xArrivee = e.getX() / TailleCellule; // Récupération de l'abscisse et de l'ordonnée du point d'arrivé
-				yArrivee = e.getY() / TailleCellule;// en fonction de la taille de la grille
-				if (PossibiliteDeplacement(xArrivee, yArrivee)) {
+				int xTest=e.getX() / TailleCellule;
+				int yTest=e.getY() / TailleCellule;
+				if (PossibiliteDeplacement(xTest,yTest)) {
+					stopDeplacement = false;	
+					xArrivee = xTest; // Récupération de l'abscisse et de l'ordonnée du point d'arrivé
+					yArrivee = yTest;// en fonction de la taille de la grille
 					xDepartInitial = xArriveeFinal;
 					yDepartInitial = yArriveeFinal;
 					xArriveeFinal = xArrivee;
@@ -413,7 +415,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				affichertexte = false;
 				CacherBoiteTexte();
 				if (((String.valueOf(TableauCarte[yDepart][xDepart]).charAt(0)) == '3')
-						&& (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0)) {
+						&& (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0)	&& (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)) {
 					JFramePrincipal.remove(pPrincipal);
 					JFramePrincipal.revalidate();
 					JFramePrincipal.repaint();
