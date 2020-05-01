@@ -7,8 +7,8 @@ public class Musiques{
 	private AudioClip ac;
 	private URL url;
 	
-	public void JouerMusiqueUneFois (String musique) {
-		url = Musiques.class.getResource(musique);
+	public void JouerAlerte () {
+		url = Musiques.class.getResource("Musiques/erreur.wav");
 		ac = Applet.newAudioClip(url);
 		ac.play();
 	}

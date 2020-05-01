@@ -26,7 +26,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private boolean affichertexte;
 	private int numeroLigneTexte;
 	private int numeroDialogue;
-
+	public Musiques MusiqueAlerte;
 	//coordonnées de départ et d'arrivée
 	private int xDepart;
 	private int yDepart;
@@ -169,7 +169,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			} // catch les exceptions
 		}
 		else {
-			MusiqueDeJeu.JouerMusiqueUneFois("Musiques/erreur.wav");
+			MusiqueDeJeu.JouerAlerte();
 		}
 	}
 
