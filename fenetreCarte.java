@@ -40,7 +40,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	//variables pour l'algorithme de recherche de chemin
 	private Node [][] map = new Node[25][25];
 	private boolean recherche = true;//Bloque ou pas l'algorithme de recherche de chemin
-	private Algorithme AlgoDeplacement = new Algorithme();
+	private Algorithme algoDeplacement = new Algorithme();
 	
 	public fenetreCarte(CJframe Frame, VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		jFramePrincipal = Frame;
@@ -48,7 +48,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		sauvegardeJeu = sauvegarde;
 		
 		musiqueDeJeu=new Musiques();
-		musiqueDeJeu.JouerMusiqueJouerEnBoucle(variablesSession.musique);
+		musiqueDeJeu.jouerMusiqueJouerEnBoucle(variablesSession.musique);
 		pPrincipal = new JPanel();// Jpanel principal qui couvre toutela surface de la fenetre
 		pPrincipal.setBounds(0, 0, 800, 800);
 		pPrincipal.setLayout(null);
@@ -148,7 +148,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	public void mousePressed(MouseEvent e) {// quand click sur l'écran
 		int xTest=e.getX() / tailleCellule;
 		int yTest=e.getY() / tailleCellule;
-		if (PossibiliteDeplacement(xTest,yTest)) {	
+		if (possibiliteDeplacement(xTest,yTest)) {	
 			resetMap();
 			try {
 				if (!affichertexte) {
@@ -161,14 +161,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					yArriveeFinal = yArrivee;
 					System.out.println("xArrivee=" + xArrivee);
 					System.out.println(yArrivee);
-					DeplacementJoueur(xArrivee, yArrivee);
+					deplacementJoueur(xArrivee, yArrivee);
 					System.out.println("Deplacement terminé");	
 				}
 			} catch (Exception z) {
 			} // catch les exceptions
 		}
 		else {
-			musiqueDeJeu.JouerAlerte();
+			musiqueDeJeu.jouerAlerte();
 		}
 	}
 
@@ -184,12 +184,13 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		// reset les cases de début et de fin
 		if (xDepart > -1 && yDepart > -1) {
 			map[xDepart][yDepart] = new Node(0, xDepart, yDepart);
-			map[xDepart][yDepart].setesperance(0);
+			map[xDepart][yDepart].setEsperance(0);
 		}
-		if (xArrivee > -1 && yArrivee > -1)
+		if (xArrivee > -1 && yArrivee > -1){
 			map[xArrivee][yArrivee] = new Node(1, xArrivee, yArrivee);
-		resetVariablesAlgo();
+		}
 
+		resetVariablesAlgo();
 		for (int s = 0; s < tableauChemin.length; s++) {
 			tableauCheminTrie[s][0] = 0;
 			tableauCheminTrie[s][1] = 0;
@@ -197,7 +198,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		}
 	}
 
-	public boolean PossibiliteDeplacement(int x, int y) { // Test si la poistion finale demandée lors du click est
+	public boolean possibiliteDeplacement(int x, int y) { // Test si la poistion finale demandée lors du click est
 															// possible
 		boolean possibilite = true;
 		if (((tableauCarte[y][x] == 0) || (stopDeplacement == true)) || ((x == xDepart) && (y == yDepart))) {
@@ -207,7 +208,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		return possibilite;
 	}
 
-	public void DeplacementJoueur(int xFinal, int yFinal) {
+	public void deplacementJoueur(int xFinal, int yFinal) {
 		genererCarteDesMurs();
 		resetMap();
 		demarrerRecherche();	
@@ -221,12 +222,12 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				}
 			}
 		}
-		TriTableauChemin();
+		triTableauChemin();
 		t1 = new Timer(1, this);
 		t1.start();
 	}
 
-	public void TriTableauChemin() {// retirer les System.out.println pour nettoyer
+	public void triTableauChemin() {// retirer les System.out.println pour nettoyer
 		boolean finDuTri = false;
 		nbreDeplacement = 0;
 
@@ -272,20 +273,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					System.out.println("Déplacement horizontal");
 					tableauCheminTrie[d + 1][0] = tableauChemin[w][0];
 					tableauCheminTrie[d + 1][1] = tableauChemin[w][1];
-				}
-				/*
-				 * System.out.println(tableauCheminTrie[d][1]);
-				 * System.out.println(tableauChemin[w][1]+1);
-				 * System.out.println(tableauChemin[w][1]-1);
-				 * //System.out.println((tableauCheminTrie[d][1]!=(tableauChemin[x][1]+1)) &&
-				 * (tableauCheminTrie[d][1]!=tableauChemin[x][1]-1));
-				 * System.out.println(tableauCheminTrie[d][0]);
-				 * System.out.println(tableauChemin[w][0]+1);
-				 * System.out.println(tableauChemin[w][0]-1);
-				 * System.out.println((tableauCheminTrie[d][0]!=(tableauChemin[x][0]+1)) &&
-				 * (tableauCheminTrie[d][0]!=(tableauChemin[x][0]-1)));
-				 */
-				else if (!(((tableauCheminTrie[d][1] != (tableauChemin[w][1] + 1))
+				} else if (!(((tableauCheminTrie[d][1] != (tableauChemin[w][1] + 1))
 						&& (tableauCheminTrie[d][1] != (tableauChemin[w][1] - 1)))
 						|| ((tableauCheminTrie[d][0] != (tableauChemin[w][0] + 1))
 								&& (tableauCheminTrie[d][0] != (tableauChemin[w][0] - 1))))) {
@@ -343,10 +331,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 							actionDeLaCase(variablesSession.xDepart, variablesSession.yDepart, false);
 				t1.stop();
 				t1 = new Timer(200, this);
-			}
-
-			else if (stopDeplacement == false) {
-
+			} else if (stopDeplacement == false) {
 				t1.stop();
 				System.out.println(xDepart);
 				System.out.println(variablesSession.xDepart);
@@ -404,7 +389,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 			stopDeplacement = true;
-			sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
 		if (arg0.getKeyCode() == 10) {// texte suivant
@@ -412,16 +397,16 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				numeroLigneTexte += 1;
 			}
 			if ((affichertexte) && (variablesSession.texteAAfficher[numeroLigneTexte] != "fin_message")) {
-				AffichageBoiteTexte();
+				affichageBoiteTexte();
 			} else if (variablesSession.texteAAfficher[numeroLigneTexte] == "fin_message") {
 				affichertexte = false;
-				CacherBoiteTexte();
+				cacherBoiteTexte();
 				if (((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3')
 						&& ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
-					musiqueDeJeu.StopMusique();
+					musiqueDeJeu.stopMusique();
 					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, numeroDialogue);
 				}
 				if (numeroDialogue==1) {
@@ -437,7 +422,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	public void keyTyped(KeyEvent arg0) {
 	}
 
-	public void AffichageBoiteTexte() {
+	public void affichageBoiteTexte() {
 		System.out.println("numero ligne" + numeroLigneTexte);
 		lBoiteTexte.setText(variablesSession.texteAAfficher[numeroLigneTexte]);
 		pBoiteTexte.setVisible(true);
@@ -445,7 +430,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		jFramePrincipal.repaint();
 	}
 
-	public void CacherBoiteTexte() {
+	public void cacherBoiteTexte() {
 		pBoiteTexte.setVisible(false);
 		jFramePrincipal.revalidate();
 		jFramePrincipal.repaint();
@@ -462,7 +447,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		System.out.println(yArriveeFinal);
 		System.out.println(yDepartInitial);
 
-		sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+		sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 		switch (String.valueOf(tableauCarte[y][x]).charAt(0)) {
 			case '2': {// Dialogue sans combat
 				numeroDialogue = tableauCarte[y][x];
@@ -474,11 +459,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					stopDeplacement = true;
 					System.out.println("numero dialogue" + numeroDialogue);
 					System.out.println("etat dialogue="+variablesSession.listeInterractionsAvecDresseurs[numeroDialogue]);
-					variablesSession.DialogueAvecDresseur(numeroDialogue);
-					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+					variablesSession.dialogueAvecDresseur(numeroDialogue);
+					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 					numeroLigneTexte = 0;
 					affichertexte = true;
-					AffichageBoiteTexte();
+					affichageBoiteTexte();
 
 				}
 				break;
@@ -492,11 +477,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 					stopDeplacement = true;
 					System.out.println("numero dialogue" + numeroDialogue);
-					variablesSession.DialogueAvecDresseur(numeroDialogue);
-					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+					variablesSession.dialogueAvecDresseur(numeroDialogue);
+					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 					numeroLigneTexte = 0;
 					affichertexte = true;
-					AffichageBoiteTexte();
+					affichageBoiteTexte();
 				}
 				break;
 
@@ -516,9 +501,9 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.repaint();
 					stopDeplacement = true;
 					int valeurTableau = (tableauCarte[y][x] - 4000);
-					variablesSession.NouvelleCarte(valeurTableau);
-					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.StopMusique();
+					variablesSession.nouvelleCarte(valeurTableau);
+					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
+					musiqueDeJeu.stopMusique();
 					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				} else if ((yArrivee == 0) && (xArrivee == x)) {
 					try {
@@ -532,9 +517,9 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.repaint();
 					stopDeplacement = true;
 					int valeurTableau = (tableauCarte[y][x] - 4000);
-					variablesSession.NouvelleCarte(valeurTableau);
-					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.StopMusique();
+					variablesSession.nouvelleCarte(valeurTableau);
+					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
+					musiqueDeJeu.stopMusique();
 					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				}
 				break;
@@ -551,8 +536,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
-					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.StopMusique();
+					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
+					musiqueDeJeu.stopMusique();
 					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, 500);
 				}
 				break;
@@ -593,7 +578,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	public void demarrerRecherche() {	//Démarrer la recherche
 		if(recherche) {
-			AlgoDeplacement.AlgorithmeAEtoile();
+			algoDeplacement.algorithmeAEtoile();
 		}
 	}
 
@@ -606,7 +591,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 	class Algorithme {	//Classe de l'algorithme de déplacement
 
-		public void AlgorithmeAEtoile() {
+		public void algorithmeAEtoile() {
 			ArrayList<Node> priorite = new ArrayList<Node>();
 			priorite.add(map[xDepart][yDepart]);
 			while(recherche) {
@@ -669,7 +654,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			if(current.getType()!=0 && current.getType() != 1)	//CHECK THAT THE NODE IS NOT THE START OR FINISH
 				current.setType(4);	//SET IT TO DejaVisite
 			current.setLastNode(lastx, lasty);	//KEEP TRACK OF THE NODE THAT THIS NODE IS DejaVisite FROM
-			current.setesperance(esperance);	//SET THE esperance FROM THE START
+			current.setEsperance(esperance);	//SET THE esperance FROM THE START
 			if(current.getType() == 1) {	//IF THE NODE IS THE FINISH THEN BACKTRACK TO GET THE PATH
 				marcheArriere(current.getLastX(), current.getLastY(),esperance);
 			}
@@ -723,6 +708,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		
 		public void setType(int type) {cellType = type;}		//SET METHODS
 		public void setLastNode(int x, int y) {lastX = x; lastY = y;}
-		public void setesperance(int esperance) {this.esperance = esperance;}
+		public void setEsperance(int esperance) {this.esperance = esperance;}
 	}
 }

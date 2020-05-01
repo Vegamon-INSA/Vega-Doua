@@ -56,7 +56,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
         
 		public int xpMeloche=1; 
 
-		public void NouvelleCarte(int numeroDeLaCarte){
+		public void nouvelleCarte(int numeroDeLaCarte){
 				
 				ArrayList<String> listeTextesCombats = new ArrayList<String>() ;
 				String s1 = "texte de combat 1" ;
@@ -420,7 +420,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 
 		}
 		
-public void DialogueAvecDresseur(int numeroDresseur) {
+public void dialogueAvecDresseur(int numeroDresseur) {
 			System.out.println("numero du dresseur="+numeroDresseur);
 			System.out.println("numero du dialogue="+this.listeInterractionsAvecDresseurs[numeroDresseur]);
 

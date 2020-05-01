@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class Sauvegarde {//Sauvegarde Automatique
-	public void NouvelleSauvegarde(VariablesDeJeu variables){//creer une sauvegarde en fichier csv avec chaque case une variable
+	public void nouvelleSauvegarde(VariablesDeJeu variables){//creer une sauvegarde en fichier csv avec chaque case une variable
 		
 		VariablesDeJeu VariablesSession=variables;		
 		final String chemin = System.getProperty("user.dir");
@@ -22,7 +22,7 @@ public class Sauvegarde {//Sauvegarde Automatique
 	}	
      
      
-	public boolean SauvegardeExiste(){//teste si sauvegarde existe
+	public boolean sauvegardeExiste(){//teste si sauvegarde existe
 
 		final String chemin = System.getProperty("user.dir");
 		String NomFichier = "sauvegarde.csv";
@@ -37,7 +37,7 @@ public class Sauvegarde {//Sauvegarde Automatique
 	}
 	
 	
-	public VariablesDeJeu RestaurerSauvegarde(){//Lis le fichier de sauvegarde sauvegarde.csv et remplis les variables correspondant aux cases du tableau de svgrde
+	public VariablesDeJeu restaurerSauvegarde(){//Lis le fichier de sauvegarde sauvegarde.csv et remplis les variables correspondant aux cases du tableau de svgrde
 		VariablesDeJeu VariablesSession= new VariablesDeJeu();
 		final String chemin = System.getProperty("user.dir");
 		String NomFichier = "sauvegarde.csv";
@@ -55,7 +55,7 @@ public class Sauvegarde {//Sauvegarde Automatique
 						variablesInt[i] = Integer.parseInt(variablesString[i]);
 					}
 					VariablesSession.numeroCarte=variablesInt[0];
-					VariablesSession.NouvelleCarte(VariablesSession.numeroCarte);
+					VariablesSession.nouvelleCarte(VariablesSession.numeroCarte);
 					VariablesSession.xDepart=variablesInt[1];
 					VariablesSession.yDepart=variablesInt[2];
 					VariablesSession.xpMeloche=variablesInt[3];

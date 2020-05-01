@@ -16,7 +16,7 @@ public class Accueil implements ActionListener{
 		sauvegardeJeu = sauvegarde;
 		variablesSession = variables;
 
-		musiqueDeJeu.JouerMusiqueJouerEnBoucle("Musiques/route1.wav");
+		musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav");
 
 		pPrincipal = new JPanel();
 		pPrincipal.setBounds(0, 0, 800, 800);
@@ -69,17 +69,17 @@ public class Accueil implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == jouer) {
-			musiqueDeJeu.StopMusique();
+			musiqueDeJeu.stopMusique();
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.validate();
 			jFramePrincipal.repaint();
 
-			if (sauvegardeJeu.SauvegardeExiste()) {
-				variablesSession = sauvegardeJeu.RestaurerSauvegarde();
+			if (sauvegardeJeu.sauvegardeExiste()) {
+				variablesSession = sauvegardeJeu.restaurerSauvegarde();
 			} else {
-				variablesSession.NouvelleCarte(000);
-				sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+				variablesSession.nouvelleCarte(000);
+				sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			}
 			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
@@ -90,10 +90,10 @@ public class Accueil implements ActionListener{
 			jFramePrincipal.validate();
 			jFramePrincipal.repaint();
 			variablesSession = new VariablesDeJeu();
-			variablesSession.NouvelleCarte(000);
-			sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+			variablesSession.nouvelleCarte(000);
+			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
-			musiqueDeJeu.StopMusique();
+			musiqueDeJeu.stopMusique();
 
 		}
 		if (e.getSource()==scenario){
@@ -109,12 +109,12 @@ public class Accueil implements ActionListener{
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.validate();
 			jFramePrincipal.repaint();
-			if (sauvegardeJeu.SauvegardeExiste()){
-				variablesSession=sauvegardeJeu.RestaurerSauvegarde();
+			if (sauvegardeJeu.sauvegardeExiste()){
+				variablesSession=sauvegardeJeu.restaurerSauvegarde();
 			}
 			else {
-				variablesSession.NouvelleCarte(000);
-				sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+				variablesSession.nouvelleCarte(000);
+				sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			}
 			new FenetrePokedex(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}

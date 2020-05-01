@@ -320,7 +320,7 @@ public class FenetreCombat implements ActionListener{
                         lDialogue.setText("Retourne t'entrainer avec de revenir !");   // Message d'information pour savoir qu'on a perdu
                         advers.PVmax=PVmaxAdvIni;   // On réinitialise les points de vie de l'adversaire
                         perso.PV=perso.PVmax;      // On réinitialise nos points de vie
-                        variablesSession.NouvelleCarte(000);
+                        variablesSession.nouvelleCarte(000);
                         variablesSession.listeInterractionsAvecDresseurs[1]=2;
                         t2 = new Timer(1500, this);    
                         t2.start();               // On ferme la fenetre après un petit moment
@@ -366,7 +366,7 @@ public class FenetreCombat implements ActionListener{
             jFramePrincipal.revalidate();
             jFramePrincipal.repaint();
             variablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
-			sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
             new fenetreCarte(jFramePrincipal,variablesSession,sauvegardeJeu);
             freeze=false;
             t2.stop();
