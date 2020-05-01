@@ -6,18 +6,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 public class FenetreScenario implements ActionListener{
 	
-	private JButton adep, aintro, aarene1, aarene2, retouraccueil, retourScenario;
+	private JButton bCommentJouer, bIntro, bArene1, bArene2, bRetourAccueil, bRetourScenario;
 	private JPanel pPrincipal;
     private JLabel imageFond ;
 	private CJframe jFramePrincipal; 
 	private VariablesDeJeu variablesSession; 
 	private Sauvegarde sauvegardeJeu;
 	private JTextArea intro, arene1, arene2, deplace ;
-	private JScrollPane scrollintro,scrollarene1,scrollarene2, scrolldeplace;
+	private JScrollPane scrollIntro,scrollArene1,scrollArene2, scrollDeplace;
 	
-	public FenetreScenario( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde) {
+	public FenetreScenario( CJframe frame,VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		
-		jFramePrincipal= Frame;
+		jFramePrincipal= frame;
 		variablesSession=variables;
 		sauvegardeJeu=sauvegarde;
         
@@ -26,40 +26,40 @@ public class FenetreScenario implements ActionListener{
 		pPrincipal.setLayout(null);
         jFramePrincipal.add(pPrincipal);
 		
-        adep = new JButton("Comment jouer");
-        adep.setBounds(150, 290, 200, 90);
-        pPrincipal.add(adep);
-        adep.setLayout(null);
-        adep.addActionListener(this);
+        bCommentJouer = new JButton("Comment jouer");
+        bCommentJouer.setBounds(150, 290, 200, 90);
+        pPrincipal.add(bCommentJouer);
+        bCommentJouer.setLayout(null);
+        bCommentJouer.addActionListener(this);
 
-        aintro = new JButton("Introduction");
-        aintro.setBounds(450, 290, 200, 90);
-        pPrincipal.add(aintro);
-        aintro.setLayout(null);
-        aintro.addActionListener(this);	
+        bIntro = new JButton("Introduction");
+        bIntro.setBounds(450, 290, 200, 90);
+        pPrincipal.add(bIntro);
+        bIntro.setLayout(null);
+        bIntro.addActionListener(this);	
         
-        aarene1 = new JButton("Ar\u00e8ne 1");
-        aarene1.setBounds(150, 420, 200, 90);
-        pPrincipal.add(aarene1);
-        aarene1.setLayout(null);
-        aarene1.addActionListener(this);
+        bArene1 = new JButton("Ar\u00e8ne 1");
+        bArene1.setBounds(150, 420, 200, 90);
+        pPrincipal.add(bArene1);
+        bArene1.setLayout(null);
+        bArene1.addActionListener(this);
         	
-        aarene2 = new JButton("Ar\u00e8ne 2");
-        aarene2.setBounds(450, 420, 200, 90);
-        pPrincipal.add(aarene2);
-        aarene2.setLayout(null);
-        aarene2.addActionListener(this);
+        bArene2 = new JButton("Ar\u00e8ne 2");
+        bArene2.setBounds(450, 420, 200, 90);
+        pPrincipal.add(bArene2);
+        bArene2.setLayout(null);
+        bArene2.addActionListener(this);
 		
-		retouraccueil = new JButton("RETOUR");
-        retouraccueil.setBounds(325, 600, 150, 70);
-        pPrincipal.add(retouraccueil);
-        retouraccueil.setLayout(null);
-        retouraccueil.addActionListener(this);
+		bRetourAccueil = new JButton("RETOUR");
+        bRetourAccueil.setBounds(325, 600, 150, 70);
+        pPrincipal.add(bRetourAccueil);
+        bRetourAccueil.setLayout(null);
+        bRetourAccueil.addActionListener(this);
         
-        retourScenario = new JButton("RETOUR");
-        retourScenario.setBounds(325, 660, 150, 70);
-        retourScenario.setLayout(null);
-        retourScenario.addActionListener(this);
+        bRetourScenario = new JButton("RETOUR");
+        bRetourScenario.setBounds(325, 660, 150, 70);
+        bRetourScenario.setLayout(null);
+        bRetourScenario.addActionListener(this);
 
         imageFond = new JLabel(new ImageIcon("Images/fond.png")); 
 		imageFond.setBounds(0,0,800,820);
@@ -77,83 +77,83 @@ public class FenetreScenario implements ActionListener{
 	}
 		public void actionPerformed (ActionEvent e){
 
-		if (e.getSource()==adep){
+		if (e.getSource()==bCommentJouer){
 			pPrincipal.removeAll();
-			pPrincipal.add(retourScenario);
+			pPrincipal.add(bRetourScenario);
 			pPrincipal.add(imageFond);
 			
 			deplace.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,18));
 			deplace.setLineWrap (true); //Permet d'aller à la ligne en fin de fenêtre
 			deplace.setWrapStyleWord (true); //Permet de ne pas couper les mots en fin de fenêtre
 			deplace.setEditable (false); //empêche l'utilisateur de modifier le texte
-			scrolldeplace = new JScrollPane (deplace); 
-			scrolldeplace.setBounds(150,215,500,400);
+			scrollDeplace = new JScrollPane (deplace); 
+			scrollDeplace.setBounds(150,215,500,400);
 
-			scrolldeplace.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+			scrollDeplace.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 			
-			pPrincipal.add(scrolldeplace);
+			pPrincipal.add(scrollDeplace);
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 		}
-		else if (e.getSource()==aintro){
+		else if (e.getSource()==bIntro){
 			pPrincipal.removeAll();
-			pPrincipal.add(retourScenario);
+			pPrincipal.add(bRetourScenario);
 			pPrincipal.add(imageFond);
 			
 			intro.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,18));
 			intro.setLineWrap (true); //Permet d'aller à la ligne en fin de fenêtre
 			intro.setWrapStyleWord (true); //Permet de ne pas couper les mots en fin de fenêtre
 			intro.setEditable (false); //empêche l'utilisateur de modifier le texte
-			scrollintro = new JScrollPane (intro); 
-			scrollintro.setBounds(150,215,500,400);
-			scrollintro.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+			scrollIntro = new JScrollPane (intro); 
+			scrollIntro.setBounds(150,215,500,400);
+			scrollIntro.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-			pPrincipal.add(scrollintro);
+			pPrincipal.add(scrollIntro);
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 		}
-		else if (e.getSource()==aarene1){
+		else if (e.getSource()==bArene1){
 			pPrincipal.removeAll();
-			pPrincipal.add(retourScenario);
+			pPrincipal.add(bRetourScenario);
 			pPrincipal.add(imageFond);
 			
 			arene1.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,18));
 			arene1.setLineWrap (true); //Permet d'aller à la ligne en fin de fenêtre
 			arene1.setWrapStyleWord (true); //Permet de ne pas couper les mots en fin de fenêtre
 			arene1.setEditable (false); //empêche l'utilisateur de modifier le texte
-			scrollarene1 = new JScrollPane (arene1); 
-			scrollarene1.setBounds(150,215,500,400);
-			scrollarene1.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+			scrollArene1 = new JScrollPane (arene1); 
+			scrollArene1.setBounds(150,215,500,400);
+			scrollArene1.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-			pPrincipal.add(scrollarene1);
+			pPrincipal.add(scrollArene1);
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 		}
-		else if (e.getSource()==aarene2){
+		else if (e.getSource()==bArene2){
 			pPrincipal.removeAll();
-			pPrincipal.add(retourScenario);
+			pPrincipal.add(bRetourScenario);
 			pPrincipal.add(imageFond);
 		
 			arene2.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,18));
 			arene2.setLineWrap (true); //Permet d'aller à la ligne en fin de fenêtre
 			arene2.setWrapStyleWord (true); //Permet de ne pas couper les mots en fin de fenêtre
 			arene2.setEditable (false); //empêche l'utilisateur de modifier le texte
-			scrollarene2 = new JScrollPane (arene2); 
-			scrollarene2.setBounds(150,215,500,400);
-			scrollarene2.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-			pPrincipal.add(scrollarene2);
+			scrollArene2 = new JScrollPane (arene2); 
+			scrollArene2.setBounds(150,215,500,400);
+			scrollArene2.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+			pPrincipal.add(scrollArene2);
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 		}
 		
-		else if (e.getSource()==retouraccueil){
+		else if (e.getSource()==bRetourAccueil){
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 			new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
         }
-        else if (e.getSource()==retourScenario){
+        else if (e.getSource()==bRetourScenario){
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.revalidate();

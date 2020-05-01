@@ -120,5 +120,4 @@ public class Accueil implements ActionListener{
 		}
 	}
 }
-//musiques et effets speciaux : Définir quels effets speciaux quelles musiques et quelle naration on veut jouer et à quel moment
 //bien checker toutes les zones avec les tableaux de gianni

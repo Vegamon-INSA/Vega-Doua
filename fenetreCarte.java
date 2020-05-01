@@ -14,19 +14,19 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private VariablesDeJeu variablesSession; //Variables de Jeu
 	private Sauvegarde sauvegardeJeu;
 	private Musiques musiqueDeJeu;
-	private int[][] TableauCarte = new int[25][25];//tableau contenenant la consitution de la carte dans laquelle est le personnage
-	private int[][] TableauChemin = new int[50][2];//Tableau généré par l'algorithme avec les coordonnées x dans la colonne 0 et y dans la colonne 1 du chemin pour aller d'un point à un autre
-	private int[][] TableauCheminTrie = new int[50][2];// Tableau issu du tableau TableauChemin mais qui est cet fois-ci trié dans l'ordre de l'avancement du chemin
+	private int[][] tableauCarte = new int[25][25];//tableau contenenant la consitution de la carte dans laquelle est le personnage
+	private int[][] tableauChemin = new int[50][2];//Tableau généré par l'algorithme avec les coordonnées x dans la colonne 0 et y dans la colonne 1 du chemin pour aller d'un point à un autre
+	private int[][] tableauCheminTrie = new int[50][2];// Tableau issu du tableau tableauChemin mais qui est cet fois-ci trié dans l'ordre de l'avancement du chemin
 	private Timer t1, t2;//Timer de déplacement de 'limage du personnage
 	private int a=0;//variable a pour le timer du déplacement du joueur
 	private boolean descente=true;
 	private int ordonneePanel=-50;//variable a pour le timer du déplacement du joueur
-	private int NbreCases = 25;//nombre de cases dans la grille qui découpe la carte
+	private int nbreCases = 25;//nombre de cases dans la grille qui découpe la carte
 	private boolean stopDeplacement=false;
 	private boolean affichertexte;
 	private int numeroLigneTexte;
 	private int numeroDialogue;
-	public Musiques MusiqueAlerte;
+
 	//coordonnées de départ et d'arrivée
 	private int xDepart;
 	private int yDepart;
@@ -34,8 +34,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private int yArrivee;
 	private int xArriveeFinal, xDepartInitial;//Change quand le déplacement global est terminé
 	private int yArriveeFinal, yDepartInitial;
-	private int NbreDeplacement;
-	private int TailleCellule = 800/NbreCases;//Taille d'un carré : largeur de la fenetre divisé par le nombre de cellules
+	private int nbreDeplacement;
+	private int tailleCellule = 800/nbreCases;//Taille d'un carré : largeur de la fenetre divisé par le nombre de cellules
 	
 	//variables pour l'algorithme de recherche de chemin
 	private Node [][] map = new Node[25][25];
@@ -97,7 +97,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		// Algo de déplacement
 		xDepart = variablesSession.xDepart;
 		yDepart = variablesSession.yDepart;
-		TableauCarte = variablesSession.TableauCarte;
+		tableauCarte = variablesSession.tableauCarte;
 		genererCarteDesMurs();
 
 		// Ajout du fond de la fenetre
@@ -109,7 +109,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 		// Ajout du Bonhomme à déplacer
 		JLabelPersonnage = new JLabel(new ImageIcon("Images/Personnagepetit.png"));
-		JLabelPersonnage.setBounds((xDepart * TailleCellule - 8), (yDepart * TailleCellule - 28), 31, 52);
+		JLabelPersonnage.setBounds((xDepart * tailleCellule - 8), (yDepart * tailleCellule - 28), 31, 52);
 		JLabelPersonnage.setLayout(null);
 		JLabelCarte.add(JLabelPersonnage);
 
@@ -146,8 +146,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	public void mousePressed(MouseEvent e) {// quand click sur l'écran
-		int xTest=e.getX() / TailleCellule;
-		int yTest=e.getY() / TailleCellule;
+		int xTest=e.getX() / tailleCellule;
+		int yTest=e.getY() / tailleCellule;
 		if (PossibiliteDeplacement(xTest,yTest)) {	
 			resetMap();
 			try {
@@ -173,8 +173,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	public void resetMap() { // reset du tableau de recherche du chemin
-		for (int x = 0; x < NbreCases; x++) {
-			for (int y = 0; y < NbreCases; y++) {
+		for (int x = 0; x < nbreCases; x++) {
+			for (int y = 0; y < nbreCases; y++) {
 				Node current = map[x][y];
 				if (current.getType() == 4 || current.getType() == 5) // check si le node est le cehmin fianl ou le
 																		// début ou l'arrivée
@@ -190,9 +190,9 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			map[xArrivee][yArrivee] = new Node(1, xArrivee, yArrivee);
 		resetVariablesAlgo();
 
-		for (int s = 0; s < TableauChemin.length; s++) {
-			TableauCheminTrie[s][0] = 0;
-			TableauCheminTrie[s][1] = 0;
+		for (int s = 0; s < tableauChemin.length; s++) {
+			tableauCheminTrie[s][0] = 0;
+			tableauCheminTrie[s][1] = 0;
 
 		}
 	}
@@ -200,7 +200,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	public boolean PossibiliteDeplacement(int x, int y) { // Test si la poistion finale demandée lors du click est
 															// possible
 		boolean possibilite = true;
-		if (((TableauCarte[y][x] == 0) || (stopDeplacement == true)) || ((x == xDepart) && (y == yDepart))) {
+		if (((tableauCarte[y][x] == 0) || (stopDeplacement == true)) || ((x == xDepart) && (y == yDepart))) {
 			possibilite = false;
 		}
 		System.out.println("Deplacement possible :" + possibilite);
@@ -212,11 +212,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		resetMap();
 		demarrerRecherche();	
 		int colonneY = 0;
-		for (int x = 0; x < NbreCases; x++) {
-			for (int y = 0; y < NbreCases; y++) {
+		for (int x = 0; x < nbreCases; x++) {
+			for (int y = 0; y < nbreCases; y++) {
 				if (map[x][y].getType() == 5) {
-					TableauChemin[colonneY][0] = map[x][y].getX();
-					TableauChemin[colonneY][1] = map[x][y].getY();
+					tableauChemin[colonneY][0] = map[x][y].getX();
+					tableauChemin[colonneY][1] = map[x][y].getY();
 					colonneY++;
 				}
 			}
@@ -228,81 +228,81 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 	public void TriTableauChemin() {// retirer les System.out.println pour nettoyer
 		boolean finDuTri = false;
-		NbreDeplacement = 0;
+		nbreDeplacement = 0;
 
-		if ((TableauChemin[0][0] == 0) && (TableauChemin[0][1] == 0)) {
-			TableauChemin[0][0] = xArrivee;
-			TableauChemin[0][1] = yArrivee;
+		if ((tableauChemin[0][0] == 0) && (tableauChemin[0][1] == 0)) {
+			tableauChemin[0][0] = xArrivee;
+			tableauChemin[0][1] = yArrivee;
 		}
 
 		System.out.println("x depart :" + xDepart);
 		System.out.println("y depart  :" + yDepart);
 		System.out.println("Tableau initial :");
-		for (int s = 0; s < TableauChemin.length; s++) {
-			System.out.println(TableauChemin[s][0] + "=x, y=" + TableauChemin[s][1]);
+		for (int s = 0; s < tableauChemin.length; s++) {
+			System.out.println(tableauChemin[s][0] + "=x, y=" + tableauChemin[s][1]);
 		}
 
-		TableauCheminTrie[0][0] = xDepart;
-		TableauCheminTrie[0][1] = yDepart;
+		tableauCheminTrie[0][0] = xDepart;
+		tableauCheminTrie[0][1] = yDepart;
 
-		for (int j = 0; j < TableauChemin.length; j++) {
-			if ((TableauChemin[j][0] == xDepart) && (TableauChemin[j][1] == yDepart)) {
-				TableauChemin[j][0] = 0;
-				TableauChemin[j][1] = 0;
+		for (int j = 0; j < tableauChemin.length; j++) {
+			if ((tableauChemin[j][0] == xDepart) && (tableauChemin[j][1] == yDepart)) {
+				tableauChemin[j][0] = 0;
+				tableauChemin[j][1] = 0;
 			}
 		}
 
-		for (int d = 0; d < (TableauChemin.length - 1); d++) {
+		for (int d = 0; d < (tableauChemin.length - 1); d++) {
 			if (finDuTri == true) {
 				System.out.println("Fin du tri");
 				break;
 			}
 			System.out.println("d=" + d);
 			int w = 0;
-			while ((TableauCheminTrie[d + 1][0] == 0) || (TableauCheminTrie[d + 1][1] == 0)) {
-				if ((TableauCheminTrie[d][0] == TableauChemin[w][0])
-						&& ((TableauCheminTrie[d][1] == (TableauChemin[w][1] + 1))
-								|| (TableauCheminTrie[d][1] == TableauChemin[w][1] - 1))) {
+			while ((tableauCheminTrie[d + 1][0] == 0) || (tableauCheminTrie[d + 1][1] == 0)) {
+				if ((tableauCheminTrie[d][0] == tableauChemin[w][0])
+						&& ((tableauCheminTrie[d][1] == (tableauChemin[w][1] + 1))
+								|| (tableauCheminTrie[d][1] == tableauChemin[w][1] - 1))) {
 					System.out.println("Déplacement vertcal");
-					TableauCheminTrie[d + 1][0] = TableauChemin[w][0];
-					TableauCheminTrie[d + 1][1] = TableauChemin[w][1];
-				} else if ((TableauCheminTrie[d][1] == TableauChemin[w][1])
-						&& ((TableauCheminTrie[d][0] == (TableauChemin[w][0] + 1))
-								|| (TableauCheminTrie[d][0] == TableauChemin[w][0] - 1))) {
+					tableauCheminTrie[d + 1][0] = tableauChemin[w][0];
+					tableauCheminTrie[d + 1][1] = tableauChemin[w][1];
+				} else if ((tableauCheminTrie[d][1] == tableauChemin[w][1])
+						&& ((tableauCheminTrie[d][0] == (tableauChemin[w][0] + 1))
+								|| (tableauCheminTrie[d][0] == tableauChemin[w][0] - 1))) {
 					System.out.println("Déplacement horizontal");
-					TableauCheminTrie[d + 1][0] = TableauChemin[w][0];
-					TableauCheminTrie[d + 1][1] = TableauChemin[w][1];
+					tableauCheminTrie[d + 1][0] = tableauChemin[w][0];
+					tableauCheminTrie[d + 1][1] = tableauChemin[w][1];
 				}
 				/*
-				 * System.out.println(TableauCheminTrie[d][1]);
-				 * System.out.println(TableauChemin[w][1]+1);
-				 * System.out.println(TableauChemin[w][1]-1);
-				 * //System.out.println((TableauCheminTrie[d][1]!=(TableauChemin[x][1]+1)) &&
-				 * (TableauCheminTrie[d][1]!=TableauChemin[x][1]-1));
-				 * System.out.println(TableauCheminTrie[d][0]);
-				 * System.out.println(TableauChemin[w][0]+1);
-				 * System.out.println(TableauChemin[w][0]-1);
-				 * System.out.println((TableauCheminTrie[d][0]!=(TableauChemin[x][0]+1)) &&
-				 * (TableauCheminTrie[d][0]!=(TableauChemin[x][0]-1)));
+				 * System.out.println(tableauCheminTrie[d][1]);
+				 * System.out.println(tableauChemin[w][1]+1);
+				 * System.out.println(tableauChemin[w][1]-1);
+				 * //System.out.println((tableauCheminTrie[d][1]!=(tableauChemin[x][1]+1)) &&
+				 * (tableauCheminTrie[d][1]!=tableauChemin[x][1]-1));
+				 * System.out.println(tableauCheminTrie[d][0]);
+				 * System.out.println(tableauChemin[w][0]+1);
+				 * System.out.println(tableauChemin[w][0]-1);
+				 * System.out.println((tableauCheminTrie[d][0]!=(tableauChemin[x][0]+1)) &&
+				 * (tableauCheminTrie[d][0]!=(tableauChemin[x][0]-1)));
 				 */
-				else if (!(((TableauCheminTrie[d][1] != (TableauChemin[w][1] + 1))
-						&& (TableauCheminTrie[d][1] != (TableauChemin[w][1] - 1)))
-						|| ((TableauCheminTrie[d][0] != (TableauChemin[w][0] + 1))
-								&& (TableauCheminTrie[d][0] != (TableauChemin[w][0] - 1))))) {
+				else if (!(((tableauCheminTrie[d][1] != (tableauChemin[w][1] + 1))
+						&& (tableauCheminTrie[d][1] != (tableauChemin[w][1] - 1)))
+						|| ((tableauCheminTrie[d][0] != (tableauChemin[w][0] + 1))
+								&& (tableauCheminTrie[d][0] != (tableauChemin[w][0] - 1))))) {
 					System.out.println("Déplacement diagonal");
-					TableauCheminTrie[d + 1][0] = TableauChemin[w][0];
-					TableauCheminTrie[d + 1][1] = TableauChemin[w][1];
+					tableauCheminTrie[d + 1][0] = tableauChemin[w][0];
+					tableauCheminTrie[d + 1][1] = tableauChemin[w][1];
 				}
 				w++;
 			}
-			for (int h = 0; h < TableauCheminTrie.length; h++) {
-				System.out.println("Tableau trié : x= " + TableauCheminTrie[h][0] + " y= " + TableauCheminTrie[h][1]);
+			for (int h = 0; h < tableauCheminTrie.length; h++) {
+				System.out.println("Tableau trié : x= " + tableauCheminTrie[h][0] + " y= " + tableauCheminTrie[h][1]);
 			}
-			TableauChemin[w - 1][0] = 0;
-			TableauChemin[w - 1][1] = 0;
+			tableauChemin[w - 1][0] = 0;
+			tableauChemin[w - 1][1] = 0;
 
-			for (int s = 0; s < TableauChemin.length; s++) {
-				if ((TableauChemin[s][0] == 0) && (TableauChemin[s][1] == 0)) {
+			for (int s = 0; s < tableauChemin.length; s++) {
+				if ((tableauChemin[s][0] == 0) && (tableauChemin[s][1] == 0)) {
 					finDuTri = true;
 				} else {
 					finDuTri = false;
@@ -312,19 +312,19 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		}
 
 		System.out.println("Tableau initial :");
-		for (int s = 0; s < TableauChemin.length; s++) {
-			System.out.println(TableauChemin[s][0] + "=x,oui y=" + TableauChemin[s][1]);
-			if ((TableauCheminTrie[s][0] != 0) && (TableauCheminTrie[s][1] != 0)) {
-				NbreDeplacement++;
+		for (int s = 0; s < tableauChemin.length; s++) {
+			System.out.println(tableauChemin[s][0] + "=x,oui y=" + tableauChemin[s][1]);
+			if ((tableauCheminTrie[s][0] != 0) && (tableauCheminTrie[s][1] != 0)) {
+				nbreDeplacement++;
 			}
 		}
-		TableauCheminTrie[NbreDeplacement][0] = xArrivee;
-		TableauCheminTrie[NbreDeplacement][1] = yArrivee;
-		System.out.println("NbreDeplacement =" + NbreDeplacement);
-		for (int h = 0; h < TableauCheminTrie.length; h++) {
-			TableauCheminTrie[h][0] = TableauCheminTrie[h][0] * TailleCellule;
-			TableauCheminTrie[h][1] = TableauCheminTrie[h][1] * TailleCellule;
-			System.out.println(TableauCheminTrie[h][0] + "=x, y=" + TableauCheminTrie[h][1]);
+		tableauCheminTrie[nbreDeplacement][0] = xArrivee;
+		tableauCheminTrie[nbreDeplacement][1] = yArrivee;
+		System.out.println("nbreDeplacement =" + nbreDeplacement);
+		for (int h = 0; h < tableauCheminTrie.length; h++) {
+			tableauCheminTrie[h][0] = tableauCheminTrie[h][0] * tailleCellule;
+			tableauCheminTrie[h][1] = tableauCheminTrie[h][1] * tailleCellule;
+			System.out.println(tableauCheminTrie[h][0] + "=x, y=" + tableauCheminTrie[h][1]);
 		}
 	}
 
@@ -333,11 +333,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		if (u.getSource() == t1) {// Timer délpacement personnage
 
 			System.out.println("a="+a);
-			xDepart = TableauCheminTrie[a][0] / TailleCellule;
-			yDepart = TableauCheminTrie[a][1] / TailleCellule;
+			xDepart = tableauCheminTrie[a][0] / tailleCellule;
+			yDepart = tableauCheminTrie[a][1] / tailleCellule;
 
-			if ((TableauCarte[yDepart][xDepart] != 2) && (TableauCarte[yDepart][xDepart] != 3)) {
-						JLabelPersonnage.setBounds((xDepart * TailleCellule - 8), (yDepart * TailleCellule - 28), 31, 52);
+			if ((tableauCarte[yDepart][xDepart] != 2) && (tableauCarte[yDepart][xDepart] != 3)) {
+						JLabelPersonnage.setBounds((xDepart * tailleCellule - 8), (yDepart * tailleCellule - 28), 31, 52);
 						System.out.println("test1");
 						if ((a!=0))
 							actionDeLaCase(variablesSession.xDepart, variablesSession.yDepart, false);
@@ -352,8 +352,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				System.out.println(variablesSession.xDepart);
 				System.out.println(yDepart);
 				System.out.println(variablesSession.yDepart);
-				xDepart = TableauCheminTrie[a-1][0] / TailleCellule;
-				yDepart = TableauCheminTrie[a-1][1] / TailleCellule;
+				xDepart = tableauCheminTrie[a-1][0] / tailleCellule;
+				yDepart = tableauCheminTrie[a-1][1] / tailleCellule;
 				if ((a!=0) ) {
 					System.out.println("test2");
 					actionDeLaCase(xDepart,yDepart, false);
@@ -363,7 +363,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				System.out.println("test3");
 			}
 
-			if ((a < NbreDeplacement) && (stopDeplacement == false)) {
+			if ((a < nbreDeplacement) && (stopDeplacement == false)) {
 				a++;
 				System.out.println("test4");
 				variablesSession.xDepart = xDepart;
@@ -416,7 +416,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			} else if (variablesSession.texteAAfficher[numeroLigneTexte] == "fin_message") {
 				affichertexte = false;
 				CacherBoiteTexte();
-				if (((String.valueOf(TableauCarte[yDepart][xDepart]).charAt(0)) == '3')
+				if (((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3')
 						&& ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();
@@ -453,7 +453,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	public void actionDeLaCase(int x, int y, boolean spawn) {
-		System.out.println("actionDeLaCase" + TableauCarte[y][x]);
+		System.out.println("actionDeLaCase" + tableauCarte[y][x]);
 		System.out.println(x);
 		System.out.println(xArriveeFinal);
 		System.out.println(xDepartInitial);
@@ -463,14 +463,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		System.out.println(yDepartInitial);
 
 		sauvegardeJeu.NouvelleSauvegarde(variablesSession);
-		switch (String.valueOf(TableauCarte[y][x]).charAt(0)) {
+		switch (String.valueOf(tableauCarte[y][x]).charAt(0)) {
 			case '2': {// Dialogue sans combat
-				numeroDialogue = TableauCarte[y][x];
+				numeroDialogue = tableauCarte[y][x];
 				if (numeroDialogue > 200) {
 					numeroDialogue = (numeroDialogue - 200);
 				}
 
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 2) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) ||(variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 10) || (spawn == true)) {
+				if (((tableauCarte[yArriveeFinal][xArriveeFinal] == 2) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) ||(variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 10) || (spawn == true)) {
 					stopDeplacement = true;
 					System.out.println("numero dialogue" + numeroDialogue);
 					System.out.println("etat dialogue="+variablesSession.listeInterractionsAvecDresseurs[numeroDialogue]);
@@ -484,11 +484,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				break;
 			}
 			case '3': {// Dialogue avec combat
-				numeroDialogue = TableauCarte[y][x];
+				numeroDialogue = tableauCarte[y][x];
 				if (numeroDialogue > 300) {
 					numeroDialogue = (numeroDialogue - 300);
 				}
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 3) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
+				if (((tableauCarte[yArriveeFinal][xArriveeFinal] == 3) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
 
 					stopDeplacement = true;
 					System.out.println("numero dialogue" + numeroDialogue);
@@ -503,7 +503,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			}
 			case '4': {// Changement de carte
 
-				if ((TableauCarte[yArriveeFinal][xArriveeFinal] == TableauCarte[y][x]) && (spawn == false)) {
+				if ((tableauCarte[yArriveeFinal][xArriveeFinal] == tableauCarte[y][x]) && (spawn == false)) {
 					try {
 						Thread.sleep(300);
 					} catch (InterruptedException ex) {
@@ -515,7 +515,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
 					stopDeplacement = true;
-					int valeurTableau = (TableauCarte[y][x] - 4000);
+					int valeurTableau = (tableauCarte[y][x] - 4000);
 					variablesSession.NouvelleCarte(valeurTableau);
 					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
 					musiqueDeJeu.StopMusique();
@@ -531,7 +531,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
 					stopDeplacement = true;
-					int valeurTableau = (TableauCarte[y][x] - 4000);
+					int valeurTableau = (tableauCarte[y][x] - 4000);
 					variablesSession.NouvelleCarte(valeurTableau);
 					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
 					musiqueDeJeu.StopMusique();
@@ -583,7 +583,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
             for(int j = 0; j < 24; j++) {
                 Node current;
                 current = map[i][j];
-                if (((TableauCarte[j][i]==0) || (TableauCarte[j][i] == 2) || (TableauCarte[j][i]==3)|| (TableauCarte[j][i]==6))){//On ajoute les murs sinon on laisse vide
+                if (((tableauCarte[j][i]==0) || (tableauCarte[j][i] == 2) || (tableauCarte[j][i]==3)|| (tableauCarte[j][i]==6))){//On ajoute les murs sinon on laisse vide
 					current.setType(2);
                 }  
             }
@@ -652,7 +652,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				for(int b = -1; b <= 1; b++) {
 					int xbound = current.getX()+a;
 					int ybound = current.getY()+b;
-					if((xbound > -1 && xbound < NbreCases) && (ybound > -1 && ybound < NbreCases)) {	//MAKES SURE THE NODE IS NOT OUTSIDE THE GRID
+					if((xbound > -1 && xbound < nbreCases) && (ybound > -1 && ybound < nbreCases)) {	//MAKES SURE THE NODE IS NOT OUTSIDE THE GRID
 						Node voisin = map[xbound][ybound];
 						if((voisin.getesperance()==-1 || voisin.getesperance() > esperance) && voisin.getType()!=2) {	//CHECKS IF THE NODE IS NOT A WALL AND THAT IT HAS NOT BEEN DejaVisite
 							explorer(voisin, current.getX(), current.getY(), esperance);	//EXPLORE THE NODE
