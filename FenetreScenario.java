@@ -12,16 +12,14 @@ public class FenetreScenario implements ActionListener{
 	private CJframe JFramePrincipal; 
 	private VariablesDeJeu VariablesSession; 
 	private Sauvegarde SauvegardeJeu;
-	private Musiques MusiqueDeJeu;
 	private JTextArea intro, arene1, arene2, deplace ;
 	private JScrollPane scrollintro,scrollarene1,scrollarene2, scrolldeplace;
 	
-	public FenetreScenario( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde, Musiques musique) {
+	public FenetreScenario( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		
 		JFramePrincipal= Frame;
 		VariablesSession=variables;
 		SauvegardeJeu=sauvegarde;
-		MusiqueDeJeu=musique;
         
         pPrincipal = new JPanel();
         pPrincipal.setBounds(0, 0, 800, 800);
@@ -153,14 +151,14 @@ public class FenetreScenario implements ActionListener{
 			JFramePrincipal.remove(pPrincipal);
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
-			new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
+			new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu);
         }
         else if (e.getSource()==retourScenario){
 			pPrincipal.removeAll();
 			JFramePrincipal.remove(pPrincipal);
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
-			new FenetreScenario(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
+			new FenetreScenario(JFramePrincipal, VariablesSession, SauvegardeJeu);
         }
 		
 	   

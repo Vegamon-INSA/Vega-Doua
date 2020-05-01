@@ -77,6 +77,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=13;
 						this.imageFond="Images/LaFeyssine/Taturne.png";
 						this.nomCarte="Ta turne";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 					}
 									 						 
@@ -86,6 +87,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=17;
 						this.imageFond="Images/LaFeyssine/Taturne.png";
 						this.nomCarte="Ta turne";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 					}
 					case 102:{//sortie de la tune
@@ -94,6 +96,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=9;
 						this.imageFond="Images/LaFeyssine/LaFeyssine.png";
 						this.nomCarte="La Feyssine";
+						this.musique="Musiques/bourg palette.wav";
 						break;
 						}				  
 					
@@ -103,6 +106,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=17;
 						this.imageFond="Images/LaFeyssine/TurneVoisin.png";
 						this.nomCarte="Turne du professeur Vega";
+						this.musique="Musiques/bourg palette.wav";
 						break;
 						}
 					case 104:{//sortie tune voisin
@@ -111,6 +115,8 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=19;
 						this.imageFond="Images/LaFeyssine/LaFeyssine.png";
 						this.nomCarte="La Feyssine";
+						this.musique="Musiques/bourg palette.wav";
+
 						break;
 					}
 					case 105:{//passage carte supérieur (en haut à gauche) feyssine -> travee1
@@ -127,6 +133,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=1;
 						this.imageFond="Images/LaFeyssine/LaFeyssine.png";
 						this.nomCarte="La Feyssine";
+						this.musique="Musiques/bourg palette.wav";
 						break;
 					}			
 					case 202:{//passage travée1-> travée2
@@ -135,6 +142,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=23;
 						this.imageFond="Images/Route1-Travees/travees2.png";
 						this.nomCarte="Les trav\u00e9es 2";
+						this.musique="Musiques/bourg palette.wav";
 						break;
 						}
 					case 301:{//passage travée2-> travée1
@@ -143,6 +151,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=2;
 						this.imageFond="Images/Route1-Travees/travees1.png";
 						this.nomCarte="Les trav\u00e9es 1";
+						this.musique="Musiques/bourg palette.wav";
 						break;
 						}
 					case 302:{//passage travée2-> PC

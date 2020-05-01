@@ -16,14 +16,12 @@ public class FenetreCombat implements ActionListener{
 	private CJframe JFramePrincipal; //Jframe principal avec image de fond
 	private VariablesDeJeu VariablesSession; //Variables de Jeu
 	private Sauvegarde SauvegardeJeu;
-	private Musiques MusiqueDeJeu= new Musiques();
 	   
-    public FenetreCombat(CJframe Frame, VariablesDeJeu variables,Sauvegarde sauvegarde,Musiques musique, int numeroCase){
+    public FenetreCombat(CJframe Frame, VariablesDeJeu variables,Sauvegarde sauvegarde, int numeroCase){
 
 		JFramePrincipal= Frame;
 		VariablesSession=variables;
 		SauvegardeJeu=sauvegarde;
-		MusiqueDeJeu=musique;
 		freeze = false;
         pokedex=VariablesSession.pokedex;
         perso = pokedex.get(0);  // On récupère notre personnage
@@ -369,7 +367,7 @@ public class FenetreCombat implements ActionListener{
             JFramePrincipal.repaint();
             VariablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
 			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-            new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu,MusiqueDeJeu);
+            new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu);
             freeze=false;
             t2.stop();
 		}

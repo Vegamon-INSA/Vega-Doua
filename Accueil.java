@@ -9,13 +9,14 @@ public class Accueil implements ActionListener{
 	private CJframe JFramePrincipal;
 	private VariablesDeJeu VariablesSession;
 	private Sauvegarde SauvegardeJeu;
-	private Musiques MusiqueDeJeu;
+	private Musiques MusiqueDeJeu  = new Musiques();
 	
-	public Accueil(CJframe Frame, VariablesDeJeu variables, Sauvegarde sauvegarde, Musiques musique) {
+	public Accueil(CJframe Frame, VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		JFramePrincipal = Frame;
 		SauvegardeJeu = sauvegarde;
 		VariablesSession = variables;
-		MusiqueDeJeu = musique;
+
+		MusiqueDeJeu.JouerMusiqueJouerEnBoucle("Musiques/route1.wav");
 
 		pPrincipal = new JPanel();
 		pPrincipal.setBounds(0, 0, 800, 800);
@@ -62,14 +63,13 @@ public class Accueil implements ActionListener{
 		CJframe JFramePrincipal = new CJframe();
 		VariablesDeJeu VariablesSession = new VariablesDeJeu();
 		Sauvegarde SauvegardeJeu = new Sauvegarde();
-		Musiques MusiqueDeJeu = new Musiques();
-		MusiqueDeJeu.JouerMusiqueJouerEnBoucle("Musiques/route1.wav");
-		new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
+		new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == jouer) {
+			MusiqueDeJeu.StopMusique();
 			pPrincipal.removeAll();
 			JFramePrincipal.remove(pPrincipal);
 			JFramePrincipal.validate();
@@ -81,8 +81,7 @@ public class Accueil implements ActionListener{
 				VariablesSession.NouvelleCarte(000);
 				SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 			}
-			new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
-			MusiqueDeJeu.StopMusique();
+			new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu);
 
 		}
 		if (e.getSource() == resetPartie) {
@@ -93,7 +92,7 @@ public class Accueil implements ActionListener{
 			VariablesSession = new VariablesDeJeu();
 			VariablesSession.NouvelleCarte(000);
 			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-			new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
+			new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu);
 			MusiqueDeJeu.StopMusique();
 
 		}
@@ -102,7 +101,7 @@ public class Accueil implements ActionListener{
 			JFramePrincipal.remove(pPrincipal);
 			JFramePrincipal.validate();
 			JFramePrincipal.repaint();
-			new FenetreScenario(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
+			new FenetreScenario(JFramePrincipal, VariablesSession, SauvegardeJeu);
 		}
 		
 		if (e.getSource()==pokedex){
@@ -117,7 +116,7 @@ public class Accueil implements ActionListener{
 				VariablesSession.NouvelleCarte(000);
 				SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
 			}
-			new FenetrePokedex(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
+			new FenetrePokedex(JFramePrincipal, VariablesSession, SauvegardeJeu);
 		}
 	}
 }

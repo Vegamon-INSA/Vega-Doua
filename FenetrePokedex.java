@@ -9,14 +9,12 @@ public class FenetrePokedex implements ActionListener{
 	private CJframe JFramePrincipal; 
 	private VariablesDeJeu VariablesSession; 
 	private Sauvegarde SauvegardeJeu;
-	private Musiques MusiqueDeJeu;
     
-	public FenetrePokedex( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde, Musiques musique) {
+	public FenetrePokedex( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		
 		JFramePrincipal= Frame;
 		VariablesSession=variables;
 		SauvegardeJeu=sauvegarde;
-		MusiqueDeJeu=musique;
         
         pPrincipal = new JPanel();
         pPrincipal.setBounds(0, 0, 800, 800);
@@ -146,7 +144,7 @@ public class FenetrePokedex implements ActionListener{
 			JFramePrincipal.remove(pPrincipal);    // Ou sur retour on revient à l'accueil
 			JFramePrincipal.revalidate();
 			JFramePrincipal.repaint();
-			new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu, MusiqueDeJeu);
+			new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu);
         }
 	}
 }
