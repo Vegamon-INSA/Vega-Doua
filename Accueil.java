@@ -6,22 +6,22 @@ public class Accueil implements ActionListener{
 	private JButton jouer,resetPartie,scenario,pokedex;
 	private JLabel imageFond;
 	private JPanel pPrincipal;
-	private CJframe JFramePrincipal;
-	private VariablesDeJeu VariablesSession;
-	private Sauvegarde SauvegardeJeu;
-	private Musiques MusiqueDeJeu  = new Musiques();
+	private CJframe jFramePrincipal;
+	private VariablesDeJeu variablesSession;
+	private Sauvegarde sauvegardeJeu;
+	private Musiques musiqueDeJeu  = new Musiques();
 	
-	public Accueil(CJframe Frame, VariablesDeJeu variables, Sauvegarde sauvegarde) {
-		JFramePrincipal = Frame;
-		SauvegardeJeu = sauvegarde;
-		VariablesSession = variables;
+	public Accueil(CJframe frame, VariablesDeJeu variables, Sauvegarde sauvegarde) {
+		jFramePrincipal = frame;
+		sauvegardeJeu = sauvegarde;
+		variablesSession = variables;
 
-		MusiqueDeJeu.JouerMusiqueJouerEnBoucle("Musiques/route1.wav");
+		musiqueDeJeu.JouerMusiqueJouerEnBoucle("Musiques/route1.wav");
 
 		pPrincipal = new JPanel();
 		pPrincipal.setBounds(0, 0, 800, 800);
 		pPrincipal.setLayout(null);
-		JFramePrincipal.add(pPrincipal);
+		jFramePrincipal.add(pPrincipal);
 
 		jouer = new JButton("Jouer");
 		jouer.setBounds(300, 200, 200, 100);
@@ -54,69 +54,69 @@ public class Accueil implements ActionListener{
 		imageFond = new JLabel(new ImageIcon("Images/fond.png"));
 		imageFond.setBounds(0, 0, 800, 820);
 		pPrincipal.add(imageFond);
-		JFramePrincipal.setVisible(true);
+		jFramePrincipal.setVisible(true);
 
 	}
 
 	public static void main(String[] args) {
 
-		CJframe JFramePrincipal = new CJframe();
-		VariablesDeJeu VariablesSession = new VariablesDeJeu();
-		Sauvegarde SauvegardeJeu = new Sauvegarde();
-		new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu);
+		CJframe jFramePrincipal = new CJframe();
+		VariablesDeJeu variablesSession = new VariablesDeJeu();
+		Sauvegarde sauvegardeJeu = new Sauvegarde();
+		new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == jouer) {
-			MusiqueDeJeu.StopMusique();
+			musiqueDeJeu.StopMusique();
 			pPrincipal.removeAll();
-			JFramePrincipal.remove(pPrincipal);
-			JFramePrincipal.validate();
-			JFramePrincipal.repaint();
+			jFramePrincipal.remove(pPrincipal);
+			jFramePrincipal.validate();
+			jFramePrincipal.repaint();
 
-			if (SauvegardeJeu.SauvegardeExiste()) {
-				VariablesSession = SauvegardeJeu.RestaurerSauvegarde();
+			if (sauvegardeJeu.SauvegardeExiste()) {
+				variablesSession = sauvegardeJeu.RestaurerSauvegarde();
 			} else {
-				VariablesSession.NouvelleCarte(000);
-				SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
+				variablesSession.NouvelleCarte(000);
+				sauvegardeJeu.NouvelleSauvegarde(variablesSession);
 			}
-			new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu);
+			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
 		}
 		if (e.getSource() == resetPartie) {
 			pPrincipal.removeAll();
-			JFramePrincipal.remove(pPrincipal);
-			JFramePrincipal.validate();
-			JFramePrincipal.repaint();
-			VariablesSession = new VariablesDeJeu();
-			VariablesSession.NouvelleCarte(000);
-			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-			new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu);
-			MusiqueDeJeu.StopMusique();
+			jFramePrincipal.remove(pPrincipal);
+			jFramePrincipal.validate();
+			jFramePrincipal.repaint();
+			variablesSession = new VariablesDeJeu();
+			variablesSession.NouvelleCarte(000);
+			sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
+			musiqueDeJeu.StopMusique();
 
 		}
 		if (e.getSource()==scenario){
 			pPrincipal.removeAll();
-			JFramePrincipal.remove(pPrincipal);
-			JFramePrincipal.validate();
-			JFramePrincipal.repaint();
-			new FenetreScenario(JFramePrincipal, VariablesSession, SauvegardeJeu);
+			jFramePrincipal.remove(pPrincipal);
+			jFramePrincipal.validate();
+			jFramePrincipal.repaint();
+			new FenetreScenario(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
 		
 		if (e.getSource()==pokedex){
 			pPrincipal.removeAll();
-			JFramePrincipal.remove(pPrincipal);
-			JFramePrincipal.validate();
-			JFramePrincipal.repaint();
-			if (SauvegardeJeu.SauvegardeExiste()){
-				VariablesSession=SauvegardeJeu.RestaurerSauvegarde();
+			jFramePrincipal.remove(pPrincipal);
+			jFramePrincipal.validate();
+			jFramePrincipal.repaint();
+			if (sauvegardeJeu.SauvegardeExiste()){
+				variablesSession=sauvegardeJeu.RestaurerSauvegarde();
 			}
 			else {
-				VariablesSession.NouvelleCarte(000);
-				SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
+				variablesSession.NouvelleCarte(000);
+				sauvegardeJeu.NouvelleSauvegarde(variablesSession);
 			}
-			new FenetrePokedex(JFramePrincipal, VariablesSession, SauvegardeJeu);
+			new FenetrePokedex(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
 	}
 }

@@ -9,22 +9,22 @@ public class FenetreScenario implements ActionListener{
 	private JButton adep, aintro, aarene1, aarene2, retouraccueil, retourScenario;
 	private JPanel pPrincipal;
     private JLabel imageFond ;
-	private CJframe JFramePrincipal; 
-	private VariablesDeJeu VariablesSession; 
-	private Sauvegarde SauvegardeJeu;
+	private CJframe jFramePrincipal; 
+	private VariablesDeJeu variablesSession; 
+	private Sauvegarde sauvegardeJeu;
 	private JTextArea intro, arene1, arene2, deplace ;
 	private JScrollPane scrollintro,scrollarene1,scrollarene2, scrolldeplace;
 	
 	public FenetreScenario( CJframe Frame,VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		
-		JFramePrincipal= Frame;
-		VariablesSession=variables;
-		SauvegardeJeu=sauvegarde;
+		jFramePrincipal= Frame;
+		variablesSession=variables;
+		sauvegardeJeu=sauvegarde;
         
         pPrincipal = new JPanel();
         pPrincipal.setBounds(0, 0, 800, 800);
 		pPrincipal.setLayout(null);
-        JFramePrincipal.add(pPrincipal);
+        jFramePrincipal.add(pPrincipal);
 		
         adep = new JButton("Comment jouer");
         adep.setBounds(150, 290, 200, 90);
@@ -64,7 +64,7 @@ public class FenetreScenario implements ActionListener{
         imageFond = new JLabel(new ImageIcon("Images/fond.png")); 
 		imageFond.setBounds(0,0,800,820);
 		pPrincipal.add(imageFond);
-		JFramePrincipal.setVisible(true);
+		jFramePrincipal.setVisible(true);
 		
 		intro = new JTextArea ("Apr\u00e8s une paisible nuit, nous nous r\u00e9veillons dans notre jolie turne, c'est ici que commence notre incroyable aventure V\u00e9gamon.\n\u00e0 notre r\u00e9veil, notre maman nous donne quelques consignes et nous sugg\u00e8re d'aller voir le professeur Vega dans la turne voisine. En sortant, le merveilleux parc de la Feyssine s'offre \u00e0 nous, l'air est frais, l'herbe est douce, le temps est parfait pour recevoir notre premier compagnon de voyage ! En effet, le professeur Vega, grand chercheur V\u00e9gamon nous propose de devenir dresseur V\u00e9gamon. Il voit en nous un \u00e9norme potentiel et nous d\u00e9finit comme LA future star de la ville. C'est pourquoi il nous fait don de notre premier V\u00e9gamon : M\u00e9loche. \nCe dernier est au niveau 1 et sera notre compagnon pour toute l'aventure, il faudra en prendre soin. Un autre habitant de la turne nous apprend qu'il y \u00e0 une ar\u00e8ne au nord de la ville derri\u00e8re les trav\u00e9es et que le meilleur dresseur s'y trouve. Il nous conseille de nous y rendre pour, pourquoi pas, devenir le nouveau champion de la ville. Mais attention, notre M\u00e9loche devra gagner beaucoup d'exp\u00e9riences si nous voulons entrer dans cette ar\u00e8ne. \nD'ailleurs juste \u00e0 c\u00f4t\u00e9 de la turne, Flora, une amie du professeur, nous donne quelques conseils pour bien comprendre comment faire progresser notre M\u00e9loche. Nous sommes d\u00e9sormais pr\u00eat pour l'aventure ! \nEn continuant notre route, nous pourrons faire la rencontre de R\u00e9mi, jeune dresseur lui aussi, qui nous avertit du danger que l'on encoure en poursuivant notre route. Brave, nous continuons sans h\u00e9siter et nous nous dirigeons vers les trav\u00e9es."); 
 		arene1 = new JTextArea ("Nous voil\u00e0 dans les trav\u00e9es, la premi\u00e8re map un peu dangereuse de l'aventure. Plusieurs dresseurs nous attendent avec la ferme intention d'en d\u00e9coudre. Pour tous les vaincre il peut etre utile d'entra\u00eener notre M\u00e9loche dans les tr\u00e8fles et lui faire gagner quelques points d’exp\u00e9riences. \nBis repetita pour la map suivante : les trav\u00e9es 2, de plus f\u00e9roces dresseurs encore nous font face. Une fois tous ces V\u00e9gamons vaincus, nous nous retrouvons dans une agr\u00e9able petite ville appel\u00e9e PC (ou FIMI pour les plus t\u00e9m\u00e9raires). C'est dans cette ville que se trouve la fameuse ar\u00e8ne, la premi\u00e8re de notre aventure avec \u00e0 sa t\u00eate Veronique, dresseuse de longue date, dont la r\u00e9putation n'est plus \u00e0 faire. Avant de l'affronter nous pouvons nous balader dans les autres turnes et discuter avec ses habitants. Nous pourrons d\u00e9couvrir de chaleureux \u00e9tudiants trinquant \u00e0 leurs \u00e9checs du semestre, ou d'autres personnages un peu plus utiles lesquels nous donneront des conseils pour nous rendre dans l'ar\u00e8ne et vaincre V\u00e9ronique. \nD'ailleurs il est grand temps de s'y atteler ! En entrant dans l'ar\u00e8ne, M.S\u00e9curitas nous accueille, il nous avertit de la puissance des V\u00e9gamon que nous allons affronter et nous d\u00e9fend d'entrer si notre M\u00e9loche n'a pas au moins *points d’XP*. Bonne chance, il faudra vaincre les 4 dresseurs qui se trouvent sur le chemin avant, enfin, de pouvoir se mesurer \u00e0 V\u00e9ronique.");
@@ -72,7 +72,7 @@ public class FenetreScenario implements ActionListener{
 		deplace = new JTextArea ("Voici quelques conseils pour t'aider \u00e0 bien d\u00e9buter dans le jeu. \nTout d'abord, pour te d\u00e9placer dans les diff\u00e9rentes maps, rien de plus simple ! Il te suffit de cliquer avec ta souris \u00e0 l'endroit auquel tu souhaites te rendre, ton personnage trouvera le chemin par lui meme ! \n Tu peux cliquer sur des portes ou sur des fleches pour changer de map, mais si tu cliques sur un arbre, un lac, ou sur un b\u00e2timent (ailleurs que sur la porte) ton personnage ne pourra pas s'y rendre et ne bougera pas d'un pouce !\nTu peux aussi cliquer sur un personnage pour entrer en interaction avec lui, pour discuter, lorsque tu es dans une ville, ou pour te battre lorsque tu es sur une route (les trav\u00e9es ou les humas) ou dans une ar\u00e8ne ! Une fois un dresseur vaincu, tu ne peux plus le combattre, mais tu peux toujours discuter avec lui ! Pour faire d\u00e9filer le texte, il te suffit d'appuyer sur la touche entr\u00e9e. \nDerni\u00e8re chose importante \u00e0 savoir, si tu perds un combat, tu seras directement redirig\u00e9 vers ta turne, et tu devras refaire tout le chemin, alors fais attention et amuse-toi bien !"); 
 		
 		
-        JFramePrincipal.setVisible(true);
+        jFramePrincipal.setVisible(true);
 		
 	}
 		public void actionPerformed (ActionEvent e){
@@ -92,8 +92,8 @@ public class FenetreScenario implements ActionListener{
 			scrolldeplace.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 			
 			pPrincipal.add(scrolldeplace);
-			JFramePrincipal.revalidate();
-			JFramePrincipal.repaint();
+			jFramePrincipal.revalidate();
+			jFramePrincipal.repaint();
 		}
 		else if (e.getSource()==aintro){
 			pPrincipal.removeAll();
@@ -109,8 +109,8 @@ public class FenetreScenario implements ActionListener{
 			scrollintro.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
 			pPrincipal.add(scrollintro);
-			JFramePrincipal.revalidate();
-			JFramePrincipal.repaint();
+			jFramePrincipal.revalidate();
+			jFramePrincipal.repaint();
 		}
 		else if (e.getSource()==aarene1){
 			pPrincipal.removeAll();
@@ -126,8 +126,8 @@ public class FenetreScenario implements ActionListener{
 			scrollarene1.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
 			pPrincipal.add(scrollarene1);
-			JFramePrincipal.revalidate();
-			JFramePrincipal.repaint();
+			jFramePrincipal.revalidate();
+			jFramePrincipal.repaint();
 		}
 		else if (e.getSource()==aarene2){
 			pPrincipal.removeAll();
@@ -142,23 +142,23 @@ public class FenetreScenario implements ActionListener{
 			scrollarene2.setBounds(150,215,500,400);
 			scrollarene2.setViewportBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 			pPrincipal.add(scrollarene2);
-			JFramePrincipal.revalidate();
-			JFramePrincipal.repaint();
+			jFramePrincipal.revalidate();
+			jFramePrincipal.repaint();
 		}
 		
 		else if (e.getSource()==retouraccueil){
 			pPrincipal.removeAll();
-			JFramePrincipal.remove(pPrincipal);
-			JFramePrincipal.revalidate();
-			JFramePrincipal.repaint();
-			new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu);
+			jFramePrincipal.remove(pPrincipal);
+			jFramePrincipal.revalidate();
+			jFramePrincipal.repaint();
+			new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
         }
         else if (e.getSource()==retourScenario){
 			pPrincipal.removeAll();
-			JFramePrincipal.remove(pPrincipal);
-			JFramePrincipal.revalidate();
-			JFramePrincipal.repaint();
-			new FenetreScenario(JFramePrincipal, VariablesSession, SauvegardeJeu);
+			jFramePrincipal.remove(pPrincipal);
+			jFramePrincipal.revalidate();
+			jFramePrincipal.repaint();
+			new FenetreScenario(jFramePrincipal, variablesSession, sauvegardeJeu);
         }
 		
 	   

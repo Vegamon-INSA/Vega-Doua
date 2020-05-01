@@ -10,10 +10,10 @@ import javax.swing.border.Border;
 public class fenetreCarte implements ActionListener, MouseListener, KeyListener {
 	private JPanel pPrincipal, pBoiteTexte, pNomCarte;
 	private JLabel JLabelPersonnage, JLabelCarte, lBoiteTexte, gif ,lNomCarte; 
-	private CJframe JFramePrincipal; //Jframe principal avec image de fond
-	private VariablesDeJeu VariablesSession; //Variables de Jeu
-	private Sauvegarde SauvegardeJeu;
-	private Musiques MusiqueDeJeu;
+	private CJframe jFramePrincipal; //Jframe principal avec image de fond
+	private VariablesDeJeu variablesSession; //Variables de Jeu
+	private Sauvegarde sauvegardeJeu;
+	private Musiques musiqueDeJeu;
 	private int[][] TableauCarte = new int[25][25];//tableau contenenant la consitution de la carte dans laquelle est le personnage
 	private int[][] TableauChemin = new int[50][2];//Tableau généré par l'algorithme avec les coordonnées x dans la colonne 0 et y dans la colonne 1 du chemin pour aller d'un point à un autre
 	private int[][] TableauCheminTrie = new int[50][2];// Tableau issu du tableau TableauChemin mais qui est cet fois-ci trié dans l'ordre de l'avancement du chemin
@@ -43,16 +43,16 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private Algorithme AlgoDeplacement = new Algorithme();
 	
 	public fenetreCarte(CJframe Frame, VariablesDeJeu variables, Sauvegarde sauvegarde) {
-		JFramePrincipal = Frame;
-		VariablesSession = variables;
-		SauvegardeJeu = sauvegarde;
+		jFramePrincipal = Frame;
+		variablesSession = variables;
+		sauvegardeJeu = sauvegarde;
 		
-		MusiqueDeJeu=new Musiques();
-		MusiqueDeJeu.JouerMusiqueJouerEnBoucle(VariablesSession.musique);
+		musiqueDeJeu=new Musiques();
+		musiqueDeJeu.JouerMusiqueJouerEnBoucle(variablesSession.musique);
 		pPrincipal = new JPanel();// Jpanel principal qui couvre toutela surface de la fenetre
 		pPrincipal.setBounds(0, 0, 800, 800);
 		pPrincipal.setLayout(null);
-		JFramePrincipal.add(pPrincipal);
+		jFramePrincipal.add(pPrincipal);
 		pPrincipal.addKeyListener(this);
 		pPrincipal.requestFocusInWindow();
 
@@ -67,9 +67,9 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		pNomCarte.setVisible(false);
 		pPrincipal.add(pNomCarte);
 
-		lNomCarte = new JLabel(VariablesSession.nomCarte);
+		lNomCarte = new JLabel(variablesSession.nomCarte);
 		lNomCarte.setBounds(0, 0, 200, 50);
-		lNomCarte.setText(VariablesSession.nomCarte);
+		lNomCarte.setText(variablesSession.nomCarte);
 		lNomCarte.setHorizontalAlignment(JLabel.CENTER);
 		lNomCarte.setVerticalAlignment(JLabel.CENTER);
 		pNomCarte.add(lNomCarte);
@@ -86,7 +86,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		pPrincipal.add(pBoiteTexte);
 		pBoiteTexte.setVisible(false);
 
-		lBoiteTexte = new JLabel(VariablesSession.nomCarte);
+		lBoiteTexte = new JLabel(variablesSession.nomCarte);
 		lBoiteTexte.setBounds(20, 5, 500, 60);
 		pBoiteTexte.add(lBoiteTexte);
 
@@ -95,13 +95,13 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		pBoiteTexte.add(gif);
 
 		// Algo de déplacement
-		xDepart = VariablesSession.xDepart;
-		yDepart = VariablesSession.yDepart;
-		TableauCarte = VariablesSession.TableauCarte;
+		xDepart = variablesSession.xDepart;
+		yDepart = variablesSession.yDepart;
+		TableauCarte = variablesSession.TableauCarte;
 		genererCarteDesMurs();
 
 		// Ajout du fond de la fenetre
-		JLabelCarte = new JLabel(new ImageIcon(VariablesSession.imageFond));
+		JLabelCarte = new JLabel(new ImageIcon(variablesSession.imageFond));
 		JLabelCarte.setBounds(0, 0, 800, 800);
 		JLabelCarte.setLayout(null);
 		JLabelCarte.addMouseListener(this);
@@ -113,8 +113,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		JLabelPersonnage.setLayout(null);
 		JLabelCarte.add(JLabelPersonnage);
 
-		JFramePrincipal.revalidate();
-		JFramePrincipal.repaint();
+		jFramePrincipal.revalidate();
+		jFramePrincipal.repaint();
 		xArriveeFinal = xDepart;
 		yArriveeFinal = yDepart;
 		xDepartInitial = xDepart;
@@ -128,8 +128,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		pNomCarte.setVisible(true);
 		t2 = new Timer(1, this);
 		t2.start();
-		JFramePrincipal.revalidate();
-		JFramePrincipal.repaint();
+		jFramePrincipal.revalidate();
+		jFramePrincipal.repaint();
 
 	}
 
@@ -168,7 +168,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			} // catch les exceptions
 		}
 		else {
-			MusiqueDeJeu.JouerAlerte();
+			musiqueDeJeu.JouerAlerte();
 		}
 	}
 
@@ -340,7 +340,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 						JLabelPersonnage.setBounds((xDepart * TailleCellule - 8), (yDepart * TailleCellule - 28), 31, 52);
 						System.out.println("test1");
 						if ((a!=0))
-							actionDeLaCase(VariablesSession.xDepart, VariablesSession.yDepart, false);
+							actionDeLaCase(variablesSession.xDepart, variablesSession.yDepart, false);
 				t1.stop();
 				t1 = new Timer(200, this);
 			}
@@ -349,9 +349,9 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 				t1.stop();
 				System.out.println(xDepart);
-				System.out.println(VariablesSession.xDepart);
+				System.out.println(variablesSession.xDepart);
 				System.out.println(yDepart);
-				System.out.println(VariablesSession.yDepart);
+				System.out.println(variablesSession.yDepart);
 				xDepart = TableauCheminTrie[a-1][0] / TailleCellule;
 				yDepart = TableauCheminTrie[a-1][1] / TailleCellule;
 				if ((a!=0) ) {
@@ -366,8 +366,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			if ((a < NbreDeplacement) && (stopDeplacement == false)) {
 				a++;
 				System.out.println("test4");
-				VariablesSession.xDepart = xDepart;
-				VariablesSession.yDepart = yDepart;
+				variablesSession.xDepart = xDepart;
+				variablesSession.yDepart = yDepart;
 				t1.start();
 			}
 
@@ -400,32 +400,32 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	public void keyPressed(KeyEvent arg0) {
 		if (arg0.getKeyCode() == 77) {// retour au menu
 			pPrincipal.removeAll();
-			JFramePrincipal.remove(pPrincipal);
-			JFramePrincipal.revalidate();
-			JFramePrincipal.repaint();
+			jFramePrincipal.remove(pPrincipal);
+			jFramePrincipal.revalidate();
+			jFramePrincipal.repaint();
 			stopDeplacement = true;
-			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-			new Accueil(JFramePrincipal, VariablesSession, SauvegardeJeu);
+			sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+			new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
 		if (arg0.getKeyCode() == 10) {// texte suivant
 			if (affichertexte) {
 				numeroLigneTexte += 1;
 			}
-			if ((affichertexte) && (VariablesSession.texteAAfficher[numeroLigneTexte] != "fin_message")) {
+			if ((affichertexte) && (variablesSession.texteAAfficher[numeroLigneTexte] != "fin_message")) {
 				AffichageBoiteTexte();
-			} else if (VariablesSession.texteAAfficher[numeroLigneTexte] == "fin_message") {
+			} else if (variablesSession.texteAAfficher[numeroLigneTexte] == "fin_message") {
 				affichertexte = false;
 				CacherBoiteTexte();
 				if (((String.valueOf(TableauCarte[yDepart][xDepart]).charAt(0)) == '3')
-						&& ((VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
-					JFramePrincipal.remove(pPrincipal);
-					JFramePrincipal.revalidate();
-					JFramePrincipal.repaint();
-					MusiqueDeJeu.StopMusique();
-					new FenetreCombat(JFramePrincipal, VariablesSession, SauvegardeJeu, numeroDialogue);
+						&& ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
+					jFramePrincipal.remove(pPrincipal);
+					jFramePrincipal.revalidate();
+					jFramePrincipal.repaint();
+					musiqueDeJeu.StopMusique();
+					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, numeroDialogue);
 				}
 				if (numeroDialogue==1) {
-					VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]=1;
+					variablesSession.listeInterractionsAvecDresseurs[numeroDialogue]=1;
 				}
 			}
 		}
@@ -439,16 +439,16 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 	public void AffichageBoiteTexte() {
 		System.out.println("numero ligne" + numeroLigneTexte);
-		lBoiteTexte.setText(VariablesSession.texteAAfficher[numeroLigneTexte]);
+		lBoiteTexte.setText(variablesSession.texteAAfficher[numeroLigneTexte]);
 		pBoiteTexte.setVisible(true);
-		JFramePrincipal.revalidate();
-		JFramePrincipal.repaint();
+		jFramePrincipal.revalidate();
+		jFramePrincipal.repaint();
 	}
 
 	public void CacherBoiteTexte() {
 		pBoiteTexte.setVisible(false);
-		JFramePrincipal.revalidate();
-		JFramePrincipal.repaint();
+		jFramePrincipal.revalidate();
+		jFramePrincipal.repaint();
 		stopDeplacement = false;
 	}
 
@@ -462,7 +462,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		System.out.println(yArriveeFinal);
 		System.out.println(yDepartInitial);
 
-		SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
+		sauvegardeJeu.NouvelleSauvegarde(variablesSession);
 		switch (String.valueOf(TableauCarte[y][x]).charAt(0)) {
 			case '2': {// Dialogue sans combat
 				numeroDialogue = TableauCarte[y][x];
@@ -470,12 +470,12 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					numeroDialogue = (numeroDialogue - 200);
 				}
 
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 2) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) ||(VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 10) || (spawn == true)) {
+				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 2) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) ||(variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 10) || (spawn == true)) {
 					stopDeplacement = true;
 					System.out.println("numero dialogue" + numeroDialogue);
-					System.out.println("etat dialogue="+VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue]);
-					VariablesSession.DialogueAvecDresseur(numeroDialogue);
-					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
+					System.out.println("etat dialogue="+variablesSession.listeInterractionsAvecDresseurs[numeroDialogue]);
+					variablesSession.DialogueAvecDresseur(numeroDialogue);
+					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
 					numeroLigneTexte = 0;
 					affichertexte = true;
 					AffichageBoiteTexte();
@@ -488,12 +488,12 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (numeroDialogue > 300) {
 					numeroDialogue = (numeroDialogue - 300);
 				}
-				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 3) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (VariablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
+				if (((TableauCarte[yArriveeFinal][xArriveeFinal] == 3) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
 
 					stopDeplacement = true;
 					System.out.println("numero dialogue" + numeroDialogue);
-					VariablesSession.DialogueAvecDresseur(numeroDialogue);
-					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
+					variablesSession.DialogueAvecDresseur(numeroDialogue);
+					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
 					numeroLigneTexte = 0;
 					affichertexte = true;
 					AffichageBoiteTexte();
@@ -511,15 +511,15 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					}
 					System.out.println("trigger");
 					pPrincipal.removeAll();
-					JFramePrincipal.remove(pPrincipal);
-					JFramePrincipal.revalidate();
-					JFramePrincipal.repaint();
+					jFramePrincipal.remove(pPrincipal);
+					jFramePrincipal.revalidate();
+					jFramePrincipal.repaint();
 					stopDeplacement = true;
 					int valeurTableau = (TableauCarte[y][x] - 4000);
-					VariablesSession.NouvelleCarte(valeurTableau);
-					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-					MusiqueDeJeu.StopMusique();
-					new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu);
+					variablesSession.NouvelleCarte(valeurTableau);
+					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+					musiqueDeJeu.StopMusique();
+					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				} else if ((yArrivee == 0) && (xArrivee == x)) {
 					try {
 						Thread.sleep(300);
@@ -527,15 +527,15 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 						Thread.currentThread().interrupt();
 					}
 					pPrincipal.removeAll();
-					JFramePrincipal.remove(pPrincipal);
-					JFramePrincipal.revalidate();
-					JFramePrincipal.repaint();
+					jFramePrincipal.remove(pPrincipal);
+					jFramePrincipal.revalidate();
+					jFramePrincipal.repaint();
 					stopDeplacement = true;
 					int valeurTableau = (TableauCarte[y][x] - 4000);
-					VariablesSession.NouvelleCarte(valeurTableau);
-					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-					MusiqueDeJeu.StopMusique();
-					new fenetreCarte(JFramePrincipal, VariablesSession, SauvegardeJeu);
+					variablesSession.NouvelleCarte(valeurTableau);
+					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+					musiqueDeJeu.StopMusique();
+					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				}
 				break;
 			}
@@ -548,12 +548,12 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					}
 					stopDeplacement = true;
 					pPrincipal.removeAll();
-					JFramePrincipal.remove(pPrincipal);
-					JFramePrincipal.revalidate();
-					JFramePrincipal.repaint();
-					SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-					MusiqueDeJeu.StopMusique();
-					new FenetreCombat(JFramePrincipal, VariablesSession, SauvegardeJeu, 500);
+					jFramePrincipal.remove(pPrincipal);
+					jFramePrincipal.revalidate();
+					jFramePrincipal.repaint();
+					sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+					musiqueDeJeu.StopMusique();
+					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, 500);
 				}
 				break;
 			}

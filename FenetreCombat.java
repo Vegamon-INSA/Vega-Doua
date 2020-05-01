@@ -13,17 +13,17 @@ public class FenetreCombat implements ActionListener{
     private VEGAMONS perso, advers;
     private int x, y, x1, y1, numCase, PVmaxAdvIni;
     private ArrayList<VEGAMONS> pokedex; 
-	private CJframe JFramePrincipal; //Jframe principal avec image de fond
-	private VariablesDeJeu VariablesSession; //Variables de Jeu
-	private Sauvegarde SauvegardeJeu;
+	private CJframe jFramePrincipal; //Jframe principal avec image de fond
+	private VariablesDeJeu variablesSession; //Variables de Jeu
+	private Sauvegarde sauvegardeJeu;
 	   
     public FenetreCombat(CJframe Frame, VariablesDeJeu variables,Sauvegarde sauvegarde, int numeroCase){
 
-		JFramePrincipal= Frame;
-		VariablesSession=variables;
-		SauvegardeJeu=sauvegarde;
+		jFramePrincipal= Frame;
+		variablesSession=variables;
+		sauvegardeJeu=sauvegarde;
 		freeze = false;
-        pokedex=VariablesSession.pokedex;
+        pokedex=variablesSession.pokedex;
         perso = pokedex.get(0);  // On récupère notre personnage
         numCase=numeroCase;  // numéro donnant des infos sur le type de combat
         System.out.println("numero case"+numCase);
@@ -38,7 +38,7 @@ public class FenetreCombat implements ActionListener{
         pPrincipal = new JPanel();   // panneau contenant tous les éléments concernant les combats
         pPrincipal.setBounds(100, 70, 600, 600);
 		pPrincipal.setLayout(null);
-        JFramePrincipal.add(pPrincipal);
+        jFramePrincipal.add(pPrincipal);
 
         pHaut = new JPanel();     // panneau de la moitié supérieur de la fenetre de combat
         pHaut.setBounds(0, 0, 600, 300);
@@ -160,7 +160,7 @@ public class FenetreCombat implements ActionListener{
         vieAdv.setBackground(Color.green);
         pTextePokemonAdv.add(vieAdv);
        
-        JFramePrincipal.setVisible(true);   // On affiche la fenetre
+        jFramePrincipal.setVisible(true);   // On affiche la fenetre
         debutCombat();        // On crée un adversaire
 		System.out.println("Fenetre combat");
 	}
@@ -171,13 +171,13 @@ public class FenetreCombat implements ActionListener{
         perso.PV=perso.PVmax;      //On réinitialise nos points de vie au max
         int exp=1;
                  // On indique le niveau de l'adversaire en fonction des cas où on est (avec un peu de hasard)
-        if (VariablesSession.numeroCarte==105 || VariablesSession.numeroCarte==301){      //travée1
+        if (variablesSession.numeroCarte==105 || variablesSession.numeroCarte==301){      //travée1
 			exp=1+(int)(3*Math.random());                    // En fonction de la carte
-		}else if (VariablesSession.numeroCarte==202 || VariablesSession.numeroCarte==401){   //travée2
+		}else if (variablesSession.numeroCarte==202 || variablesSession.numeroCarte==401){   //travée2
 			exp=6+(int)(7*Math.random());
-        }else if (VariablesSession.numeroCarte==414 || VariablesSession.numeroCarte==601){   // huma1
+        }else if (variablesSession.numeroCarte==414 || variablesSession.numeroCarte==601){   // huma1
 			exp=42+(int)(16*Math.random());
-        }else if (VariablesSession.numeroCarte==502 || VariablesSession.numeroCarte==701){   //huma2
+        }else if (variablesSession.numeroCarte==502 || variablesSession.numeroCarte==701){   //huma2
 			exp=60+(int)(20*Math.random());
         }
         if (numCase/10==2){   // Ou différemment pour les dresseurs des arênes
@@ -296,7 +296,7 @@ public class FenetreCombat implements ActionListener{
             else{
                 if(advers.PV<=0){    // cas ou on a gagné le combat
                     if (numCase!=500){   // si on a battu un dresseur, on mémorise cette information
-                        VariablesSession.listeInterractionsAvecDresseurs[numCase]=2;
+                        variablesSession.listeInterractionsAvecDresseurs[numCase]=2;
 
                     }
                     t.stop();
@@ -309,19 +309,19 @@ public class FenetreCombat implements ActionListener{
                         perso.PVmax = (int)((Math.pow(perso.XP, 0.31)*40)+Math.pow(perso.XP, 1.21));
                     }
                     perso.PV=perso.PVmax;                    // Notre personnage gagne des points de vie
-                    VariablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
+                    variablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
                 } 
                 else {
                     esquive=advattaque();     // On lance l'attaque de l'adversaire
                     if (finCombat()==true){   // Cas ou on a perdu
                         if (numCase!=500){   // si on a perdu contre un dresseur, on mémorise cette information
-							VariablesSession.listeInterractionsAvecDresseurs[numCase]=1;
+							variablesSession.listeInterractionsAvecDresseurs[numCase]=1;
                         }
                         lDialogue.setText("Retourne t'entrainer avec de revenir !");   // Message d'information pour savoir qu'on a perdu
                         advers.PVmax=PVmaxAdvIni;   // On réinitialise les points de vie de l'adversaire
                         perso.PV=perso.PVmax;      // On réinitialise nos points de vie
-                        VariablesSession.NouvelleCarte(000);
-                        VariablesSession.listeInterractionsAvecDresseurs[1]=2;
+                        variablesSession.NouvelleCarte(000);
+                        variablesSession.listeInterractionsAvecDresseurs[1]=2;
                         t2 = new Timer(1500, this);    
                         t2.start();               // On ferme la fenetre après un petit moment
                         freeze=true;
@@ -362,12 +362,12 @@ public class FenetreCombat implements ActionListener{
         
         if (e.getSource()==t2){
             pPrincipal.removeAll();          // A la fin du combat, on enleve le panneau de combat, pour remettre la carte
-			JFramePrincipal.remove(pPrincipal);
-            JFramePrincipal.revalidate();
-            JFramePrincipal.repaint();
-            VariablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
-			SauvegardeJeu.NouvelleSauvegarde(VariablesSession);
-            new fenetreCarte(JFramePrincipal,VariablesSession,SauvegardeJeu);
+			jFramePrincipal.remove(pPrincipal);
+            jFramePrincipal.revalidate();
+            jFramePrincipal.repaint();
+            variablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
+			sauvegardeJeu.NouvelleSauvegarde(variablesSession);
+            new fenetreCarte(jFramePrincipal,variablesSession,sauvegardeJeu);
             freeze=false;
             t2.stop();
 		}
@@ -420,8 +420,8 @@ public class FenetreCombat implements ActionListener{
         freeze=true;
 		pPrincipal.remove(pAttaque);    // On remet les boutons et panneaux pour l'attaque suivante
         pPrincipal.add(pBas);
-        JFramePrincipal.revalidate();
-        JFramePrincipal.repaint();
+        jFramePrincipal.revalidate();
+        jFramePrincipal.repaint();
         
         if (finCombat()==true){
             lDialogue.setText("Vous venez de lui mettre le coup de grace !");
