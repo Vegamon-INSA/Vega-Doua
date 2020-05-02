@@ -19,7 +19,7 @@ public class Accueil implements ActionListener{
 		musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav");
 
 		pPrincipal = new JPanel();
-		pPrincipal.setBounds(0, 0, 800, 800);
+		pPrincipal.setBounds(0, 0, 815, 845);
 		pPrincipal.setLayout(null);
 		jFramePrincipal.add(pPrincipal);
 

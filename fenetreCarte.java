@@ -50,7 +50,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		musiqueDeJeu=new Musiques();
 		musiqueDeJeu.jouerMusiqueJouerEnBoucle(variablesSession.musique);
 		pPrincipal = new JPanel();// Jpanel principal qui couvre toutela surface de la fenetre
-		pPrincipal.setBounds(0, 0, 800, 800);
+		pPrincipal.setBounds(0, 0, 815, 845);
 		pPrincipal.setLayout(null);
 		jFramePrincipal.add(pPrincipal);
 		pPrincipal.addKeyListener(this);
