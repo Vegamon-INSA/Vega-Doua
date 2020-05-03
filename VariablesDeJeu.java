@@ -414,7 +414,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				// String nom, double attaque, double esquive, int PVmax, int type, int XP, Attaques attaque1, Attaques attaque2, Attaques attaque3, Attaques attaque4)
 				VEGAMONS v1 = new VEGAMONS ("Meloche", 45, 50, 0.2, pv , 4, xpMeloche, attaque2, attaque1, attaque4, attaque3) ;
 				VEGAMONS v2 = new VEGAMONS ("Aigleau", 50, 38, 0.24, 27, 3, 1, attaque5, attaque8, attaque10, attaque4) ;
-				VEGAMONS v3 = new VEGAMONS ("Murenss", 35, 40, 0.2, 44, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
+				VEGAMONS v3 = new VEGAMONS ("Murenss", 32, 40, 0.2, 44, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
 				VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 36, 0.2, 38, 1, 1, attaque7, attaque2, attaque13, attaque15) ;
 				VEGAMONS v5 = new VEGAMONS ("Anemoniac", 41, 31, 0.2, 34, 3, 1, attaque8, attaque4, attaque5, attaque10) ;
 				VEGAMONS v6 = new VEGAMONS ("Pandalame", 45, 45, 0.16, 45, 2, 1, attaque9, attaque1, attaque14, attaque16) ;

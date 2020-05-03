@@ -176,14 +176,14 @@ public class FenetreCombat implements ActionListener{
 		}else if (variablesSession.numeroCarte==202 || variablesSession.numeroCarte==401){   //travée2
 			exp=6+(int)(7*Math.random());
         }else if (variablesSession.numeroCarte==414 || variablesSession.numeroCarte==601){   // huma1
-			exp=42+(int)(16*Math.random());
+			exp=45+(int)(20*Math.random());
         }else if (variablesSession.numeroCarte==502 || variablesSession.numeroCarte==701){   //huma2
-			exp=60+(int)(20*Math.random());
+			exp=75+(int)(30*Math.random());
         }
         if (numCase/10==2){   // Ou différemment pour les dresseurs des arênes
             exp = 45 - 4*(numCase%10);
         } else if (numCase/10==5){
-            exp = 120 - 7*(numCase%10);
+            exp = 150 - 8*(numCase%10);
         }
         
         int num = 1+((int)(5*Math.random()));
@@ -406,7 +406,7 @@ public class FenetreCombat implements ActionListener{
         boolean esquive = true;
         double prob = Math.random();   // On commence par déterminer aléatoirement si l'attaque est esquivée
         if (prob > advers.esquive){
-            int pts = (int)(1.4*(perso.attaque*coeff(j, advers)*(Math.pow(perso.XP, 0.4)))/advers.defense);
+            int pts = (int)(1.4*(perso.attaque*coeff(j, advers)*(Math.pow(perso.XP, 0.45)))/advers.defense);
             advers.PV=advers.PV - pts;  // Puis on calcule et soustrait les dégats infligés
             if (advers.PV<0){
                 advers.PV=0;  // On limite les points de vie à 0 minimum
@@ -434,7 +434,7 @@ public class FenetreCombat implements ActionListener{
         boolean esquive = true;
         double prob = Math.random();   // On commence par déterminer aléatoirement si l'attaque est esquivée
         if (prob > perso.esquive){   
-            int pts = (int)(1.4*(advers.attaque*coeff(advers.attaque1.type, perso)*(Math.pow(advers.XP, 0.4)))/perso.defense);
+            int pts = (int)(1.4*(advers.attaque*coeff(advers.attaque1.type, perso)*(Math.pow(advers.XP, 0.45)))/perso.defense);
             perso.PV=perso.PV - pts;     // Puis on calcule et soustrait les dégats infligés
             if (perso.PV<0){
                 perso.PV=0;    // On empeche les points de vie de devenir négatifs
@@ -468,7 +468,7 @@ public class FenetreCombat implements ActionListener{
     }
     
     public void soin(){                // Méthode pour récupérer des points de vie puis met à jour l'affichage 
-        int soin=(int)(0.25*perso.PVmax);
+        int soin=(int)(0.24*perso.PVmax);
         if(perso.PV+soin<perso.PVmax){
             perso.PV=perso.PV+soin;
         }else {

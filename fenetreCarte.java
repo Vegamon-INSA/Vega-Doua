@@ -78,7 +78,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		// et les dresseurs que notre perso rencontre sur la carte
 
 		pBoiteTexte = new JPanel();
-		pBoiteTexte.setBounds(100, 700, 600, 70);
+		pBoiteTexte.setBounds(100, 680, 600, 70);
 		pBoiteTexte.setLayout(null);
 		pBoiteTexte.setBackground(Color.white);
 		Border border2 = BorderFactory.createLineBorder(Color.BLACK);
