@@ -16,13 +16,16 @@ public class Accueil implements ActionListener{
 		sauvegardeJeu = sauvegarde;
 		variablesSession = variables;
 
+		//Musique de fond
 		musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav",variablesSession);
-
+		
+		//Panel principal
 		pPrincipal = new JPanel();
 		pPrincipal.setBounds(0, 0, 815, 845);
 		pPrincipal.setLayout(null);
 		jFramePrincipal.add(pPrincipal);
 
+		//Boutton jouer
 		jouer = new JButton("Jouer");
 		jouer.setBounds(300, 240, 200, 100);
 		jouer.setBackground(new Color(139,180,166));
@@ -30,6 +33,7 @@ public class Accueil implements ActionListener{
 		pPrincipal.add(jouer);
 		jouer.addActionListener(this);
 
+		//Bouton reset
 		resetPartie = new JButton("Reset la partie");
 		resetPartie.setBounds(300, 370, 200, 70);
 		resetPartie.setBackground(new Color(255,255,224));
@@ -37,6 +41,7 @@ public class Accueil implements ActionListener{
 		pPrincipal.add(resetPartie);
 		resetPartie.addActionListener(this);
 
+		//Bouton vegadex
 		pokedex = new JButton("Vegadex");
 		pokedex.setBounds(300, 450, 200, 70);
 		pokedex.setBackground(new Color(255,255,224));
@@ -44,6 +49,7 @@ public class Accueil implements ActionListener{
 		pPrincipal.add(pokedex);
 		pokedex.addActionListener(this);
 
+		//Bouton Scenario
 		scenario = new JButton("Sc\u00e9nario");
 		scenario.setBounds(300, 530, 200, 70);
 		scenario.setBackground(new Color(255,255,224));
@@ -51,6 +57,7 @@ public class Accueil implements ActionListener{
 		pPrincipal.add(scenario);
 		scenario.addActionListener(this);
 		
+		//Bouton ON/OFF Musique
 		desacSon = new JButton();
 		if (variablesSession.sondesac==0){
 			desacSon.setText("Musique ON");
@@ -64,6 +71,7 @@ public class Accueil implements ActionListener{
 		pPrincipal.add(desacSon);
 		desacSon.addActionListener(this);
 
+		//Image fond
 		imageFond = new JLabel(new ImageIcon("Images/fond.png"));
 		imageFond.setBounds(0, 0, 800, 820);
 		pPrincipal.add(imageFond);
@@ -72,7 +80,7 @@ public class Accueil implements ActionListener{
 	}
 
 	public static void main(String[] args) {
-
+		//Initialisation jeu
 		CJframe jFramePrincipal = new CJframe();
 		VariablesDeJeu variablesSession = new VariablesDeJeu();
 		Sauvegarde sauvegardeJeu = new Sauvegarde();
@@ -87,7 +95,7 @@ public class Accueil implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-
+		//mode jeu
 		if (e.getSource() == jouer) {
 			musiqueDeJeu.stopMusique(variablesSession);
 			pPrincipal.removeAll();
@@ -103,7 +111,7 @@ public class Accueil implements ActionListener{
 			musiqueDeJeu.stopMusique(variablesSession);
 			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
-		}
+		}//reset la partie
 		if (e.getSource() == resetPartie) {
 			musiqueDeJeu.stopMusique(variablesSession);
 			pPrincipal.removeAll();
@@ -117,7 +125,7 @@ public class Accueil implements ActionListener{
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
-		}
+		}//lecture du scenario
 		if (e.getSource()==scenario){
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
@@ -125,7 +133,7 @@ public class Accueil implements ActionListener{
 			jFramePrincipal.repaint();
 			new FenetreScenario(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
-		
+		//Lecture du vegadex
 		if (e.getSource()==pokedex){
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
@@ -139,7 +147,7 @@ public class Accueil implements ActionListener{
 			}
 			new FenetrePokedex(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
-
+		//activation ou desactivation de la musique
 		if (e.getSource()==desacSon){
 			if (variablesSession.sondesac==0){
 				desacSon.setText("Musique OFF");
