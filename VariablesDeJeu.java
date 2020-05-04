@@ -422,7 +422,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=areneTO;
 						this.xDepart=12;
 						this.yDepart=20;
-						this.imageFond="Images/miniville1PC/arene1.png";
+						this.imageFond="Images/miniville1PC/arene2.png";
 						this.nomCarte="Ar\u00e8ne de la T\u00eate d'Or - RDC";
 						this.musique="Musiques/arene.wav";
 						break;
