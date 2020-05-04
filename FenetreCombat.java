@@ -16,7 +16,8 @@ public class FenetreCombat implements ActionListener{
 	private CJframe jFramePrincipal; //Jframe principal avec image de fond
 	private VariablesDeJeu variablesSession; //Variables de Jeu
 	private Sauvegarde sauvegardeJeu;
-	   
+    private Musiques musiqueDeJeu  = new Musiques();
+   
     public FenetreCombat(CJframe Frame, VariablesDeJeu variables,Sauvegarde sauvegarde, int numeroCase){
 
 		jFramePrincipal= Frame;
@@ -31,7 +32,7 @@ public class FenetreCombat implements ActionListener{
         y=135; // coordonnées des icons des personnages
         x1=420;
         y1=30;
-        
+        musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/combat.wav",variablesSession);
         perso.XP=variablesSession.xpMeloche;
         perso.PVmax= (int)((Math.pow(perso.XP, 0.31)*40)+Math.pow(perso.XP, 1.21));
         perso.PV=perso.PVmax;
@@ -363,10 +364,12 @@ public class FenetreCombat implements ActionListener{
         }
         
         if (e.getSource()==t2){
+           //musiqueDeJeu.stopMusique(variablesSession);
             pPrincipal.removeAll();          // A la fin du combat, on enleve le panneau de combat, pour remettre la carte
 			jFramePrincipal.remove(pPrincipal);
             jFramePrincipal.revalidate();
             jFramePrincipal.repaint();
+            musiqueDeJeu.stopMusique(variablesSession);
             variablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
             new fenetreCarte(jFramePrincipal,variablesSession,sauvegardeJeu);
