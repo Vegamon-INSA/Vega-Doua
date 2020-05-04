@@ -108,7 +108,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		pPrincipal.add(JLabelCarte);
 
 		// Ajout du Bonhomme à déplacer
-		JLabelPersonnage = new JLabel(new ImageIcon("Images/Personnagepetit.png"));
+		JLabelPersonnage = new JLabel(new ImageIcon("Images/Personnage.png"));
 		JLabelPersonnage.setBounds((xDepart * tailleCellule - 8), (yDepart * tailleCellule - 28), 31, 52);
 		JLabelPersonnage.setLayout(null);
 		JLabelCarte.add(JLabelPersonnage);
