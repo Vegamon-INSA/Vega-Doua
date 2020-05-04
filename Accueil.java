@@ -25,35 +25,35 @@ public class Accueil implements ActionListener{
 
 		jouer = new JButton("Jouer");
 		jouer.setBounds(300, 200, 200, 100);
-		jouer.setBackground(Color.red);
+		jouer.setBackground(new Color(139,180,166));
 		jouer.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(jouer);
 		jouer.addActionListener(this);
 
 		resetPartie = new JButton("Reset la partie");
 		resetPartie.setBounds(300, 330, 200, 70);
-		resetPartie.setBackground(Color.blue);
+		resetPartie.setBackground(new Color(255,255,224));
 		resetPartie.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(resetPartie);
 		resetPartie.addActionListener(this);
 
 		pokedex = new JButton("Vegadex");
 		pokedex.setBounds(300, 410, 200, 70);
-		pokedex.setBackground(Color.blue);
+		pokedex.setBackground(new Color(255,255,224));
 		pokedex.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(pokedex);
 		pokedex.addActionListener(this);
 
 		scenario = new JButton("Sc\u00e9nario");
 		scenario.setBounds(300, 490, 200, 70);
-		scenario.setBackground(Color.blue);
+		scenario.setBackground(new Color(255,255,224));
 		scenario.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(scenario);
 		scenario.addActionListener(this);
 		
 		desacSon = new JButton("Desac musique");
 		desacSon.setBounds(300, 570, 200, 70);
-		desacSon.setBackground(Color.blue);
+		desacSon.setBackground(new Color(255,255,224));
 		desacSon.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(desacSon);
 		desacSon.addActionListener(this);
