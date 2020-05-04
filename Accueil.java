@@ -81,8 +81,8 @@ public class Accueil implements ActionListener{
 		} else {
 			variablesSession.nouvelleCarte(000);
 			variablesSession.sondesac=1;
+			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 		}
-		sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 		new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
 	}
 
@@ -142,13 +142,13 @@ public class Accueil implements ActionListener{
 
 		if (e.getSource()==desacSon){
 			if (variablesSession.sondesac==0){
-				desacSon.setText("Musique ON");
+				desacSon.setText("Musique OFF");
 				variablesSession.sondesac=1;
 				musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav",variablesSession);
 			}
 			else if (variablesSession.sondesac==1){
 				musiqueDeJeu.stopMusique(variablesSession);
-				desacSon.setText("Musique OFF");
+				desacSon.setText("Musique ON");
 				variablesSession.sondesac=0;
 			}
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);

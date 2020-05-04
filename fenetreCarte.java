@@ -389,6 +389,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 			stopDeplacement = true;
+			variablesSession.xDepart = xDepart;
+			variablesSession.yDepart = yDepart;
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
