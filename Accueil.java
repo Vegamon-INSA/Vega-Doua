@@ -24,36 +24,36 @@ public class Accueil implements ActionListener{
 		jFramePrincipal.add(pPrincipal);
 
 		jouer = new JButton("Jouer");
-		jouer.setBounds(300, 200, 200, 100);
-		jouer.setBackground(Color.red);
+		jouer.setBounds(300, 240, 200, 100);
+		jouer.setBackground(new Color(139,180,166));
 		jouer.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(jouer);
 		jouer.addActionListener(this);
 
 		resetPartie = new JButton("Reset la partie");
-		resetPartie.setBounds(300, 330, 200, 70);
-		resetPartie.setBackground(Color.blue);
+		resetPartie.setBounds(300, 370, 200, 70);
+		resetPartie.setBackground(new Color(255,255,224));
 		resetPartie.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(resetPartie);
 		resetPartie.addActionListener(this);
 
 		pokedex = new JButton("Vegadex");
-		pokedex.setBounds(300, 410, 200, 70);
-		pokedex.setBackground(Color.blue);
+		pokedex.setBounds(300, 450, 200, 70);
+		pokedex.setBackground(new Color(255,255,224));
 		pokedex.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(pokedex);
 		pokedex.addActionListener(this);
 
 		scenario = new JButton("Sc\u00e9nario");
-		scenario.setBounds(300, 490, 200, 70);
-		scenario.setBackground(Color.blue);
+		scenario.setBounds(300, 530, 200, 70);
+		scenario.setBackground(new Color(255,255,224));
 		scenario.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(scenario);
 		scenario.addActionListener(this);
 		
-		desacSon = new JButton("Desac musique");
-		desacSon.setBounds(300, 570, 200, 70);
-		desacSon.setBackground(Color.blue);
+		desacSon = new JButton("Musique ON");
+		desacSon.setBounds(300, 610, 200, 70);
+		desacSon.setBackground(new Color(255,255,224));
 		desacSon.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(desacSon);
 		desacSon.addActionListener(this);
@@ -135,13 +135,13 @@ public class Accueil implements ActionListener{
 
 		if (e.getSource()==desacSon){
 			if (variablesSession.sondesac==0){
-				desacSon.setText("Desac musique");
+				desacSon.setText("Musique ON");
 				variablesSession.sondesac=1;
 				musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav",variablesSession);
 			}
 			else if (variablesSession.sondesac==1){
 				musiqueDeJeu.stopMusique(variablesSession);
-				desacSon.setText("Activer musique");
+				desacSon.setText("Musique OFF");
 				variablesSession.sondesac=0;
 			}
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
