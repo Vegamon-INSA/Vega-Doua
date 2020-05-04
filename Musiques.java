@@ -17,7 +17,7 @@ public class Musiques{
 	}
 	public void jouerMusiqueJouerEnBoucle(String musique,VariablesDeJeu variable) {
 		variableDeJeu=variable; 
-		if (variableDeJeu.sondesac !=0){
+		if (variableDeJeu.sondesac!=0){
 			url2 = Musiques.class.getResource(musique);
 			ac1 = Applet.newAudioClip(url2);
 			ac1.loop();

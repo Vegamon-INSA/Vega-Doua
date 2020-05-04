@@ -156,6 +156,7 @@ public class Accueil implements ActionListener{
 			}
 			else if (variablesSession.sondesac==1){
 				desacSon.setText("Musique ON");
+				musiqueDeJeu.stopMusique(variablesSession);
 				variablesSession.sondesac=0;
 			}
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
