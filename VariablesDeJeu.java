@@ -53,9 +53,8 @@ public class VariablesDeJeu {//création de l'unique Jframe
 		private Attaques attaque13 = new Attaques("Ebullition", 1);
 		private Attaques attaque14 = new Attaques("Liane", 2);
 		private Attaques attaque15 = new Attaques("Brulure", 1);
-		private Attaques attaque16 = new Attaques("Plante carnivore", 2);
-        
-		public int xpMeloche=1; 
+		private Attaques attaque16 = new Attaques("Plante carnivore", 2);  
+		public int xpMeloche; 
 
 		public void nouvelleCarte(int numeroDeLaCarte){
 				

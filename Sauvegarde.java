@@ -9,7 +9,7 @@ public class Sauvegarde {//Sauvegarde Automatique
 		String cheminfichier = chemin + File.separator + NomFichier;
 			
 		try(FileWriter fileWriter = new FileWriter(cheminfichier)) {//Creation du fichier sauvegarde
-			String ContenuDuFichier = VariablesSession.numeroCarte+","+VariablesSession.xDepart+","+VariablesSession.yDepart+","+VariablesSession.xpMeloche;
+			String ContenuDuFichier = VariablesSession.numeroCarte+","+VariablesSession.xDepart+","+VariablesSession.yDepart+","+VariablesSession.xpMeloche+","+VariablesSession.sondesac;
 			for (int i=0; i<VariablesSession.listeInterractionsAvecDresseurs.length; i++) {
 				ContenuDuFichier+=","+VariablesSession.listeInterractionsAvecDresseurs[i];
 			}
@@ -55,14 +55,15 @@ public class Sauvegarde {//Sauvegarde Automatique
 						variablesInt[i] = Integer.parseInt(variablesString[i]);
 					}
 					VariablesSession.numeroCarte=variablesInt[0];
-					VariablesSession.nouvelleCarte(VariablesSession.numeroCarte);
 					VariablesSession.xDepart=variablesInt[1];
 					VariablesSession.yDepart=variablesInt[2];
 					VariablesSession.xpMeloche=variablesInt[3];
+					VariablesSession.sondesac=variablesInt[5];
 
-					for (int i=4; i<variablesInt.length;i++) {
-						VariablesSession.listeInterractionsAvecDresseurs[i-4]+=variablesInt[i];
+					for (int i=5; i<variablesInt.length;i++) {
+						VariablesSession.listeInterractionsAvecDresseurs[i-5]+=variablesInt[i];
 					}
+					VariablesSession.nouvelleCarte(VariablesSession.numeroCarte);
 				}
             } catch (FileNotFoundException e) {
             e.printStackTrace();

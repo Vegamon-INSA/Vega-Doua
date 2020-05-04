@@ -169,7 +169,7 @@ public class FenetreCombat implements ActionListener{
 		
         AuTourDuJoueur=false;
         perso.PV=perso.PVmax;      //On réinitialise nos points de vie au max
-        int exp=1;
+        int exp=variablesSession.xpMeloche;
                  // On indique le niveau de l'adversaire en fonction des cas où on est (avec un peu de hasard)
         if (variablesSession.numeroCarte==105 || variablesSession.numeroCarte==301){      //travée1
 			exp=1+(int)(3*Math.random());                    // En fonction de la carte

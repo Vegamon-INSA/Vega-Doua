@@ -129,7 +129,6 @@ public class Accueil implements ActionListener{
 			}
 			else {
 				variablesSession.nouvelleCarte(000);
-				//sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			}
 			new FenetrePokedex(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
