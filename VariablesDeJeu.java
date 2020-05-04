@@ -74,7 +74,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.xpMeloche=1;
 						this.xDepart=4;
 						this.yDepart=13;
-						this.imageFond="Images/LaFeyssine/Taturne.png";
+						this.imageFond="Images/Ville1-LaFeyssine/Taturne.png";
 						this.nomCarte="Ta turne";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -83,7 +83,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=taTurne;
 						this.xDepart=4;
 						this.yDepart=13;
-						this.imageFond="Images/LaFeyssine/Taturne.png";
+						this.imageFond="Images/Ville1-LaFeyssine/Taturne.png";
 						this.nomCarte="Ta turne";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -93,7 +93,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=taTurne;
 						this.xDepart=11;
 						this.yDepart=17;
-						this.imageFond="Images/LaFeyssine/Taturne.png";
+						this.imageFond="Images/Ville1-LaFeyssine/Taturne.png";
 						this.nomCarte="Ta turne";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -102,7 +102,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=laFeyssine;
 						this.xDepart=18;
 						this.yDepart=9;
-						this.imageFond="Images/LaFeyssine/LaFeyssine.png";
+						this.imageFond="Images/Ville1-LaFeyssine/LaFeyssine.png";
 						this.nomCarte="La Feyssine";
 						this.musique="Musiques/bourg palette.wav";
 						break;
@@ -112,7 +112,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=turneVoisin;
 						this.xDepart=11;
 						this.yDepart=17;
-						this.imageFond="Images/LaFeyssine/TurneVoisin.png";
+						this.imageFond="Images/Ville1-LaFeyssine/TurneVoisin.png";
 						this.nomCarte="Turne du professeur Vega";
 						this.musique="Musiques/bourg palette.wav";
 						break;
@@ -121,7 +121,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=laFeyssine;
 						this.xDepart=18;
 						this.yDepart=19;
-						this.imageFond="Images/LaFeyssine/LaFeyssine.png";
+						this.imageFond="Images/Ville1-LaFeyssine/LaFeyssine.png";
 						this.nomCarte="La Feyssine";
 						this.musique="Musiques/bourg palette.wav";
 
@@ -141,7 +141,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=laFeyssine;
 						this.xDepart=3;
 						this.yDepart=1;
-						this.imageFond="Images/LaFeyssine/LaFeyssine.png";
+						this.imageFond="Images/Ville1-LaFeyssine/LaFeyssine.png";
 						this.nomCarte="La Feyssine";
 						this.musique="Musiques/bourg palette.wav";
 						break;
@@ -168,7 +168,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=pc;
 						this.xDepart=11;
 						this.yDepart=23;
-						this.imageFond="Images/miniville1PC/PC.png";
+						this.imageFond="Images/Ville2-PC/PC.png";
 						this.nomCarte="Ville PC";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -186,7 +186,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=maison1PC;
 						this.xDepart=11;
 						this.yDepart=16;
-						this.imageFond="Images/miniville1PC/mPC1.png";
+						this.imageFond="Images/Ville2-PC/mPC1.png";
 						this.nomCarte="Turne de la directrice du PC";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -195,7 +195,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=pc;
 						this.xDepart=6;
 						this.yDepart=16;
-						this.imageFond="Images/miniville1PC/PC.png";
+						this.imageFond="Images/Ville2-PC/PC.png";
 						this.nomCarte="Ville PC";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -204,7 +204,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=maison2PC;
 						this.xDepart=11;
 						this.yDepart=16;
-						this.imageFond="Images/miniville1PC/mPC2.png";
+						this.imageFond="Images/Ville2-PC/mPC2.png";
 						this.nomCarte="Turne de Picsou";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -213,7 +213,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=pc;
 						this.xDepart=14;
 						this.yDepart=20;
-						this.imageFond="Images/miniville1PC/PC.png";
+						this.imageFond="Images/Ville2-PC/PC.png";
 						this.nomCarte="Ville PC";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -222,7 +222,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=maison3PC;
 						this.xDepart=11;
 						this.yDepart=17;
-						this.imageFond="Images/miniville1PC/mPC3.png";
+						this.imageFond="Images/Ville2-PC/mPC3.png";
 						this.nomCarte="Turne des \u00e9tudiants INSA";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -231,7 +231,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=pc;
 						this.xDepart=19;
 						this.yDepart=20;
-						this.imageFond="Images/miniville1PC/PC.png";
+						this.imageFond="Images/Ville2-PC/PC.png";
 						this.nomCarte="Ville PC";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -240,7 +240,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=batRdc;
 						this.xDepart=11;
 						this.yDepart=17;
-						this.imageFond="Images/miniville1PC/PCrdcIm.png";
+						this.imageFond="Images/Ville2-PC/PCrdcIm.png";
 						this.nomCarte="Immeuble - RDC";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -249,7 +249,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=pc;
 						this.xDepart=11;
 						this.yDepart=6;
-						this.imageFond="Images/miniville1PC/PC.png";
+						this.imageFond="Images/Ville2-PC/PC.png";
 						this.nomCarte="Ville PC";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -258,7 +258,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=BatEtage;
 						this.xDepart=19;
 						this.yDepart=8;
-						this.imageFond="Images/miniville1PC/PCetage1Im.png";
+						this.imageFond="Images/Ville2-PC/PCetage1Im.png";
 						this.nomCarte="Immeuble - 1\u00e8re \u00e9tage";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -267,7 +267,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=batRdc;
 						this.xDepart=18;
 						this.yDepart=7;
-						this.imageFond="Images/miniville1PC/PCrdcIm.png";
+						this.imageFond="Images/Ville2-PC/PCrdcIm.png";
 						this.nomCarte="Immeuble - RDC";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -276,7 +276,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=arenePC;
 						this.xDepart=11;
 						this.yDepart=20;
-						this.imageFond="Images/miniville1PC/arene1.png";
+						this.imageFond="Images/Ville2-PC/arene1.png";
 						this.nomCarte="Ar\u00e8ne PC";
 						this.musique="Musiques/arene.wav";
 						break;
@@ -285,7 +285,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=pc;
 						this.xDepart=19;
 						this.yDepart=10;
-						this.imageFond="Images/miniville1PC/PC.png";
+						this.imageFond="Images/Ville2-PC/PC.png";
 						this.nomCarte="Ville PC";
 						this.musique="Musiques/route24.wav";
 						
@@ -304,7 +304,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=pc;
 						this.xDepart=22;
 						this.yDepart=2;
-						this.imageFond="Images/miniville1PC/PC.png";
+						this.imageFond="Images/Ville2-PC/PC.png";
 						this.nomCarte="Ville PC";
 						this.musique="Musiques/route24.wav";
 						break;
@@ -331,7 +331,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=TO;
 						this.xDepart=4;
 						this.yDepart=23;
-						this.imageFond="Images/Ville1-TO/TO.png";
+						this.imageFond="Images/Ville3-TeteDor/TO.png";
 						this.nomCarte="La T\u00eate d'Or";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -350,7 +350,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=maison1TO;
 						this.xDepart=11;
 						this.yDepart=17;
-						this.imageFond="Images/Ville1-TO/mTO1.png";
+						this.imageFond="Images/Ville3-TeteDor/mTO1.png";
 						this.nomCarte="Maison des architectes";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -359,7 +359,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=TO;
 						this.xDepart=3;
 						this.yDepart=20;
-						this.imageFond="Images/Ville1-TO/TO.png";
+						this.imageFond="Images/Ville3-TeteDor/TO.png";
 						this.nomCarte="La T\u00eate d'Or";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -368,7 +368,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=maison2TO;
 						this.xDepart=11;
 						this.yDepart=16;
-						this.imageFond="Images/Ville1-TO/mTO2.png";
+						this.imageFond="Images/Ville3-TeteDor/mTO2.png";
 						this.nomCarte="Maison de Fr\u00e9d\u00e9ric";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -377,7 +377,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=TO;
 						this.xDepart=11;
 						this.yDepart=14;
-						this.imageFond="Images/Ville1-TO/TO.png";
+						this.imageFond="Images/Ville3-TeteDor/TO.png";
 						this.nomCarte="La T\u00eate d'Or";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -386,7 +386,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=batRdcTO;
 						this.xDepart=11;
 						this.yDepart=17;
-						this.imageFond="Images/Ville1-TO/imTO1.png";
+						this.imageFond="Images/Ville3-TeteDor/imTO1.png";
 						this.nomCarte="Immeuble de la T\u00eate d'Or - RDC";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -395,7 +395,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=TO;
 						this.xDepart=4;
 						this.yDepart=6;
-						this.imageFond="Images/Ville1-TO/TO.png";
+						this.imageFond="Images/Ville3-TeteDor/TO.png";
 						this.nomCarte="La T\u00eate d'Or";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -404,7 +404,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=batEtageTO;
 						this.xDepart=19;
 						this.yDepart=8;
-						this.imageFond="Images/Ville1-TO/imTO2.png";
+						this.imageFond="Images/Ville3-TeteDor/imTO2.png";
 						this.nomCarte="Immeuble - 1\u00e8re \u00e9tage";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -413,7 +413,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=batRdcTO;
 						this.xDepart=18;
 						this.yDepart=7;
-						this.imageFond="Images/Ville1-TO/imTO1.png";
+						this.imageFond="Images/Ville3-TeteDor/imTO1.png";
 						this.nomCarte="Immeuble de la T\u00eate d'Or - RDC";
 						this.musique="Musiques/bienvenue.wav";
 						break;
@@ -422,8 +422,8 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=areneTO;
 						this.xDepart=12;
 						this.yDepart=20;
-						this.imageFond="Images/miniville1PC/arene2.png";
-						this.nomCarte="Ar\u00e8ne de la T\u00eate d'Or - RDC";
+						this.imageFond="Images/Ville3-TeteDor/arene2.png";
+						this.nomCarte="Ar\u00e8ne de la T\u00eate d'Or";
 						this.musique="Musiques/arene.wav";
 						break;
 						}
@@ -431,7 +431,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.tableauCarte=TO;
 						this.xDepart=19;
 						this.yDepart=6;
-						this.imageFond="Images/Ville1-TO/TO.png";
+						this.imageFond="Images/Ville3-TeteDor/TO.png";
 						this.nomCarte="La T\u00eate d'Or - RDC";
 						this.musique="Musiques/bienvenue.wav";
 						break;
