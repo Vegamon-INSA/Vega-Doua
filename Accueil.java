@@ -51,7 +51,13 @@ public class Accueil implements ActionListener{
 		pPrincipal.add(scenario);
 		scenario.addActionListener(this);
 		
-		desacSon = new JButton("Musique ON");
+		desacSon = new JButton();
+		if (variablesSession.sondesac==0){
+			desacSon.setText("Musique ON");
+		}
+		else if (variablesSession.sondesac==1){
+			desacSon.setText("Musique OFF");
+		}
 		desacSon.setBounds(300, 610, 200, 70);
 		desacSon.setBackground(new Color(255,255,224));
 		desacSon.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
@@ -74,8 +80,8 @@ public class Accueil implements ActionListener{
 			variablesSession = sauvegardeJeu.restaurerSauvegarde();
 		} else {
 			variablesSession.nouvelleCarte(000);
+			variablesSession.sondesac=1;
 		}
-		variablesSession.sondesac=1;
 		sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 		new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
 	}
@@ -88,7 +94,6 @@ public class Accueil implements ActionListener{
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.validate();
 			jFramePrincipal.repaint();
-
 			if (sauvegardeJeu.sauvegardeExiste()) {
 				variablesSession = sauvegardeJeu.restaurerSauvegarde();
 			} else {
@@ -100,14 +105,16 @@ public class Accueil implements ActionListener{
 
 		}
 		if (e.getSource() == resetPartie) {
+			musiqueDeJeu.stopMusique(variablesSession);
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.validate();
 			jFramePrincipal.repaint();
+			int sonDesactive=variablesSession.sondesac;
 			variablesSession = new VariablesDeJeu();
 			variablesSession.nouvelleCarte(000);
+			variablesSession.sondesac=sonDesactive;
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-			musiqueDeJeu.stopMusique(variablesSession);
 			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
 		}

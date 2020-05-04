@@ -55,15 +55,15 @@ public class Sauvegarde {//Sauvegarde Automatique
 						variablesInt[i] = Integer.parseInt(variablesString[i]);
 					}
 					VariablesSession.numeroCarte=variablesInt[0];
+					VariablesSession.nouvelleCarte(VariablesSession.numeroCarte);
 					VariablesSession.xDepart=variablesInt[1];
 					VariablesSession.yDepart=variablesInt[2];
 					VariablesSession.xpMeloche=variablesInt[3];
-					VariablesSession.sondesac=variablesInt[5];
+					VariablesSession.sondesac=variablesInt[4];
 
 					for (int i=5; i<variablesInt.length;i++) {
 						VariablesSession.listeInterractionsAvecDresseurs[i-5]+=variablesInt[i];
 					}
-					VariablesSession.nouvelleCarte(VariablesSession.numeroCarte);
 				}
             } catch (FileNotFoundException e) {
             e.printStackTrace();

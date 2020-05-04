@@ -317,9 +317,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	public void actionPerformed(ActionEvent u) {
-
+		
 		if (u.getSource() == t1) {// Timer délpacement personnage
-
 			System.out.println("a="+a);
 			xDepart = tableauCheminTrie[a][0] / tailleCellule;
 			yDepart = tableauCheminTrie[a][1] / tailleCellule;
@@ -384,6 +383,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 	public void keyPressed(KeyEvent arg0) {
 		if (arg0.getKeyCode() == 77) {// retour au menu
+			musiqueDeJeu.stopMusique(variablesSession);
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.revalidate();
