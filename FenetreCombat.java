@@ -33,6 +33,7 @@ public class FenetreCombat implements ActionListener{
         x1=420;
         y1=30;
         musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/combat.wav",variablesSession);
+
         perso.XP=variablesSession.xpMeloche;
         perso.PVmax= (int)((Math.pow(perso.XP, 0.31)*40)+Math.pow(perso.XP, 1.21));
         perso.PV=perso.PVmax;
@@ -320,7 +321,7 @@ public class FenetreCombat implements ActionListener{
                         if (numCase!=500){   // si on a perdu contre un dresseur, on mémorise cette information
 							variablesSession.listeInterractionsAvecDresseurs[numCase]=1;
                         }
-                        lDialogue.setText("Retourne t'entrainer avec de revenir !");   // Message d'information pour savoir qu'on a perdu
+                        lDialogue.setText("Retourne t'entrainer avant de revenir !");   // Message d'information pour savoir qu'on a perdu
                         advers.PVmax=PVmaxAdvIni;   // On réinitialise les points de vie de l'adversaire
                         perso.PV=perso.PVmax;      // On réinitialise nos points de vie
                         variablesSession.nouvelleCarte(001);
@@ -364,14 +365,13 @@ public class FenetreCombat implements ActionListener{
         }
         
         if (e.getSource()==t2){
-           //musiqueDeJeu.stopMusique(variablesSession);
             pPrincipal.removeAll();          // A la fin du combat, on enleve le panneau de combat, pour remettre la carte
 			jFramePrincipal.remove(pPrincipal);
             jFramePrincipal.revalidate();
             jFramePrincipal.repaint();
-            musiqueDeJeu.stopMusique(variablesSession);
             variablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
-			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
+            sauvegardeJeu.nouvelleSauvegarde(variablesSession);
+            musiqueDeJeu.stopMusique(variablesSession);
             new fenetreCarte(jFramePrincipal,variablesSession,sauvegardeJeu);
             freeze=false;
             t2.stop();

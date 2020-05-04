@@ -155,7 +155,6 @@ public class Accueil implements ActionListener{
 				musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav",variablesSession);
 			}
 			else if (variablesSession.sondesac==1){
-				musiqueDeJeu.stopMusique(variablesSession);
 				desacSon.setText("Musique ON");
 				variablesSession.sondesac=0;
 			}
