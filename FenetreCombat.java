@@ -32,7 +32,9 @@ public class FenetreCombat implements ActionListener{
         x1=420;
         y1=30;
         
-
+        perso.XP=variablesSession.xpMeloche;
+        perso.PVmax= (int)((Math.pow(perso.XP, 0.31)*40)+Math.pow(perso.XP, 1.21));
+        perso.PV=perso.PVmax;
         ///INTERFACE COMBAT
 
         pPrincipal = new JPanel();   // panneau contenant tous les éléments concernant les combats
