@@ -64,7 +64,7 @@ public class FenetrePokedex implements ActionListener{
         retour.addActionListener(this);
         
                                 //  On affiche les dessins de chaque vegamon sur le bouton correspondant
-        meloche = new JLabel(new ImageIcon("Images/Meloche.png")); 
+        meloche = new JLabel(new ImageIcon("Images/Meloche-face.png")); 
         meloche.setBounds(0,-5,100,100);
         vegamon1.add(meloche);
         

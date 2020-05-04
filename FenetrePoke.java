@@ -12,7 +12,7 @@ public class FenetrePoke extends JFrame{
 		this.setLayout(null);	
                                         // i correspondant au numéro du végamon
         if (i==0){                          // On ajoute l'image du vegamon
-            poke = new JLabel(new ImageIcon("Images/Meloche.png"));
+            poke = new JLabel(new ImageIcon("Images/Meloche-face.png"));
         } else if (i==1){
             poke = new JLabel(new ImageIcon("Images/Aigloss.png"));
         } else if (i==2){
@@ -24,7 +24,7 @@ public class FenetrePoke extends JFrame{
         } else if (i==5){
             poke = new JLabel(new ImageIcon("Images/Pandalame.png"));
         }
-        poke.setBounds(70,90,100,100);
+        poke.setBounds(60,80,120,120);
         this.add(poke);
         
         nom = new JLabel("nom :  "+variablesSession.pokedex.get(i).nom);  // On indique le nom, 
