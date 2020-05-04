@@ -576,7 +576,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 								break;
 							}
 							else {
-								String tableau []={"<html>R&eacute;mi : Stop ! La ville o&ograve; tu vas est tr&egrave;s dangereuse. Il y a des Vegamons sauvages dans les hautes herbes.</html>","<html>Tu n&rsquo;as pas encore r&eacute;cup&eacute;r&eacute; ton Vegamon aupr&egrave;s du professeur Vega ? </html>","<html>Vas donc le chercher. Tu seras alors prot&eacute;g&eacute; et tu pourras aller dans la trav&eacute;e 1. </html>","fin_message","","",""};						
+								String tableau []={"<html>R&eacute;mi : Stop ! La ville o&ugrave;; tu vas est tr&egrave;s dangereuse. Il y a des Vegamons sauvages dans les hautes herbes.</html>","<html> Tu n&rsquo;as pas encore r&eacute;cup&eacute;r&eacute; ton Vegamon aupr&egrave;s du professeur Vega ? </html>","<html>Vas donc le chercher. Tu seras alors prot&eacute;g&eacute; et tu pourras aller dans la trav&eacute;e 1. </html>","fin_message","","",""};						
 								this.texteAAfficher=tableau;
 								break;
 							}
