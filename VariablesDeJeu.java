@@ -67,7 +67,6 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				String musiqueRoute1 ="Musiques/route1.wav";
 				this.musique=musiqueRoute1;
 
-				System.out.println(this.numeroCarte);
 				switch(this.numeroCarte) {
 					case 000:{//Spawn du début dans la maison
 						this.listeInterractionsAvecDresseurs=listeInterractionsAvecDresseursInitiale;
@@ -461,8 +460,6 @@ public class VariablesDeJeu {//création de l'unique Jframe
 
 		}
 	public void dialogueAvecDresseur(int numeroDresseur) {
-			System.out.println("numero du dresseur="+numeroDresseur);
-			System.out.println("numero du dialogue="+this.listeInterractionsAvecDresseurs[numeroDresseur]);
 
 			switch(numeroDresseur) {
 				//MAP MAISON
@@ -505,7 +502,6 @@ public class VariablesDeJeu {//création de l'unique Jframe
 							String tableau []={"<html>V&eacute;ga : Oh je t&rsquo;attendais avec impatience, je t&rsquo;observe depuis quelques temps et je pense que tu es la personne id&eacute;ale pour recevoir ce V&eacute;gamon.</html>","<html>Il s&rsquo;appelle M&eacute;loche, je suis s&ucirc;r qu&rsquo;avec lui tu pourras faire de grandes choses et pourquoi pas devenir le meilleur dresseur de cette ville !</html>","<html>Va voir Flora devant ma turne, elle te donnera quelques conseils !</html>","fin_message","","",""};							
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.listeInterractionsAvecDresseurs[4]=0;
-							System.out.println(this.listeInterractionsAvecDresseurs[3]);
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 

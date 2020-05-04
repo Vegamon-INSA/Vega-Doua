@@ -159,8 +159,6 @@ public class FenetreScenario implements ActionListener{
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 			new FenetreScenario(jFramePrincipal, variablesSession, sauvegardeJeu);
-        }
-		
-	   
+        }	
 	}
 }

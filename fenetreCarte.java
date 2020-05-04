@@ -159,10 +159,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					yDepartInitial = yArriveeFinal;
 					xArriveeFinal = xArrivee;
 					yArriveeFinal = yArrivee;
-					System.out.println("xArrivee=" + xArrivee);
-					System.out.println(yArrivee);
 					deplacementJoueur(xArrivee, yArrivee);
-					System.out.println("Deplacement terminé");	
 				}
 			} catch (Exception z) {
 			} // catch les exceptions
@@ -204,7 +201,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		if (((tableauCarte[y][x] == 0) || (stopDeplacement == true)) || ((x == xDepart) && (y == yDepart))) {
 			possibilite = false;
 		}
-		System.out.println("Deplacement possible :" + possibilite);
 		return possibilite;
 	}
 
@@ -227,20 +223,13 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		t1.start();
 	}
 
-	public void triTableauChemin() {// retirer les System.out.println pour nettoyer
+	public void triTableauChemin() {
 		boolean finDuTri = false;
 		nbreDeplacement = 0;
 
 		if ((tableauChemin[0][0] == 0) && (tableauChemin[0][1] == 0)) {
 			tableauChemin[0][0] = xArrivee;
 			tableauChemin[0][1] = yArrivee;
-		}
-
-		System.out.println("x depart :" + xDepart);
-		System.out.println("y depart  :" + yDepart);
-		System.out.println("Tableau initial :");
-		for (int s = 0; s < tableauChemin.length; s++) {
-			System.out.println(tableauChemin[s][0] + "=x, y=" + tableauChemin[s][1]);
 		}
 
 		tableauCheminTrie[0][0] = xDepart;
@@ -255,37 +244,30 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 		for (int d = 0; d < (tableauChemin.length - 1); d++) {
 			if (finDuTri == true) {
-				System.out.println("Fin du tri");
 				break;
 			}
-			System.out.println("d=" + d);
 			int w = 0;
 			while ((tableauCheminTrie[d + 1][0] == 0) || (tableauCheminTrie[d + 1][1] == 0)) {
 				if ((tableauCheminTrie[d][0] == tableauChemin[w][0])
 						&& ((tableauCheminTrie[d][1] == (tableauChemin[w][1] + 1))
 								|| (tableauCheminTrie[d][1] == tableauChemin[w][1] - 1))) {
-					System.out.println("Déplacement vertcal");
 					tableauCheminTrie[d + 1][0] = tableauChemin[w][0];
 					tableauCheminTrie[d + 1][1] = tableauChemin[w][1];
 				} else if ((tableauCheminTrie[d][1] == tableauChemin[w][1])
 						&& ((tableauCheminTrie[d][0] == (tableauChemin[w][0] + 1))
 								|| (tableauCheminTrie[d][0] == tableauChemin[w][0] - 1))) {
-					System.out.println("Déplacement horizontal");
 					tableauCheminTrie[d + 1][0] = tableauChemin[w][0];
 					tableauCheminTrie[d + 1][1] = tableauChemin[w][1];
 				} else if (!(((tableauCheminTrie[d][1] != (tableauChemin[w][1] + 1))
 						&& (tableauCheminTrie[d][1] != (tableauChemin[w][1] - 1)))
 						|| ((tableauCheminTrie[d][0] != (tableauChemin[w][0] + 1))
 								&& (tableauCheminTrie[d][0] != (tableauChemin[w][0] - 1))))) {
-					System.out.println("Déplacement diagonal");
 					tableauCheminTrie[d + 1][0] = tableauChemin[w][0];
 					tableauCheminTrie[d + 1][1] = tableauChemin[w][1];
 				}
 				w++;
 			}
-			for (int h = 0; h < tableauCheminTrie.length; h++) {
-				System.out.println("Tableau trié : x= " + tableauCheminTrie[h][0] + " y= " + tableauCheminTrie[h][1]);
-			}
+
 			tableauChemin[w - 1][0] = 0;
 			tableauChemin[w - 1][1] = 0;
 
@@ -299,57 +281,44 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			}
 		}
 
-		System.out.println("Tableau initial :");
 		for (int s = 0; s < tableauChemin.length; s++) {
-			System.out.println(tableauChemin[s][0] + "=x,oui y=" + tableauChemin[s][1]);
 			if ((tableauCheminTrie[s][0] != 0) && (tableauCheminTrie[s][1] != 0)) {
 				nbreDeplacement++;
 			}
 		}
 		tableauCheminTrie[nbreDeplacement][0] = xArrivee;
 		tableauCheminTrie[nbreDeplacement][1] = yArrivee;
-		System.out.println("nbreDeplacement =" + nbreDeplacement);
 		for (int h = 0; h < tableauCheminTrie.length; h++) {
 			tableauCheminTrie[h][0] = tableauCheminTrie[h][0] * tailleCellule;
 			tableauCheminTrie[h][1] = tableauCheminTrie[h][1] * tailleCellule;
-			System.out.println(tableauCheminTrie[h][0] + "=x, y=" + tableauCheminTrie[h][1]);
 		}
 	}
 
 	public void actionPerformed(ActionEvent u) {
 		
 		if (u.getSource() == t1) {// Timer délpacement personnage
-			System.out.println("a="+a);
 			xDepart = tableauCheminTrie[a][0] / tailleCellule;
 			yDepart = tableauCheminTrie[a][1] / tailleCellule;
 
 			if ((tableauCarte[yDepart][xDepart] != 2) && (tableauCarte[yDepart][xDepart] != 3)) {
 						JLabelPersonnage.setBounds((xDepart * tailleCellule - 8), (yDepart * tailleCellule - 28), 31, 52);
-						System.out.println("test1");
 						if ((a!=0))
 							actionDeLaCase(variablesSession.xDepart, variablesSession.yDepart, false);
 				t1.stop();
 				t1 = new Timer(200, this);
 			} else if (stopDeplacement == false) {
 				t1.stop();
-				System.out.println(xDepart);
-				System.out.println(variablesSession.xDepart);
-				System.out.println(yDepart);
-				System.out.println(variablesSession.yDepart);
 				xDepart = tableauCheminTrie[a-1][0] / tailleCellule;
 				yDepart = tableauCheminTrie[a-1][1] / tailleCellule;
 				if ((a!=0) ) {
-					System.out.println("test2");
 					actionDeLaCase(xDepart,yDepart, false);
 				}
 			} else {
-				System.out.println("test3");
 				t1.stop();
 			}
 
 			if ((a < nbreDeplacement) && (stopDeplacement == false)) {
 				a++;
-				System.out.println("test4");
 				variablesSession.xDepart = xDepart;
 				variablesSession.yDepart = yDepart;
 				t1.start();
@@ -425,7 +394,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	public void affichageBoiteTexte() {
-		System.out.println("numero ligne" + numeroLigneTexte);
 		lBoiteTexte.setText(variablesSession.texteAAfficher[numeroLigneTexte]);
 		pBoiteTexte.setVisible(true);
 		jFramePrincipal.revalidate();
@@ -440,15 +408,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	public void actionDeLaCase(int x, int y, boolean spawn) {
-		System.out.println("actionDeLaCase" + tableauCarte[y][x]);
-		System.out.println(x);
-		System.out.println(xArriveeFinal);
-		System.out.println(xDepartInitial);
-
-		System.out.println(y);
-		System.out.println(yArriveeFinal);
-		System.out.println(yDepartInitial);
-
 		sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 		switch (String.valueOf(tableauCarte[y][x]).charAt(0)) {
 			case '2': {// Dialogue sans combat
@@ -459,8 +418,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 				if (((tableauCarte[yArriveeFinal][xArriveeFinal] == 2) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) ||(variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 10) || (spawn == true)) {
 					stopDeplacement = true;
-					System.out.println("numero dialogue" + numeroDialogue);
-					System.out.println("etat dialogue="+variablesSession.listeInterractionsAvecDresseurs[numeroDialogue]);
 					variablesSession.dialogueAvecDresseur(numeroDialogue);
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 					numeroLigneTexte = 0;
@@ -478,7 +435,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (((tableauCarte[yArriveeFinal][xArriveeFinal] == 3) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
 
 					stopDeplacement = true;
-					System.out.println("numero dialogue" + numeroDialogue);
 					variablesSession.dialogueAvecDresseur(numeroDialogue);
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 					numeroLigneTexte = 0;
@@ -496,7 +452,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					} catch (InterruptedException ex) {
 						Thread.currentThread().interrupt();
 					}
-					System.out.println("trigger");
 					pPrincipal.removeAll();
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();

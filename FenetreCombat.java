@@ -27,7 +27,6 @@ public class FenetreCombat implements ActionListener{
         pokedex=variablesSession.pokedex;
         perso = pokedex.get(0);  // On récupère notre personnage
         numCase=numeroCase;  // numéro donnant des infos sur le type de combat
-        System.out.println("numero case"+numCase);
         x=100;
         y=135; // coordonnées des icons des personnages
         x1=420;
@@ -166,7 +165,6 @@ public class FenetreCombat implements ActionListener{
        
         jFramePrincipal.setVisible(true);   // On affiche la fenetre
         debutCombat();        // On crée un adversaire
-		System.out.println("Fenetre combat");
 	}
 	 
 	public void debutCombat(){  // Méthode qui crée un adversaire à chaque début de combat
@@ -224,8 +222,7 @@ public class FenetreCombat implements ActionListener{
         }
         
 		//ATTAQUE
-        if (e.getSource()==attaque && !freeze){
-            System.out.println("Attaque");  // En cliquant sur attaque, on affiche les boutons pour choisir quelle attaque on veut réaliser
+        if (e.getSource()==attaque && !freeze){// En cliquant sur attaque, on affiche les boutons pour choisir quelle attaque on veut réaliser
             pPrincipal.remove(pBas);
 			pPrincipal.add(pAttaque);
 			pPrincipal.revalidate();
