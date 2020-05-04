@@ -118,7 +118,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.musique="Musiques/bourg palette.wav";
 						break;
 						}
-					case 104:{//sortie tune voisin
+					case 104:{//sortie turne voisin
 						this.tableauCarte=laFeyssine;
 						this.xDepart=18;
 						this.yDepart=19;
@@ -134,6 +134,8 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=24;
 						this.imageFond="Images/Route1-Travees/travees1.png";
 						this.nomCarte="Les trav\u00e9es 1";
+						this.musique="Musiques/route10.wav";
+
 						break;
 						}
 					case 201:{//Entrée dans La feyssine par le haut à gauche travee1--> feyssine
@@ -151,7 +153,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=23;
 						this.imageFond="Images/Route1-Travees/travees2.png";
 						this.nomCarte="Les trav\u00e9es 2";
-						this.musique="Musiques/bourg palette.wav";
+						this.musique="Musiques/route10.wav";
 						break;
 						}
 					case 301:{//passage travée2-> travée1
@@ -160,7 +162,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=2;
 						this.imageFond="Images/Route1-Travees/travees1.png";
 						this.nomCarte="Les trav\u00e9es 1";
-						this.musique="Musiques/bourg palette.wav";
+						this.musique="Musiques/route10.wav";
 						break;
 						}
 					case 302:{//passage travée2-> PC
@@ -169,6 +171,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=23;
 						this.imageFond="Images/miniville1PC/PC.png";
 						this.nomCarte="Ville PC";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 					case 401:{//PC-> travee2
@@ -177,6 +180,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=2;
 						this.imageFond="Images/Route1-Travees/travees2.png";
 						this.nomCarte="Les trav\u00e9es 2";
+						this.musique="Musiques/route10.wav";
 						break;
 						}
 					case 402:{//PC-> maison1 à gauche  
@@ -185,6 +189,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=16;
 						this.imageFond="Images/miniville1PC/mPC1.png";
 						this.nomCarte="Turne de la directrice du PC";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 					case 403:{//maison1 à gauche -> PC
@@ -193,6 +198,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=16;
 						this.imageFond="Images/miniville1PC/PC.png";
 						this.nomCarte="Ville PC";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 					case 404:{//PC-> maison2 en bas
@@ -201,6 +207,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=16;
 						this.imageFond="Images/miniville1PC/mPC2.png";
 						this.nomCarte="Turne de Picsou";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 					case 405:{//maison2 à gauche -> PC  
@@ -209,6 +216,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=20;
 						this.imageFond="Images/miniville1PC/PC.png";
 						this.nomCarte="Ville PC";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 					case 406:{//PC-> maison3 à DROITE 
@@ -217,6 +225,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=17;
 						this.imageFond="Images/miniville1PC/mPC3.png";
 						this.nomCarte="Turne des \u00e9tudiants INSA";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 					case 407:{//maison3-> PC  
@@ -225,6 +234,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=20;
 						this.imageFond="Images/miniville1PC/PC.png";
 						this.nomCarte="Ville PC";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 					case 408:{//PC-> batRdc
@@ -233,6 +243,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=17;
 						this.imageFond="Images/miniville1PC/PCrdcIm.png";
 						this.nomCarte="Immeuble - RDC";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 					case 409:{//batRdc-> PC
@@ -241,6 +252,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=6;
 						this.imageFond="Images/miniville1PC/PC.png";
 						this.nomCarte="Ville PC";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 					case 410:{//batRdc-> 1ER etage
@@ -249,6 +261,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=8;
 						this.imageFond="Images/miniville1PC/PCetage1Im.png";
 						this.nomCarte="Immeuble - 1\u00e8re \u00e9tage";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 				   case 411:{//1ER etage-> batRdc
@@ -257,6 +270,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=7;
 						this.imageFond="Images/miniville1PC/PCrdcIm.png";
 						this.nomCarte="Immeuble - RDC";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 				  case 412:{//PC-> Arene
@@ -265,6 +279,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=20;
 						this.imageFond="Images/miniville1PC/arene1.png";
 						this.nomCarte="Ar\u00e8ne PC";
+						this.musique="Musiques/arene.wav";
 						break;
 						}
 				 case 413:{//Arene-> PC
@@ -273,6 +288,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=10;
 						this.imageFond="Images/miniville1PC/PC.png";
 						this.nomCarte="Ville PC";
+						this.musique="Musiques/route24.wav";
 						
 						break;
 						}
@@ -282,6 +298,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=24;
 						this.imageFond="Images/Route2-Humas/humas1.png";
 						this.nomCarte="Humas 1";
+						this.musique="Musiques/humas.wav";
 						break;
 						}
 				case 501:{//Humas1-> PC
@@ -290,6 +307,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=2;
 						this.imageFond="Images/miniville1PC/PC.png";
 						this.nomCarte="Ville PC";
+						this.musique="Musiques/route24.wav";
 						break;
 						}
 				case 502:{//Humas1->Humas2
@@ -298,6 +316,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=23;
 						this.imageFond="Images/Route2-Humas/humas2.png";
 						this.nomCarte="Humas 2";
+						this.musique="Musiques/humas.wav";
 						break;
 						}
 				case 601:{//Humas2->Humas1
@@ -306,6 +325,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=2;
 						this.imageFond="Images/Route2-Humas/humas1.png";
 						this.nomCarte="Humas 1";
+						this.musique="Musiques/humas.wav";
 						break;
 						}
 				case 602:{//Humas2->TeteOr
@@ -314,6 +334,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=23;
 						this.imageFond="Images/Ville1-TO/TO.png";
 						this.nomCarte="La T\u00eate d'Or";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 				case 701:{//TeteOr->Humas2
@@ -322,6 +343,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=1;
 						this.imageFond="Images/Route2-Humas/humas2.png";
 						this.nomCarte="Humas 2";
+						this.musique="Musiques/humas.wav";
 						
 						break;
 						}
@@ -331,6 +353,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=17;
 						this.imageFond="Images/Ville1-TO/mTO1.png";
 						this.nomCarte="Maison des architectes";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 				case 703:{//M1TO->TeteOr
@@ -339,6 +362,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=20;
 						this.imageFond="Images/Ville1-TO/TO.png";
 						this.nomCarte="La T\u00eate d'Or";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 				case 704:{//TeteOr->M2TO
@@ -347,6 +371,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=16;
 						this.imageFond="Images/Ville1-TO/mTO2.png";
 						this.nomCarte="Maison de Fr\u00e9d\u00e9ric";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 				case 705:{//M2TO->TeteOr
@@ -355,6 +380,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=14;
 						this.imageFond="Images/Ville1-TO/TO.png";
 						this.nomCarte="La T\u00eate d'Or";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 				case 706:{//TeteOr->Immeuble
@@ -363,6 +389,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=17;
 						this.imageFond="Images/Ville1-TO/imTO1.png";
 						this.nomCarte="Immeuble de la T\u00eate d'Or - RDC";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 				case 707:{//ImmeubleTO->TeteOr
@@ -371,6 +398,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=6;
 						this.imageFond="Images/Ville1-TO/TO.png";
 						this.nomCarte="La T\u00eate d'Or";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 				case 708:{//ImmeubleTO->EtageTO
@@ -379,6 +407,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=8;
 						this.imageFond="Images/Ville1-TO/imTO2.png";
 						this.nomCarte="Immeuble - 1\u00e8re \u00e9tage";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 				case 709:{//EtageTO->ImmeubleTO
@@ -387,6 +416,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=7;
 						this.imageFond="Images/Ville1-TO/imTO1.png";
 						this.nomCarte="Immeuble de la T\u00eate d'Or - RDC";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 				case 710:{//TeteOr->areneTO
@@ -395,6 +425,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=20;
 						this.imageFond="Images/miniville1PC/arene1.png";
 						this.nomCarte="Ar\u00e8ne de la T\u00eate d'Or - RDC";
+						this.musique="Musiques/arene.wav";
 						break;
 						}
 				case 711:{//areneTO->TeteOr
@@ -403,6 +434,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 						this.yDepart=6;
 						this.imageFond="Images/Ville1-TO/TO.png";
 						this.nomCarte="La T\u00eate d'Or - RDC";
+						this.musique="Musiques/bienvenue.wav";
 						break;
 						}
 					  default:
