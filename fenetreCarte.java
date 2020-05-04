@@ -344,8 +344,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					actionDeLaCase(xDepart,yDepart, false);
 				}
 			} else {
-				t1.stop();
 				System.out.println("test3");
+				t1.stop();
 			}
 
 			if ((a < nbreDeplacement) && (stopDeplacement == false)) {

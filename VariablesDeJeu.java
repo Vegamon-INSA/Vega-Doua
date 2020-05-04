@@ -439,13 +439,13 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 1:{//Dialogue numéro 01 : la mère
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
-							String tableau []= {"<html> Maman : Salut mon ch&eacute;ri, bien dormi ?<br> Avant que tu partes voici quelques conseils :</html>","<html> Je sauvegarde automatiquement ta partie ! <br>Tu peux accc&eacute;der au menu en appuyant sur la touche &rsquo;m&rsquo; de ton clavier.</html>","<html>Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; !<br>Si tu passes &agrave; c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","",""};
+							String tableau []= {"<html> Maman : Salut mon ch&eacute;ri, bien dormi ? Avant que tu partes voici quelques conseils :</html>","<html> Je sauvegarde automatiquement ta partie ! Tu peux accc&eacute;der au menu en appuyant sur la touche &rsquo;m&rsquo; de ton clavier.</html>","<html>Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; !Si tu passes &agrave; c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","",""};
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=10;
 							this.texteAAfficher=tableau;
 							break;
 						}			 
 						case 10:{//Jamais discuté -ouverture
-							String tableau []= {"<html>Maman : Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; !<br>Si tu passes &agrave;c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.<br>N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","","",""};
+							String tableau []= {"<html>Maman : Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; !Si tu passes &agrave;c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","","",""};
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
@@ -472,7 +472,7 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 6:{//Dialogue num&eacute;ro 03- Professeur Vega
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>V&eacute;ga : Oh je t&rsquo;attendais avec impatience, je t&rsquo;observe depuis quelques temps <br>et je pense que tu es la personne id&eacute;ale pour recevoir ce V&eacute;gamon.</html>","<html>Il s&rsquo;appelle M&eacute;loche, je suis s&ucirc;r qu&rsquo;avec lui<br> tu pourras faire de grandes choses et pourquoi pas devenir le meilleur dresseur de cette ville !</html>","<html>Va voir Flora devant ma turne, elle te donnera quelques conseils !</html>","fin_message","","",""};							
+							String tableau []={"<html>V&eacute;ga : Oh je t&rsquo;attendais avec impatience, je t&rsquo;observe depuis quelques temps et je pense que tu es la personne id&eacute;ale pour recevoir ce V&eacute;gamon.</html>","<html>Il s&rsquo;appelle M&eacute;loche, je suis s&ucirc;r qu&rsquo;avec lui tu pourras faire de grandes choses et pourquoi pas devenir le meilleur dresseur de cette ville !</html>","<html>Va voir Flora devant ma turne, elle te donnera quelques conseils !</html>","fin_message","","",""};							
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.listeInterractionsAvecDresseurs[4]=0;
 							System.out.println(this.listeInterractionsAvecDresseurs[3]);
@@ -493,13 +493,13 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 5:{//Dialogue num&eacute;ro 03 - Jeanne
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Jeanne : Tu connais V&eacute;ronique ? C&rsquo;est la championne de l&rsquo;ar&egrave;ne, au nord de la ville,<br> il para&icirc;t qu&rsquo;elle n&rsquo;a jamais perdu un seul combat !</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Jeanne : Tu connais V&eacute;ronique ? C&rsquo;est la championne de l&rsquo;ar&egrave;ne, au nord de la ville, il para&icirc;t qu&rsquo;elle n&rsquo;a jamais perdu un seul combat !</html>","fin_message","","","","",""};							
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []= {"<html>Jeanne : Tu devrais tenter ta chance &agrave; l&rsquo;ar&egrave;ne, <br>tu pourrais peut-&ecirc;tre devenir le nouveau champion ! </html>","<html>Mais attention il faudra bien entra&icirc;ner ton v&eacute;gamon !</html>","fin_message","","","",""};
+							String tableau []= {"<html>Jeanne : Tu devrais tenter ta chance &agrave; l&rsquo;ar&egrave;ne, tu pourrais peut-&ecirc;tre devenir le nouveau champion ! </html>","<html>Mais attention il faudra bien entra&icirc;ner ton v&eacute;gamon !</html>","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -520,7 +520,7 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 								this.texteAAfficher=tableau;
 							}
 							else {
-								String tableau []={"<html>Flora : Hey ! V&eacute;ga m&rsquo;a charg&eacute; de te donner des conseils.<br>Le M&eacute;loche que tu viens de recevoir est faible, il faudra que tu l&rsquo;entra&icirc;nes pour qu&rsquo;il gagne de l&rsquo;XP.</html>", "<html>Au nord, il y a les trav&eacute;es, un lieu peu entretenu avec des tr&egrave;fles au sol.<br>C&rsquo;est l&agrave; que se cachent les V&eacute;gamon, des cr&eacute;atures comme ton M&eacute;loche.</html>","<html>Certains pourront d&eacute;cider de t&rsquo;attaquer &agrave; tout moment.<br>Si tu gagnes le combat, tu gagneras de l&rsquo;XP, rendant M&eacute;loche plus fort,</html>", "<html>si tu perds, Meloche sera KO et tu devras te reposer dans <br>ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
+								String tableau []={"<html>Flora : Hey ! V&eacute;ga m&rsquo;a charg&eacute; de te donner des conseils.Le M&eacute;loche que tu viens de recevoir est faible, il faudra que tu l&rsquo;entra&icirc;nes pour qu&rsquo;il gagne de l&rsquo;XP.</html>", "<html>Au nord, il y a les trav&eacute;es, un lieu peu entretenu avec des tr&egrave;fles au sol.C&rsquo;est l&agrave; que se cachent les V&eacute;gamon, des cr&eacute;atures comme ton M&eacute;loche.</html>","<html>Certains pourront d&eacute;cider de t&rsquo;attaquer &agrave; tout moment.Si tu gagnes le combat, tu gagneras de l&rsquo;XP, rendant M&eacute;loche plus fort,</html>", "<html>si tu perds, Meloche sera KO et tu devras te reposer dans ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
 								this.listeInterractionsAvecDresseurs[numeroDresseur]=2;
 								this.texteAAfficher=tableau;
 							}
@@ -529,7 +529,7 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
 							
 							if(this.listeInterractionsAvecDresseurs[6]==1){//si on a deja parlé avec le prof vega
-								String tableau []={"<html>Flora : Hey ! V&eacute;ga m&rsquo;a charg&eacute; de te donner des conseils.<br>M&eacute;loche est faible, il faudra que tu l&rsquo;entra&icirc;nes pour qu&rsquo;il gagne de l&rsquo;XP.</html>", "<html>Au nord, il y a les trav&eacute;es, un lieu peu entretenu avec des tr&egrave;fles au sol.<br>C&rsquo;est l&agrave; que se cachent les V&eacute;gamon, des cr&eacute;atures comme ton M&eacute;loche.</html>","<html>Certains pourront d&eacute;cider de t&rsquo;attaquer &agrave; tout moment.<br>Si tu gagnes le combat, tu gagneras de l&rsquo;XP, rendant M&eacute;loche plus fort,</html>", "<html>si tu perds, Meloche sera KO et tu devras te reposer dans <br>ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
+								String tableau []={"<html>Flora : Hey ! V&eacute;ga m&rsquo;a charg&eacute; de te donner des conseils.M&eacute;loche est faible, il faudra que tu l&rsquo;entra&icirc;nes pour qu&rsquo;il gagne de l&rsquo;XP.</html>", "<html>Au nord, il y a les trav&eacute;es, un lieu peu entretenu avec des tr&egrave;fles au sol.C&rsquo;est l&agrave; que se cachent les V&eacute;gamon, des cr&eacute;atures comme ton M&eacute;loche.</html>","<html>Certains pourront d&eacute;cider de t&rsquo;attaquer &agrave; tout moment.Si tu gagnes le combat, tu gagneras de l&rsquo;XP, rendant M&eacute;loche plus fort,</html>", "<html>si tu perds, Meloche sera KO et tu devras te reposer dans ta turne et recommencer toute la route !</html>","Allez bonne chance !","fin_message",""};			
 								this.listeInterractionsAvecDresseurs[numeroDresseur]=2;
 								this.texteAAfficher=tableau;
 							}
@@ -552,13 +552,13 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 3:{//Dialogue num&eacute;ro 03 - Alexis
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture 
-							String tableau []={"<html>Alexis : Hey, les points d&rsquo;XP pour un vegamon, <br>c&rsquo;est important, c&rsquo;est m&ecirc;me LA cl&eacute; pour devenir hyper bal&egrave;ze.</html>","<html> Si tu bats un vegamon puissant, tu gagnes beaucoup <br>de points d&rsquo;XP et ton M&eacute;loche gagne en puissance. </html>","<html>En revanche, plus ton vegamon est puissant, plus <br>il te faudra de temps pour le faire progresser encore.</html>","<html>Il faudra t&rsquo;armer de patience !</html>","fin_message","",""};							
+							String tableau []={"<html>Alexis : Hey, les points d&rsquo;XP pour un vegamon, c&rsquo;est important, c&rsquo;est m&ecirc;me LA cl&eacute; pour devenir hyper bal&egrave;ze.</html>","<html> Si tu bats un vegamon puissant, tu gagnes beaucoup de points d&rsquo;XP et ton M&eacute;loche gagne en puissance. </html>","<html>En revanche, plus ton vegamon est puissant, plus il te faudra de temps pour le faire progresser encore.</html>","<html>Il faudra t&rsquo;armer de patience !</html>","fin_message","",""};							
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []= {"<html>Alexis : Plus ton vegamon est puissant, plus <br>il te faudra de temps pour le faire progresser.</html>","<html>Il faudra t&rsquo;armer de patience !</html>","fin_message","","","",""};
+							String tableau []= {"<html>Alexis : Plus ton vegamon est puissant, plus il te faudra de temps pour le faire progresser.</html>","<html>Il faudra t&rsquo;armer de patience !</html>","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -572,20 +572,20 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
 							if(this.listeInterractionsAvecDresseurs[6]==1){
-								String tableau []={"<html>R&eacute;mi : Attention ! Il y a plein <br>de dresseurs tr&egrave;s puissants plus loin,</html>","<html>tu devras t&rsquo;entra&icirc;ner si tu veux tous les vaincre.<br>N&rsquo;oublie pas de bien choisir tes attaques, </html>","<html>les V&eacute;gamon de type eau n&rsquo;aiment pas <br>les attaques de type &eacute;lectrique ! </html>","fin_message","","",""};						
+								String tableau []={"<html>R&eacute;mi : Attention ! Il y a plein de dresseurs tr&egrave;s puissants plus loin,</html>","<html>tu devras t&rsquo;entra&icirc;ner si tu veux tous les vaincre.N&rsquo;oublie pas de bien choisir tes attaques, </html>","<html>les V&eacute;gamon de type eau n&rsquo;aiment pas les attaques de type &eacute;lectrique ! </html>","fin_message","","",""};						
 								this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 								this.texteAAfficher=tableau;
 								break;
 							}
 							else {
-								String tableau []={"<html>R&eacute;mi : Stop ! La ville o&ograve; tu vas est tr&egrave;s dangereuse.<br> Il y a des Vegamons sauvages dans les hautes herbes.</html>","<html>Tu n&rsquo;as pas encore r&eacute;cup&eacute;r&eacute; ton Vegamon aupr&egrave;s du professeur Vega ? </html>","<html>Vas donc le chercher.<br>Tu seras alors prot&eacute;g&eacute; et tu pourras aller dans la trav&eacute;e 1. </html>","fin_message","","",""};						
+								String tableau []={"<html>R&eacute;mi : Stop ! La ville o&ograve; tu vas est tr&egrave;s dangereuse. Il y a des Vegamons sauvages dans les hautes herbes.</html>","<html>Tu n&rsquo;as pas encore r&eacute;cup&eacute;r&eacute; ton Vegamon aupr&egrave;s du professeur Vega ? </html>","<html>Vas donc le chercher.Tu seras alors prot&eacute;g&eacute; et tu pourras aller dans la trav&eacute;e 1. </html>","fin_message","","",""};						
 								this.texteAAfficher=tableau;
 								break;
 							}
 						}
 			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []= {"<html>R&eacute;mi : Les V&eacute;gamon de type eau n&rsquo;aiment pas<br> les attaques de type &eacute;lectrique ! </html>","fin_message","","","","",""};
+							String tableau []= {"<html>R&eacute;mi : Les V&eacute;gamon de type eau n&rsquo;aiment pas les attaques de type &eacute;lectrique ! </html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -644,7 +644,7 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 8:{//Dialogue combat num&eacute;ro 0C -julie
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"<html>Julie: Je n&rsquo;aime pas trop me battre, mais je veux que mon <br>v&eacute;gamon devienne plus fort et plus beau, alors battons-nous !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Julie: Je n&rsquo;aime pas trop me battre, mais je veux que mon v&eacute;gamon devienne plus fort et plus beau, alors battons-nous !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -666,7 +666,7 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 9:{//Dialogue combat num&eacute;ro 0C - G&eacute;raldine 
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"<html>G&eacute;raldine  : La route jusqu&rsquo;&agrave; l&rsquo;ar&egrave;ne est <br>encore longue, montre-moi ce que tu vaux !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>G&eacute;raldine  : La route jusqu&rsquo;&agrave; l&rsquo;ar&egrave;ne est encore longue, montre-moi ce que tu vaux !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -778,13 +778,13 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 16:{//Dialogue Adrien
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Adrien : Tu auras besoin de force si tu veux aller &agrave; <br>l&rsquo;ar&egrave;ne, prends un p&rsquo;tit shot pour la route.</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Adrien : Tu auras besoin de force si tu veux aller &agrave; l&rsquo;ar&egrave;ne, prends un p&rsquo;tit shot pour la route.</html>","fin_message","","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>Adrien : Tu auras besoin de force si tu veux aller &agrave;<br>l&rsquo;ar&egrave;ne, prends un p&rsquo;tit shot pour la route.</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Adrien : Tu auras besoin de force si tu veux aller &agrave;l&rsquo;ar&egrave;ne, prends un p&rsquo;tit shot pour la route.</html>","fin_message","","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -817,13 +817,13 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 15:{//Dialogue num&eacute;ro picsou
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Picsou : « Euuhh pour affronter la championne euuh de l&rsquo;ar&egrave;ne<br> il faudra que tu battes euuhh quatre dresseurs &agrave; la suite. </html>","fin_message","","","","",""};							
+							String tableau []={"<html>Picsou : « Euuhh pour affronter la championne euuh de l&rsquo;ar&egrave;ne il faudra que tu battes euuhh quatre dresseurs &agrave; la suite. </html>","fin_message","","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>Picsou : « Euuhh pour affronter la championne euuh de l&rsquo;ar&egrave;ne<br> il faudra que tu battes euuhh quatre dresseurs &agrave; la suite. </html>","fin_message","","","","",""};							
+							String tableau []={"<html>Picsou : « Euuhh pour affronter la championne euuh de l&rsquo;ar&egrave;ne il faudra que tu battes euuhh quatre dresseurs &agrave; la suite. </html>","fin_message","","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -973,13 +973,13 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 25:{//Dialogue num&eacute;ro mr securitas
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>M.S&eacute;curitas : Bonjour dresseur, bienvenue &agrave; l&rsquo;ar&egrave;ne PC. <br> Si tu veux affronter V&eacute;ronique, </html>","<html> il faudra d&rsquo;abord que tu te d&eacute;barrasses <br> de ses 4 gardes du corps. </html>","<html>Ne les sous-estime pas ils sont <br>  tr&egrave;s puissants aussi !</html>","Bonne chance.","fin_message","",""};							
+							String tableau []={"<html>M.S&eacute;curitas : Bonjour dresseur, bienvenue &agrave; l&rsquo;ar&egrave;ne PC.  Si tu veux affronter V&eacute;ronique, </html>","<html> il faudra d&rsquo;abord que tu te d&eacute;barrasses  de ses 4 gardes du corps. </html>","<html>Ne les sous-estime pas ils sont   tr&egrave;s puissants aussi !</html>","Bonne chance.","fin_message","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>M.S&eacute;curitas : Bonjour dresseur, bienvenue &agrave; l&rsquo;ar&egrave;ne PC. <br> Si tu veux affronter V&eacute;ronique, </html>","<html> il faudra d&rsquo;abord que tu te d&eacute;barrasses <br> de ses 4 gardes du corps. </html>","<html>Ne les sous-estime pas ils sont <br>  tr&egrave;s puissants aussi !  </html>","Bonne chance.","fin_message","",""};							
+							String tableau []={"<html>M.S&eacute;curitas : Bonjour dresseur, bienvenue &agrave; l&rsquo;ar&egrave;ne PC.  Si tu veux affronter V&eacute;ronique, </html>","<html> il faudra d&rsquo;abord que tu te d&eacute;barrasses  de ses 4 gardes du corps. </html>","<html>Ne les sous-estime pas ils sont   tr&egrave;s puissants aussi !  </html>","Bonne chance.","fin_message","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -1036,7 +1036,7 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 22:{//Dialogue combat num&eacute;ro 0C - Garde 3
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"<html>Garde 3 : Pour affronter la championne,<br> il faut le m&eacute;riter !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 3 : Pour affronter la championne, il faut le m&eacute;riter !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -1058,7 +1058,7 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 21:{//Dialogue combat num&eacute;ro 0C - Garde 4
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"<html>Garde 4 : Tiens, &ccedil;a faisait longtemps que je n&rsquo;avais pas vu<br> un dresseur arriver jusqu&rsquo;&agrave; moi, battons-nous !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 4 : Tiens, &ccedil;a faisait longtemps que je n&rsquo;avais pas vu un dresseur arriver jusqu&rsquo;&agrave; moi, battons-nous !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -1080,17 +1080,17 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 20:{//Dialogue combat num&eacute;ro 0C - V&eacute;ronique
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"<html>V&eacute;ronique :  Alors comme &ccedil;a tu veux devenir champion <br>de l&rsquo;ar&egrave;ne PC ? En garde dresseur !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>V&eacute;ronique :  Alors comme &ccedil;a tu veux devenir champion de l&rsquo;ar&egrave;ne PC ? En garde dresseur !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>V&eacute;ronique :  Alors comme &ccedil;a tu veux devenir champion <br>de l&rsquo;ar&egrave;ne PC ? En garde dresseur !</html>","fin_message","","","","",""};
+							String tableau []= {"<html>V&eacute;ronique :  Alors comme &ccedil;a tu veux devenir champion de l&rsquo;ar&egrave;ne PC ? En garde dresseur !</html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"<html>V&eacute;ronique : J&rsquo;ai &eacute;t&eacute; battue ! Bravo ! <br>Tu es vraiment tr&egrave;s fort, je te d&eacute;clare</html>","<html>champion de l&rsquo;ar&egrave;ne PC ! <br>Si tu as encore soif d&rsquo;aventure, </html>","<html> une ar&egrave;ne encore plus puissante <br>t&rsquo;attend derri&egrave;re les humas. </html>","<html>Tu pourrais devenir le champion <br> incontest&eacute; de la Doua ! </html>","Bonne chance ! ","fin_message",""};
+							String tableau []= {"<html>V&eacute;ronique : J&rsquo;ai &eacute;t&eacute; battue ! Bravo ! Tu es vraiment tr&egrave;s fort, je te d&eacute;clare</html>","<html>champion de l&rsquo;ar&egrave;ne PC ! Si tu as encore soif d&rsquo;aventure, </html>","<html> une ar&egrave;ne encore plus puissante t&rsquo;attend derri&egrave;re les humas. </html>","<html>Tu pourrais devenir le champion  incontest&eacute; de la Doua ! </html>","Bonne chance ! ","fin_message",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
@@ -1398,13 +1398,13 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 42:{//Dialogue num&eacute;ro Gustave  
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discut&eacute; -ouverture
-							String tableau []={"<html>Gustave :  Pfiou, je suis &eacute;puis&eacute;, <br>je viens de planter le 3000i&egrave;me rosier</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Gustave :  Pfiou, je suis &eacute;puis&eacute;, je viens de planter le 3000i&egrave;me rosier</html>","fin_message","","","","",""};							
 							listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//D&eacute;ja discut&eacute; -premi&egrave;re interraction
-							String tableau []={"<html>Gustave :  Pfiou, je suis &eacute;puis&eacute;, <br>je viens de planter le 3000i&egrave;me rosier</html>","fin_message","","","","",""};							
+							String tableau []={"<html>Gustave :  Pfiou, je suis &eacute;puis&eacute;, je viens de planter le 3000i&egrave;me rosier</html>","fin_message","","","","",""};							
 							this.texteAAfficher=tableau;
 							break;
 						
@@ -1616,7 +1616,7 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 52:{//Dialogue combat num&eacute;ro 0C - Garde 3
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"<html>Garde 3 :  Rare sont ceux &agrave; s&rsquo;&ecirc;tre aventur&eacute;<br> aussi loin, en garde ! </html>","fin_message","","","","",""};
+							String tableau []= {"<html>Garde 3 :  Rare sont ceux &agrave; s&rsquo;&ecirc;tre aventur&eacute; aussi loin, en garde ! </html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -1638,7 +1638,7 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 51:{//Dialogue combat num&eacute;ro 0C - Katia
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"<html>Katia : Je suis le bras droit d&rsquo;Eric,<br>tu ne me vaincras pas si facilement ! </html>","fin_message","","","","",""};
+							String tableau []= {"<html>Katia : Je suis le bras droit d&rsquo;Eric,tu ne me vaincras pas si facilement ! </html>","fin_message","","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
@@ -1660,17 +1660,17 @@ public void dialogueAvecDresseur(int numeroDresseur) {
 				case 50:{//Dialogue combat num&eacute;ro 0C - Eric
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Combat pas fait
-							String tableau []= {"<html>Eric : Bonjour dresseur, je suis impressionn&eacute; que tu sois<br> parvenu jusqu&rsquo;ici, la route a d&ucirc; </html>","<html> &ecirc;tre longue, malheureusement <br>  pour toi elle s&rsquo;arr&ecirc;te maintenant ! </html>","fin_message","","","",""};
+							String tableau []= {"<html>Eric : Bonjour dresseur, je suis impressionn&eacute; que tu sois parvenu jusqu&rsquo;ici, la route a d&ucirc; </html>","<html> &ecirc;tre longue, malheureusement   pour toi elle s&rsquo;arr&ecirc;te maintenant ! </html>","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}			 						 
 						case 1:{//Combat perdu
-							String tableau []= {"<html>Eric : Bonjour dresseur, je suis impressionn&eacute; que tu sois<br> parvenu jusqu&rsquo;ici, la route a d&ucirc; </html>","<html> &ecirc;tre longue, malheureusement <br>  pour toi elle s&rsquo;arr&ecirc;te maintenant ! </html>","fin_message","","","",""};
+							String tableau []= {"<html>Eric : Bonjour dresseur, je suis impressionn&eacute; que tu sois parvenu jusqu&rsquo;ici, la route a d&ucirc; </html>","<html> &ecirc;tre longue, malheureusement   pour toi elle s&rsquo;arr&ecirc;te maintenant ! </html>","fin_message","","","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
 						case 2:{//Combat gagn&eacute;
-							String tableau []= {"<html>Eric : Bon et bien bravo… <br>Tu es le meilleur dresseur de la Doua,</html>","</html> le ma&icirc;tre du jeu. <br> Je te laisse la place, </html>","<html>, il est grand temps que je me retire <br> et que je prenne une retraite bien m&eacute;rit&eacute;e. </html>","Adieu.","fin_message","",""};
+							String tableau []= {"<html>Eric : Bon et bien bravo… Tu es le meilleur dresseur de la Doua,</html>","</html> le ma&icirc;tre du jeu.  Je te laisse la place, </html>","<html>, il est grand temps que je me retire  et que je prenne une retraite bien m&eacute;rit&eacute;e. </html>","Adieu.","fin_message","",""};
 							this.texteAAfficher=tableau;
 							break;
 						}
