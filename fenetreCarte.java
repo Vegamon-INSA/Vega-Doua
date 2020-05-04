@@ -48,7 +48,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		sauvegardeJeu = sauvegarde;
 		
 		musiqueDeJeu=new Musiques();
-		musiqueDeJeu.jouerMusiqueJouerEnBoucle(variablesSession.musique);
+		musiqueDeJeu.jouerMusiqueJouerEnBoucle(variablesSession.musique,variablesSession);
 		pPrincipal = new JPanel();// Jpanel principal qui couvre toutela surface de la fenetre
 		pPrincipal.setBounds(0, 0, 815, 845);
 		pPrincipal.setLayout(null);
@@ -317,9 +317,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	}
 
 	public void actionPerformed(ActionEvent u) {
-
+		
 		if (u.getSource() == t1) {// Timer délpacement personnage
-
 			System.out.println("a="+a);
 			xDepart = tableauCheminTrie[a][0] / tailleCellule;
 			yDepart = tableauCheminTrie[a][1] / tailleCellule;
@@ -344,8 +343,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					actionDeLaCase(xDepart,yDepart, false);
 				}
 			} else {
-				t1.stop();
 				System.out.println("test3");
+				t1.stop();
 			}
 
 			if ((a < nbreDeplacement) && (stopDeplacement == false)) {
@@ -384,11 +383,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 	public void keyPressed(KeyEvent arg0) {
 		if (arg0.getKeyCode() == 77) {// retour au menu
+			musiqueDeJeu.stopMusique(variablesSession);
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 			stopDeplacement = true;
+			variablesSession.xDepart = xDepart;
+			variablesSession.yDepart = yDepart;
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
@@ -406,7 +408,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
-					musiqueDeJeu.stopMusique();
+					musiqueDeJeu.stopMusique(variablesSession);
 					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, numeroDialogue);
 				}
 				if (numeroDialogue==1) {
@@ -503,7 +505,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (tableauCarte[y][x] - 4000);
 					variablesSession.nouvelleCarte(valeurTableau);
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.stopMusique();
+					musiqueDeJeu.stopMusique(variablesSession);
 					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				} else if ((yArrivee == 0) && (xArrivee == x)) {
 					try {
@@ -519,7 +521,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (tableauCarte[y][x] - 4000);
 					variablesSession.nouvelleCarte(valeurTableau);
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.stopMusique();
+					musiqueDeJeu.stopMusique(variablesSession);
 					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				}
 				break;
@@ -537,7 +539,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.stopMusique();
+					musiqueDeJeu.stopMusique(variablesSession);
 					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, 500);
 				}
 				break;
