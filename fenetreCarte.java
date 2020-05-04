@@ -48,7 +48,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		sauvegardeJeu = sauvegarde;
 		
 		musiqueDeJeu=new Musiques();
-		musiqueDeJeu.jouerMusiqueJouerEnBoucle(variablesSession.musique);
+		musiqueDeJeu.jouerMusiqueJouerEnBoucle(variablesSession.musique,variablesSession);
 		pPrincipal = new JPanel();// Jpanel principal qui couvre toutela surface de la fenetre
 		pPrincipal.setBounds(0, 0, 815, 845);
 		pPrincipal.setLayout(null);
@@ -406,7 +406,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
-					musiqueDeJeu.stopMusique();
+					musiqueDeJeu.stopMusique(variablesSession);
 					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, numeroDialogue);
 				}
 				if (numeroDialogue==1) {
@@ -503,7 +503,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (tableauCarte[y][x] - 4000);
 					variablesSession.nouvelleCarte(valeurTableau);
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.stopMusique();
+					musiqueDeJeu.stopMusique(variablesSession);
 					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				} else if ((yArrivee == 0) && (xArrivee == x)) {
 					try {
@@ -519,7 +519,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (tableauCarte[y][x] - 4000);
 					variablesSession.nouvelleCarte(valeurTableau);
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.stopMusique();
+					musiqueDeJeu.stopMusique(variablesSession);
 					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				}
 				break;
@@ -537,7 +537,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.stopMusique();
+					musiqueDeJeu.stopMusique(variablesSession);
 					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, 500);
 				}
 				break;
