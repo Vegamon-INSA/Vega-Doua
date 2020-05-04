@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Accueil implements ActionListener{
-	private JButton jouer,resetPartie,scenario,pokedex;
+	private JButton jouer,resetPartie,scenario,pokedex, desacSon;
 	private JLabel imageFond;
 	private JPanel pPrincipal;
 	private CJframe jFramePrincipal;
@@ -16,7 +16,7 @@ public class Accueil implements ActionListener{
 		sauvegardeJeu = sauvegarde;
 		variablesSession = variables;
 
-		musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav");
+		musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav",variablesSession);
 
 		pPrincipal = new JPanel();
 		pPrincipal.setBounds(0, 0, 815, 845);
@@ -50,6 +50,13 @@ public class Accueil implements ActionListener{
 		scenario.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
 		pPrincipal.add(scenario);
 		scenario.addActionListener(this);
+		
+		desacSon = new JButton("Desac musique");
+		desacSon.setBounds(300, 570, 200, 70);
+		desacSon.setBackground(Color.blue);
+		desacSon.setFont(new java.awt.Font(Font.SERIF, Font.BOLD, 25));
+		pPrincipal.add(desacSon);
+		desacSon.addActionListener(this);
 
 		imageFond = new JLabel(new ImageIcon("Images/fond.png"));
 		imageFond.setBounds(0, 0, 800, 820);
@@ -63,13 +70,20 @@ public class Accueil implements ActionListener{
 		CJframe jFramePrincipal = new CJframe();
 		VariablesDeJeu variablesSession = new VariablesDeJeu();
 		Sauvegarde sauvegardeJeu = new Sauvegarde();
+		if (sauvegardeJeu.sauvegardeExiste()) {
+			variablesSession = sauvegardeJeu.restaurerSauvegarde();
+		} else {
+			variablesSession.nouvelleCarte(000);
+		}
+		variablesSession.sondesac=1;
+		sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 		new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == jouer) {
-			musiqueDeJeu.stopMusique();
+			musiqueDeJeu.stopMusique(variablesSession);
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.validate();
@@ -81,6 +95,7 @@ public class Accueil implements ActionListener{
 				variablesSession.nouvelleCarte(000);
 				sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			}
+			musiqueDeJeu.stopMusique(variablesSession);
 			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
 		}
@@ -92,8 +107,8 @@ public class Accueil implements ActionListener{
 			variablesSession = new VariablesDeJeu();
 			variablesSession.nouvelleCarte(000);
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
+			musiqueDeJeu.stopMusique(variablesSession);
 			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
-			musiqueDeJeu.stopMusique();
 
 		}
 		if (e.getSource()==scenario){
@@ -114,9 +129,23 @@ public class Accueil implements ActionListener{
 			}
 			else {
 				variablesSession.nouvelleCarte(000);
-				sauvegardeJeu.nouvelleSauvegarde(variablesSession);
+				//sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			}
 			new FenetrePokedex(jFramePrincipal, variablesSession, sauvegardeJeu);
+		}
+
+		if (e.getSource()==desacSon){
+			if (variablesSession.sondesac==0){
+				desacSon.setText("Desac musique");
+				variablesSession.sondesac=1;
+				musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav",variablesSession);
+			}
+			else if (variablesSession.sondesac==1){
+				musiqueDeJeu.stopMusique(variablesSession);
+				desacSon.setText("Activer musique");
+				variablesSession.sondesac=0;
+			}
+			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 		}
 	}
 }
