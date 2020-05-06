@@ -466,13 +466,13 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				case 1:{//Dialogue numéro 01 : la mère
 					switch(this.listeInterractionsAvecDresseurs[numeroDresseur]) {
 						case 0:{//Jamais discuté -ouverture
-							String tableau []= {"<html> Maman : Salut mon ch&eacute;ri, bien dormi ? Avant que tu partes voici quelques conseils :</html>","<html> Je sauvegarde automatiquement ta partie ! Tu peux accc&eacute;der au menu en appuyant sur la touche &rsquo;m&rsquo; de ton clavier.</html>","<html>Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; ! Si tu passes &agrave; c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler. N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","",""};
+							String tableau []= {"<html> Maman : Salut mon ch&eacute;ri, bien dormi ? Avant que tu partes voici quelques conseils :</html>","<html> Je sauvegarde automatiquement ta partie ! Tu peux accc&eacute;der au menu en appuyant sur la touche &rsquo;m&rsquo; de ton clavier.</html>","<html>Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; ! Si tu passes &agrave; c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique dessus pour int&eacute;ragir avec lui. N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","",""};
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=10;
 							this.texteAAfficher=tableau;
 							break;
 						}			 
 						case 10:{//Jamais discuté -ouverture
-							String tableau []= {"<html>Maman : Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; !Si tu passes &agrave;c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique sur un personnage pour lui parler.N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","","",""};
+							String tableau []= {"<html>Maman : Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; !Si tu passes &agrave;c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique dessus pour int&eacute;ragir avec lui.N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","","",""};
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
