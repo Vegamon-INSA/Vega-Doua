@@ -358,12 +358,12 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
 			stopDeplacement = true;
-			variablesSession.xDepart = xDepart;
-			variablesSession.yDepart = yDepart;
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
 		if (arg0.getKeyCode() == 10) {// texte suivant
+			variablesSession.xDepart = xDepart;
+			variablesSession.yDepart = yDepart;
 			if (affichertexte) {
 				numeroLigneTexte += 1;
 			}
@@ -372,8 +372,12 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			} else if (variablesSession.texteAAfficher[numeroLigneTexte] == "fin_message") {
 				affichertexte = false;
 				cacherBoiteTexte();
-				if (((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3')
-						&& ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
+				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3'));
+				System.out.println(((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));
+				System.out.println( (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1));
+				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));
+
+				if (((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
