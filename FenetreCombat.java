@@ -177,15 +177,15 @@ public class FenetreCombat implements ActionListener{
 			exp=1+(int)(3*Math.random());                    // En fonction de la carte
 		}else if (variablesSession.numeroCarte==202 || variablesSession.numeroCarte==401){   //travée2
 			exp=6+(int)(7*Math.random());
-        }else if (variablesSession.numeroCarte==414 || variablesSession.numeroCarte==601){   // huma1
-			exp=45+(int)(20*Math.random());
-        }else if (variablesSession.numeroCarte==502 || variablesSession.numeroCarte==701){   //huma2
-			exp=75+(int)(30*Math.random());
+        }else if (variablesSession.numeroCarte==414 || variablesSession.numeroCarte==601){   // humas1
+			exp=55+(int)(15*Math.random());
+        }else if (variablesSession.numeroCarte==502 || variablesSession.numeroCarte==701){   //humas2
+			exp=100+(int)(25*Math.random());
         }
         if (numCase/10==2){   // Ou différemment pour les dresseurs des arênes
-            exp = 45 - 4*(numCase%10);
+            exp = 70 - 5*(numCase%10);
         } else if (numCase/10==5){
-            exp = 150 - 8*(numCase%10);
+            exp = 300 - 10*(numCase%10);
         }
         
         int num = 1+((int)(5*Math.random()));
@@ -295,7 +295,7 @@ public class FenetreCombat implements ActionListener{
                 AuTourDuJoueur=false;          // On change d'attaquant
             }
             else{
-                if(advers.PV<=0){    // cas ou on a gagné le combat
+                if(advers.PV<=0){    // cas où on a gagné le combat
                     if (numCase!=500){   // si on a battu un dresseur, on mémorise cette information
                         variablesSession.listeInterractionsAvecDresseurs[numCase]=2;
 
@@ -314,7 +314,7 @@ public class FenetreCombat implements ActionListener{
                 } 
                 else {
                     esquive=advattaque();     // On lance l'attaque de l'adversaire
-                    if (finCombat()==true){   // Cas ou on a perdu
+                    if (finCombat()==true){   // Cas où on a perdu
                         if (numCase!=500){   // si on a perdu contre un dresseur, on mémorise cette information
 							variablesSession.listeInterractionsAvecDresseurs[numCase]=1;
                         }
