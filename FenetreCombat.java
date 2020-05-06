@@ -180,12 +180,12 @@ public class FenetreCombat implements ActionListener{
         }else if (variablesSession.numeroCarte==414 || variablesSession.numeroCarte==601){   // humas1
 			exp=55+(int)(15*Math.random());
         }else if (variablesSession.numeroCarte==502 || variablesSession.numeroCarte==701){   //humas2
-			exp=100+(int)(25*Math.random());
+			exp=125+(int)(25*Math.random());
         }
         if (numCase/10==2){   // Ou différemment pour les dresseurs des arênes
-            exp = 70 - 5*(numCase%10);
+            exp = 45 - 6*(numCase%10);
         } else if (numCase/10==5){
-            exp = 300 - 10*(numCase%10);
+            exp = 500 - 75*(numCase%10);
         }
         
         int num = 1+((int)(5*Math.random()));

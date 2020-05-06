@@ -444,11 +444,11 @@ public class VariablesDeJeu {//création de l'unique Jframe
 				int pv = (int)((Math.pow(xpMeloche, 0.31)*40)+Math.pow(xpMeloche, 1.21));
 				// String nom, double attaque, double esquive, int PVmax, int type, int XP, Attaques attaque1, Attaques attaque2, Attaques attaque3, Attaques attaque4)
 				VEGAMONS v1 = new VEGAMONS ("Meloche", 40, 50, 0.2, pv , 4, xpMeloche, attaque2, attaque1, attaque4, attaque3) ;
-				VEGAMONS v2 = new VEGAMONS ("Aigleau", 45, 40, 0.24, 30, 3, 1, attaque5, attaque8, attaque10, attaque4) ;
-				VEGAMONS v3 = new VEGAMONS ("Murenss", 42, 46, 0.25, 44, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
-				VEGAMONS v4 = new VEGAMONS ("Sunfure", 50, 42, 0.2, 38, 1, 1, attaque7, attaque2, attaque13, attaque15) ;
-				VEGAMONS v5 = new VEGAMONS ("Anemoniac", 47, 55, 0.16, 35, 3, 1, attaque8, attaque4, attaque5, attaque10) ;
-				VEGAMONS v6 = new VEGAMONS ("Pandalame", 52, 60, 0.10, 45, 2, 1, attaque9, attaque1, attaque14, attaque16) ;
+				VEGAMONS v2 = new VEGAMONS ("Aigleau", 43, 55, 0.24, 30, 3, 1, attaque5, attaque8, attaque10, attaque4) ;
+				VEGAMONS v3 = new VEGAMONS ("Murenss", 41, 52, 0.24, 44, 4, 1, attaque6, attaque11, attaque3, attaque12) ;
+				VEGAMONS v4 = new VEGAMONS ("Sunfure", 46, 49, 0.2, 38, 1, 1, attaque7, attaque2, attaque13, attaque15) ;
+				VEGAMONS v5 = new VEGAMONS ("Anemoniac", 42, 52, 0.16, 35, 3, 1, attaque8, attaque4, attaque5, attaque10) ;
+				VEGAMONS v6 = new VEGAMONS ("Pandalame", 41, 55, 0.10, 45, 2, 1, attaque9, attaque1, attaque14, attaque16) ;
 				 // Après avoir créé les 6 vegamons on les ajoute à la liste
 				listePokemons.add(v1);
 				listePokemons.add(v2);

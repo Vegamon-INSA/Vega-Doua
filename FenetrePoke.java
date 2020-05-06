@@ -16,11 +16,11 @@ public class FenetrePoke extends JFrame{
         } else if (i==1){
             poke = new JLabel(new ImageIcon("Images/Aigloss.png"));
         } else if (i==2){
-            poke = new JLabel(new ImageIcon("Images/Anemoniac.png"));
+            poke = new JLabel(new ImageIcon("Images/Murenss.png"));
         } else if (i==3){
             poke = new JLabel(new ImageIcon("Images/Sunfure.png"));
         } else if (i==4){
-            poke = new JLabel(new ImageIcon("Images/Murenss.png"));
+            poke = new JLabel(new ImageIcon("Images/Anemoniac.png"));
         } else if (i==5){
             poke = new JLabel(new ImageIcon("Images/Pandalame.png"));
         }

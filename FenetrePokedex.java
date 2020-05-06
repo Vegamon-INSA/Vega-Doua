@@ -74,7 +74,7 @@ public class FenetrePokedex implements ActionListener{
         
         anemoniac = new JLabel(new ImageIcon("Images/Anemoniac.png")); 
         anemoniac.setBounds(0,-5,100,100);
-        vegamon3.add(anemoniac);
+        vegamon5.add(anemoniac);
         
         sunfure = new JLabel(new ImageIcon("Images/Sunfure.png")); 
         sunfure.setBounds(0,-5,100,100);
@@ -82,7 +82,7 @@ public class FenetrePokedex implements ActionListener{
         
         murenss = new JLabel(new ImageIcon("Images/Murenss.png")); 
         murenss.setBounds(0,-5,100,100);
-        vegamon5.add(murenss);
+        vegamon3.add(murenss);
         
         pandalame = new JLabel(new ImageIcon("Images/Pandalame.png")); 
         pandalame.setBounds(0,-5,100,100);
