@@ -1,6 +1,6 @@
 
-// Java program to play an Audio 
-// file using Clip Object 
+// Programme pour gérer l'audio 
+// utilise un objet Clip 
 import java.io.File; 
 import java.io.IOException; 
   
@@ -14,16 +14,16 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class Musiques{
 
   
-    // to store current position 
+    // pour stocker la position actuelle
     private Long currentFrame; 
     private Clip clip; 
       
-    // current status of clip 
+    //Statut actuel du clip 
       
     private AudioInputStream audioInputStream; 
     static String filePath; 
   
-    // constructor to initialize streams and clip 
+    // constructeur pour initialiser le clip 
     public Musiques(String cheminFichier) throws IOException, LineUnavailableException, UnsupportedAudioFileException  
          
     { 
@@ -33,10 +33,10 @@ public class Musiques{
             
             audioInputStream = AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile()); 
             
-            // create clip reference 
+            // créé un clip de référence  
             clip = AudioSystem.getClip(); 
             
-            // open audioInputStream to the clip 
+            // ouvre audioInputStream dans le clip 
             clip.open(audioInputStream); 
                 clip.loop(Clip.LOOP_CONTINUOUSLY); 
             
@@ -54,35 +54,35 @@ public class Musiques{
     public void jouerAlerte() throws UnsupportedAudioFileException, 
     IOException, LineUnavailableException  
 { 
-                // create AudioInputStream object 
+                // créé un objet AudioInputStream  
             AudioInputStream audioInputStreamAlerte = AudioSystem.getAudioInputStream(new File("Musiques/erreur.wav").getAbsoluteFile()); 
             
-            // create clip reference 
+            // créé un clip de reference 
             Clip clipAlerte = AudioSystem.getClip(); 
             
-            // open audioInputStream to the clip 
+            // ouvre audioInputStream dans le clip 
             clipAlerte.open(audioInputStreamAlerte); 
             
             clipAlerte.start();
 
         }      
       
-        // Method to play the audio 
+        // Méthode pour jouer l'audio 
         public void play()  
         { 
-            //start the clip 
+            //début du clip 
             clip.start(); 
               
         } 
           
-        // Method to pause the audio 
+        // Méthode pour mettre sur pause l'audio 
         public void pause()  
         { 
             this.currentFrame = this.clip.getMicrosecondPosition(); 
             clip.stop(); 
         } 
           
-        // Method to resume the audio 
+        // Méthode pour reprendre l'audio 
         public void resumeAudio() throws UnsupportedAudioFileException, 
                                     IOException, LineUnavailableException  
         { 
@@ -92,7 +92,7 @@ public class Musiques{
             this.play(); 
         } 
           
-        // Method to restart the audio 
+        // Méthode pour recommencer l'audio 
         public void restart() throws IOException, LineUnavailableException, 
                                                 UnsupportedAudioFileException  
         { 
@@ -104,7 +104,7 @@ public class Musiques{
             this.play(); 
         } 
           
-        // Method to stop the audio 
+        // Méthode pour arrêter l'audio 
         public void stop() throws UnsupportedAudioFileException, 
         IOException, LineUnavailableException  
         { 
@@ -113,7 +113,7 @@ public class Musiques{
             clip.close(); 
         } 
           
-        // Method to jump over a specific part 
+        // Méthode pour sauter une partie spécifique 
         public void jump(long c) throws UnsupportedAudioFileException, IOException, 
                                                             LineUnavailableException  
         { 
@@ -128,7 +128,7 @@ public class Musiques{
             } 
         } 
           
-        // Method to reset audio stream 
+        // Méthode pour réinitilaliser le stream audio  
         public void resetAudioStream() throws UnsupportedAudioFileException, IOException, 
                                                 LineUnavailableException  
         { 
