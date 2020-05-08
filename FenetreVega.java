@@ -1,11 +1,11 @@
 import javax.swing.*;
 
-public class FenetrePoke extends JFrame{
+public class FenetreVega extends JFrame{
 
     private static final long serialVersionUID = 1L;
     private JLabel poke, nom, attaque, defense, esquive, type, attaques;
 
-	public FenetrePoke(int i, VariablesDeJeu variablesSession){
+	public FenetreVega(int i, VariablesDeJeu variablesSession){
 		this.setTitle(variablesSession.pokedex.get(i).nom);   // On crée une nouvelle petite fenetre
 		this.setSize(600,400);
 		this.setLocationRelativeTo(null);  // Pour placer la fenêtre au centre de l'écran

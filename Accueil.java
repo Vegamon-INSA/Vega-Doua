@@ -179,7 +179,7 @@ public class Accueil implements ActionListener{
 				System.out.println("musique intouvable");
 				e1.printStackTrace();
 			}
-			new FenetrePokedex(jFramePrincipal, variablesSession, sauvegardeJeu);
+			new FenetreVegadex(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
 		//activation ou desactivation de la musique
 		if (e.getSource()==desacSon){

@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class FenetrePokedex implements ActionListener{
+public class FenetreVegadex implements ActionListener{
     
     private JLabel meloche, aigloss, murenss, anemoniac, sunfure, pandalame, mel, aig, sun, ane, pan, mur, imageFond, lRetour;
     private JButton vegamon1, vegamon2, vegamon3, vegamon4, vegamon5, vegamon6, retour;
@@ -10,7 +10,7 @@ public class FenetrePokedex implements ActionListener{
 	private VariablesDeJeu variablesSession; 
 	private Sauvegarde sauvegardeJeu;
     
-	public FenetrePokedex( CJframe frame,VariablesDeJeu variables, Sauvegarde sauvegarde) {
+	public FenetreVegadex( CJframe frame,VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		
 		jFramePrincipal= frame;
 		variablesSession=variables;
@@ -127,17 +127,17 @@ public class FenetrePokedex implements ActionListener{
  
         // En cliquant sur un vegamon, on ouvre une petite fenetre qui donnera des informations supplémentaire sur ce vegamon
         if (e.getSource()==vegamon1){
-            new FenetrePoke(0, variablesSession);
+            new FenetreVega(0, variablesSession);
         } else if (e.getSource()==vegamon2){
-            new FenetrePoke(1, variablesSession);
+            new FenetreVega(1, variablesSession);
         } else if (e.getSource()==vegamon3){
-            new FenetrePoke(2, variablesSession);
+            new FenetreVega(2, variablesSession);
         } else if (e.getSource()==vegamon4){
-            new FenetrePoke(3, variablesSession);
+            new FenetreVega(3, variablesSession);
         } else if (e.getSource()==vegamon5){
-            new FenetrePoke(4, variablesSession);
+            new FenetreVega(4, variablesSession);
         } else if (e.getSource()==vegamon6){
-            new FenetrePoke(5, variablesSession);
+            new FenetreVega(5, variablesSession);
         } 
         else if (e.getSource()==retour){   
 			pPrincipal.removeAll();
