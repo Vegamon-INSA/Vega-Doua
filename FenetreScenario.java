@@ -26,30 +26,35 @@ public class FenetreScenario implements ActionListener{
 		pPrincipal.setLayout(null);
         jFramePrincipal.add(pPrincipal);
 		
+		//Bouton "comment jouer"
         bCommentJouer = new JButton("Comment jouer");
         bCommentJouer.setBounds(150, 290, 200, 90);
         pPrincipal.add(bCommentJouer);
         bCommentJouer.setLayout(null);
         bCommentJouer.addActionListener(this);
 
+		//Bouton "introduction"
         bIntro = new JButton("Introduction");
         bIntro.setBounds(450, 290, 200, 90);
         pPrincipal.add(bIntro);
         bIntro.setLayout(null);
         bIntro.addActionListener(this);	
         
+        //Bouton arène 1
         bArene1 = new JButton("Ar\u00e8ne 1");
         bArene1.setBounds(150, 420, 200, 90);
         pPrincipal.add(bArene1);
         bArene1.setLayout(null);
         bArene1.addActionListener(this);
-        	
+        
+        //Bouton Arène2
         bArene2 = new JButton("Ar\u00e8ne 2");
         bArene2.setBounds(450, 420, 200, 90);
         pPrincipal.add(bArene2);
         bArene2.setLayout(null);
         bArene2.addActionListener(this);
 		
+		// Bouton pour retourner à l'accueil
 		bRetourAccueil = new JButton("RETOUR");
         bRetourAccueil.setBounds(325, 600, 150, 70);
         pPrincipal.add(bRetourAccueil);
@@ -66,6 +71,7 @@ public class FenetreScenario implements ActionListener{
 		pPrincipal.add(imageFond);
 		jFramePrincipal.setVisible(true);
 		
+		// Les textes qui s'affichent en fonction des boutons
 		intro = new JTextArea ("Apr\u00e8s une paisible nuit, nous nous r\u00e9veillons dans notre jolie turne, c'est ici que commence notre incroyable aventure V\u00e9gamon.\nA notre r\u00e9veil, notre maman nous donne quelques consignes et nous sugg\u00e8re d'aller voir le professeur Vega dans la turne voisine. En sortant, le merveilleux parc de la Feyssine s'offre \u00e0 nous, l'air est frais, l'herbe est douce, le temps est parfait pour recevoir notre premier compagnon de voyage ! En effet, le professeur Vega, grand chercheur V\u00e9gamon nous propose de devenir dresseur V\u00e9gamon. Il voit en nous un \u00e9norme potentiel et nous d\u00e9finit comme LA future star de la ville. C'est pourquoi il nous fait don de notre premier V\u00e9gamon : M\u00e9loche. \nCe dernier est au niveau 1 et sera notre compagnon pour toute l'aventure, il faudra en prendre soin. Un autre habitant de la turne nous apprend qu'il y \u00e0 une ar\u00e8ne au nord de la ville derri\u00e8re les trav\u00e9es et que le meilleur dresseur s'y trouve. Il nous conseille de nous y rendre pour, pourquoi pas, devenir le nouveau champion de la ville. Mais attention, notre M\u00e9loche devra gagner beaucoup d'exp\u00e9riences si nous voulons entrer dans cette ar\u00e8ne. \nD'ailleurs juste \u00e0 c\u00f4t\u00e9 de la turne, Flora, une amie du professeur, nous donne quelques conseils pour bien comprendre comment faire progresser notre M\u00e9loche. Nous sommes d\u00e9sormais pr\u00eat pour l'aventure ! \nEn continuant notre route, nous pourrons faire la rencontre de R\u00e9mi, jeune dresseur lui aussi, qui nous avertit du danger que l'on encoure en poursuivant notre route. Brave, nous continuons sans h\u00e9siter et nous nous dirigeons vers les trav\u00e9es."); 
 		arene1 = new JTextArea ("Nous voil\u00e0 dans les trav\u00e9es, la premi\u00e8re map un peu dangereuse de l'aventure. Plusieurs dresseurs nous attendent avec la ferme intention d'en d\u00e9coudre. Pour tous les vaincre il peut etre utile d'entra\u00eener notre M\u00e9loche dans les tr\u00e8fles et lui faire gagner quelques points d exp\u00e9riences. \nBis repetita pour la map suivante : les trav\u00e9es 2, de plus f\u00e9roces dresseurs encore nous font face. Une fois tous ces V\u00e9gamons vaincus, nous nous retrouvons dans une agr\u00e9able petite ville appel\u00e9e PC (ou FIMI pour les plus t\u00e9m\u00e9raires). C'est dans cette ville que se trouve la fameuse ar\u00e8ne, la premi\u00e8re de notre aventure avec \u00e0 sa t\u00eate Veronique, dresseuse de longue date, dont la r\u00e9putation n'est plus \u00e0 faire. Avant de l'affronter nous pouvons nous balader dans les autres turnes et discuter avec ses habitants. Nous pourrons d\u00e9couvrir de chaleureux \u00e9tudiants trinquant \u00e0 leurs \u00e9checs du semestre, ou d'autres personnages un peu plus utiles lesquels nous donneront des conseils pour nous rendre dans l'ar\u00e8ne et vaincre V\u00e9ronique. \nD'ailleurs il est grand temps de s'y atteler ! En entrant dans l'ar\u00e8ne, M.S\u00e9curitas nous accueille, il nous avertit de la puissance des V\u00e9gamon que nous allons affronter et nous d\u00e9fend d'entrer si notre M\u00e9loche n'est pas suffisamment puissant. Bonne chance, il faudra vaincre les 4 dresseurs qui se trouvent sur le chemin avant, enfin, de pouvoir se mesurer \u00e0 V\u00e9ronique.");
 		arene2 = new JTextArea ("Bravo champion, si tu es arriv\u00e9 \u00e0 ce stade du sc\u00e9nario c'est que tu es d\u00e9j\u00e0 champion de l'ar\u00e8ne PC ! Mais comme tu as pu le comprendre, l'aventure ne s'arr\u00eate pas ici. Si tu veux devenir le dresseur le plus puissant de la Doua, il faut continuer ton chemin en direction des humas ! Tu y trouveras des dresseurs encore plus fort, et aussi une \u00e9trange statue. \n\nNous arrivons donc sur les humas1, une grande prairie luxuriante. Une \u00e9tendue qui donne comme une envie folle de faire la f\u00eate toute la nuit. Mais avant cela, 4 dresseurs s'opposent \u00e0 nous ! \nIl faudra les vaincre pour acc\u00e9der \u00e0 la map suivante : les humas2. De nouveau, 4 dresseurs sont pr\u00e9sents pour se battre, une fois vaincus, nous pouvons enfin aller dans la derni\u00e8re map du jeu. \n\nNous nous retrouvons alors \u00e0 la T\u00eate d'Or, la plus belle map du jeu, l'endroit parfait pour se balader et prendre du bon temps, mais surtout pour devenir le plus grand dresseur V\u00e9gamon de la Doua ! En effet, c'est ici que se trouve la derni\u00e8re ar\u00e8ne du jeu, avec les dresseurs et les V\u00e9gamons les plus puissants. Avant de nous y rendre, comme d'habitude, nous pouvons nous balader dans les diff\u00e9rentes turnes pour obtenir quelques informations ou juste pour se faire de nouveaux amis. \nBonne chance pour ces derniers combats qui, je l'esp\u00e8re, te donneront du fil \u00e0 retordre !"); 
