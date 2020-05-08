@@ -196,4 +196,3 @@ public class Accueil implements ActionListener{
 		}
 	}
 }
-//bien checker toutes les zones avec les tableaux de gianni
