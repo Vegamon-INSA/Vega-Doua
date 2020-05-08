@@ -134,25 +134,25 @@ public class FenetreCombat implements ActionListener{
         lTexteMonPokemon.setBackground(Color.white);
         pTexteMonPokemon.add(lTexteMonPokemon);
          
-        a1 = new JButton("feu :  "+perso.attaque1.nom);    // Les 4 boutons des 4 attaques possibles
+        a1 = new JButton("feu : "+perso.attaque1.nom);    // Les 4 boutons des 4 attaques possibles
         a1.setBounds(100, 50, 165, 50);
         a1.setBackground(new Color(240, 34, 51));
         a1.addActionListener(this);
         pAttaque.add(a1);
         
-        a2 = new JButton("plante :  "+perso.attaque2.nom);
+        a2 = new JButton("plante : "+perso.attaque2.nom);
         a2.setBounds(335, 50, 165, 50);
         a2.setBackground(new Color(135, 211, 0));
         a2.addActionListener(this); 
         pAttaque.add(a2);
         
-        a3 = new JButton("eau :  "+perso.attaque3.nom);
+        a3 = new JButton("eau : "+perso.attaque3.nom);
         a3.setBounds(100, 125, 165, 50);
         a3.setBackground(new Color (0, 196, 220));
         a3.addActionListener(this);
         pAttaque.add(a3);
         
-        a4 = new JButton("elec :  "+perso.attaque4.nom);
+        a4 = new JButton("elec : "+perso.attaque4.nom);
         a4.setBounds(335, 125, 165, 50);
         a4.setBackground(new Color (250, 230, 0));
         a4.addActionListener(this);
@@ -249,7 +249,7 @@ public class FenetreCombat implements ActionListener{
                 lDialogue.setText(perso.nom+" attaque avec "+perso.attaque1.nom+" !");
                 graphAttak(true);
             }else if (esquive==true && finCombat()==false){
-               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque1.nom+" !    "+advers.nom+" esquive !");
+               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque1.nom+" ! "+advers.nom+" esquive !");
             }                                    // On affiche l'attaque choisie et les graphismes d'attaque, ou alors on indique l'esquive
             t = new Timer(1500, this);
 			t.start();    // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
@@ -262,7 +262,7 @@ public class FenetreCombat implements ActionListener{
                 lDialogue.setText(perso.nom+" attaque avec "+perso.attaque2.nom+" !");
                 graphAttak(true);
             }else if (esquive==true && finCombat()==false){
-               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque2.nom+" !	  "+advers.nom+" esquive !");
+               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque2.nom+" ! "+advers.nom+" esquive !");
             }                                    // On affiche l'attaque choisie et les graphismes d'attaque, ou alors on indique l'esquive
             t = new Timer(1500, this);
 			t.start();  // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
@@ -275,7 +275,7 @@ public class FenetreCombat implements ActionListener{
                 lDialogue.setText(perso.nom+" attaque avec "+perso.attaque3.nom+" !"); 
                 graphAttak(true);
             }else if (esquive==true && finCombat()==false){
-               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque3.nom+" !	   "+advers.nom+" esquive !");
+               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque3.nom+" ! "+advers.nom+" esquive !");
             }                                     // On affiche l'attaque choisie et les graphismes d'attaque, ou alors on indique l'esquive
             t = new Timer(1500, this);
 			t.start();    // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
@@ -288,7 +288,7 @@ public class FenetreCombat implements ActionListener{
                 lDialogue.setText(perso.nom+" attaque avec "+perso.attaque4.nom+" !");
                 graphAttak(true);
             }else if (esquive==true && finCombat()==false){
-               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque4.nom+" !  	"+advers.nom+" esquive !");
+               lDialogue.setText(perso.nom+" attaque avec "+perso.attaque4.nom+" ! "+advers.nom+" esquive !");
             }                                 // On affiche l'attaque choisie et les graphismes d'attaque, ou alors on indique l'esquive
             t = new Timer(2500, this);
 			t.start();     // Timer qui va lancer l'attaque de l'adversaire avant de revenir sur la notre
@@ -343,7 +343,7 @@ public class FenetreCombat implements ActionListener{
                         graphAttak(false);      // Graphismes
                         AuTourDuJoueur=true;     // On change d'attaquant
                     }else{
-                        lDialogue.setText(advers.nom+" attaque avec "+advAtt()+" !  	"+perso.nom+" esquive !");  // Et si on esquive
+                        lDialogue.setText(advers.nom+" attaque avec "+advAtt()+" ! "+perso.nom+" esquive !");  // Et si on esquive
                         AuTourDuJoueur=true;    // On change d'attaquant
                     }
                 }
@@ -444,7 +444,7 @@ public class FenetreCombat implements ActionListener{
         jFramePrincipal.repaint();
         
         if (finCombat()==true){
-            lDialogue.setText("Vous venez de lui mettre le coup de grace !");
+            lDialogue.setText("Vous venez de lui mettre le coup de gr\u00e2ce !");
             graphAttak(true);   // Message et affichage spécial si on a gagné le combat
         }
         return esquive;   // On renvoie si l'attaque a été esquivée ou non
