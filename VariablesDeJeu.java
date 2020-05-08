@@ -472,7 +472,7 @@ public class VariablesDeJeu {//création de l'unique Jframe
 							break;
 						}			 
 						case 10:{//Jamais discuté -ouverture
-							String tableau []= {"<html>Maman : Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; !Si tu passes &agrave; c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique dessus pour int&eacute;ragir avec lui.N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","","",""};
+							String tableau []= {"<html>Maman : Clique sur l&rsquo;&eacute;cran pour te d&eacute;placer vers l&rsquo;endroit que tu as d&eacute;sign&eacute; ! Si tu passes &agrave; c&ocirc;t&eacute; d&rsquo;un personnage pour la premi&egrave;re fois, il viendra te parler.","<html>Sinon, clique dessus pour int&eacute;ragir avec lui.N&rsquo;oublies pas d&rsquo;aller voir le Professeur V&eacute;ga dans la maison d&rsquo;&agrave;  cot&eacute;, il m&rsquo;a dit qu&rsquo;il te cherchait !</html>","fin_message","","","",""};
 							this.listeInterractionsAvecDresseurs[numeroDresseur]=1;
 							this.texteAAfficher=tableau;
 							break;
