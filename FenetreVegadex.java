@@ -21,7 +21,7 @@ public class FenetreVegadex implements ActionListener{
 		pPrincipal.setLayout(null);
         jFramePrincipal.add(pPrincipal);
 		
-        vegamon1 = new JButton();            // Les 6 boutons pok i correspondent aux différents vegamons
+        vegamon1 = new JButton();            // Les 6 boutons vegamon i correspondent aux différents vegamons
         vegamon1.setBounds(175, 250, 200, 90);
         vegamon1.setLayout(null);
         vegamon1.addActionListener(this);

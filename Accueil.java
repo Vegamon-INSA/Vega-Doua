@@ -125,7 +125,7 @@ public class Accueil implements ActionListener{
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
 				e1.printStackTrace();
 			}			
-			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
+			new FenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
 		}//reset la partie
 		if (e.getSource() == resetPartie) {
@@ -142,7 +142,7 @@ public class Accueil implements ActionListener{
 			variablesSession.nouvelleCarte(000);
 			variablesSession.sondesac=sonDesactive;
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
+			new FenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
 		}//lecture du scenario
 		if (e.getSource()==scenario){

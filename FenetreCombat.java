@@ -385,7 +385,7 @@ public class FenetreCombat implements ActionListener{
                 }           
             } catch (UnsupportedAudioFileException | IOException | LineUnavailableException h) {
                 h.printStackTrace();
-            }            new fenetreCarte(jFramePrincipal,variablesSession,sauvegardeJeu);
+            }            new FenetreCarte(jFramePrincipal,variablesSession,sauvegardeJeu);
             freeze=false;
             t2.stop();
 		}

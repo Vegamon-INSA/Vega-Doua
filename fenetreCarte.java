@@ -10,7 +10,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
-public class fenetreCarte implements ActionListener, MouseListener, KeyListener {
+public class FenetreCarte implements ActionListener, MouseListener, KeyListener {
 	private JPanel pPrincipal, pBoiteTexte, pNomCarte;
 	private JLabel JLabelPersonnage, JLabelCarte, lBoiteTexte, gif ,lNomCarte; 
 	private CJframe jFramePrincipal; //Jframe principal avec image de fond
@@ -45,7 +45,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	private boolean recherche = true;//Bloque ou pas l'algorithme de recherche de chemin
 	private Algorithme algoDeplacement = new Algorithme();
 	
-	public fenetreCarte(CJframe Frame, VariablesDeJeu variables, Sauvegarde sauvegarde) {
+	public FenetreCarte(CJframe Frame, VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		jFramePrincipal = Frame;
 		variablesSession = variables;
 		sauvegardeJeu = sauvegarde;
@@ -492,7 +492,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 						}					
 					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e4) {
 						e4.printStackTrace();
-					}					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
+					}	
+					new FenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				} else if ((yArrivee == 0) && (xArrivee == x)) {
 					try {
 						Thread.sleep(300);
@@ -513,7 +514,8 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 						}					
 					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e5) {
 						e5.printStackTrace();
-					}					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
+					}
+					new FenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				}
 				break;
 			}
