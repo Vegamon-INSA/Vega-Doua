@@ -24,10 +24,12 @@ public class Musiques{
     static String filePath; 
   
     // constructor to initialize streams and clip 
-    public Musiques(String filePath) throws IOException, LineUnavailableException, UnsupportedAudioFileException  
+    public Musiques(String cheminFichier) throws IOException, LineUnavailableException, UnsupportedAudioFileException  
          
     { 
-        try{
+        filePath=cheminFichier;
+        try
+        {
             
             audioInputStream = AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile()); 
             
@@ -38,7 +40,7 @@ public class Musiques{
             clip.open(audioInputStream); 
                 clip.loop(Clip.LOOP_CONTINUOUSLY); 
             
-        
+            
         
         }
         catch (Exception ex)  
@@ -49,7 +51,9 @@ public class Musiques{
           } 
     } 
 
-    public void jouerAlerte() throws UnsupportedAudioFileException, IOException, LineUnavailableException  { 
+    public void jouerAlerte() throws UnsupportedAudioFileException, 
+    IOException, LineUnavailableException  
+{ 
                 // create AudioInputStream object 
             AudioInputStream audioInputStreamAlerte = AudioSystem.getAudioInputStream(new File("Musiques/erreur.wav").getAbsoluteFile()); 
             
@@ -88,7 +92,17 @@ public class Musiques{
             this.play(); 
         } 
           
-        
+        // Method to restart the audio 
+        public void restart() throws IOException, LineUnavailableException, 
+                                                UnsupportedAudioFileException  
+        { 
+            clip.stop(); 
+            clip.close(); 
+            resetAudioStream(); 
+            currentFrame = 0L; 
+            clip.setMicrosecondPosition(0); 
+            this.play(); 
+        } 
           
         // Method to stop the audio 
         public void stop() throws UnsupportedAudioFileException, 
@@ -99,7 +113,20 @@ public class Musiques{
             clip.close(); 
         } 
           
-       
+        // Method to jump over a specific part 
+        public void jump(long c) throws UnsupportedAudioFileException, IOException, 
+                                                            LineUnavailableException  
+        { 
+            if (c > 0 && c < clip.getMicrosecondLength())  
+            { 
+                clip.stop(); 
+                clip.close(); 
+                resetAudioStream(); 
+                currentFrame = c; 
+                clip.setMicrosecondPosition(c); 
+                this.play(); 
+            } 
+        } 
           
         // Method to reset audio stream 
         public void resetAudioStream() throws UnsupportedAudioFileException, IOException, 

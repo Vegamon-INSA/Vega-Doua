@@ -12,7 +12,7 @@ public class Accueil implements ActionListener{
 	private CJframe jFramePrincipal;
 	private VariablesDeJeu variablesSession;
 	private Sauvegarde sauvegardeJeu;
-	private Musiques musiqueDeJeu;
+	private Musiques musiqueAccueil;
 
 	public Accueil(CJframe frame, VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		jFramePrincipal = frame;
@@ -21,9 +21,9 @@ public class Accueil implements ActionListener{
 
 		//Musique de fond
 		try {
-			musiqueDeJeu = new Musiques("Musiques/route1.wav");
+			musiqueAccueil = new Musiques("Musiques/route1.wav");
 			if (variablesSession.sondesac==0){
-                musiqueDeJeu.pause();
+                musiqueAccueil.pause();
             }
 
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e10) {
@@ -122,7 +122,7 @@ public class Accueil implements ActionListener{
 				sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			}
 			try {
-				musiqueDeJeu.stop();	
+				musiqueAccueil.stop();	
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
 				System.out.println("musique intouvable");
 				e1.printStackTrace();
@@ -131,7 +131,7 @@ public class Accueil implements ActionListener{
 		}//reset la partie
 		if (e.getSource() == resetPartie) {
 			try {
-				musiqueDeJeu.stop();	
+				musiqueAccueil.stop();	
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e2) {
 				System.out.println("musique intouvable");
 				e2.printStackTrace();
@@ -174,7 +174,7 @@ public class Accueil implements ActionListener{
 				desacSon.setText("Musique OFF");
 				variablesSession.sondesac=1;
 				try {
-					musiqueDeJeu.resumeAudio();					
+					musiqueAccueil.resumeAudio();					
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException h) {
 					System.out.println("musique intouvable");
 					h.printStackTrace();
@@ -182,7 +182,7 @@ public class Accueil implements ActionListener{
 			}
 			else if (variablesSession.sondesac==1){
 				desacSon.setText("Musique ON");
-				musiqueDeJeu.pause();			
+				musiqueAccueil.pause();			
 				variablesSession.sondesac=0;
 			}
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
