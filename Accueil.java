@@ -27,7 +27,6 @@ public class Accueil implements ActionListener{
             }
 
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e10) {
-			System.out.println("musique intouvable");
 			e10.printStackTrace();
 		}
 
@@ -124,7 +123,6 @@ public class Accueil implements ActionListener{
 			try {
 				musiqueAccueil.stop();	
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
-				System.out.println("musique intouvable");
 				e1.printStackTrace();
 			}			
 			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
@@ -134,7 +132,6 @@ public class Accueil implements ActionListener{
 			try {
 				musiqueAccueil.stop();	
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e2) {
-				System.out.println("musique intouvable");
 				e2.printStackTrace();
 			}			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
@@ -157,7 +154,6 @@ public class Accueil implements ActionListener{
 			try {
 				musiqueAccueil.stop();	
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
-				System.out.println("musique intouvable");
 				e1.printStackTrace();
 			}
 		}
@@ -176,7 +172,6 @@ public class Accueil implements ActionListener{
 			try {
 				musiqueAccueil.stop();	
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
-				System.out.println("musique intouvable");
 				e1.printStackTrace();
 			}
 			new FenetreVegadex(jFramePrincipal, variablesSession, sauvegardeJeu);
@@ -189,7 +184,6 @@ public class Accueil implements ActionListener{
 				try {
 					musiqueAccueil.resumeAudio();					
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException h) {
-					System.out.println("musique intouvable");
 					h.printStackTrace();
 				}
 			}

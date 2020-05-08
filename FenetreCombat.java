@@ -41,7 +41,6 @@ public class FenetreCombat implements ActionListener{
             }
 
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-			System.out.println("musique intouvable");
 			e.printStackTrace();
 		}
 
@@ -385,7 +384,6 @@ public class FenetreCombat implements ActionListener{
                     musiqueDeJeu.stop();	
                 }           
             } catch (UnsupportedAudioFileException | IOException | LineUnavailableException h) {
-                System.out.println("musique intouvable");
                 h.printStackTrace();
             }            new fenetreCarte(jFramePrincipal,variablesSession,sauvegardeJeu);
             freeze=false;

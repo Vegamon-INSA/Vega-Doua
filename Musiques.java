@@ -45,7 +45,6 @@ public class Musiques{
         }
         catch (Exception ex)  
         { 
-            System.out.println("Error with playing sound."); 
             ex.printStackTrace(); 
           
           } 

@@ -57,7 +57,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
             }
 
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
-			System.out.println("musique intouvable");
 			e1.printStackTrace();
 		}
 		
@@ -180,7 +179,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			try {
 				musiqueDeJeu.jouerAlerte();
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e7) {
-				System.out.println("musique intouvable");
 				e7.printStackTrace();
 			}
 		}
@@ -374,7 +372,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					musiqueDeJeu.stop();	
 				}					
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e3) {
-				System.out.println("musique intouvable");
 				e3.printStackTrace();
 			}		
 			pPrincipal.removeAll();
@@ -396,10 +393,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			} else if (variablesSession.texteAAfficher[numeroLigneTexte] == "fin_message") {
 				affichertexte = false;
 				cacherBoiteTexte();
-				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3'));
-				System.out.println(((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));
-				System.out.println( (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1));
-				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));
 				if (((String.valueOf(tableauCarte[variablesSession.yDepart][variablesSession.xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();
@@ -409,7 +402,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 							musiqueDeJeu.stop();	
 						}					
 					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e3) {
-						System.out.println("musique intouvable");
 						e3.printStackTrace();
 					}					
 					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, numeroDialogue);
@@ -466,7 +458,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (numeroDialogue > 300) {
 					numeroDialogue = (numeroDialogue - 300);
 				}
-				System.out.println("yolo"+tableauCarte[y][x]);
 				if (((tableauCarte[yArriveeFinal][xArriveeFinal] == 3) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
 
 					stopDeplacement = true;
@@ -500,7 +491,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 							musiqueDeJeu.stop();	
 						}					
 					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e4) {
-						System.out.println("musique intouvable");
 						e4.printStackTrace();
 					}					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				} else if ((yArrivee == 0) && (xArrivee == x)) {
@@ -522,7 +512,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 							musiqueDeJeu.stop();	
 						}					
 					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e5) {
-						System.out.println("musique intouvable");
 						e5.printStackTrace();
 					}					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				}
@@ -546,7 +535,6 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 							musiqueDeJeu.stop();	
 						}					
 					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e6) {
-						System.out.println("musique intouvable");
 						e6.printStackTrace();
 					}					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, 500);
 				}
