@@ -396,11 +396,11 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			} else if (variablesSession.texteAAfficher[numeroLigneTexte] == "fin_message") {
 				affichertexte = false;
 				cacherBoiteTexte();
-				/*System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3'));
+				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3'));
 				System.out.println(((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));
 				System.out.println( (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1));
-				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));*/
-				if (((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
+				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));
+				if (((String.valueOf(tableauCarte[variablesSession.yDepart][variablesSession.xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();

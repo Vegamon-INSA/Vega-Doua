@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="fenetreCarte" project="VEGA DOUA" file="/VEGA DOUA/fenetreCarte.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1219" y="1605"/>    
+    <position height="1073" width="302" x="1456" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="FenetreCombat" project="VEGA DOUA" file="/VEGA DOUA/FenetreCombat.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1699" y="1556"/>    
+    <position height="929" width="334" x="404" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="FenetrePoke" project="VEGA DOUA" file="/VEGA DOUA/FenetrePoke.java" binary="false" 
     corner="BOTTOM_LEFT">    
-    <position height="-1" width="-1" x="195" y="1493"/>    
+    <position height="245" width="212" x="129" y="1150"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="FenetrePokedex" project="VEGA DOUA" file="/VEGA DOUA/FenetrePokedex.java" 
     binary="false" corner="BOTTOM_LEFT">    
-    <position height="-1" width="-1" x="502" y="1317"/>    
+    <position height="533" width="323" x="41" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="FenetreScenario" project="VEGA DOUA" file="/VEGA DOUA/FenetreScenario.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-144" y="1265"/>    
+    <position height="425" width="324" x="778" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="Sauvegarde" project="VEGA DOUA" file="/VEGA DOUA/Sauvegarde.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1372" y="832"/>    
+    <position height="137" width="253" x="783" y="1150"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="VEGAMONS" project="VEGA DOUA" file="/VEGA DOUA/VEGAMONS.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="679" y="3550"/>    
+    <position height="227" width="504" x="383" y="1903"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="Accueil" project="VEGA DOUA" file="/VEGA DOUA/Accueil.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="857" y="994"/>    
+    <position height="263" width="274" x="1142" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="Attaques" project="VEGA DOUA" file="/VEGA DOUA/Attaques.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1144" y="3511"/>    
+    <position height="119" width="129" x="1034" y="2170"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="CJframe" project="VEGA DOUA" file="/VEGA DOUA/CJframe.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="953" y="602"/>    
+    <position height="101" width="145" x="598" y="1150"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="Musiques" project="VEGA DOUA" file="/VEGA DOUA/Musiques.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="849" y="1564"/>    
+    <position height="227" width="332" x="1372" y="1150"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="VariablesDeJeu" project="VEGA DOUA" file="/VEGA DOUA/VariablesDeJeu.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1533" y="2717"/>    
+    <position height="713" width="256" x="1076" y="1150"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -118,7 +118,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="16">    
-    <bendpoint x="1131" y="3399"/>    
+    <bendpoint x="1022" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="17" name="attaque8"/>      
       <multiplicity id="18" minimum="0" maximum="1"/>    
@@ -131,8 +131,7 @@
     <end type="TARGET" refId="7"/>  
   </dependency>  
   <association id="20">    
-    <bendpoint x="1824" y="3760"/>    
-    <bendpoint x="796" y="3738"/>    
+    <bendpoint x="434" y="1150"/>    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="21" name="pokedex"/>      
       <multiplicity id="22" minimum="0" maximum="2147483647"/>    
@@ -141,6 +140,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <dependency id="23">    
+    <bendpoint x="352" y="1903"/>    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="9"/>  
   </dependency>  
@@ -161,7 +161,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="30">    
-    <bendpoint x="1068" y="3399"/>    
+    <bendpoint x="959" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="31" name="attaque11"/>      
       <multiplicity id="32" minimum="0" maximum="1"/>    
@@ -170,11 +170,12 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <dependency id="33">    
+    <bendpoint x="371" y="1150"/>    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="7"/>  
   </dependency>  
   <association id="34">    
-    <bendpoint x="1278" y="3399"/>    
+    <bendpoint x="1169" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="35" name="attaque14"/>      
       <multiplicity id="36" minimum="0" maximum="1"/>    
@@ -191,7 +192,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="40">    
-    <bendpoint x="1152" y="3399"/>    
+    <bendpoint x="1043" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="41" name="attaque6"/>      
       <multiplicity id="42" minimum="0" maximum="1"/>    
@@ -200,7 +201,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="43">    
-    <bendpoint x="1194" y="3399"/>    
+    <bendpoint x="1085" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="44" name="attaque15"/>      
       <multiplicity id="45" minimum="0" maximum="1"/>    
@@ -217,7 +218,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="49">    
-    <bendpoint x="1236" y="3399"/>    
+    <bendpoint x="1127" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="50" name="attaque1"/>      
       <multiplicity id="51" minimum="0" maximum="1"/>    
@@ -226,8 +227,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="52">    
-    <bendpoint x="2056" y="3706"/>    
-    <bendpoint x="898" y="3716"/>    
+    <bendpoint x="392" y="1150"/>    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="53" name="perso"/>      
       <multiplicity id="54" minimum="0" maximum="1"/>    
@@ -236,7 +236,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="55">    
-    <bendpoint x="1257" y="3399"/>    
+    <bendpoint x="1148" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="56" name="attaque12"/>      
       <multiplicity id="57" minimum="0" maximum="1"/>    
@@ -277,7 +277,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="70">    
-    <bendpoint x="1173" y="3399"/>    
+    <bendpoint x="1064" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="71" name="attaque16"/>      
       <multiplicity id="72" minimum="0" maximum="1"/>    
@@ -290,7 +290,7 @@
     <end type="TARGET" refId="3"/>  
   </dependency>  
   <association id="74">    
-    <bendpoint x="1320" y="3399"/>    
+    <bendpoint x="1211" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="75" name="attaque5"/>      
       <multiplicity id="76" minimum="0" maximum="1"/>    
@@ -299,7 +299,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="77">    
-    <bendpoint x="1026" y="3399"/>    
+    <bendpoint x="917" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="78" name="attaque13"/>      
       <multiplicity id="79" minimum="0" maximum="1"/>    
@@ -308,7 +308,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="80">    
-    <bendpoint x="1299" y="3399"/>    
+    <bendpoint x="1190" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="81" name="attaque3"/>      
       <multiplicity id="82" minimum="0" maximum="1"/>    
@@ -325,8 +325,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="86">    
-    <bendpoint x="1932" y="3826"/>    
-    <bendpoint x="680" y="3782"/>    
+    <bendpoint x="413" y="1150"/>    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="87" name="advers"/>      
       <multiplicity id="88" minimum="0" maximum="1"/>    
@@ -335,7 +334,6 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="89">    
-    <bendpoint x="1148" y="850"/>    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="90" name="jFramePrincipal"/>      
       <multiplicity id="91" minimum="0" maximum="1"/>    
@@ -344,7 +342,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="92">    
-    <bendpoint x="1089" y="3399"/>    
+    <bendpoint x="980" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="93" name="attaque4"/>      
       <multiplicity id="94" minimum="0" maximum="1"/>    
@@ -353,7 +351,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="95">    
-    <bendpoint x="1047" y="3399"/>    
+    <bendpoint x="938" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="96" name="attaque2"/>      
       <multiplicity id="97" minimum="0" maximum="1"/>    
@@ -362,7 +360,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="98">    
-    <bendpoint x="1110" y="3399"/>    
+    <bendpoint x="1001" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="99" name="attaque9"/>      
       <multiplicity id="100" minimum="0" maximum="1"/>    
@@ -387,7 +385,6 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="107">    
-    <bendpoint x="1632" y="690"/>    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="108" name="jFramePrincipal"/>      
       <multiplicity id="109" minimum="0" maximum="1"/>    
@@ -396,7 +393,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="110">    
-    <bendpoint x="1341" y="3399"/>    
+    <bendpoint x="1232" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="111" name="attaque10"/>      
       <multiplicity id="112" minimum="0" maximum="1"/>    
@@ -413,7 +410,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="116">    
-    <bendpoint x="1215" y="3399"/>    
+    <bendpoint x="1106" y="1903"/>    
     <end type="SOURCE" refId="12" navigable="false">      
       <attribute id="117" name="attaque7"/>      
       <multiplicity id="118" minimum="0" maximum="1"/>    
@@ -422,7 +419,6 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="119">    
-    <bendpoint x="78" y="722"/>    
     <end type="SOURCE" refId="5" navigable="false">      
       <attribute id="120" name="jFramePrincipal"/>      
       <multiplicity id="121" minimum="0" maximum="1"/>    
@@ -431,7 +427,6 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="122">    
-    <bendpoint x="622" y="836"/>    
     <end type="SOURCE" refId="4" navigable="false">      
       <attribute id="123" name="jFramePrincipal"/>      
       <multiplicity id="124" minimum="0" maximum="1"/>    

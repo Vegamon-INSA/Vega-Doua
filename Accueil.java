@@ -126,7 +126,8 @@ public class Accueil implements ActionListener{
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
 				System.out.println("musique intouvable");
 				e1.printStackTrace();
-			}			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
+			}			
+			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
 		}//reset la partie
 		if (e.getSource() == resetPartie) {
@@ -153,6 +154,12 @@ public class Accueil implements ActionListener{
 			jFramePrincipal.validate();
 			jFramePrincipal.repaint();
 			new FenetreScenario(jFramePrincipal, variablesSession, sauvegardeJeu);
+			try {
+				musiqueAccueil.stop();	
+			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+				System.out.println("musique intouvable");
+				e1.printStackTrace();
+			}
 		}
 		//Lecture du vegadex
 		if (e.getSource()==pokedex){
@@ -165,6 +172,12 @@ public class Accueil implements ActionListener{
 			}
 			else {
 				variablesSession.nouvelleCarte(000);
+			}
+			try {
+				musiqueAccueil.stop();	
+			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+				System.out.println("musique intouvable");
+				e1.printStackTrace();
 			}
 			new FenetrePokedex(jFramePrincipal, variablesSession, sauvegardeJeu);
 		}
