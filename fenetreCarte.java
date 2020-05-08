@@ -6,6 +6,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 
 public class fenetreCarte implements ActionListener, MouseListener, KeyListener {
 	private JPanel pPrincipal, pBoiteTexte, pNomCarte;
@@ -46,9 +49,18 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		jFramePrincipal = Frame;
 		variablesSession = variables;
 		sauvegardeJeu = sauvegarde;
+
+		try {
+			musiqueDeJeu = new Musiques(variablesSession.musique);
+			if (variablesSession.sondesac==0){
+                musiqueDeJeu.pause();
+            }
+
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+			System.out.println("musique intouvable");
+			e1.printStackTrace();
+		}
 		
-		musiqueDeJeu=new Musiques();
-		musiqueDeJeu.jouerMusiqueJouerEnBoucle(variablesSession.musique,variablesSession);
 		pPrincipal = new JPanel();// Jpanel principal qui couvre toutela surface de la fenetre
 		pPrincipal.setBounds(0, 0, 815, 845);
 		pPrincipal.setLayout(null);
@@ -165,7 +177,12 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			} // catch les exceptions
 		}
 		else {
-			musiqueDeJeu.jouerAlerte();
+			try {
+				musiqueDeJeu.jouerAlerte();
+			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e7) {
+				System.out.println("musique intouvable");
+				e7.printStackTrace();
+			}
 		}
 	}
 
@@ -352,7 +369,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 
 	public void keyPressed(KeyEvent arg0) {
 		if (arg0.getKeyCode() == 77) {// retour au menu
-			musiqueDeJeu.stopMusique(variablesSession);
+			try {
+				if (variablesSession.sondesac==1){
+					musiqueDeJeu.stop();	
+				}					
+			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e3) {
+				System.out.println("musique intouvable");
+				e3.printStackTrace();
+			}		
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.revalidate();
@@ -372,16 +396,22 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			} else if (variablesSession.texteAAfficher[numeroLigneTexte] == "fin_message") {
 				affichertexte = false;
 				cacherBoiteTexte();
-				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3'));
+				/*System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3'));
 				System.out.println(((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));
 				System.out.println( (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1));
-				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));
-
+				System.out.println(((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1)));*/
 				if (((String.valueOf(tableauCarte[yDepart][xDepart]).charAt(0)) == '3') && ((variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 1))) {
 					jFramePrincipal.remove(pPrincipal);
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
-					musiqueDeJeu.stopMusique(variablesSession);
+					try {
+						if (variablesSession.sondesac==1){
+							musiqueDeJeu.stop();	
+						}					
+					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e3) {
+						System.out.println("musique intouvable");
+						e3.printStackTrace();
+					}					
 					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, numeroDialogue);
 				}
 				if (numeroDialogue==1) {
@@ -436,6 +466,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 				if (numeroDialogue > 300) {
 					numeroDialogue = (numeroDialogue - 300);
 				}
+				System.out.println("yolo"+tableauCarte[y][x]);
 				if (((tableauCarte[yArriveeFinal][xArriveeFinal] == 3) && ((Math.abs(y - yArriveeFinal) < 2) && (Math.abs(x - xArriveeFinal) < 2))) || (variablesSession.listeInterractionsAvecDresseurs[numeroDialogue] == 0) || (spawn == true)) {
 
 					stopDeplacement = true;
@@ -464,8 +495,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (tableauCarte[y][x] - 4000);
 					variablesSession.nouvelleCarte(valeurTableau);
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.stopMusique(variablesSession);
-					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
+					try {
+						if (variablesSession.sondesac==1){
+							musiqueDeJeu.stop();	
+						}					
+					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e4) {
+						System.out.println("musique intouvable");
+						e4.printStackTrace();
+					}					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				} else if ((yArrivee == 0) && (xArrivee == x)) {
 					try {
 						Thread.sleep(300);
@@ -480,8 +517,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					int valeurTableau = (tableauCarte[y][x] - 4000);
 					variablesSession.nouvelleCarte(valeurTableau);
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.stopMusique(variablesSession);
-					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
+					try {
+						if (variablesSession.sondesac==1){
+							musiqueDeJeu.stop();	
+						}					
+					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e5) {
+						System.out.println("musique intouvable");
+						e5.printStackTrace();
+					}					new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 				}
 				break;
 			}
@@ -498,8 +541,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 					jFramePrincipal.revalidate();
 					jFramePrincipal.repaint();
 					sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-					musiqueDeJeu.stopMusique(variablesSession);
-					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, 500);
+					try {
+						if (variablesSession.sondesac==1){
+							musiqueDeJeu.stop();	
+						}					
+					} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e6) {
+						System.out.println("musique intouvable");
+						e6.printStackTrace();
+					}					new FenetreCombat(jFramePrincipal, variablesSession, sauvegardeJeu, 500);
 				}
 				break;
 			}

@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.event.*;
 import java.util.ArrayList;
-
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 public class FenetreCombat implements ActionListener{
 	 
     private JPanel pHaut,pBas,pDialogue,pTextePokemonAdv,pTexteMonPokemon,pAttaque,viePerso, vieAdv, pPrincipal;
@@ -16,7 +18,7 @@ public class FenetreCombat implements ActionListener{
 	private CJframe jFramePrincipal; //Jframe principal avec image de fond
 	private VariablesDeJeu variablesSession; //Variables de Jeu
 	private Sauvegarde sauvegardeJeu;
-    private Musiques musiqueDeJeu  = new Musiques();
+    private Musiques musiqueDeJeu;
    
     public FenetreCombat(CJframe Frame, VariablesDeJeu variables,Sauvegarde sauvegarde, int numeroCase){
 
@@ -31,7 +33,17 @@ public class FenetreCombat implements ActionListener{
         y=135; // coordonnées des icons des personnages
         x1=420;
         y1=30;
-        musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/combat.wav",variablesSession);
+        //Musique de fond
+		try {
+			musiqueDeJeu = new Musiques("Musiques/combat.wav");
+			if (variablesSession.sondesac==0){
+                musiqueDeJeu.pause();
+            }
+
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			System.out.println("musique intouvable");
+			e.printStackTrace();
+		}
 
         perso.XP=variablesSession.xpMeloche;
         perso.PVmax= (int)((Math.pow(perso.XP, 0.31)*40)+Math.pow(perso.XP, 1.21));
@@ -368,8 +380,14 @@ public class FenetreCombat implements ActionListener{
             jFramePrincipal.repaint();
             variablesSession.xpMeloche=perso.XP;     // On mémorise notre expérience
             sauvegardeJeu.nouvelleSauvegarde(variablesSession);
-            musiqueDeJeu.stopMusique(variablesSession);
-            new fenetreCarte(jFramePrincipal,variablesSession,sauvegardeJeu);
+            try {
+                if (variablesSession.sondesac==1){
+                    musiqueDeJeu.stop();	
+                }           
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException h) {
+                System.out.println("musique intouvable");
+                h.printStackTrace();
+            }            new fenetreCarte(jFramePrincipal,variablesSession,sauvegardeJeu);
             freeze=false;
             t2.stop();
 		}

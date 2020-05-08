@@ -1,6 +1,9 @@
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 
 public class Accueil implements ActionListener{
 	private JButton jouer,resetPartie,scenario,pokedex, desacSon;
@@ -9,15 +12,25 @@ public class Accueil implements ActionListener{
 	private CJframe jFramePrincipal;
 	private VariablesDeJeu variablesSession;
 	private Sauvegarde sauvegardeJeu;
-	private Musiques musiqueDeJeu  = new Musiques();
-	
+	private Musiques musiqueDeJeu;
+
 	public Accueil(CJframe frame, VariablesDeJeu variables, Sauvegarde sauvegarde) {
 		jFramePrincipal = frame;
 		sauvegardeJeu = sauvegarde;
 		variablesSession = variables;
 
 		//Musique de fond
-		musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav",variablesSession);
+		try {
+			musiqueDeJeu = new Musiques("Musiques/route1.wav");
+			if (variablesSession.sondesac==0){
+                musiqueDeJeu.pause();
+            }
+
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e10) {
+			System.out.println("musique intouvable");
+			e10.printStackTrace();
+		}
+
 		
 		//Panel principal
 		pPrincipal = new JPanel();
@@ -97,24 +110,32 @@ public class Accueil implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		//mode jeu
 		if (e.getSource() == jouer) {
-			musiqueDeJeu.stopMusique(variablesSession);
 			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.validate();
 			jFramePrincipal.repaint();
+			
 			if (sauvegardeJeu.sauvegardeExiste()) {
 				variablesSession = sauvegardeJeu.restaurerSauvegarde();
 			} else {
 				variablesSession.nouvelleCarte(000);
 				sauvegardeJeu.nouvelleSauvegarde(variablesSession);
 			}
-			musiqueDeJeu.stopMusique(variablesSession);
-			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
+			try {
+				musiqueDeJeu.stop();	
+			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+				System.out.println("musique intouvable");
+				e1.printStackTrace();
+			}			new fenetreCarte(jFramePrincipal, variablesSession, sauvegardeJeu);
 
 		}//reset la partie
 		if (e.getSource() == resetPartie) {
-			musiqueDeJeu.stopMusique(variablesSession);
-			pPrincipal.removeAll();
+			try {
+				musiqueDeJeu.stop();	
+			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e2) {
+				System.out.println("musique intouvable");
+				e2.printStackTrace();
+			}			pPrincipal.removeAll();
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.validate();
 			jFramePrincipal.repaint();
@@ -152,11 +173,16 @@ public class Accueil implements ActionListener{
 			if (variablesSession.sondesac==0){
 				desacSon.setText("Musique OFF");
 				variablesSession.sondesac=1;
-				musiqueDeJeu.jouerMusiqueJouerEnBoucle("Musiques/route1.wav",variablesSession);
+				try {
+					musiqueDeJeu.resumeAudio();					
+				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException h) {
+					System.out.println("musique intouvable");
+					h.printStackTrace();
+				}
 			}
 			else if (variablesSession.sondesac==1){
 				desacSon.setText("Musique ON");
-				musiqueDeJeu.stopMusique(variablesSession);
+				musiqueDeJeu.pause();			
 				variablesSession.sondesac=0;
 			}
 			sauvegardeJeu.nouvelleSauvegarde(variablesSession);
