@@ -630,16 +630,16 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		
 		
 		public ArrayList<Noeud> explorerVoisins(Noeud current, int esperance) {	//explorer les voisins
-			ArrayList<Noeud> DejaVisite = new ArrayList<Noeud>();	//LIST OF NoeudS THAT HAVE BEEN DejaVisite
+			ArrayList<Noeud> DejaVisite = new ArrayList<Noeud>();	//liste des NoeudS qui ont déjà été visistés
 			for(int a = -1; a <= 1; a++) {
 				for(int b = -1; b <= 1; b++) {
-					int xbound = current.getX()+a;
-					int ybound = current.getY()+b;
-					if((xbound > -1 && xbound < nbreCases) && (ybound > -1 && ybound < nbreCases)) {	//MAKES SURE THE Noeud IS NOT OUTSIDE THE GRID
-						Noeud voisin = map[xbound][ybound];
-						if((voisin.getEsperance()==-1 || voisin.getEsperance() > esperance) && voisin.getType()!=2) {	//CHECKS IF THE Noeud IS NOT A WALL AND THAT IT HAS NOT BEEN DejaVisite
-							explorer(voisin, current.getX(), current.getY(), esperance);	//EXPLORE THE Noeud
-							DejaVisite.add(voisin);	//ADD THE Noeud TO THE LIST
+					int xlimite = current.getX()+a;
+					int ylimite = current.getY()+b;
+					if((xlimite > -1 && xlimite < nbreCases) && (ylimite > -1 && ylimite < nbreCases)) {	// on s'assure que les noeuds testés ne sont pas en dehors de la grille
+						Noeud voisin = map[xlimite][ylimite];
+						if((voisin.getEsperance()==-1 || voisin.getEsperance() > esperance) && voisin.getType()!=2) {	// On vérifie si le noeaud n'a pas déjà éte testé et si ce n'est pas un mur 
+							explorer(voisin, current.getX(), current.getY(), esperance);	// on teste le noeud 
+							DejaVisite.add(voisin);	//on ajoute le noeud à la liste
 						}
 					}
 				}
@@ -648,19 +648,19 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 		}
 		
 		
-		public void explorer(Noeud current, int dernierX, int lasty, int esperance) {	//explorer A Noeud
-			if(current.getType()!=0 && current.getType() != 1)	//CHECK THAT THE Noeud IS NOT THE START OR FINISH
-				current.setType(4);	//SET IT TO DejaVisite
-			current.setDernierNoeud(dernierX, lasty);	//KEEP TRACK OF THE Noeud THAT THIS Noeud IS DejaVisite FROM
-			current.setEsperance(esperance);	//SET THE esperance FROM THE START
-			if(current.getType() == 1) {	//IF THE Noeud IS THE FINISH THEN BACKTRACK TO GET THE PATH
+		public void explorer(Noeud current, int dernierX, int lasty, int esperance) {	//exploration d'un noeud
+			if(current.getType()!=0 && current.getType() != 1)	//Verification si le noeud n'est pas un noeud qui correspond au départ ou à l'arrivée du personnage
+				current.setType(4);	//On défini le noeud comme déjà visisté
+			current.setDernierNoeud(dernierX, lasty);	//On enregistre que ce noeaud est le dernier noeud visité 
+			current.setEsperance(esperance);	//on met à jour l'esperance du noeud
+			if(current.getType() == 1) {	//Si le noeud correspond à la case d'arrivée alors on recupère le chemin final
 				marcheArriere(current.getDernierX(), current.getDernierY(),esperance);
 			}
 		}
 		
 		
 		public void marcheArriere(int lx, int ly, int esperance) {	//Permet de faire marche arrière une fois que la case d'arrivee a été atteinte pour pouvoir définir le chemin que va prendre le perso
-			while(esperance > 1) {	//BACKTRACK FROM THE END OF THE PATH TO THE START
+			while(esperance > 1) {	//récupération du chemin final du dernier noeud consulté jusqu'au noeud de daprt
 				Noeud current = map[lx][ly];
 				current.setType(5);
 				lx = current.getDernierX();
@@ -674,7 +674,7 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 	
 	class Noeud {
 		
-		// 0 = start, 1 = finish, 2 = wall, 3 = empty, 4 = checked, 5 = finalpath
+		// 0 = début, 1 = fin, 2 = mur, 3 = vide, 4 = vérifié, 5 = chemin final
 		private int typeDeCase = 0;
 		private int esperance;
 		private int x;
@@ -697,14 +697,14 @@ public class fenetreCarte implements ActionListener, MouseListener, KeyListener 
 			return distanceJusquArrivee;
 		}
 		
-		public int getX() {return x;}		//GET METHODS
+		public int getX() {return x;}		
 		public int getY() {return y;}
 		public int getDernierX() {return dernierX;}
 		public int getDernierY() {return lastY;}
 		public int getType() {return typeDeCase;}
 		public int getEsperance() {return esperance;}
 		
-		public void setType(int type) {typeDeCase = type;}		//SET METHODS
+		public void setType(int type) {typeDeCase = type;}		
 		public void setDernierNoeud(int x, int y) {dernierX = x; lastY = y;}
 		public void setEsperance(int esperance) {this.esperance = esperance;}
 	}
