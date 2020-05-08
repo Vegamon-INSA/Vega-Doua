@@ -114,6 +114,7 @@ public class Accueil implements ActionListener{
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.validate();
 			jFramePrincipal.repaint();
+			variablesSession.sondesac=0;
 			
 			if (sauvegardeJeu.sauvegardeExiste()) {
 				variablesSession = sauvegardeJeu.restaurerSauvegarde();
