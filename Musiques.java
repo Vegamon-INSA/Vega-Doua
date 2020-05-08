@@ -113,21 +113,6 @@ public class Musiques{
             clip.close(); 
         } 
           
-        // Méthode pour sauter une partie spécifique 
-        public void jump(long c) throws UnsupportedAudioFileException, IOException, 
-                                                            LineUnavailableException  
-        { 
-            if (c > 0 && c < clip.getMicrosecondLength())  
-            { 
-                clip.stop(); 
-                clip.close(); 
-                resetAudioStream(); 
-                currentFrame = c; 
-                clip.setMicrosecondPosition(c); 
-                this.play(); 
-            } 
-        } 
-          
         // Méthode pour réinitilaliser le stream audio  
         public void resetAudioStream() throws UnsupportedAudioFileException, IOException, 
                                                 LineUnavailableException  
