@@ -151,7 +151,6 @@ public class FenetreScenario implements ActionListener{
 			jFramePrincipal.remove(pPrincipal);
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
-			variablesSession.sondesac=0;
 			new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
         }
         else if (e.getSource()==bRetourScenario){

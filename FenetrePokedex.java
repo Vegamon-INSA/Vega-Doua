@@ -144,7 +144,6 @@ public class FenetrePokedex implements ActionListener{
 			jFramePrincipal.remove(pPrincipal);    // Ou sur retour on revient à l'accueil
 			jFramePrincipal.revalidate();
 			jFramePrincipal.repaint();
-			variablesSession.sondesac=0;
 			new Accueil(jFramePrincipal, variablesSession, sauvegardeJeu);
         }
 	}
